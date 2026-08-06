@@ -1,0 +1,129 @@
+.checklist {
+  position: relative;
+  background-color: var(--bg-cream);
+  background-image: url("/Assets/landing-page/checklist-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  /* Extra bottom padding gives Mechanism's card room to genuinely overlap
+     this section's box (not just visually share a similar cream color) —
+     per the explicit "4th section half-overlaps the 3rd" direction. */
+  padding: var(--space-3xl) 0 calc(var(--space-3xl) + 200px);
+}
+
+/* Montserrat Extra Bold (inherited from global h2); Title Case reproduces
+   the reference image's visual treatment without altering the verbatim
+   sentence-case copy in copy.js. */
+.checklist__headline {
+  text-transform: capitalize;
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
+  line-height: 1.3;
+  max-width: 900px;
+  margin: 0 0 var(--space-lg);
+}
+
+/* Sparing plum accent highlight (design-v2.md 0.2/0.6). */
+.checklist__highlight {
+  display: inline-block;
+  background: var(--brand-plum);
+  color: var(--white);
+  padding: 0.05em 0.22em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.checklist__intro-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+/* Roboto Mono label per design-v2.md 0.1 — small tag/label use only. */
+.checklist__tag {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--midnight-blue);
+  color: var(--white);
+  padding: 10px 16px;
+}
+
+.checklist__intro-text {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--brand-plum);
+}
+
+.checklist__list {
+  list-style: none;
+  margin: 0 auto var(--space-xl);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 760px;
+}
+
+.checklist__item {
+  background: var(--white);
+  border: 2px solid var(--ink-dark);
+  border-top-width: 16px;
+  border-radius: 12px;
+}
+
+.checklist__item--plum {
+  border-top-color: var(--brand-plum);
+}
+
+.checklist__item--navy {
+  border-top-color: var(--midnight-blue);
+}
+
+.checklist__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--ink-dark);
+  line-height: 1.4;
+}
+
+.checklist__checkbox {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  accent-color: var(--brand-plum);
+  border: 2px solid var(--ink-dark);
+}
+
+.checklist__cta {
+  text-align: center;
+}
+
+.checklist__cta-sub {
+  margin: var(--space-sm) 0 0;
+  color: var(--brand-plum);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+  .checklist__intro-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+}
+
+@media (max-width: 900px) {
+  .checklist {
+    padding: var(--space-3xl) 0 calc(var(--space-2xl) + 380px);
+  }
+}

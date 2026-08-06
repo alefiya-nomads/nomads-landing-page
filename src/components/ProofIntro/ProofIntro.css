@@ -1,0 +1,53 @@
+.proof-intro {
+  position: relative;
+  background-color: var(--deep-purple);
+  background-image: url("/Assets/landing-page/Dark Backgrounds-01.png");
+  background-size: cover;
+  background-position: center;
+  padding: var(--space-3xl) 0;
+  overflow: hidden;
+}
+
+.proof-intro__headline {
+  color: var(--white);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  line-height: 1.25;
+  margin-bottom: var(--space-lg);
+}
+
+.proof-intro__highlight {
+  display: inline;
+  background: #5D1B4E;
+  color: var(--white);
+  padding: 0.08em 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.proof-intro__sub {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.proof-intro__stamp {
+  position: absolute;
+  right: var(--space-2xl);
+  top: 50%;
+  transform: translateY(-50%) rotate(12deg);
+  width: 140px;
+  height: 60px;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .proof-intro {
+    padding: var(--space-2xl) 0;
+  }
+
+  .proof-intro__stamp {
+    display: none;
+  }
+}

@@ -1,0 +1,77 @@
+.economy {
+  background-color: #152638;
+  padding: 40px 0;
+}
+
+/* Keyline frame matching the reference image's outer border treatment
+   (design-v2.md 0.8 — every visible framing element gets built, not skipped
+   as a presumed screenshot artifact). It's a real containing box (not an
+   absolute overlay measured separately from .wrap) so the headline and
+   laptop image can never render outside it at any viewport width. */
+.economy__frame {
+  margin: 0 var(--space-lg);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: var(--space-2xl) 0;
+}
+
+.economy__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+/* Montserrat Extra Bold (inherited from the global h2 rule); Title Case
+   styling reproduces the reference image's visual treatment without
+   altering the verbatim sentence-case copy in copy.js. */
+.economy__headline {
+  color: var(--white);
+  text-transform: capitalize;
+  font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+  line-height: 1.32;
+  margin-bottom: var(--space-lg);
+}
+
+/* Ice Blue accent highlight (design-v2.md 0.2/0.6) — sparing use only. */
+.economy__highlight {
+  display: inline-block;
+  background: #E4FBFF;
+  color: var(--midnight-blue);
+  padding: 0.05em 0.22em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.economy__sub {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.1rem;
+  max-width: 620px;
+  margin: 0;
+}
+
+.economy__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.economy__laptop {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.45));
+}
+
+@media (max-width: 900px) {
+  .economy__frame {
+    margin: 0 var(--space-md);
+    padding: var(--space-xl) 0;
+  }
+
+  .economy__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .economy__visual {
+    margin-top: var(--space-lg);
+  }
+}

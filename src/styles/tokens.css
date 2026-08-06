@@ -1,0 +1,98 @@
+/* ============================================================
+   Design tokens — extracted from design.md (Nomads Marketing
+   design system). Every value here is sourced from the
+   "Consolidated Design System" section of design.md, not
+   invented. Where design.md marks a value as an estimate
+   (font-size derived from cap-height), that is noted inline.
+   ============================================================ */
+:root {
+  /* ---- Color tokens (design.md > Consolidated Design System > Color Tokens) ----
+     Per design-v2.md Section 0.2: Deep Purple / Stone / Midnight Blue are the
+     FOUNDATION palette (backgrounds, large surfaces — the colors the page is
+     "made of"). Purple / Ice Blue are ACCENT ONLY, used sparingly for
+     highlights — never the default choice for a section background or every
+     highlight box. */
+  --deep-purple: #250f1c; /* foundation — alias of --bg-near-black-plum-2 */
+  --stone: #e4c8bc; /* foundation */
+  --midnight-blue: #152638; /* foundation — alias of --bg-navy */
+  --brand-plum: #5d1b4e; /* accent — sparing use only */
+  --ice-blue: #cae1f4; /* accent — sparing use only, distinct from the paler --accent-sky-blue */
+
+  --brand-plum-secondary: #581848;
+  --ink-dark: #391129;
+  --ink-dark-alt: #381028;
+  --bg-cream: #fefcf5;
+  --bg-lavender: #f2e5f6;
+  --bg-navy: #152638;
+  --bg-navy-deep: #14171f;
+  --bg-near-black-plum: #18040c;
+  --bg-near-black-plum-2: #250f1c;
+  --bg-deep-purple: #2a0a22;
+  --accent-sky-blue: #eaf1fd;
+  --accent-lilac: #e6edfa;
+  --accent-teal: #dbf1f5;
+  --white: #ffffff;
+
+  /* semantic aliases used throughout components */
+  --text-on-light: var(--ink-dark);
+  --text-on-dark: var(--bg-cream);
+  --surface-cream: var(--bg-cream);
+  --surface-lavender: var(--bg-lavender);
+  --surface-plum: var(--brand-plum);
+  --surface-navy: var(--bg-navy);
+
+  /* ---- Typography (design-v2.md Section 0.1 — strict per-font usage) ----
+     Montserrat Extra Bold = ALL main headlines (the default heading font)
+     Montserrat Medium/Regular = body copy
+     Kilimanjaro Sans   = short accent phrases ONLY, 1-3 words (5 max) —
+                           never a full headline
+     Roboto Mono (bold) = small labels/captions/tags/single-line text only —
+                           never paragraphs or multi-line body copy
+     Better Brush       = decorative accents only, never load-bearing text */
+  --font-body: "Montserrat", system-ui, sans-serif;
+  --font-display: "Kilimanjaro Sans", "Montserrat", system-ui, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
+  --font-script: "Better Brush", cursive;
+
+  --fs-display: clamp(2.4rem, 5vw, 5.625rem); /* ~90px desktop, est. from measured cap-height */
+  --fs-h2: clamp(1.5rem, 3.4vw, 3rem);
+  --fs-h3: clamp(1.3rem, 2vw, 1.75rem);
+  --fs-script: clamp(1.5rem, 2.4vw, 2rem);
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-body-sm: 0.9375rem;
+  --fs-label: 0.8125rem;
+  --fs-stat: clamp(2rem, 4vw, 3.25rem);
+
+  --lh-display: 1.12;
+  --lh-body: 1.55;
+
+  /* ---- Spacing scale (design.md > Consolidated Design System > Spacing Scale) ---- */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 152px;
+
+  /* Sticky nav's own rendered height (6px padding + 2px border top/bottom
+     + 70px logo) — anything that sticks below the nav (e.g. the founder
+     photo) needs this as its own `top` offset, or it scrolls in partially
+     hidden behind the nav's higher z-index. */
+  --header-height: 86px;
+
+  /* ---- Radius: sitewide rule is 0px on every rectangular surface.
+     999px reserved exclusively for circular numeral/icon badges. ---- */
+  --radius-flat: 0px;
+  --radius-pill: 999px;
+
+  /* ---- Shadow: one hard offset shadow token, no blur, used everywhere. ---- */
+  --shadow-hard: 7px 7px 0 0 var(--ink-dark);
+  --shadow-hard-on-dark: 7px 7px 0 0 rgba(0, 0, 0, 0.55);
+
+  /* ---- Container widths ---- */
+  --container-max: 1200px;
+  --measure-max: 720px;
+}

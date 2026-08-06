@@ -1,0 +1,136 @@
+.four-areas__top {
+  position: relative;
+  background-image: url("/Assets/landing-page/Mix Backgrounds-01.png");
+  background-size: cover;
+  background-position: center;
+  padding: var(--space-3xl) 0 calc(var(--space-3xl) + 280px);
+  overflow: visible;
+}
+
+.four-areas__chip {
+  display: inline-block;
+  background: var(--brand-plum);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 10px 24px;
+  margin-bottom: var(--space-xl);
+}
+
+.four-areas__headline {
+  color: var(--white);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.four-areas__highlight {
+  display: inline;
+  background: var(--brand-plum);
+  color: var(--white);
+  padding: 0.08em 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.four-areas__doodle-top {
+  position: absolute;
+  right: 8%;
+  bottom: 10%;
+  width: 60px;
+  height: auto;
+  pointer-events: none;
+}
+
+.four-areas__bottom {
+  position: relative;
+  z-index: 1;
+  background-image: url("/Assets/landing-page/1.png");
+  background-size: cover;
+  background-position: center;
+  margin-top: -200px;
+  padding: var(--space-2xl) 0 var(--space-3xl);
+}
+
+.four-areas__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  max-width: 900px;
+  margin: 0 auto var(--space-xl);
+  position: relative;
+  z-index: 1;
+  background: #F2E6D8;
+  border-radius: 0;
+  padding: var(--space-xl);
+}
+
+.four-areas__card {
+  background: var(--white);
+  border: 1px solid #5D1B4E;
+  border-radius: 12px;
+  padding: var(--space-lg);
+  box-shadow: 10px 10px 0 0 #5D1B4E;
+}
+
+.four-areas__icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin-bottom: var(--space-sm);
+}
+
+.four-areas__icon {
+  object-fit: contain;
+}
+
+.four-areas__card-title {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-sm);
+}
+
+.four-areas__card-body {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ink-dark);
+  margin: 0;
+}
+
+.four-areas__doodle-bottom {
+  position: absolute;
+  right: 5%;
+  bottom: 15%;
+  width: 50px;
+  height: auto;
+  pointer-events: none;
+}
+
+.four-areas__cta {
+  margin-top: var(--space-lg);
+}
+
+@media (max-width: 760px) {
+  .four-areas__top {
+    padding: var(--space-2xl) 0 calc(var(--space-2xl) + 150px);
+  }
+
+  .four-areas__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .four-areas__bottom {
+    margin-top: -150px;
+    padding: var(--space-xl) 0 var(--space-2xl);
+  }
+
+  .four-areas__doodle-top,
+  .four-areas__doodle-bottom {
+    display: none;
+  }
+}

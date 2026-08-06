@@ -1,0 +1,120 @@
+.proof {
+  background-image: url("/Assets/landing-page/Texture.png");
+  background-size: cover;
+  background-position: center;
+  padding: var(--space-3xl) 0;
+}
+
+.proof__headers {
+  display: grid;
+  grid-template-columns: 1fr 44px 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.proof__col-label {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  text-align: center;
+  margin: 0;
+}
+
+.proof__col-spacer {
+  display: block;
+}
+
+.proof__rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.proof__row {
+  display: grid;
+  grid-template-columns: 1fr 44px 1fr;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.proof__card {
+  padding: var(--space-md) var(--space-lg);
+  border-radius: 12px;
+}
+
+.proof__card p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.proof__card--before {
+  border: 1px solid #5D1B4E;
+}
+
+.proof__card--after {
+  border: 1px solid #5D1B4E;
+}
+
+.proof__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proof__arrow-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: auto;
+}
+
+.proof__cta {
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+.proof__cta .btn {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.proof__sub {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-dark);
+  margin: var(--space-sm) 0 0;
+  opacity: 0.8;
+}
+
+@media (max-width: 760px) {
+  .proof {
+    padding: var(--space-2xl) 0;
+  }
+
+  .proof__headers {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  .proof__col-spacer {
+    display: none;
+  }
+
+  .proof__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .proof__arrow {
+    justify-content: center;
+  }
+
+  .proof__arrow-icon {
+    transform: rotate(90deg);
+  }
+
+  .proof__card {
+    padding: var(--space-sm) var(--space-md);
+  }
+}
