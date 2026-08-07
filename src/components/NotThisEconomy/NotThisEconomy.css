@@ -82,12 +82,14 @@
   }
 
   .economy__frame {
-    margin: 0 var(--space-md);
+    margin: 10px;
     padding: var(--space-xl) 0;
   }
 
   .economy__grid {
     grid-template-columns: 1fr;
+    padding-left: 22px;
+    padding-right: 22px;
   }
 
   .economy__visual {
