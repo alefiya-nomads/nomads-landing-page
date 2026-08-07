@@ -1,6 +1,11 @@
 /* Inline highlight wipe: the phrase flows in the heading's normal text
-   flow (starts on the same line as the preceding word, wraps mid-phrase),
-   and the colored box sweeps in by animating background-size. With
+   flow (starts on the same line as the preceding word, wraps mid-phrase).
+   The colored box sweeps in by animating background-size on the outer
+   span; the TEXT color sweeps in lockstep on the inner span — its color
+   is painted by a hard two-stop gradient (revealed color | inherited
+   color) clipped to the glyphs, whose background-position animates with
+   the same duration/easing. So each letter changes color exactly when
+   the box edge passes it — no whole-phrase color "blink". With
    box-decoration-break: clone each wrapped line sweeps its own fragment. */
 .hl-sweep {
   display: inline;
@@ -10,14 +15,48 @@
   background-image: linear-gradient(var(--sweep-bg), var(--sweep-bg));
   background-repeat: no-repeat;
   background-size: 0% 100%;
-  transition:
-    background-size 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-    color 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+  transition: background-size 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hl-sweep--in {
   background-size: 100% 100%;
-  color: var(--sweep-color);
+}
+
+@supports (-webkit-background-clip: text) {
+  .hl-sweep__text {
+    background-image: linear-gradient(
+      to right,
+      var(--sweep-color) 50%,
+      currentColor 50%
+    );
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+    background-position-x: 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Hide the normal glyph fill but keep `color` inherited, so the
+       gradient's currentColor stop still resolves to the heading color. */
+    -webkit-text-fill-color: transparent;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    transition: background-position-x 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hl-sweep--in .hl-sweep__text {
+    background-position-x: 0%;
+  }
+}
+
+/* Fallback for engines without background-clip: text — flip the text
+   color as the sweep finishes instead of mid-blink. */
+@supports not (-webkit-background-clip: text) {
+  .hl-sweep__text {
+    transition: color 0.1s linear 0.75s;
+  }
+
+  .hl-sweep--in .hl-sweep__text {
+    color: var(--sweep-color);
+  }
 }
 
 /* Tone pairs — background sweep + text color once revealed. */
@@ -47,7 +86,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hl-sweep {
+  .hl-sweep,
+  .hl-sweep__text {
     transition-duration: 0.01s;
+    transition-delay: 0s;
   }
 }

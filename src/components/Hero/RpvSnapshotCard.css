@@ -1,13 +1,15 @@
+/* Overlaps the photo's lower-left corner, extending slightly into the
+   column gap — position/size matched to the reference image. */
 .rpv-card {
   background: var(--white);
-  position: relative;
+  position: absolute;
+  left: -24px;
+  bottom: 24px;
+  width: 340px;
   border-radius: var(--radius-flat);
   box-shadow: var(--shadow-hard);
   overflow: hidden;
   border: 2px solid var(--ink-dark);
-  max-width: 380px;
-  margin-left: auto;
-  margin-top: -140px;
   z-index: 1;
 }
 
@@ -143,12 +145,16 @@
   font-size: 0.8rem;
   color: var(--brand-plum);
   margin: 10px 0 0;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
   .rpv-card {
-    margin-left: 0;
-    margin-top: var(--space-md);
-    max-width: 100%;
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: auto;
+    max-width: 380px;
+    margin: var(--space-md) auto 0;
   }
 }

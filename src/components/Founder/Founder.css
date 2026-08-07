@@ -22,7 +22,7 @@
 }
 
 .founder__photo-col {
-  background-image: url("/Assets/landing-page/Dark Backgrounds-02.png");
+  background-image: url("/Assets/landing-page/Dark Backgrounds-02.webp");
   background-size: cover;
   background-position: center;
   padding: var(--space-2xl) var(--space-xl);
@@ -43,7 +43,7 @@
 }
 
 .founder__copy-col {
-  background-image: url("/Assets/landing-page/Blue Texture.png");
+  background-image: url("/Assets/landing-page/Blue Texture.webp");
   background-size: cover;
   background-position: center;
   padding: var(--space-2xl) var(--space-xl) var(--space-3xl) var(--space-xl);
@@ -58,8 +58,8 @@
 .founder__intro-hey {
   font-family: var(--font-script);
   font-size: clamp(3rem, 4.5vw, 3.6rem);
-  line-height: 1;
-  color: var(--ink-dark);
+  line-height: 100px;
+  color: #152638;
   margin-bottom: -0.1em;
 }
 
@@ -68,7 +68,7 @@
   font-weight: 900;
   font-size: clamp(2.4rem, 4vw, 3.2rem);
   line-height: 1.1;
-  color: var(--ink-dark);
+  color: #152638;
 }
 
 .founder__intro-role {

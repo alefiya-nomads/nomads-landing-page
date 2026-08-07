@@ -87,18 +87,25 @@
   margin: var(--space-sm) 0 0;
 }
 
+/* Reference: the woman fills the hero's right side — flush with the
+   viewport's right edge and the section's bottom edge — with the RPV
+   snapshot card overlapping her lower-left. */
 .hero__visual {
   position: relative;
+  align-self: end;
+  margin-bottom: calc(-1 * var(--space-3xl));
 }
 
 .hero__photo-wrap {
   position: relative;
   display: flex;
   justify-content: flex-end;
+  margin-right: calc(-1 * (max(0px, (100vw - var(--container-max)) / 2) + var(--space-lg)));
 }
 
 .hero__photo {
-  width: 100%;
+  width: 760px;
+  max-width: none;
   height: auto;
   display: block;
 }
@@ -117,13 +124,20 @@
     grid-template-columns: 1fr;
   }
 
+  .hero__visual {
+    align-self: auto;
+    margin-bottom: 0;
+  }
+
   .hero__photo-wrap {
     justify-content: center;
+    margin-right: 0;
     margin-bottom: var(--space-lg);
   }
 
   .hero__photo {
     width: 75%;
+    max-width: 100%;
   }
 
   .hero__doodle {

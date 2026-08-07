@@ -1,7 +1,7 @@
 .calc {
   position: relative;
   background-color: var(--deep-purple);
-  background-image: url("/Assets/landing-page/Gradient Background wide-02.png");
+  background-image: url("/Assets/landing-page/Gradient Background wide-02.webp");
   background-size: cover;
   background-position: center;
   padding: var(--space-3xl) 0 var(--space-2xl);

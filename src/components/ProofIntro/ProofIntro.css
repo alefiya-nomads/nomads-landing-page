@@ -1,7 +1,7 @@
 .proof-intro {
   position: relative;
   background-color: var(--deep-purple);
-  background-image: url("/Assets/landing-page/Dark Backgrounds-01.png");
+  background-image: url("/Assets/landing-page/Dark Backgrounds-01.webp");
   background-size: cover;
   background-position: center;
   padding: var(--space-3xl) 0;

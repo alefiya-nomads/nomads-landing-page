@@ -1,5 +1,5 @@
 .system-born {
-  background-image: url("/Assets/landing-page/Mix Backgrounds-02.png");
+  background-image: url("/Assets/landing-page/Mix Backgrounds-02.webp");
   background-size: cover;
   background-position: center;
   padding: var(--space-2xl) var(--space-lg);
@@ -8,7 +8,8 @@
 .system-born__card {
   max-width: 1160px;
   margin: 0 auto;
-  border: 6px solid #5D1B4E;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 0 8px #5D1B4E;
   border-radius: 4px;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -17,7 +18,7 @@
 
 .system-born__text {
   position: relative;
-  background-image: url("/Assets/landing-page/1.png");
+  background-image: url("/Assets/landing-page/1.webp");
   background-size: cover;
   background-position: center;
   padding: var(--space-2xl) var(--space-xl);

@@ -1,22 +1,27 @@
 .four-areas__top {
   position: relative;
-  background-image: url("/Assets/landing-page/Mix Backgrounds-01.png");
+  background-image: url("/Assets/landing-page/Mix Backgrounds-01.webp");
   background-size: cover;
   background-position: center;
   padding: var(--space-3xl) 0 calc(var(--space-3xl) + 240px);
   overflow: visible;
 }
 
+/* Chip straddles the seam between the calculator section above and this
+   dark section — centered on the boundary via -50% translate. */
 .four-areas__chip {
-  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  white-space: nowrap;
   background: var(--brand-plum);
   color: var(--white);
   font-family: var(--font-body);
   font-weight: 800;
   font-size: clamp(1.2rem, 2.4vw, 1.9rem);
   padding: 12px 32px;
-  margin-bottom: var(--space-xl);
-  transform: rotate(-2deg);
 }
 
 .four-areas__headline {
@@ -47,7 +52,7 @@
 .four-areas__bottom {
   position: relative;
   z-index: 1;
-  background-image: url("/Assets/landing-page/1.png");
+  background-image: url("/Assets/landing-page/1.webp");
   background-size: cover;
   background-position: center;
   padding: var(--space-2xl) 0 var(--space-3xl);
