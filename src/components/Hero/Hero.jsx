@@ -44,7 +44,7 @@ export default function Hero() {
             <br className="hl-br" />
             {headlineLine2}{" "}
             <br className="hl-br" />
-            <HighlightSweep tone="plum">$1.5 M/year</HighlightSweep> {headlineLine3Suffix}{" "}
+            <HighlightSweep tone="plumdark">$1.5 M/year</HighlightSweep> {headlineLine3Suffix}{" "}
             <br className="hl-br" />
             {headlineLine4Prefix} <span className="accent-word">website visitors?</span>
           </h1>

@@ -75,7 +75,7 @@
 
 /* Sparing plum accent highlight (design-v2.md 0.2/0.6). */
 .checklist__highlight {
-  display: inline-block;
+  display: inline;
   background: var(--brand-plum);
   color: var(--white);
   padding: 0.05em 0.22em;

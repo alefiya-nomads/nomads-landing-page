@@ -37,7 +37,7 @@
 /* Reference shows the highlight box in brand plum, and the accent phrase
    in plum too (audited against Landing Page.png). */
 .hero__highlight {
-  display: inline-block;
+  display: inline;
   background: var(--brand-plum);
   color: var(--white);
   padding: 0.05em 0.22em;

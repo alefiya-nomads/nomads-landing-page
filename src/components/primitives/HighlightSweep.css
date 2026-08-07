@@ -1,34 +1,23 @@
+/* Inline highlight wipe: the phrase flows in the heading's normal text
+   flow (starts on the same line as the preceding word, wraps mid-phrase),
+   and the colored box sweeps in by animating background-size. With
+   box-decoration-break: clone each wrapped line sweeps its own fragment. */
 .hl-sweep {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
+  display: inline;
+  padding: 0.05em 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(var(--sweep-bg), var(--sweep-bg));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition:
+    background-size 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
 }
 
-.hl-sweep__base {
-  position: relative;
-  z-index: 0;
-  padding: 0.05em 0.25em;
-}
-
-.hl-sweep__overlay {
-  position: absolute;
-  inset: 0;
-  width: 0%;
-  overflow: hidden;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  padding: 0.05em 0.25em;
-  box-sizing: border-box;
-  white-space: nowrap;
-  background: var(--sweep-bg);
+.hl-sweep--in {
+  background-size: 100% 100%;
   color: var(--sweep-color);
-  transition: width 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-}
-
-.hl-sweep--in .hl-sweep__overlay {
-  width: 100%;
 }
 
 /* Tone pairs — background sweep + text color once revealed. */
@@ -58,26 +47,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hl-sweep__overlay {
-    transition-duration: 0.01s;
-  }
-}
-
-/* On small screens the nowrap sweep would overflow — fall back to the
-   final highlighted state as a static, wrappable box. */
-@media (max-width: 760px) {
   .hl-sweep {
-    white-space: normal;
-  }
-
-  .hl-sweep__overlay {
-    display: none;
-  }
-
-  .hl-sweep__base {
-    background: var(--sweep-bg);
-    color: var(--sweep-color);
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+    transition-duration: 0.01s;
   }
 }
