@@ -44,6 +44,7 @@
   font-size: clamp(1.6rem, 3vw, 2.6rem);
   line-height: 1.28;
   margin-bottom: var(--space-lg);
+  text-wrap: balance;
 }
 
 /* Ice Blue accent highlight (design-v2.md 0.2/0.6) — sparing use only. */

@@ -10,6 +10,7 @@
 
 .proof-intro__headline {
   color: var(--white);
+  text-wrap: balance;
   font-size: clamp(1.6rem, 3.5vw, 2.8rem);
   line-height: 1.25;
   margin-bottom: var(--space-lg);

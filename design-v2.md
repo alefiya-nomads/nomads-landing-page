@@ -51,6 +51,13 @@ This is a real shift from V1's palette weighting, where plum (`#5D1B4E`) is the 
 - **This rule is not section-specific.** It's the standing process for any future section built from a reference image, not a one-time fix for whichever section prompted this rule.
 - **Verification before calling a section done:** load the dev server in the browser tool and check the actual rendered output (text content, line breaks, computed font-size/geometry, and a screenshot when the tool is available) — don't report a reference-image build as complete without that check.
 
+**0.9 Mobile heading alignment — line-count rule (mobile view only):**
+- On mobile widths (≤760px), a section heading that renders in **3 lines or fewer is center-aligned**.
+- A heading that renders in **more than 3 lines is left-aligned** (long centered headings read ragged and are harder to scan).
+- Desktop/tablet alignment is unaffected by this rule — it applies only in the mobile view.
+- Line counts are evaluated at ~375px with the uniform mobile heading size (see the `global.css` mobile block, where the current per-heading assignments live). If a heading's copy or mobile font size changes, re-measure its rendered line count and move it to the matching alignment group.
+- This applies to every section heading, current and future — assign each new section's heading to the correct group when it's built.
+
 **Known conflict already in the codebase — flagged, not yet fixed:** the Hero section built earlier this session uses the global `h1` rule (`font-family: var(--font-display)`, i.e. Kilimanjaro) for the *entire* headline, and its highlight box is plum-only. Both violate 0.1 and 0.2/0.6 as now defined. This needs a follow-up pass: swap the H1 to Montserrat Extra Bold with Kilimanjaro reserved for just the "$1.5 M/year" or "website visitors?" phrase (not the whole line), and consider whether that highlight box should be Navy or Stone instead of plum. Not fixed in this pass — surfacing it here so it isn't lost.
 
 ---

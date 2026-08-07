@@ -71,6 +71,7 @@
   max-width: 760px;
   margin: 0 0 var(--space-lg);
   text-align: left;
+  text-wrap: pretty;
 }
 
 /* Sparing plum accent highlight (design-v2.md 0.2/0.6). */

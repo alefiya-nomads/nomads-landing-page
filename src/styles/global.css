@@ -84,7 +84,28 @@ p {
   h2.four-areas__headline,
   h2.meet-nerd__headline,
   h2.system-born__heading {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  /* Mobile heading alignment (design-v2.md 0.9): headings rendering in
+     3 lines or fewer on mobile are centered; longer ones read better
+     left-aligned. Assignments evaluated at ~375px with the uniform
+     1.5rem size above — re-check if a heading's copy changes. */
+  /* calc + system-born are explicit user overrides of the line-count
+     grouping (calc centered, system-born left). */
+  h1.hero__headline,
+  h2.economy__headline,
+  h2.checklist__headline,
+  h2.mechanism__headline,
+  h2.system-born__heading {
+    text-align: left;
+  }
+
+  h2.proof-intro__headline,
+  h2.four-areas__headline,
+  h2.meet-nerd__headline,
+  h2.calc__headline {
+    text-align: center;
   }
 }
 

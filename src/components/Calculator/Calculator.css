@@ -39,6 +39,7 @@
   font-size: clamp(1.6rem, 3.2vw, 2.6rem);
   line-height: 1.25;
   margin-bottom: var(--space-lg);
+  text-wrap: balance;
 }
 
 .calc__highlight {
