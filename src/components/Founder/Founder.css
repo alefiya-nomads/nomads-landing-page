@@ -1,6 +1,23 @@
+.founder {
+  position: relative;
+}
+
+/* White compass seal straddling the seam with MeetNerd above, per the
+   reference ("EVERY VISITOR LOST IS / A POTENTIAL CUSTOMER GONE"). */
+.founder__seal {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
 .founder__split {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 1fr 1fr;
   min-height: 100vh;
 }
 
@@ -14,7 +31,8 @@
 .founder__photo-sticky {
   position: sticky;
   top: 0;
-  padding-top: var(--space-2xl);
+  display: flex;
+  justify-content: center;
 }
 
 .founder__photo {
@@ -78,16 +96,31 @@
 
 .founder__numbered {
   font-family: var(--font-body);
-  font-weight: 700;
-  padding-left: 1.4em;
+  font-weight: 800;
+  list-style: none;
+  padding-left: 0;
   margin: 0 0 var(--space-md);
 }
 
 .founder__numbered li {
-  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--space-sm);
+}
+
+.founder__numbered-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: auto;
+  display: block;
 }
 
 @media (max-width: 760px) {
+  .founder__seal {
+    display: none;
+  }
+
   .founder__split {
     grid-template-columns: 1fr;
   }

@@ -5,6 +5,12 @@ import { founder } from "../../data/copy.js";
 export default function Founder() {
   return (
     <section className="founder">
+      <img
+        className="founder__seal"
+        src="/Assets/Doodle/white compass badge.png"
+        alt=""
+        aria-hidden="true"
+      />
       <div className="founder__split">
         <div className="founder__photo-col">
           <div className="founder__photo-sticky">
@@ -19,7 +25,7 @@ export default function Founder() {
         <div className="founder__copy-col">
           <div className="founder__intro">
             <span className="founder__intro-hey">{founder.intro.hey}</span>
-            <span className="founder__intro-name">I'm Alefiya!</span>
+            <span className="founder__intro-name">{founder.intro.name}</span>
           </div>
           <span className="founder__intro-role">{founder.intro.role}</span>
 

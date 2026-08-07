@@ -31,7 +31,6 @@ export default function RpvSnapshotCard() {
     <div className="rpv-card">
       <div className="rpv-card__bar">
         <span>{snapshotCard.title}</span>
-        <span className="rpv-card__dot" aria-hidden="true" />
       </div>
 
       <div className="rpv-card__body">

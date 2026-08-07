@@ -1,0 +1,83 @@
+.hl-sweep {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hl-sweep__base {
+  position: relative;
+  z-index: 0;
+  padding: 0.05em 0.25em;
+}
+
+.hl-sweep__overlay {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 0.05em 0.25em;
+  box-sizing: border-box;
+  white-space: nowrap;
+  background: var(--sweep-bg);
+  color: var(--sweep-color);
+  transition: width 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.hl-sweep--in .hl-sweep__overlay {
+  width: 100%;
+}
+
+/* Tone pairs — background sweep + text color once revealed. */
+.hl-sweep--plum {
+  --sweep-bg: var(--brand-plum);
+  --sweep-color: var(--white);
+}
+
+.hl-sweep--plumdark {
+  --sweep-bg: #5d1b4e;
+  --sweep-color: var(--white);
+}
+
+.hl-sweep--iceblue {
+  --sweep-bg: #e4fbff;
+  --sweep-color: var(--midnight-blue);
+}
+
+.hl-sweep--cream {
+  --sweep-bg: #faf0e0;
+  --sweep-color: var(--brand-plum);
+}
+
+.hl-sweep--cream2 {
+  --sweep-bg: #f2e6d8;
+  --sweep-color: #5d1b4e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hl-sweep__overlay {
+    transition-duration: 0.01s;
+  }
+}
+
+/* On small screens the nowrap sweep would overflow — fall back to the
+   final highlighted state as a static, wrappable box. */
+@media (max-width: 760px) {
+  .hl-sweep {
+    white-space: normal;
+  }
+
+  .hl-sweep__overlay {
+    display: none;
+  }
+
+  .hl-sweep__base {
+    background: var(--sweep-bg);
+    color: var(--sweep-color);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+}

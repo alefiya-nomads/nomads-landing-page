@@ -29,12 +29,12 @@ export const hero = {
     "YouTube views",
   ],
   followUp:
-    "Because what could change if you made an extra $1.5 million with your current marketing spend?",
+    "Because what would change if you made an extra $1.5 million with your current marketing spend?",
   ctaLabel: "Start the Diagnostic Now",
   ctaRisk: "Takes 5 minutes. Costs nothing. You leave with your actual RPV™ number.",
   trustbar: "Preferred Partner of",
   snapshotCard: {
-    title: "Your RPV™ Snapshot",
+    title: "Your RPV Snapshot",
     currentLabel: "Current RPV",
     current: 1.9,
     potentialLabel: "Potential RPV",
@@ -218,7 +218,7 @@ export const problem = {
     "Say you're selling medicine for ulcers. Out of 100 people, 3 know they have ulcers and buy immediately. 70 have stomach pain, but they don't know ulcers cause it.",
     'So when your messaging targets the problem ("medicine for ulcers"), you lose the 70 people who genuinely believe they don’t have ulcers.',
     "Even though they do.",
-    "Sooo…how do you convince someone who thinks this is not for them (even though it is, yet they don't see it yet)?",
+    "Sooo…how do you convince someone who thinks this is not for them (even though it is, yet they don’t see it yet)?",
   ],
   legend: [
     { count: 3, label: "know & buy now" },
@@ -302,19 +302,19 @@ export const fourAreas = {
     },
     {
       n: "AREA 02",
-      title: "Contrarian POV™",
+      title: "Contrarian POV ™",
       body:
         "The positioning strategy we adopted from brands like Oatly, Netflix, and Apple that makes competing on price irrelevant (One client went from $8,000/month to $108,000/month by increasing their close rate from 3.7% to 93.5% with this strategy)",
     },
     {
       n: "AREA 03",
-      title: "Speed to Decision™",
+      title: "Speed to Decision ™",
       body:
         "7 buyer hesitations strangling your profit — and how to overcome them so that your buyers are empowered to make a swift *informed* decision",
     },
     {
       n: "AREA 04",
-      title: "Compounding Revenue per Email Subscriber™",
+      title: "Compounding Revenue per\nEmail Subscriber ™",
       body:
         "The email metric most 7-figure teams have never tracked — and why 829 subscribers who joined via diagnosis brought 23 sales, while the same email sequence brought one sale from a list of 10,000 subs (you've never thought about email this way)",
     },
@@ -342,8 +342,8 @@ export const founder = {
   heading: "Wait…meet the marketing nerd behind the Compounding RPV™ OS.",
   intro: {
     hey: "Hey",
-    name: "I'm Alefiya",
-    role: "Co-founder and CMO at Nomads Marketing.",
+    name: "I’m Alefiya!",
+    role: "Co-founder and CMO at Nomads Marketing",
   },
   paragraphs: [
     "After years of building million-dollar funnels, I realized that real, sustainable profit comes down to just two things:",
@@ -352,9 +352,9 @@ export const founder = {
   paragraphs2: [
     "But even when conversion rates looked good on paper, we still depended on massive amounts of traffic just to hit sales targets.",
     "And it gets worse, nearly 70% of that traffic was gone after just a single visit.",
-    'They weren’t given a chance to engage or ask questions. It felt like we were forcing people into a decision they hadn’t been primed for: "**Buy or Bye.**"',
+    'They weren’t given a chance to engage or ask questions. It felt like **we were forcing people into a decision** they hadn’t been primed for: **“Buy or Bye.”**',
     "That changed when I pitched a conversion quiz project to a client.",
-    "Not the viral, BuzzFeed-style type, but intentional, insight-led quizzes that convert your visitors into warm leads and store them in a database you own: **aka an email list** or **SMS list**.",
+    "Not the viral, BuzzFeed-style type, but intentional, insight-led quizzes that convert your visitors into warm leads and store them in a database you own: aka an email list or SMS list.",
     "However… I couldn't find a model that worked across industries.",
     "So, I ditched the typical Buzzfeed quiz funnel knowledge available on the internet and rebuilt the entire strategy from scratch.",
     "I studied hours of real sales calls, demos, and live chats from customers who didn't convert.",

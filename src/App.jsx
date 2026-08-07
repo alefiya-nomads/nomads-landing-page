@@ -9,6 +9,7 @@ import Calculator from "./components/Calculator/Calculator.jsx";
 import FourAreas from "./components/FourAreas/FourAreas.jsx";
 import MeetNerd from "./components/MeetNerd/MeetNerd.jsx";
 import Founder from "./components/Founder/Founder.jsx";
+import SystemBorn from "./components/SystemBorn/SystemBorn.jsx";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
       <FourAreas />
       <MeetNerd />
       <Founder />
+      <SystemBorn />
     </main>
   );
 }

@@ -9,8 +9,6 @@ export default function Problem97() {
       <div className="problem__panel problem__panel--dark">
         <div className="problem__frame">
           <img src={PUZZLE_SRC} alt="" className="problem__puzzle" aria-hidden="true" />
-
-
         </div>
       </div>
 
@@ -35,7 +33,7 @@ export default function Problem97() {
             </div>
 
             <h3 className="problem__chart-caption">
-              Say you're selling
+              Say you&rsquo;re selling
               <br />
               medicine for ulcers.
             </h3>
@@ -62,8 +60,8 @@ export default function Problem97() {
               legend say "70" (3/70/27 split) instead of the reference's 3/97
               split — flagged per 0.8, defaulting to the reference's numbers. */}
           <p className="problem__para">
-            So when your messaging targets the problem (“medicine for ulcers”), <strong>you lose the 97 people</strong>{" "}
-            who genuinely believe they don't have ulcers.
+            So when your messaging targets the problem ("medicine for ulcers"), <strong>you lose the 97 people</strong>{" "}
+            who genuinely believe they don&rsquo;t have ulcers.
           </p>
 
           <p className="problem__highlight">{problem.lines[4]}</p>

@@ -1,6 +1,7 @@
 import "./Hero.css";
 import Button from "../primitives/Button.jsx";
 import RpvSnapshotCard from "./RpvSnapshotCard.jsx";
+import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { hero } from "../../data/copy.js";
 
 const PHOTO_SRC = "/Assets/Images/hero section.png";
@@ -39,12 +40,12 @@ export default function Hero() {
           </p>
 
           <h1 className="hero__headline">
-            {headlineLine1}
-            <br />
-            {headlineLine2}
-            <br />
-            <span className="hero__highlight">$1.5 M/year</span> {headlineLine3Suffix}
-            <br />
+            {headlineLine1}{" "}
+            <br className="hl-br" />
+            {headlineLine2}{" "}
+            <br className="hl-br" />
+            <HighlightSweep tone="plum">$1.5 M/year</HighlightSweep> {headlineLine3Suffix}{" "}
+            <br className="hl-br" />
             {headlineLine4Prefix} <span className="accent-word">website visitors?</span>
           </h1>
 
@@ -60,7 +61,8 @@ export default function Hero() {
           </ul>
 
           <p className="hero__rpv-line">
-            <strong>{rpvBold}Increase how much you earn per visitor</strong>
+            <strong>{rpvBold}</strong>
+            Increase how much you earn per visitor
             {rpvRest}
           </p>
 

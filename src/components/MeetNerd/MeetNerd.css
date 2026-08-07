@@ -1,8 +1,22 @@
 .meet-nerd {
+  position: relative;
   background-image: url("/Assets/landing-page/Mix Backgrounds-02.png");
   background-size: cover;
   background-position: center;
   padding: var(--space-3xl) 0;
+}
+
+/* Plum "Who's Behind?" roundel straddling the seam with FourAreas above,
+   per the reference. */
+.meet-nerd__badge {
+  position: absolute;
+  top: 0;
+  left: 21%;
+  transform: translateY(-50%);
+  width: 132px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .meet-nerd__wait {
@@ -31,5 +45,9 @@
 @media (max-width: 760px) {
   .meet-nerd {
     padding: var(--space-2xl) 0;
+  }
+
+  .meet-nerd__badge {
+    display: none;
   }
 }

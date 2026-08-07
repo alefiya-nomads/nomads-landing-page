@@ -1,3 +1,36 @@
-.founder-story__word {
-  transition: opacity 0.08s linear;
+.founder-story__accent {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--brand-plum);
+}
+
+.founder-story__strong {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--ink-dark);
+}
+
+.founder-story__box {
+  background: var(--white);
+  border: 2px solid var(--ink-dark);
+  padding: var(--space-lg);
+  margin: 0 0 var(--space-md);
+}
+
+.founder-story__box .founder-story__lead {
+  font-weight: 800;
+}
+
+.founder-story__box p:last-child {
+  margin-bottom: 0;
+}
+
+.founder-story__scratch-badge {
+  display: inline-block;
+  background: var(--brand-plum);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.6rem;
+  padding: 0.35em 0.7em;
+  transform: skewX(-4deg) rotate(-1deg);
 }

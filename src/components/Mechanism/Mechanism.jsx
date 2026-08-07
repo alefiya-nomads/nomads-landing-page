@@ -19,13 +19,15 @@ export default function Mechanism() {
                 the brackets/™ that copy.js's single-sentence lines[1] carries — flagged
                 per design-v2.md 0.8, defaulting to the reference's exact wording/split. */}
             <h2 className="mechanism__headline">
-              Our proprietary diagnostic
-              <br />
-              system: Compounding Revenue Per Vistor Operating System
+              Our proprietary diagnostic{" "}
+              <br className="hl-br" />
+              system: Compounding Revenue{" "}
+              <br className="hl-br" />
+              Per Vistor Operating System
             </h2>
             <p className="mechanism__body">
               Was built by reverse engineering hundreds of customer journeys and figuring out what makes people go
-              from “I don't think this is for me” to “I need this”.
+              from “I don’t think this is for me” to “I need this”.
             </p>
           </div>
         </div>

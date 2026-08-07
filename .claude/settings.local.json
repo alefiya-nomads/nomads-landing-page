@@ -9,7 +9,8 @@
       "Bash(ffprobe -v error -show_entries stream=width,height -of default=noprint_wrappers=1 \"D:\\\\Abdul Samad\\\\Alefiya\\\\rpv-landing-v2\\\\public\\\\Assets\\\\Doodle\\\\Group 450.png\")",
       "Bash(pwd -W)",
       "Skill(update-config)",
-      "Skill(update-config:*)"
+      "Skill(update-config:*)",
+      "mcp__visualize__read_me"
     ]
   }
 }

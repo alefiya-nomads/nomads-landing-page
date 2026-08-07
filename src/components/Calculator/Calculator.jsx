@@ -1,6 +1,7 @@
 import "./Calculator.css";
 import { calculator } from "../../data/copy.js";
 import Button from "../primitives/Button.jsx";
+import HighlightSweep from "../primitives/HighlightSweep.jsx";
 
 function PointDoodle() {
   return (
@@ -16,15 +17,25 @@ function PointDoodle() {
 export default function Calculator() {
   return (
     <section className="calc">
+      <img
+        className="calc__doodle-curvy"
+        src="/Assets/Doodle/curvy line dashed arrow white.png"
+        alt=""
+        aria-hidden="true"
+      />
+      <img
+        className="calc__doodle-thisway"
+        src="/Assets/Doodle/thisway dashed arrow.png"
+        alt=""
+        aria-hidden="true"
+      />
       <div className="wrap">
         <h2 className="calc__headline center">
-          Before You Spend Another Dollar
-          <br />
-          On Traffic, Find Out What Your
-          <br />
-          <span className="calc__highlight">
-            Current Traffic Is Actually Worth.
-          </span>
+          Before You Spend Another Dollar{" "}
+          <br className="hl-br" />
+          On Traffic, Find Out What Your{" "}
+          <br className="hl-br" />
+          <HighlightSweep tone="cream">Current Traffic Is Actually Worth.</HighlightSweep>
         </h2>
 
         <p className="calc__subtitle center">{calculator.lines[1]}</p>
@@ -59,7 +70,7 @@ export default function Calculator() {
 
         <div className="calc__mock-frame">
           <div className="calc__mock-bar">
-            <span className="calc__mock-brand">NOMADS</span>
+            <img className="calc__mock-logo" src="/icons/logo.avif" alt="Nomads" />
           </div>
           <div className="calc__mock-body">
             <span className="todo">Calculator screenshot / GIF — asset pending</span>

@@ -1,0 +1,122 @@
+.system-born {
+  background-image: url("/Assets/landing-page/Mix Backgrounds-02.png");
+  background-size: cover;
+  background-position: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.system-born__card {
+  max-width: 1160px;
+  margin: 0 auto;
+  border: 6px solid #5D1B4E;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  overflow: hidden;
+}
+
+.system-born__text {
+  position: relative;
+  background-image: url("/Assets/landing-page/1.png");
+  background-size: cover;
+  background-position: center;
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+.system-born__para {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-md);
+}
+
+.system-born__para--bold {
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+.system-born__badge {
+  display: inline-block;
+  background: var(--brand-plum);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.2;
+  padding: 0.25em 0.5em;
+  margin: 0 0 var(--space-md);
+}
+
+.system-born__heading {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.6vw, 2.05rem);
+  line-height: 1.3;
+  color: var(--brand-plum);
+  margin: 0 0 var(--space-md);
+}
+
+.system-born__doodle {
+  position: absolute;
+  top: calc(var(--space-2xl) + 75px);
+  right: var(--space-xl);
+  width: 70px;
+  height: auto;
+  pointer-events: none;
+}
+
+.system-born__photo {
+  position: relative;
+}
+
+.system-born__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.system-born__photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(248, 241, 229, 0.9),
+    rgba(248, 241, 229, 0) 18%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .system-born {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .system-born__card {
+    grid-template-columns: 1fr;
+  }
+
+  .system-born__text {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .system-born__br {
+    display: none;
+  }
+
+  .system-born__doodle {
+    display: none;
+  }
+
+  .system-born__photo::before {
+    display: none;
+  }
+
+  .system-born__photo img {
+    max-height: 420px;
+  }
+}

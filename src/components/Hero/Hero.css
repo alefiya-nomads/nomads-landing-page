@@ -29,20 +29,24 @@
    V1 used. The "website visitors?" phrase is the one short Kilimanjaro
    accent per 0.1 (see .accent-word, global.css). */
 .hero__headline {
-  font-size: clamp(1.7rem, 2.8vw, 2.7rem);
-  line-height: 1.35;
+  font-size: clamp(1.7rem, 3.4vw, 3rem);
+  line-height: 1.2;
   margin-bottom: var(--space-lg);
 }
 
-/* Highlight box uses Midnight Blue, not plum-by-default — per 0.2/0.6,
-   plum is a sparing accent, not the automatic highlight color. */
+/* Reference shows the highlight box in brand plum, and the accent phrase
+   in plum too (audited against Landing Page.png). */
 .hero__highlight {
   display: inline-block;
-  background: var(--midnight-blue);
+  background: var(--brand-plum);
   color: var(--white);
   padding: 0.05em 0.22em;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+}
+
+.hero__headline .accent-word {
+  color: var(--brand-plum);
 }
 
 .hero__list {

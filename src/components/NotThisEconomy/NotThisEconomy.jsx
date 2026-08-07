@@ -1,4 +1,5 @@
 import "./NotThisEconomy.css";
+import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { notThisEconomy } from "../../data/copy.js";
 
 const LAPTOP_SRC = "/Assets/Images/2nd section laptop image.png";
@@ -17,17 +18,23 @@ export default function NotThisEconomy() {
 
   return (
     <section className="economy">
+      <img
+        className="economy__badge"
+        src="/Assets/Doodle/white circle badge.png"
+        alt=""
+        aria-hidden="true"
+      />
       <div className="economy__frame">
         <div className="wrap economy__grid">
           <div className="economy__copy">
             <h2 className="economy__headline">
-              {headlineLine1}
-              <br />
-              {headlineLine2}
-              <br />
-              {headlineLine3}
-              <br />
-              {headlineLine4Prefix} <span className="economy__highlight">getting "more traffic".</span>
+              {headlineLine1}{" "}
+              <br className="hl-br" />
+              {headlineLine2}{" "}
+              <br className="hl-br" />
+              {headlineLine3}{" "}
+              <br className="hl-br" />
+              {headlineLine4Prefix} <HighlightSweep tone="iceblue">getting "more traffic".</HighlightSweep>
             </h2>
 
             <p className="economy__sub">{sub}</p>

@@ -1,5 +1,6 @@
 import "./ChecklistSection.css";
 import Button from "../primitives/Button.jsx";
+import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { checklistIntro, scenarios, checklistOutro } from "../../data/copy.js";
 
 export default function ChecklistSection() {
@@ -18,18 +19,45 @@ export default function ChecklistSection() {
 
   return (
     <section className="checklist">
+      <img
+        className="checklist__doodle-compass"
+        src="/Assets/Doodle/compass doodle.png"
+        alt=""
+        aria-hidden="true"
+      />
+      <img
+        className="checklist__doodle-note"
+        src="/Assets/Doodle/3rd sec doodle.png"
+        alt=""
+        aria-hidden="true"
+      />
+      <img
+        className="checklist__doodle-arrows"
+        src="/Assets/Doodle/straight arrow.png"
+        alt=""
+        aria-hidden="true"
+      />
+      <img
+        className="checklist__doodle-footprints"
+        src="/Assets/Doodle/footprint doodle.png"
+        alt=""
+        aria-hidden="true"
+      />
       <div className="wrap">
         <h2 className="checklist__headline">
-          {headlineLine1}
-          <br />
-          {headlineLine2}
-          <br />
-          <span className="checklist__highlight">{headlineLine3}</span>
+          {headlineLine1}{" "}
+          <br className="hl-br" />
+          {headlineLine2}{" "}
+          <br className="hl-br" />
+          <HighlightSweep tone="plum">{headlineLine3}</HighlightSweep>
         </h2>
 
         <div className="checklist__intro-row">
           <span className="checklist__tag">{checklistIntro.sub}</span>
-          <span className="checklist__intro-text">{checklistIntro.chip}</span>
+          {/* Reference reads "TICK THE BOX AND FIND OUT." — copy.js's chip
+              says "Check all that apply" (conflict flagged, defaulting to
+              the reference per design-v2.md 0.8). CSS uppercases it. */}
+          <span className="checklist__intro-text">Tick the box and find out.</span>
         </div>
 
         <ul className="checklist__list">

@@ -33,34 +33,6 @@
   height: auto;
 }
 
-/* Positioned to overlap the puzzle graphic's lower piece cluster, reading
-   straight into the "What about the rest?" line already baked into the
-   image below it (design-v2.md 0.7 — let images/text overlap). Percentage
-   values are relative to the frame's width, which scales 1:1 with the
-   puzzle image's own aspect ratio, so the overlap stays proportional at
-   every viewport width. */
-.problem__headline {
-  position: absolute;
-  left: var(--space-lg);
-  right: var(--space-lg);
-  top: 34%;
-  color: var(--white);
-  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
-  line-height: 1.28;
-  text-transform: capitalize;
-  margin: 0;
-}
-
-.problem__script {
-  position: absolute;
-  left: var(--space-lg);
-  right: var(--space-lg);
-  top: 78%;
-  color: var(--ice-blue);
-  font-size: 1.05rem;
-  line-height: 1.4;
-}
-
 .problem__content {
   max-width: 560px;
   margin: 0 auto;

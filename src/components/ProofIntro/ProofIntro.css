@@ -32,13 +32,13 @@
   margin: 0 auto;
 }
 
-.proof-intro__stamp {
+.proof-intro__doodle {
   position: absolute;
-  right: var(--space-2xl);
-  top: 50%;
-  transform: translateY(-50%) rotate(12deg);
-  width: 140px;
-  height: 60px;
+  right: 48px;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 230px;
+  height: auto;
   pointer-events: none;
 }
 
@@ -47,7 +47,7 @@
     padding: var(--space-2xl) 0;
   }
 
-  .proof-intro__stamp {
+  .proof-intro__doodle {
     display: none;
   }
 }

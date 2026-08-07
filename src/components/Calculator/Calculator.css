@@ -1,7 +1,7 @@
 .calc {
   position: relative;
   background-color: var(--deep-purple);
-  background-image: url("/Assets/landing-page/Gradient Background wide-07.png");
+  background-image: url("/Assets/landing-page/Gradient Background wide-02.png");
   background-size: cover;
   background-position: center;
   padding: var(--space-3xl) 0 var(--space-2xl);
@@ -13,8 +13,29 @@
   z-index: 1;
 }
 
+/* Doodles — positions mirror the reference image: white dashed curvy arrow
+   at the top right pointing toward the subtitle, "This way" signpost with
+   dashed trail bleeding in from the bottom-left edge. */
+.calc__doodle-curvy {
+  position: absolute;
+  top: 200px;
+  right: 0;
+  width: 340px;
+  height: auto;
+  pointer-events: none;
+}
+
+.calc__doodle-thisway {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 280px;
+  height: auto;
+  pointer-events: none;
+}
+
 .calc__headline {
-  color: var(--ink-dark);
+  color: var(--white);
   font-size: clamp(1.6rem, 3.2vw, 2.6rem);
   line-height: 1.25;
   margin-bottom: var(--space-lg);
@@ -22,8 +43,8 @@
 
 .calc__highlight {
   display: inline;
-  background: var(--brand-plum-secondary);
-  color: var(--white);
+  background: #FAF0E0;
+  color: var(--brand-plum);
   font-weight: inherit;
   padding: 0.08em 0.25em;
   box-decoration-break: clone;
@@ -31,7 +52,7 @@
 }
 
 .calc__subtitle {
-  color: var(--ink-dark);
+  color: var(--white);
   font-size: 1rem;
   margin-bottom: var(--space-xl);
 }
@@ -60,12 +81,12 @@
 .calc__point-label {
   font-weight: 800;
   font-size: 1.05rem;
-  color: var(--ink-dark);
+  color: var(--white);
   margin: 0 0 var(--space-xs);
 }
 
 .calc__point-body {
-  color: var(--ink-dark);
+  color: var(--white);
   font-size: 0.95rem;
   line-height: 1.5;
   margin: 0;
@@ -73,7 +94,7 @@
 }
 
 .calc__mock-frame {
-  max-width: 520px;
+  max-width: 760px;
   margin: 0 auto var(--space-xl);
   border: 1px solid rgba(57, 17, 41, 0.2);
   border-radius: 6px;
@@ -89,12 +110,13 @@
   border-bottom: 1px solid rgba(57, 17, 41, 0.1);
 }
 
-.calc__mock-brand {
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  color: var(--white);
+.calc__mock-logo {
+  height: 16px;
+  width: auto;
+  display: block;
+  /* Force the mark to render white on the plum bar regardless of the
+     source asset's own color. */
+  filter: brightness(0) invert(1);
 }
 
 .calc__mock-body {
@@ -115,20 +137,21 @@
 }
 
 .calc__gap-text {
-  color: var(--ink-dark);
+  color: var(--white);
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: var(--space-md);
 }
 
-.calc .btn {
-  background: var(--brand-plum);
-  color: var(--white);
-}
 
 @media (max-width: 760px) {
   .calc {
     padding: var(--space-2xl) 0 var(--space-xl);
+  }
+
+  .calc__doodle-curvy,
+  .calc__doodle-thisway {
+    display: none;
   }
 
   .calc__headline {

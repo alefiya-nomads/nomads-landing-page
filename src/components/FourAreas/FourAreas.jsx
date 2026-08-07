@@ -1,6 +1,7 @@
 import "./FourAreas.css";
 import { fourAreas } from "../../data/copy.js";
 import Button from "../primitives/Button.jsx";
+import HighlightSweep from "../primitives/HighlightSweep.jsx";
 
 const ICONS = [
   "/Assets/Icons/1.png",
@@ -16,17 +17,17 @@ export default function FourAreas() {
         <div className="wrap center">
           <span className="four-areas__chip">In Under 5 Minutes</span>
           <h2 className="four-areas__headline">
-            The Diagnostic Will Walk You
-            <br />
+            The Diagnostic Will Walk You{" "}
+            <br className="hl-br" />
             Through{" "}
-            <span className="four-areas__highlight">All Four Areas</span> Of
-            <br />
+            <HighlightSweep tone="cream2">All Four Areas</HighlightSweep> Of{" "}
+            <br className="hl-br" />
             Compounding RPV OS:
           </h2>
         </div>
         <img
           className="four-areas__doodle-top"
-          src="/Assets/Doodle/caption arrow.png"
+          src="/Assets/Doodle/curvy arrow white.png"
           alt=""
           aria-hidden="true"
         />
@@ -46,7 +47,7 @@ export default function FourAreas() {
 
           <img
             className="four-areas__doodle-bottom"
-            src="/Assets/Doodle/straight arrow.png"
+            src="/Assets/Doodle/blue straight arrow.png"
             alt=""
             aria-hidden="true"
           />

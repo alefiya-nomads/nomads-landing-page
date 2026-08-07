@@ -62,6 +62,16 @@ p {
   margin: 0 0 var(--space-md);
 }
 
+/* Headline hard line-break: enforces the reference image's exact line
+   splits on desktop, but yields to natural wrapping on small screens so
+   headlines never double-wrap into orphan words. Always precede with an
+   explicit {" "} in JSX so words don't concatenate when it's hidden. */
+@media (max-width: 760px) {
+  .hl-br {
+    display: none;
+  }
+}
+
 .script {
   font-family: var(--font-script);
   font-weight: 400;
