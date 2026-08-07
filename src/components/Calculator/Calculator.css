@@ -154,10 +154,6 @@
     display: none;
   }
 
-  .calc__headline {
-    font-size: clamp(1.3rem, 5vw, 1.8rem);
-  }
-
   .calc__mock-body {
     min-height: 140px;
     padding: var(--space-lg) var(--space-md);

@@ -70,6 +70,22 @@ p {
   .hl-br {
     display: none;
   }
+
+  /* One uniform heading size on mobile across every section. The
+     element+class selectors out-rank the component files' single-class
+     base rules, which load after this file. */
+  h1.hero__headline,
+  h2.economy__headline,
+  h2.checklist__headline,
+  h2.mechanism__headline,
+  h2.problem__headline,
+  h2.proof-intro__headline,
+  h2.calc__headline,
+  h2.four-areas__headline,
+  h2.meet-nerd__headline,
+  h2.system-born__heading {
+    font-size: 1.5rem;
+  }
 }
 
 .script {
