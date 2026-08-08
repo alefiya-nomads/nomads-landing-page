@@ -44,8 +44,13 @@
 
 .founder__copy-col {
   background-image: url("/Assets/landing-page/Blue Texture.webp");
-  background-size: cover;
-  background-position: center;
+  /* Tile at half the native resolution — the downscaled grain reads
+     denser and crisper (especially on HiDPI screens) than a 1:1 or
+     stretched render. The file itself is lossless so no compression
+     softening on the fine texture. */
+  background-size: 1876px auto;
+  background-repeat: repeat;
+  background-position: top left;
   padding: var(--space-2xl) var(--space-xl) var(--space-3xl) var(--space-xl);
 }
 

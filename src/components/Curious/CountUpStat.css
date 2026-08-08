@@ -1,0 +1,64 @@
+/* Same frame treatment as .curious__case-card: textured outer frame with
+   the hard shadow, and a solid #5D1B4E inner panel behind the text. */
+.count-up-stat {
+  background-image: url("/Assets/backgrounds/image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--shadow-hard);
+  border-radius: var(--radius-flat);
+  padding: 10px;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.count-up-stat__inner {
+  background: #5d1b4e;
+  padding: var(--space-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* v1 used Kilimanjaro (--font-display) for the big number — deliberately
+   swapped to Montserrat bold in v2 per direction. */
+.count-up-stat__big {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: var(--fs-stat);
+  color: var(--white);
+  line-height: 1;
+  display: block;
+}
+
+.count-up-stat__label {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--white);
+  opacity: 0.85;
+  display: block;
+  margin-top: 8px;
+}
+
+.count-up-stat__load {
+  height: 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+.count-up-stat__load i {
+  display: block;
+  height: 100%;
+  background: var(--white);
+  transition: width 1.6s ease;
+}

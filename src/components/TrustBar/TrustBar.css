@@ -1,0 +1,76 @@
+.trustbar {
+  background: var(--white);
+  padding: 28px 0;
+  overflow: hidden;
+}
+
+.trustbar__label {
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-lg);
+}
+
+.trustbar__marquee {
+  overflow: hidden;
+}
+
+.trustbar__track {
+  display: flex;
+  width: max-content;
+  animation: trustbar-scroll 30s linear infinite;
+}
+
+/* Each set's trailing padding equals its internal gap so the loop seam
+   is invisible. */
+.trustbar__set {
+  display: flex;
+  align-items: center;
+  gap: 140px;
+  padding-right: 140px;
+}
+
+.trustbar__logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+@keyframes trustbar-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* four identical sets -> one set width = 25% of the track */
+    transform: translateX(-25%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trustbar__track {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .trustbar {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .trustbar__label {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .trustbar__set {
+    gap: 64px;
+    padding-right: 64px;
+  }
+
+  .trustbar__logo {
+    height: 30px;
+  }
+}

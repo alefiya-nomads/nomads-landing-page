@@ -1,0 +1,140 @@
+.testimonial-card {
+  position: relative;
+  margin: var(--space-2xl) 0;
+  padding: 56px 64px;
+  /* Lossless WebP of the cream paper texture, tiled at half its native
+     resolution — the uniform grain stays pixel-crisp at every card
+     size/aspect instead of being stretched by 100% 100%. */
+  background-image: url("/Assets/Images/testimonial image.webp");
+  background-size: 1000px auto;
+  background-repeat: repeat;
+  border: 2px solid var(--ink-dark);
+  box-shadow: var(--shadow-hard);
+}
+
+.testimonial-card__quote {
+  position: absolute;
+  width: 25px;
+  height: auto;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.testimonial-card__quote--open {
+  top: 20px;
+  left: 24px;
+}
+
+.testimonial-card__quote--close {
+  bottom: 20px;
+  right: 24px;
+  transform: rotate(180deg);
+}
+
+.testimonial-card__grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.testimonial-card__person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.testimonial-card__avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 30%, #ffd9a8 0%, #f0a868 40%, var(--brand-plum) 100%);
+  border: 3px solid var(--white);
+  box-shadow: 0 6px 18px rgba(57, 17, 41, 0.25);
+  margin-bottom: var(--space-sm);
+}
+
+.testimonial-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* v1 used Kilimanjaro (--font-display) for initials/name/headline —
+   deliberately swapped to Montserrat bold in v2 per direction. */
+.testimonial-card__initials {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 2.4rem;
+  color: var(--white);
+  text-shadow: 0 2px 6px rgba(57, 17, 41, 0.35);
+}
+
+.testimonial-card__name {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--ink-dark);
+  margin-bottom: 4px;
+}
+
+.testimonial-card__role {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--ink-dark);
+  max-width: 420px;
+}
+
+.testimonial-card__content {
+  margin: 0;
+  width: 100%;
+}
+
+.testimonial-card__headline {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  text-align: left;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-md);
+}
+
+/* Keep the highlight phrase in the same Montserrat bold as the rest of
+   the headline (the global .highlight rule sets Kilimanjaro). */
+.testimonial-card__headline .highlight {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.testimonial-card__body-line {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-sm);
+}
+
+.testimonial-card__body-line:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .testimonial-card {
+    padding: 48px 24px 40px;
+  }
+  .testimonial-card__grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonial-card__avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .testimonial-card__headline {
+    font-size: 1.4rem;
+  }
+}

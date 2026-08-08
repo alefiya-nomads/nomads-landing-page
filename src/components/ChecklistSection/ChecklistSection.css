@@ -1,9 +1,17 @@
 .checklist {
   position: relative;
   background-color: var(--bg-cream);
-  background-image: url("/Assets/landing-page/checklist-bg.jpg");
-  background-size: cover;
-  background-position: center;
+  /* The old single-JPG background (landscape gradient + baked-in grain)
+     blurred badly when cover-stretched over this tall section. Split it:
+     a heavily-blurred tiny gradient layer that scales cleanly to any box,
+     plus a neutral-gray noise tile blended on top at native 1:1 so the
+     grain stays pixel-crisp at every viewport size. */
+  background-image: url("/Assets/landing-page/grain.webp"),
+    url("/Assets/landing-page/checklist-bg-smooth.webp");
+  background-size: 256px 256px, 100% 100%;
+  background-repeat: repeat, no-repeat;
+  background-position: top left, center;
+  background-blend-mode: soft-light, normal;
   /* Extra bottom padding gives Mechanism's card room to genuinely overlap
      this section's box (not just visually share a similar cream color) —
      per the explicit "4th section half-overlaps the 3rd" direction. */

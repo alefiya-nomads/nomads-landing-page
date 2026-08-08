@@ -4,10 +4,11 @@ import { hero } from "../../data/copy.js";
 import CountUp from "../primitives/CountUp.jsx";
 
 /**
- * "Your RPV™ Snapshot" result card — current vs. potential RPV as two
- * stacked label+number rows on the left, a small vertical bar chart
- * (short bar = current, tall bar = potential) on the right, and a
- * horizontal gap-bar underneath that animates its fill on mount.
+ * "Your RPV Snapshot" result card, built to match the reference design:
+ * plum title bar, two salmon chips with big plum values on the left, a
+ * beige gridline chart panel on the right with two dark bars (labels
+ * inside), the hand-drawn "Your Potential" arrow doodle overlapping the
+ * panel's top-right corner, a pill gap-bar, and a centered caption.
  */
 export default function RpvSnapshotCard() {
   const { snapshotCard } = hero;
@@ -30,50 +31,51 @@ export default function RpvSnapshotCard() {
   return (
     <div className="rpv-card">
       <div className="rpv-card__bar">
-        <span>{snapshotCard.title}</span>
+        <span>Your RPV Snapshot</span>
       </div>
 
       <div className="rpv-card__body">
-        <div className="rpv-card__stats">
-          <div className="rpv-card__stat">
-            <span className="rpv-card__k">How much you make per visitor today</span>
-            <CountUp
-              target={snapshotCard.current}
-              prefix="$"
-              decimals={2}
-              className="rpv-card__v rpv-card__v--now"
-            />
+        <div className="rpv-card__main">
+          <div className="rpv-card__stats">
+            <div className="rpv-card__stat">
+              <span className="rpv-card__k">How much you make per visitor today</span>
+              <CountUp
+                target={snapshotCard.current}
+                prefix="$"
+                decimals={2}
+                className="rpv-card__v"
+              />
+            </div>
+            <div className="rpv-card__stat">
+              <span className="rpv-card__k">How much you could make per visitor</span>
+              <CountUp
+                target={snapshotCard.potential}
+                prefix="$"
+                decimals={2}
+                className="rpv-card__v"
+              />
+            </div>
           </div>
-          <div className="rpv-card__stat">
-            <span className="rpv-card__k">How much you could make per visitor</span>
-            <CountUp
-              target={snapshotCard.potential}
-              prefix="$"
-              decimals={2}
-              className="rpv-card__v rpv-card__v--pot"
-            />
-          </div>
-        </div>
 
-        <div className="rpv-card__chart">
-          <span className="rpv-card__chart-annotation">Your Potential</span>
-          <div className="rpv-card__bars">
-            <div className="rpv-card__bar-col">
+          <div className="rpv-card__chart">
+            <img
+              className="rpv-card__potential"
+              src="/Assets/Doodle/your potential arrow doodle.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div className="rpv-card__bars">
               <div
                 className="rpv-card__bar-fill rpv-card__bar-fill--now"
                 style={{ height: barsGrown ? `${currentPct}%` : "0%" }}
               >
                 <span className="rpv-card__bar-label">${snapshotCard.current.toFixed(2)}</span>
               </div>
-            </div>
-            <div className="rpv-card__bar-col">
               <div
                 className="rpv-card__bar-fill rpv-card__bar-fill--pot"
                 style={{ height: barsGrown ? `${potentialPct}%` : "0%" }}
               >
-                <span className="rpv-card__bar-label rpv-card__bar-label--pot">
-                  ${snapshotCard.potential.toFixed(2)}
-                </span>
+                <span className="rpv-card__bar-label">${snapshotCard.potential.toFixed(2)}</span>
               </div>
             </div>
           </div>

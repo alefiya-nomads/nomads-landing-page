@@ -1,0 +1,17 @@
+/* v1's Section tone="workshop-gradient" background, inlined since v2
+   sections are plain <section> elements. */
+.testimonials {
+  background-image: url("/Assets/backgrounds/workshop-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--ink-dark);
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+@media (max-width: 760px) {
+  .testimonials {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+}

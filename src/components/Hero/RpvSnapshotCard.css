@@ -1,26 +1,27 @@
 /* Overlaps the photo's lower-left corner, extending slightly into the
-   column gap — position/size matched to the reference image. */
+   column gap — position/size matched to the hero reference image; the
+   card design itself matches the standalone snapshot reference: rounded
+   white card (no border), plum title bar, salmon chips, big plum values,
+   beige gridline chart panel with dark rounded bars. */
 .rpv-card {
   background: var(--white);
   position: absolute;
   left: -24px;
   bottom: 24px;
   width: 340px;
-  border-radius: var(--radius-flat);
-  box-shadow: var(--shadow-hard);
+  border-radius: 20px;
+  box-shadow: 0 14px 34px rgba(57, 17, 41, 0.16);
   overflow: hidden;
-  border: 2px solid var(--ink-dark);
   z-index: 1;
 }
 
 .rpv-card__bar {
-  background: var(--brand-plum);
+  background: #5D1B4E;
   color: var(--white);
   padding: 12px 18px;
   font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
+  font-weight: 800;
+  font-size: 0.95rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,120 +31,119 @@
   padding: var(--space-md);
 }
 
+.rpv-card__main {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
 .rpv-card__stats {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 12px;
 }
 
 .rpv-card__k {
   display: inline-block;
+  align-self: flex-start;
   font-family: var(--font-body);
   font-size: 0.68rem;
   font-weight: 700;
-  color: var(--brand-plum);
-  background: #f5e6dc;
-  padding: 3px 8px;
-  margin-bottom: 4px;
-  max-width: 140px;
+  color: #5D1B4E;
+  background: #E5B9A8;
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin-bottom: 6px;
+  max-width: 150px;
   text-align: center;
 }
 
 .rpv-card__v {
   display: block;
   font-family: var(--font-display);
-  font-size: 2.2rem;
+  font-size: 2.4rem;
+  line-height: 1;
   font-weight: 900;
-}
-
-.rpv-card__v--now {
-  color: var(--brand-plum);
-}
-
-.rpv-card__v--pot {
   color: var(--brand-plum);
 }
 
 .rpv-card__chart {
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-  width: 130px;
+  position: relative;
+  width: 45%;
+  border-radius: 12px;
+  background-color: #F2E6D8;
+  /* thin horizontal gridlines like the reference chart panel */
+  background-image: linear-gradient(rgba(93, 27, 78, 0.12) 1px, transparent 1px);
+  background-size: 100% 20%;
+  padding: 18px 14px 0;
 }
 
-.rpv-card__chart-annotation {
-  display: block;
-  font-family: var(--font-script);
-  font-size: 0.85rem;
-  color: var(--brand-plum);
-  text-align: right;
-  margin-bottom: 4px;
+.rpv-card__potential {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  width: 72px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .rpv-card__bars {
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
-  gap: 10px;
-  height: 90px;
-  border-top: 1px dashed rgba(93, 27, 78, 0.35);
-  padding-top: 4px;
-}
-
-.rpv-card__bar-col {
-  display: flex;
-  align-items: flex-end;
-  height: 100%;
-  width: 34px;
+  justify-content: center;
+  gap: 8px;
+  height: 150px;
 }
 
 .rpv-card__bar-fill {
-  width: 100%;
+  width: 44px;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: center;
-  padding-top: 6px;
+  padding-bottom: 8px;
+  border-radius: 8px 8px 0 0;
   transition: height 1.1s cubic-bezier(0.3, 1, 0.4, 1);
 }
 
 .rpv-card__bar-fill--now {
-  background: var(--bg-lavender);
+  background: var(--brand-plum);
+  border-radius: 8px;
 }
 
 .rpv-card__bar-fill--pot {
-  background: var(--brand-plum);
+  background: #2A0D20;
 }
 
 .rpv-card__bar-label {
   font-family: var(--font-body);
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: var(--ink-dark);
+  color: var(--white);
   white-space: nowrap;
 }
 
-.rpv-card__bar-label--pot {
-  color: var(--white);
-}
-
 .rpv-card__gapbar {
-  height: 8px;
-  border-radius: 6px;
-  background: var(--bg-lavender);
-  margin-top: var(--space-lg);
+  height: 10px;
+  border-radius: 999px;
+  background: #F2E6D8;
+  margin-top: var(--space-md);
   overflow: hidden;
 }
 
 .rpv-card__gapfill {
   display: block;
   height: 100%;
-  background: var(--brand-plum);
+  border-radius: 999px;
+  background: var(--ink-dark);
   transition: width 1.6s cubic-bezier(0.3, 1, 0.4, 1);
 }
 
 .rpv-card__cap {
-  font-size: 0.8rem;
-  color: var(--brand-plum);
+  font-size: 0.75rem;
+  color: var(--ink-dark);
   margin: 10px 0 0;
   text-align: center;
 }

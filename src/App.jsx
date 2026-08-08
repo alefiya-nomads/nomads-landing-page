@@ -1,4 +1,5 @@
 import Hero from "./components/Hero/Hero.jsx";
+import TrustBar from "./components/TrustBar/TrustBar.jsx";
 import NotThisEconomy from "./components/NotThisEconomy/NotThisEconomy.jsx";
 import ChecklistSection from "./components/ChecklistSection/ChecklistSection.jsx";
 import Mechanism from "./components/Mechanism/Mechanism.jsx";
@@ -10,11 +11,14 @@ import FourAreas from "./components/FourAreas/FourAreas.jsx";
 import MeetNerd from "./components/MeetNerd/MeetNerd.jsx";
 import Founder from "./components/Founder/Founder.jsx";
 import SystemBorn from "./components/SystemBorn/SystemBorn.jsx";
+import Testimonials from "./components/Testimonials/Testimonials.jsx";
+import Curious from "./components/Curious/Curious.jsx";
 
 export default function App() {
   return (
     <main>
       <Hero />
+      <TrustBar />
       <NotThisEconomy />
       <ChecklistSection />
       <Mechanism />
@@ -26,6 +30,8 @@ export default function App() {
       <MeetNerd />
       <Founder />
       <SystemBorn />
+      <Testimonials />
+      <Curious />
     </main>
   );
 }

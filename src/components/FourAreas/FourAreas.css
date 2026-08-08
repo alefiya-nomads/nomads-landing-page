@@ -20,7 +20,7 @@
   color: var(--white);
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: clamp(1.2rem, 2.4vw, 1.9rem);
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
   padding: 12px 32px;
 }
 
@@ -66,9 +66,9 @@
   margin: 0 auto var(--space-xl);
   position: relative;
   z-index: 1;
-  background: transparent;
+  background: #F2E6D8;
   border-radius: 0;
-  padding: 0;
+  padding: 30px;
   margin-top: -320px;
 }
 

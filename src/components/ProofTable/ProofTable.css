@@ -1,7 +1,10 @@
 .proof {
   background-image: url("/Assets/landing-page/Texture.webp");
-  background-size: cover;
-  background-position: center;
+  /* Tile at native resolution instead of stretching one copy over the
+     whole (tall) section — keeps the paper grain crisp. */
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: top left;
   padding: var(--space-3xl) 0;
 }
 

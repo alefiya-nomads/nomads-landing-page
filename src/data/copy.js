@@ -382,7 +382,7 @@ export const founder = {
       // paragraphs verbatim. Nothing here is reworded or trimmed.
       name: "Lara Acosta",
       role: "Forbes 30 under 30. Founder, Literally Academy",
-      avatarSrc: "/assets/testimonial/lara.jpg",
+      avatarSrc: "/Assets/testimonial/lara.jpg",
       headline: "She saved me time, and made me so much money, and I am so so so happy that I found her.",
       highlightPhrase: "so much money",
       body: [
@@ -398,7 +398,7 @@ export const founder = {
         "–Ryan Schwartz, founder of Empire Engineering (The marketer 8-figure giants like Amy Porterfield, Dan Martelle, and Joanna Wiebe)",
       name: "Ryan Schwartz",
       role: "Founder of Empire Engineering",
-      avatarSrc: "/assets/testimonial/ryan.jpg",
+      avatarSrc: "/Assets/testimonial/ryan.jpg",
       headline: "Words of advice: never underestimate her.",
       highlightPhrase: "never underestimate her",
       body: [
@@ -424,14 +424,14 @@ export const curious = {
     {
       company: "Golfbays",
       type: "E-commerce company",
-      logoSrc: "/assets/curious-section/golfsbay.avif",
+      logoSrc: "/Assets/curious-section/golfsbay.avif",
       text: "An ecommerce brand with 440K monthly Shopify visits scaled from 0.044% web to demo conversion rate to 14% and made £97,000 in 20 days with the same ad spend.",
       caseStudyUrl: "#",
     },
     {
       company: "Lara Acosta",
       type: "Founder of Literally Academy",
-      logoSrc: "/assets/curious-section/lara.jpg",
+      logoSrc: "/Assets/curious-section/lara.jpg",
       text: "A Forbes 30 U 30 media business that grossed $70K on launch with a 6% email CTR came back for the next one and did half a million dollars with the same traffic.",
       caseStudyUrl: "#",
     },

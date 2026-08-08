@@ -1,0 +1,186 @@
+/* v1's Section tone="gradient-cream-dark" background + dark-tone text
+   color, inlined since v2 sections are plain <section> elements. */
+.curious {
+  background-image: url("/Assets/backgrounds/gradient-cream-dark.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--bg-cream);
+  padding: var(--space-3xl) 0;
+}
+
+.curious h2 {
+  color: var(--bg-cream);
+}
+
+.curious .wrap {
+  padding: 0;
+}
+
+.curious__heading {
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.curious__accent-e {
+  font-family: var(--font-display);
+  text-transform: none;
+  font-weight: 900;
+}
+
+.curious__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-xl) var(--space-md);
+  margin: var(--space-sm) 0 var(--space-xl);
+}
+
+.curious__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  min-width: 0;
+}
+
+.curious__column > * {
+  min-width: 0;
+}
+
+/* Outer wrapper: image background + hard box shadow */
+.curious__case-card {
+  background-image: url("/Assets/backgrounds/image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0;
+  padding: 10px;
+  box-shadow: var(--shadow-hard);
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* White inner card */
+.curious__case-inner {
+  background: #fff;
+  border: 2px solid #391129;
+  border-radius: 0;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  height: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Header: logo image + company name/type */
+.curious__case-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.curious__case-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 2px solid var(--brand-plum);
+}
+
+.curious__case-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* v1 used Kilimanjaro (--font-display) here — deliberately swapped to
+   Montserrat bold in v2 per direction. */
+.curious__case-company {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--brand-plum);
+  line-height: 1.2;
+}
+
+.curious__case-type {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--ink-dark);
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.curious__case-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink-dark);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+@media (max-width: 1000px) {
+  .curious__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    margin-bottom: 0;
+  }
+
+  /* Dissolve the columns so the stat tiles and case cards become direct
+     grid items — all three count-up stats stack together first, then
+     all three case cards. */
+  .curious__column {
+    display: contents;
+  }
+
+  .curious__column > * {
+    max-width: 700px;
+    width: 100%;
+    justify-self: center;
+  }
+
+  .curious__case-card {
+    order: 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .curious {
+    padding: var(--space-xl) 0;
+  }
+
+  #curious {
+    padding-bottom: var(--space-lg) !important;
+  }
+}
+
+@media (min-width: 1001px) {
+  .curious__column {
+    display: grid;
+    /* Fallback for older browsers: just lay them out vertically */
+    grid-template-rows: auto 1fr;
+    /* Modern browsers: sync rows across all columns so the tops perfectly align */
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+  }
+}
+
+/* Handle the squeeze zone where 3 columns get tight just before collapsing to 1 */
+@media (min-width: 1001px) and (max-width: 1150px) {
+  .curious__case-btn {
+    padding: 12px 18px !important;
+    font-size: 0.82rem !important;
+  }
+}

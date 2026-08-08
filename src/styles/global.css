@@ -83,7 +83,8 @@ p {
   h2.calc__headline,
   h2.four-areas__headline,
   h2.meet-nerd__headline,
-  h2.system-born__heading {
+  h2.system-born__heading,
+  h2.curious__heading {
     font-size: 1.6rem;
   }
 
@@ -98,7 +99,8 @@ p {
   h2.checklist__headline,
   h2.mechanism__headline,
   h2.four-areas__headline,
-  h2.system-born__heading {
+  h2.system-born__heading,
+  h2.curious__heading {
     text-align: left;
   }
 
@@ -147,7 +149,7 @@ p {
 .wrap {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--space-lg);
+  padding: 0;
 }
 
 .measure {
