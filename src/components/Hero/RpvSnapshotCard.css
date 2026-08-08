@@ -148,13 +148,72 @@
   text-align: center;
 }
 
+/* Tablet (601–900px): card is a normal flex item beside the photo. */
 @media (max-width: 900px) {
   .rpv-card {
     position: relative;
     left: auto;
     bottom: auto;
     width: auto;
-    max-width: 380px;
-    margin: var(--space-md) auto 0;
+    max-width: 340px;
+    flex: 0 1 340px;
+    margin: 0;
+  }
+}
+
+/* Narrow phones (≤600px): card overlaps the photo's lower-left, the same
+   relationship as desktop, so photo + card read as one unit. */
+@media (max-width: 600px) {
+  .rpv-card {
+    position: absolute;
+    left: -10px;
+    bottom: 10px;
+    width: 62%;
+    max-width: 240px;
+    flex: none;
+    margin: 0;
+    border-radius: 14px;
+  }
+
+  .rpv-card__bar {
+    padding: 8px 12px;
+    font-size: 0.72rem;
+  }
+
+  .rpv-card__body {
+    padding: 10px;
+  }
+
+  .rpv-card__main {
+    gap: 8px;
+  }
+
+  .rpv-card__k {
+    font-size: 0.55rem;
+    padding: 3px 6px;
+  }
+
+  .rpv-card__v {
+    font-size: 1.5rem;
+  }
+
+  .rpv-card__chart {
+    padding: 10px 8px 0;
+  }
+
+  .rpv-card__bars {
+    height: 90px;
+  }
+
+  .rpv-card__bar-fill {
+    width: 30px;
+  }
+
+  .rpv-card__potential {
+    width: 48px;
+  }
+
+  .rpv-card__cap {
+    font-size: 0.62rem;
   }
 }

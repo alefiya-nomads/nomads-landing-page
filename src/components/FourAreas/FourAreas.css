@@ -131,6 +131,8 @@
   .four-areas__grid {
     grid-template-columns: 1fr;
     margin-top: -220px;
+    background: transparent;
+    padding: 0;
   }
 
   .four-areas__bottom {

@@ -100,13 +100,13 @@ p {
   h2.mechanism__headline,
   h2.four-areas__headline,
   h2.system-born__heading,
-  h2.curious__heading {
+  h2.curious__heading,
+  h2.calc__headline {
     text-align: left;
   }
 
   h2.proof-intro__headline,
-  h2.meet-nerd__headline,
-  h2.calc__headline {
+  h2.meet-nerd__headline {
     text-align: center;
   }
 }

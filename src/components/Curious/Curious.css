@@ -164,6 +164,10 @@
   #curious {
     padding-bottom: var(--space-lg) !important;
   }
+
+  .curious .wrap {
+    padding: 0 30px;
+  }
 }
 
 @media (min-width: 1001px) {

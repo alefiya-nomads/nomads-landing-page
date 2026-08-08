@@ -119,6 +119,8 @@
   z-index: 2;
 }
 
+/* Tablet (601–900px): photo + snapshot card sit side by side as one
+   horizontal unit below the copy, vertically centered. */
 @media (max-width: 900px) {
   .hero__grid {
     grid-template-columns: 1fr;
@@ -127,20 +129,46 @@
   .hero__visual {
     align-self: auto;
     margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
   }
 
   .hero__photo-wrap {
     justify-content: center;
     margin-right: 0;
-    margin-bottom: var(--space-lg);
+    margin-bottom: 0;
+    flex: 0 1 auto;
   }
 
   .hero__photo {
-    width: 75%;
-    max-width: 100%;
+    width: 100%;
+    max-width: 320px;
   }
 
   .hero__doodle {
     display: none;
+  }
+}
+
+/* Narrow phones (≤600px): side-by-side gets cramped, so stack the photo
+   and card into one overlapping unit (card over the photo's lower-left),
+   the same relationship as desktop. */
+@media (max-width: 600px) {
+  .hero__visual {
+    display: block;
+    position: relative;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .hero__photo-wrap {
+    justify-content: flex-end;
+  }
+
+  .hero__photo {
+    width: 88%;
+    max-width: 88%;
   }
 }

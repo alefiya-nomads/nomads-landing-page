@@ -79,12 +79,16 @@
 
 @media (max-width: 760px) {
   h2.mechanism__headline {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   /* 30px so the card's 10px plum ring shadow still clears the viewport
      edge with ~20px of breathing room. */
   .mechanism .wrap {
     padding: 30px;
+  }
+
+  .mechanism__card {
+    padding: 22px;
   }
 }

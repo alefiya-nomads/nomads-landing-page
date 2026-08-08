@@ -13,6 +13,7 @@ import Founder from "./components/Founder/Founder.jsx";
 import SystemBorn from "./components/SystemBorn/SystemBorn.jsx";
 import Testimonials from "./components/Testimonials/Testimonials.jsx";
 import Curious from "./components/Curious/Curious.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
       <SystemBorn />
       <Testimonials />
       <Curious />
+      <Footer />
     </main>
   );
 }
