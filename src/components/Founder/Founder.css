@@ -51,7 +51,7 @@
   background-size: 1876px auto;
   background-repeat: repeat;
   background-position: top left;
-  padding: var(--space-2xl) var(--space-xl) var(--space-3xl) var(--space-xl);
+  padding: var(--space-2xl) 110px var(--space-3xl) 110px;
 }
 
 .founder__intro {
@@ -71,7 +71,7 @@
 .founder__intro-name {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-size: clamp(2.8rem, 4.8vw, 4rem);
   line-height: 1.1;
   color: #152638;
 }
@@ -144,6 +144,6 @@
   }
 
   .founder__copy-col {
-    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+    padding: var(--space-xl) 24px var(--space-2xl);
   }
 }

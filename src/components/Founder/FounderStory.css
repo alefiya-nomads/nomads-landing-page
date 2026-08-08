@@ -12,7 +12,8 @@
 
 .founder-story__box {
   background: var(--white);
-  border: 2px solid var(--ink-dark);
+  border: 4px solid var(--ink-dark);
+  box-shadow: 0 0 0 4px white;
   padding: var(--space-lg);
   margin: 0 0 var(--space-md);
 }
@@ -33,4 +34,24 @@
   font-size: 1.2rem;
   padding: 0.35em 0.7em;
   transform: skewX(-4deg) rotate(-1deg);
+}
+
+/* Mobile type scale matched to the founder-column reference image so the
+   line breaks land on the same words (measured at ~440px viewport). */
+@media (max-width: 760px) {
+  .founder-story {
+    font-size: 0.9rem;
+  }
+
+  .founder-story__accent {
+    font-size: 1rem;
+  }
+
+  .founder-story__strong {
+    font-size: 1.05rem;
+  }
+
+  .founder-story__box {
+    padding: 20px;
+  }
 }

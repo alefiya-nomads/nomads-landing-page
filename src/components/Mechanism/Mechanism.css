@@ -4,6 +4,11 @@
   padding: 0.1px 0 var(--space-3xl);
 }
 
+/* Card runs the full container width — no wrap gutter (explicit ask). */
+.mechanism .wrap {
+  padding: 0;
+}
+
 /* Card overlaps up into the checklist section above it (design-v2.md 0.7 —
    let images/cards overlap — and per explicit direction: this section is
    half-overlapping the previous one). Double ring border (white + plum)
@@ -65,7 +70,21 @@
     padding: var(--space-lg);
   }
 
-  .mechanism__headline {
+  /* h2-qualified so it also outranks the global uniform mobile heading
+     rule at <=760px. 2rem on tablet (761–900px). */
+  h2.mechanism__headline {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  h2.mechanism__headline {
     font-size: 1.5rem;
+  }
+
+  /* 30px so the card's 10px plum ring shadow still clears the viewport
+     edge with ~20px of breathing room. */
+  .mechanism .wrap {
+    padding: 30px;
   }
 }

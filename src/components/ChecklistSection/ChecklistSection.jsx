@@ -33,7 +33,7 @@ export default function ChecklistSection() {
       />
       <img
         className="checklist__doodle-arrows"
-        src="/Assets/Doodle/straight arrow.png"
+        src="/Assets/Doodle/blue straight arrow.png"
         alt=""
         aria-hidden="true"
       />
