@@ -150,8 +150,8 @@ p {
    0.1). This is Kilimanjaro's only correct use case in V2: never wrap a
    full headline in it. */
 .accent-word {
-  font-family: var(--font-display);
-  font-weight: 900;
+  font-family: var(--font-body);
+  font-weight: 800;
   line-height: inherit;
   letter-spacing: -0.01em;
 }

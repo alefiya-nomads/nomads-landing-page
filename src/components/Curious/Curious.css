@@ -169,6 +169,11 @@
   .curious__case-text {
     font-size: 14px;
   }
+
+  /* h2-qualified to override global.css's uniform 1.6rem mobile heading. */
+  h2.curious__heading {
+    font-size: 1.7rem;
+  }
 }
 
 @media (min-width: 1001px) {

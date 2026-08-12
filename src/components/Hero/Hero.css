@@ -2,11 +2,15 @@
   position: relative;
   background: linear-gradient(135deg, var(--bg-cream) 55%, #f3e3d8 100%);
   padding: var(--space-2xl) 0 var(--space-3xl);
+  /* Clip the 50vw gif's scrollbar-width overshoot (and the mobile band)
+     so neither creates a page-wide horizontal scrollbar. overflow-x: clip
+     leaves vertical bleed (visual margin) untouched. */
+  overflow-x: clip;
 }
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-xl);
   align-items: center;
 }
@@ -100,10 +104,14 @@
   position: relative;
   display: flex;
   justify-content: flex-end;
+  /* Break the gif out of the wrap so it bleeds to the viewport's right
+     edge (same overshoot formula as Founder/Footer). */
+  margin-right: calc(-1 * (max(0px, (100vw - var(--container-max)) / 2) + var(--space-lg)));
 }
 
 .hero__photo {
-  width: 480px;
+  /* Fills the right half of the screen, right-aligned to the edge. */
+  width: 50vw;
   max-width: none;
   flex-shrink: 0;
   height: auto;
@@ -117,6 +125,27 @@
   width: 92px;
   height: auto;
   z-index: 2;
+}
+
+/* Desktop: full-width hero with 40px side gutters (instead of the centered
+   1200 wrap), so the copy sits 40px from the left edge on any screen. */
+@media (min-width: 901px) {
+  .hero .wrap {
+    max-width: none;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .hero__copy {
+    max-width: 900px;
+    margin-left: 0;
+  }
+
+  /* Cancel the wrap's right gutter for the gif so it still bleeds to the
+     viewport's right edge. */
+  .hero__photo-wrap {
+    margin-right: -40px;
+  }
 }
 
 /* Mobile/tablet (≤900px): photo stacks in a flex column (no gap) with the
@@ -170,7 +199,7 @@
   /* h1.hero__headline needed to out-rank global.css's uniform 1.6rem
      mobile heading rule (same specificity, this file loads later). */
   h1.hero__headline {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     text-wrap: balance;
   }
 

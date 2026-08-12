@@ -4,7 +4,7 @@ import RpvSnapshotCard from "./RpvSnapshotCard.jsx";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { hero } from "../../data/copy.js";
 
-const PHOTO_SRC = "/Assets/Images/hero section.png";
+const PHOTO_SRC = "/Assets/Gifs/Hero section gif.gif";
 
 export default function Hero() {
   const [eyebrowIntro, bullet1, bullet2, rpvLine] = hero.eyebrow;

@@ -128,6 +128,11 @@
     padding: var(--space-2xl) 0 calc(var(--space-2xl) + 160px);
   }
 
+  /* h2-qualified to override global.css's uniform 1.6rem mobile heading. */
+  h2.four-areas__headline {
+    font-size: 1.5rem;
+  }
+
   .four-areas__grid {
     grid-template-columns: 1fr;
     margin-top: -220px;
@@ -153,6 +158,11 @@
 
   /* Mobile body copy bumped to 20px (section headline unaffected). */
   .four-areas__card-body {
-    font-size: 20px;
+    font-size: 16px;
+  }
+
+  .four-areas__card {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }

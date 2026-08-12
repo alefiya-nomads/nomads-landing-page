@@ -83,7 +83,7 @@
 .workshop__closing-para {
   color: var(--ink-dark);
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 15px;
   line-height: 1.6;
   margin: 0 0 var(--space-md);
 }
@@ -119,7 +119,6 @@
     margin: 0;
   }
 
-  .workshop__closing-para,
   .workshop__closer {
     font-size: 0.8rem;
   }
@@ -148,18 +147,27 @@
 
   .workshop__closing {
     position: relative;
-    width: 80%;
+    width: 100%;
   }
 }
 
 @media (max-width: 760px) {
   .workshop {
-    padding: var(--space-2xl) 0 150px;
+    padding: var(--space-2xl) 0 75px;
   }
 
-  /* Mobile body copy bumped to 20px (headline/chip/closer unaffected;
+  /* Mobile intro copy: 18px, left-aligned (headline/chip/closer unaffected;
      the closing card stays at its 0.8rem compact size). */
   .workshop__para {
-    font-size: 20px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .workshop__closing {
+    padding: 16px;
+  }
+
+  .workshop__closer {
+    text-align: left;
   }
 }

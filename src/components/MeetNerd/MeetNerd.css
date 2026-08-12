@@ -47,6 +47,11 @@
     padding: var(--space-2xl) 0;
   }
 
+  /* h2-qualified to override global.css's uniform 1.6rem mobile heading. */
+  h2.meet-nerd__headline {
+    font-size: 1.5rem;
+  }
+
   /* Keep the seam badge on mobile too (per the reference), just smaller. */
   .meet-nerd__badge {
     width: 96px;

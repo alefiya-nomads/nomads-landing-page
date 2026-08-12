@@ -161,10 +161,16 @@
   }
 
   /* Mobile body copy + point labels bumped to 20px (headline unaffected). */
-  .calc__subtitle,
   .calc__point-label,
   .calc__point-body,
   .calc__gap-text {
     font-size: 20px;
+  }
+
+  /* .center is a global class on this element; matching its specificity
+     here (element+class order) flips it left on mobile. */
+  .calc__subtitle.center {
+    font-size: 17px;
+    text-align: left;
   }
 }

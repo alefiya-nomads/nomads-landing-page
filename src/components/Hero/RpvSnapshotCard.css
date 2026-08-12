@@ -78,6 +78,9 @@
   background-image: linear-gradient(rgba(93, 27, 78, 0.12) 1px, transparent 1px);
   background-size: 100% 20%;
   padding: 18px 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .rpv-card__potential {
@@ -99,7 +102,7 @@
 }
 
 .rpv-card__bar-fill {
-  width: 44px;
+  width: 40px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -117,6 +120,7 @@
 .rpv-card__bar-fill--pot {
   background: #2A0D20;
   border-radius: 6px;
+  width: 40px;
 }
 
 .rpv-card__bar-label {
@@ -198,7 +202,8 @@
     width: 30px;
   }
 
-  .rpv-card__bar-fill--now {
+  .rpv-card__bar-fill--now,
+  .rpv-card__bar-fill--pot {
     width: 40px;
   }
 

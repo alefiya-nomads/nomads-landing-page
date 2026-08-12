@@ -101,7 +101,7 @@
   }
 
   .system-born__text {
-    padding: var(--space-xl) var(--space-lg);
+    padding: 16px 10px var(--space-xl);
   }
 
   .system-born__br {

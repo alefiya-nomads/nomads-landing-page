@@ -15,7 +15,13 @@
 
 @media (max-width: 760px) {
   .testimonials {
-    padding-top: var(--space-md);
-    padding-bottom: var(--space-md);
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  /* Tighter side gutters so the card content column isn't so narrow. */
+  .testimonials .wrap {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }

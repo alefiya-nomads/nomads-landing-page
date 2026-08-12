@@ -133,7 +133,7 @@
 
 @media (max-width: 700px) {
   .testimonial-card__inner {
-    padding: 40px 22px;
+    padding: 40px 12px;
   }
   .testimonial-card__grid {
     grid-template-columns: 1fr;
@@ -147,9 +147,14 @@
   }
 }
 
-/* Mobile body copy bumped to 20px (headline/name/role unaffected). */
+/* Mobile body copy bumped to 20px (headline/name/role unaffected).
+   Frame rim trimmed so the content column isn't squeezed thin. */
 @media (max-width: 760px) {
+  .testimonial-card {
+    padding: 8px;
+  }
+
   .testimonial-card__body-line {
-    font-size: 20px;
+    font-size: 15px;
   }
 }
