@@ -29,7 +29,7 @@ export default function RpvSnapshotCard() {
   const potentialPct = 100;
 
   return (
-    <div className="rpv-card">
+    <div className="rpv-card" data-reveal data-reveal-delay="320">
       <div className="rpv-card__bar">
         <span>Your RPV Snapshot</span>
       </div>

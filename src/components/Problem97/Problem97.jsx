@@ -14,9 +14,11 @@ export default function Problem97() {
 
       <div className="problem__panel problem__panel--light">
         <div className="problem__content">
-          <p className="problem__stat-label">{problem.lines[1]}</p>
+          <p className="problem__stat-label" data-reveal>
+            {problem.lines[1]}
+          </p>
 
-          <div className="problem__chart-row">
+          <div className="problem__chart-row" data-reveal data-reveal-delay="120">
             <div className="problem__chart" role="img" aria-label="97% of 100 people don't see the problem yet, 3% buy it immediately">
               <span className="problem__chart-slice problem__chart-slice--small">
                 3%
@@ -39,7 +41,7 @@ export default function Problem97() {
             </h3>
           </div>
 
-          <div className="problem__callouts">
+          <div className="problem__callouts" data-reveal>
             <div className="problem__callout">
               <span className="problem__callout-num">03</span>
               <div>
@@ -59,14 +61,18 @@ export default function Problem97() {
           {/* Reference shows "97 people" here; copy.js's problem.lines[3] and
               legend say "70" (3/70/27 split) instead of the reference's 3/97
               split — flagged per 0.8, defaulting to the reference's numbers. */}
-          <p className="problem__para">
+          <p className="problem__para" data-reveal>
             So when your messaging targets the problem ("medicine for ulcers"), <strong>you lose the 97 people</strong>{" "}
             who genuinely believe they don&rsquo;t have ulcers.
           </p>
 
-          <p className="problem__highlight">{problem.lines[4]}</p>
+          <p className="problem__highlight" data-reveal data-reveal-delay="100">
+            {problem.lines[4]}
+          </p>
 
-          <p className="problem__para problem__para--bold">{problem.lines[5]}</p>
+          <p className="problem__para problem__para--bold" data-reveal data-reveal-delay="180">
+            {problem.lines[5]}
+          </p>
         </div>
       </div>
     </section>

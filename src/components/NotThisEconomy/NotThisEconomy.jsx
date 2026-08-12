@@ -27,7 +27,7 @@ export default function NotThisEconomy() {
       <div className="economy__frame">
         <div className="wrap economy__grid">
           <div className="economy__copy">
-            <h2 className="economy__headline">
+            <h2 className="economy__headline" data-reveal>
               {headlineLine1}{" "}
               <br className="hl-br" />
               {headlineLine2}{" "}
@@ -37,10 +37,12 @@ export default function NotThisEconomy() {
               {headlineLine4Prefix} <HighlightSweep tone="iceblue">getting "more traffic".</HighlightSweep>
             </h2>
 
-            <p className="economy__sub">{sub}</p>
+            <p className="economy__sub" data-reveal data-reveal-delay="120">
+              {sub}
+            </p>
           </div>
 
-          <div className="economy__visual">
+          <div className="economy__visual" data-reveal data-reveal-delay="200">
             <img src={LAPTOP_SRC} alt="RPV dashboard shown on a laptop" className="economy__laptop" />
           </div>
         </div>

@@ -31,7 +31,7 @@ export default function Hero() {
       <img src="/Assets/Doodle/Group 450.png" alt="" className="hero__doodle" aria-hidden="true" />
       <div className="wrap hero__grid">
         <div className="hero__copy">
-          <p className="hero__eyebrow">
+          <p className="hero__eyebrow" data-reveal>
             {introA}
             <strong>$10k+</strong>
             {introB}
@@ -39,7 +39,7 @@ export default function Hero() {
             {introC}
           </p>
 
-          <h1 className="hero__headline">
+          <h1 className="hero__headline" data-reveal data-reveal-delay="80">
             {headlineLine1}{" "}
             <br className="hl-br" />
             {headlineLine2}{" "}
@@ -49,7 +49,7 @@ export default function Hero() {
             {headlineLine4Prefix} <span className="accent-word">website visitors?</span>
           </h1>
 
-          <ul className="hero__list">
+          <ul className="hero__list" data-reveal data-reveal-delay="160">
             <li>
               <img src="/icons/point-arrow.avif" alt="" className="hero__list-arrow" />
               {bullet1}
@@ -60,19 +60,23 @@ export default function Hero() {
             </li>
           </ul>
 
-          <p className="hero__rpv-line">
+          <p className="hero__rpv-line" data-reveal data-reveal-delay="240">
             <strong>{rpvBold}</strong>
             Increase how much you earn per visitor
             {rpvRest}
           </p>
 
-          <Button href="#diagnostic">{hero.ctaLabel}</Button>
+          <div data-reveal data-reveal-delay="320">
+            <Button href="#diagnostic">{hero.ctaLabel}</Button>
+          </div>
 
-          <p className="hero__followup">{hero.followUp}</p>
+          <p className="hero__followup" data-reveal data-reveal-delay="400">
+            {hero.followUp}
+          </p>
         </div>
 
         <div className="hero__visual">
-          <div className="hero__photo-wrap">
+          <div className="hero__photo-wrap" data-reveal data-reveal-delay="200">
             <img src={PHOTO_SRC} alt="Alefiya, co-founder and CMO at Nomads Marketing" className="hero__photo" />
           </div>
 

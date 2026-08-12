@@ -1,10 +1,7 @@
-/* v1's Section tone="gradient-cream-dark" background + dark-tone text
-   color, inlined since v2 sections are plain <section> elements. */
+/* Solid Midnight Blue foundation background, matching the curious-section
+   reference image (replaces v1's gradient-cream-dark JPG). */
 .curious {
-  background-image: url("/Assets/backgrounds/gradient-cream-dark.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: var(--bg-navy);
   color: var(--bg-cream);
   padding: var(--space-3xl) 0;
 }
@@ -14,15 +11,16 @@
 }
 
 .curious .wrap {
-  padding: 0;
+  padding: 0 30px;
 }
 
 .curious__heading {
   font-size: clamp(1.6rem, 3vw, 2.6rem);
-  max-width: 800px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
+  text-align: center;
 }
 
 .curious__accent-e {
@@ -49,26 +47,25 @@
   min-width: 0;
 }
 
-/* Outer wrapper: image background + hard box shadow */
+/* Same frame as the stat cards: gradient-image rim, 3px white border,
+   rounded corners, hard plum offset shadow. */
 .curious__case-card {
-  background-image: url("/Assets/backgrounds/image.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  border-radius: 0;
-  padding: 10px;
-  box-shadow: var(--shadow-hard);
+  background: url("/Assets/landing-page/Gradient Background wide-07.png")
+    center / cover no-repeat;
+  border: 3px solid #fff;
+  border-radius: 28px;
+  padding: 9px;
+  box-shadow: 9px 10px 0 0 var(--brand-plum-secondary);
   min-width: 0;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* White inner card */
+/* Cream inner card — same 3px #391129 border as the stat inner panel. */
 .curious__case-inner {
-  background: #fff;
-  border: 2px solid #391129;
-  border-radius: 0;
+  background: #faf3e6;
+  border: 3px solid #391129;
+  border-radius: 22px;
   padding: var(--space-lg);
   display: flex;
   flex-direction: column;
@@ -167,6 +164,10 @@
 
   .curious .wrap {
     padding: 0 30px;
+  }
+
+  .curious__case-text {
+    font-size: 14px;
   }
 }
 

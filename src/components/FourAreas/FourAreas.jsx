@@ -16,7 +16,7 @@ export default function FourAreas() {
       <div className="four-areas__top">
         <div className="wrap center">
           <span className="four-areas__chip">In Under 5 Minutes</span>
-          <h2 className="four-areas__headline">
+          <h2 className="four-areas__headline" data-reveal>
             The Diagnostic Will Walk You{" "}
             <br className="hl-br" />
             Through{" "}
@@ -37,7 +37,7 @@ export default function FourAreas() {
         <div className="wrap">
           <div className="four-areas__grid">
             {fourAreas.areas.map((area, i) => (
-              <div className="four-areas__card" key={i}>
+              <div className="four-areas__card" key={i} data-reveal data-reveal-delay={i * 90}>
                 <img className="four-areas__icon" src={ICONS[i]} alt="" aria-hidden="true" />
                 <h3 className="four-areas__card-title">{area.title}</h3>
                 <p className="four-areas__card-body">{area.body}</p>
@@ -52,7 +52,7 @@ export default function FourAreas() {
             aria-hidden="true"
           />
 
-          <div className="four-areas__cta center">
+          <div className="four-areas__cta center" data-reveal>
             <Button href="#diagnostic">Start the diagnostic now</Button>
           </div>
         </div>

@@ -44,7 +44,7 @@ export default function ChecklistSection() {
         aria-hidden="true"
       />
       <div className="wrap">
-        <h2 className="checklist__headline">
+        <h2 className="checklist__headline" data-reveal>
           {headlineLine1}{" "}
           <br className="hl-br" />
           {headlineLine2}{" "}
@@ -52,7 +52,7 @@ export default function ChecklistSection() {
           <HighlightSweep tone="plum">{headlineLine3}</HighlightSweep>
         </h2>
 
-        <div className="checklist__intro-row">
+        <div className="checklist__intro-row" data-reveal data-reveal-delay="120">
           <span className="checklist__tag">{checklistIntro.sub}</span>
           {/* Reference reads "TICK THE BOX AND FIND OUT." — copy.js's chip
               says "Check all that apply" (conflict flagged, defaulting to
@@ -62,7 +62,12 @@ export default function ChecklistSection() {
 
         <ul className="checklist__list">
           {scenarios.map((scenario, i) => (
-            <li key={scenario.id} className={`checklist__item ${i % 2 === 0 ? "checklist__item--plum" : "checklist__item--navy"}`}>
+            <li
+              key={scenario.id}
+              className={`checklist__item ${i % 2 === 0 ? "checklist__item--plum" : "checklist__item--navy"}`}
+              data-reveal
+              data-reveal-delay={i * 70}
+            >
               <label className="checklist__label">
                 <input type="checkbox" className="checklist__checkbox" />
                 <span>{scenario.situation}</span>
@@ -71,7 +76,7 @@ export default function ChecklistSection() {
           ))}
         </ul>
 
-        <div className="checklist__cta">
+        <div className="checklist__cta" data-reveal>
           <Button href="#diagnostic">{ctaLabel}</Button>
           <p className="checklist__cta-sub">{checklistOutro.sub}</p>
         </div>

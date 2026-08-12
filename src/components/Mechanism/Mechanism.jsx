@@ -8,24 +8,26 @@ export default function Mechanism() {
     <section className="mechanism">
       <div className="wrap">
         <div className="mechanism__card">
-          <div className="mechanism__visual">
+          <div className="mechanism__visual" data-reveal>
             <img src={LAPTOP_SRC} alt="Whiteboard sketch of the Compounding RPV OS" className="mechanism__laptop" />
           </div>
 
           <div className="mechanism__copy">
-            <p className="mechanism__intro">{mechanism.lines[0]}</p>
+            <p className="mechanism__intro" data-reveal data-reveal-delay="120">
+              {mechanism.lines[0]}
+            </p>
 
             {/* Reference image shows this as a headline + separate paragraph, dropping
                 the brackets/™ that copy.js's single-sentence lines[1] carries — flagged
                 per design-v2.md 0.8, defaulting to the reference's exact wording/split. */}
-            <h2 className="mechanism__headline">
+            <h2 className="mechanism__headline" data-reveal data-reveal-delay="200">
               Our proprietary diagnostic{" "}
               <br className="hl-br" />
               system: Compounding Revenue{" "}
               <br className="hl-br" />
               Per Vistor Operating System
             </h2>
-            <p className="mechanism__body">
+            <p className="mechanism__body" data-reveal data-reveal-delay="280">
               Was built by reverse engineering hundreds of customer journeys and figuring out what makes people go
               from “I don’t think this is for me” to “I need this”.
             </p>

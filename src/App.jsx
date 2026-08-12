@@ -8,14 +8,19 @@ import ProofIntro from "./components/ProofIntro/ProofIntro.jsx";
 import ProofTable from "./components/ProofTable/ProofTable.jsx";
 import Calculator from "./components/Calculator/Calculator.jsx";
 import FourAreas from "./components/FourAreas/FourAreas.jsx";
+import Workshop from "./components/Workshop/Workshop.jsx";
 import MeetNerd from "./components/MeetNerd/MeetNerd.jsx";
 import Founder from "./components/Founder/Founder.jsx";
 import SystemBorn from "./components/SystemBorn/SystemBorn.jsx";
 import Testimonials from "./components/Testimonials/Testimonials.jsx";
 import Curious from "./components/Curious/Curious.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import useReveal from "./hooks/useReveal.js";
 
 export default function App() {
+  // Fades in the content inside each section as it scrolls into view.
+  useReveal();
+
   return (
     <main>
       <Hero />
@@ -28,6 +33,7 @@ export default function App() {
       <ProofTable />
       <Calculator />
       <FourAreas />
+      <Workshop />
       <MeetNerd />
       <Founder />
       <SystemBorn />

@@ -21,7 +21,7 @@ export default function Curious() {
   return (
     <section className="curious" id="curious">
       <div className="wrap">
-        <h2 className="curious__heading">
+        <h2 className="curious__heading" data-reveal>
           {headingParts[0]}
           curious
           {preSweep}
@@ -34,11 +34,14 @@ export default function Curious() {
         <div className="curious__grid">
           {curious.cases.map((c, i) => {
             const s = curious.stats[i];
+            // Inner-panel tone rotates cream -> lavender -> ice across the
+            // three stat cards, matching the reference image.
+            const tone = ["", "lavender", "ice"][i] ?? "";
             return (
               <div key={i} className="curious__column">
                 {s && (
                   <Reveal delay={i * 100}>
-                    <CountUpStat {...s} />
+                    <CountUpStat {...s} tone={tone} />
                   </Reveal>
                 )}
 

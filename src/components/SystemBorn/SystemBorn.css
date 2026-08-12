@@ -119,4 +119,9 @@
   .system-born__photo img {
     max-height: 420px;
   }
+
+  /* Mobile body copy bumped to 20px (heading/badges unaffected). */
+  .system-born__para {
+    font-size: 20px;
+  }
 }

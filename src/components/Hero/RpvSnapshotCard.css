@@ -148,26 +148,13 @@
   text-align: center;
 }
 
-/* Tablet (601–900px): card is a normal flex item beside the photo. */
+/* Mobile/tablet (≤900px): card overlaps the stacked photo, pulled up from
+   the bottom of the visual so it reads as one unit with the photo. */
 @media (max-width: 900px) {
-  .rpv-card {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    width: auto;
-    max-width: 340px;
-    flex: 0 1 340px;
-    margin: 0;
-  }
-}
-
-/* Narrow phones (≤600px): card overlaps the photo's lower-left, the same
-   relationship as desktop, so photo + card read as one unit. */
-@media (max-width: 600px) {
   .rpv-card {
     position: absolute;
     left: -10px;
-    bottom: 10px;
+    bottom: 202px;
     width: 62%;
     max-width: 240px;
     flex: none;
@@ -215,5 +202,12 @@
 
   .rpv-card__cap {
     font-size: 0.62rem;
+  }
+}
+
+/* Mobile view: sit the snapshot card near the bottom of the stacked photo. */
+@media (max-width: 760px) {
+  .rpv-card {
+    bottom: 40px;
   }
 }

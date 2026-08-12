@@ -116,4 +116,10 @@
   .proof__card {
     padding: var(--space-sm) var(--space-md);
   }
+
+  /* Mobile body copy bumped to 20px (column headers unaffected). */
+  .proof__card p,
+  .proof__sub {
+    font-size: 20px;
+  }
 }

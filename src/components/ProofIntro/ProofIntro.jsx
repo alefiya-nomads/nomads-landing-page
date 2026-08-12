@@ -6,13 +6,15 @@ export default function ProofIntro() {
   return (
     <section className="proof-intro">
       <div className="wrap center">
-        <h2 className="proof-intro__headline">
+        <h2 className="proof-intro__headline" data-reveal>
           How Do You Convince{" "}
           <br className="hl-br" />
           <HighlightSweep tone="plumdark">Them To Buy From You?</HighlightSweep>
         </h2>
 
-        <p className="proof-intro__sub">{problem.lines[3]}</p>
+        <p className="proof-intro__sub" data-reveal data-reveal-delay="120">
+          {problem.lines[3]}
+        </p>
       </div>
 
       <img

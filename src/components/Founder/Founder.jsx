@@ -23,11 +23,13 @@ export default function Founder() {
         </div>
 
         <div className="founder__copy-col">
-          <div className="founder__intro">
+          <div className="founder__intro" data-reveal>
             <span className="founder__intro-hey">{founder.intro.hey}</span>
             <span className="founder__intro-name">{founder.intro.name}</span>
           </div>
-          <span className="founder__intro-role">{founder.intro.role}</span>
+          <span className="founder__intro-role" data-reveal data-reveal-delay="120">
+            {founder.intro.role}
+          </span>
 
           <FounderStory
             paragraphs={founder.paragraphs}

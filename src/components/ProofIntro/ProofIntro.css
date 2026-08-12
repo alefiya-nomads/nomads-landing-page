@@ -51,4 +51,9 @@
   .proof-intro__doodle {
     display: none;
   }
+
+  /* Mobile body copy bumped to 20px (headline unaffected). */
+  .proof-intro__sub {
+    font-size: 20px;
+  }
 }

@@ -6,7 +6,7 @@ import "./CountUpStat.css";
  * time it scrolls into view (IntersectionObserver, threshold 0.35,
  * fires once), with a companion loading-bar fill.
  */
-export default function CountUpStat({ target, suffix = "", decimals = 0, label }) {
+export default function CountUpStat({ target, suffix = "", decimals = 0, label, tone = "" }) {
   const ref = useRef(null);
   const [value, setValue] = useState(0);
   const [started, setStarted] = useState(false);
@@ -47,7 +47,7 @@ export default function CountUpStat({ target, suffix = "", decimals = 0, label }
   }, [target, decimals, started]);
 
   return (
-    <div className="count-up-stat" ref={ref}>
+    <div className={`count-up-stat${tone ? ` count-up-stat--${tone}` : ""}`} ref={ref}>
       <div className="count-up-stat__inner">
         <span className="count-up-stat__big">
           {value.toFixed(decimals)}

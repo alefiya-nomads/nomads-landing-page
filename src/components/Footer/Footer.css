@@ -1,89 +1,127 @@
-/* v1's Section tone="footer" background + text color, inlined since v2
-   sections are plain <section> elements. */
+/* Dark textured banner background, per the reference. */
 .footer {
-  background-image: url("/Assets/backgrounds/footer.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: var(--bg-cream);
-  padding: var(--space-3xl) 0;
+  position: relative;
+  background: url("/Assets/landing-page/Dark Backgrounds-01.webp") center / cover
+    no-repeat;
+  color: var(--white);
   overflow: hidden;
+  padding-top: var(--space-2xl);
 }
 
-.footer h2 {
-  color: var(--bg-cream);
-}
-
+/* Woman image (left) + copy column (right). The image bleeds to the
+   section's bottom edge; the copy stays vertically centred beside it. */
 .footer__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: var(--space-xl);
-  align-items: end;
-  text-align: left;
+  grid-template-columns: minmax(0, 46%) minmax(0, 54%);
+  gap: var(--space-2xl);
+  align-items: stretch;
+  position: relative;
 }
 
-.footer__copy {
-  text-align: left;
-}
-
-.footer__line {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: var(--brand-plum);
-  max-width: 620px;
-  margin: 0 0 var(--space-md);
-}
-
-.footer__signature {
-  margin: var(--space-lg) 0 var(--space-lg);
-}
-
-.footer .btn {
-  padding: 18px 12px;
-}
-
-/* Breaks out to the right edge of the viewport and both the top and
-   bottom of the section's own padding, so the photo touches the
-   section's top and bottom edges. Height is a literal value (base
-   420px + the two negated paddings) rather than a stretched 100%, so
-   it can't inflate the row — and therefore the whole section — taller
-   than the text column needs. */
 .footer__photo {
-  margin-right: calc(-1 * (max(0px, (100vw - var(--container-max)) / 2) + var(--space-lg)));
-  margin-top: calc(-1 * var(--space-3xl));
-  margin-bottom: calc(-1 * var(--space-3xl));
-  height: calc(420px + 2 * var(--space-3xl));
+  align-self: end;
 }
 
 .footer__photo img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: bottom center;
+  height: auto;
 }
 
-@media (max-width: 760px) {
+.footer__copy {
+  align-self: center;
+  padding: var(--space-xl) 0 var(--space-3xl);
+}
+
+/* Cream pill chip. */
+.footer__chip {
+  display: inline-block;
+  background: var(--bg-cream);
+  color: var(--brand-plum);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  text-transform: capitalize;
+  border-radius: 999px;
+  padding: 8px 24px;
+  margin: 0 0 var(--space-lg);
+}
+
+.footer__body {
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-transform: capitalize;
+  max-width: 620px;
+  margin: 0 0 var(--space-xl);
+}
+
+.footer__heading {
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 2.5vw, 2.9rem);
+  line-height: 1.2;
+  text-transform: capitalize;
+  margin: 0 0 var(--space-xl);
+}
+
+/* CTA rendered in sentence case (see Footer.jsx). */
+.footer__cta {
+  font-size: 1.05rem;
+}
+
+/* Looping doodle arrow in the bottom-right corner. */
+.footer__arrow {
+  position: absolute;
+  right: -60px;
+  bottom: 50px;
+  width: 200px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 860px) {
+  .footer {
+    padding-top: var(--space-xl);
+  }
+
   .footer__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-lg);
   }
 
   .footer__photo {
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: calc(-1 * var(--space-xl));
-    height: 280px;
+    order: 2;
+    align-self: center;
+    max-width: 460px;
+    margin: 0 auto;
   }
 
-  .footer__line {
-    color: var(--white);
+  .footer__copy {
+    order: 1;
+    align-self: auto;
+    padding: var(--space-md) 0 0;
+    text-align: center;
   }
 
-  /* Swaps to a separate mobile-cropped banner asset — the desktop
-     banner's interesting detail sits in a strip too wide to read well
-     on a narrow screen. */
-  .footer {
-    background-image: url("/Assets/backgrounds/footer-mobile.webp");
-    background-position: top left;
+  .footer__body {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  /* Mobile body copy bumped to 20px (chip/heading/button unaffected). */
+  .footer__body {
+    font-size: 20px;
   }
 }

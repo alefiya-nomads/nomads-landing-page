@@ -1,14 +1,15 @@
-/* Same frame treatment as .curious__case-card: textured outer frame with
-   the hard shadow, and a solid #5D1B4E inner panel behind the text. */
+/* Rose-gold gradient frame, rounded corners and a hard plum offset
+   shadow — matched to the curious-section reference image (this section
+   deliberately diverges from the sitewide radius-0 rule per the
+   reference, same precedent as the hero RPV snapshot card). The `tone`
+   modifier rotates the inner panel through cream / lavender / ice. */
 .count-up-stat {
-  background-image: url("/Assets/backgrounds/image.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  box-shadow: var(--shadow-hard);
-  border-radius: var(--radius-flat);
-  padding: 10px;
+  background: url("/Assets/landing-page/Gradient Background wide-07.png")
+    center / cover no-repeat;
+  border: 3px solid #fff;
+  border-radius: 28px;
+  padding: 9px;
+  box-shadow: 9px 10px 0 0 var(--brand-plum-secondary);
   text-align: center;
   height: 100%;
   box-sizing: border-box;
@@ -19,7 +20,9 @@
 }
 
 .count-up-stat__inner {
-  background: #5d1b4e;
+  background: #faf3e6;
+  border: 3px solid #391129;
+  border-radius: 22px;
   padding: var(--space-lg);
   flex: 1;
   display: flex;
@@ -28,37 +31,48 @@
   box-sizing: border-box;
 }
 
-/* v1 used Kilimanjaro (--font-display) for the big number — deliberately
-   swapped to Montserrat bold in v2 per direction. */
+.count-up-stat--lavender .count-up-stat__inner {
+  background: var(--bg-lavender);
+}
+
+.count-up-stat--ice .count-up-stat__inner {
+  background: var(--accent-teal);
+}
+
+/* Big dark-plum stat, proportioned to the reference (reads much larger
+   than the old white-on-plum treatment). */
 .count-up-stat__big {
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: var(--fs-stat);
-  color: var(--white);
+  font-size: clamp(2.5rem, 4.2vw, 4rem);
+  color: var(--ink-dark);
   line-height: 1;
   display: block;
 }
 
 .count-up-stat__label {
   font-family: var(--font-body);
-  font-size: 0.86rem;
-  color: var(--white);
-  opacity: 0.85;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink-dark);
   display: block;
-  margin-top: 8px;
+  margin-top: 14px;
+  text-wrap: balance;
 }
 
+/* Plum underline bar from the reference — doubles as the count-up's
+   loading-bar fill (track stays faint until the fill animates in). */
 .count-up-stat__load {
   height: 5px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.15);
-  margin-top: 14px;
+  background: rgba(57, 17, 41, 0.15);
+  margin-top: 22px;
   overflow: hidden;
 }
 
 .count-up-stat__load i {
   display: block;
   height: 100%;
-  background: var(--white);
+  background: var(--ink-dark);
   transition: width 1.6s ease;
 }

@@ -11,8 +11,10 @@ export default function MeetNerd() {
         aria-hidden="true"
       />
       <div className="wrap center">
-        <p className="meet-nerd__wait">Wait...</p>
-        <h2 className="meet-nerd__headline">
+        <p className="meet-nerd__wait" data-reveal>
+          Wait...
+        </p>
+        <h2 className="meet-nerd__headline" data-reveal data-reveal-delay="120">
           Meet The{" "}
           <HighlightSweep tone="plum">Marketing Nerd Behind</HighlightSweep>{" "}
           <br className="hl-br" />

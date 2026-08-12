@@ -5,23 +5,23 @@ export default function SystemBorn() {
     <section className="system-born">
       <div className="system-born__card">
         <div className="system-born__text">
-          <p className="system-born__para">
+          <p className="system-born__para" data-reveal>
             I studied hours of real sales calls, demos, and live chats{" "}
             <br className="system-born__br" />
             from customers who didn&rsquo;t convert.
           </p>
 
-          <span className="system-born__badge">
+          <span className="system-born__badge" data-reveal data-reveal-delay="100">
             That&rsquo;s how our proprietary system:
           </span>
 
-          <h2 className="system-born__heading">
+          <h2 className="system-born__heading" data-reveal data-reveal-delay="180">
             Compounding Revenue per{" "}
             <br className="system-born__br" />
             Visitor &trade; OS was born
           </h2>
 
-          <p className="system-born__para">
+          <p className="system-born__para" data-reveal>
             A system that helps businesses stop losing the traffic{" "}
             <br className="system-born__br" />
             they&rsquo;ve already worked hard (and paid) to get by turning{" "}
@@ -29,7 +29,7 @@ export default function SystemBorn() {
             those visitors into decision-ready leads.
           </p>
 
-          <p className="system-born__para">
+          <p className="system-born__para" data-reveal>
             In under five minutes, a cold visitor can go from{" "}
             <strong>
               &ldquo;just{" "}
@@ -39,9 +39,11 @@ export default function SystemBorn() {
             to thinking, <strong>&ldquo;This is exactly what I need.&rdquo;</strong>
           </p>
 
-          <span className="system-born__badge">Today</span>
+          <span className="system-born__badge" data-reveal>
+            Today
+          </span>
 
-          <p className="system-born__para system-born__para--bold">
+          <p className="system-born__para system-born__para--bold" data-reveal data-reveal-delay="100">
             I&rsquo;ve helped brands across 15+ industries maximize their{" "}
             <br className="system-born__br" />
             leads and sales from the traffic they already have.

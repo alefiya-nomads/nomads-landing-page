@@ -30,7 +30,7 @@ export default function Calculator() {
         aria-hidden="true"
       />
       <div className="wrap">
-        <h2 className="calc__headline center">
+        <h2 className="calc__headline center" data-reveal>
           Before You Spend Another Dollar{" "}
           <br className="hl-br" />
           On Traffic, Find Out What Your{" "}
@@ -38,10 +38,12 @@ export default function Calculator() {
           <HighlightSweep tone="cream">Current Traffic Is Actually Worth.</HighlightSweep>
         </h2>
 
-        <p className="calc__subtitle center">{calculator.lines[1]}</p>
+        <p className="calc__subtitle center" data-reveal data-reveal-delay="120">
+          {calculator.lines[1]}
+        </p>
 
         <div className="calc__points">
-          <div className="calc__point">
+          <div className="calc__point" data-reveal data-reveal-delay="80">
             <PointDoodle />
             <div>
               <p className="calc__point-label">
@@ -54,7 +56,7 @@ export default function Calculator() {
             </div>
           </div>
 
-          <div className="calc__point">
+          <div className="calc__point" data-reveal data-reveal-delay="180">
             <PointDoodle />
             <div>
               <p className="calc__point-label">
@@ -68,7 +70,7 @@ export default function Calculator() {
           </div>
         </div>
 
-        <div className="calc__mock-frame">
+        <div className="calc__mock-frame" data-reveal>
           <div className="calc__mock-bar">
             <img className="calc__mock-logo" src="/icons/logo.avif" alt="Nomads" />
           </div>
@@ -77,7 +79,7 @@ export default function Calculator() {
           </div>
         </div>
 
-        <div className="calc__bottom">
+        <div className="calc__bottom" data-reveal>
           <p className="calc__gap-text center">{calculator.lines[4]}</p>
           <div className="center">
             <Button href="#diagnostic" variant="onDark">

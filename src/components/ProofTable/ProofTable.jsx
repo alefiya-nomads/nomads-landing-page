@@ -55,7 +55,7 @@ export default function ProofTable() {
   return (
     <section className="proof">
       <div className="wrap">
-        <div className="proof__headers">
+        <div className="proof__headers" data-reveal>
           <h3 className="proof__col-label">Before</h3>
           <span className="proof__col-spacer" />
           <h3 className="proof__col-label">After</h3>
@@ -65,7 +65,7 @@ export default function ProofTable() {
           {proofTable.map((pair, i) => {
             const tone = TONES[i % TONES.length];
             return (
-              <div className="proof__row" key={i}>
+              <div className="proof__row" key={i} data-reveal data-reveal-delay={i * 80}>
                 <div
                   className="proof__card proof__card--before"
                   style={{
@@ -95,7 +95,7 @@ export default function ProofTable() {
           })}
         </div>
 
-        <div className="proof__cta">
+        <div className="proof__cta" data-reveal>
           <Button href="#diagnostic">
             Show me how to convert
             <br />

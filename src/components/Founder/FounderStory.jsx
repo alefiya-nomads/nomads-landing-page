@@ -82,7 +82,7 @@ export default function FounderStory({ paragraphs, numberedList, paragraphs2 }) 
       {blocks.map((b, i) => {
         if (b.kind === "list") {
           return (
-            <ol className="founder__numbered" key={i}>
+            <ol className="founder__numbered" key={i} data-reveal>
               {b.items.map((toks, j) => (
                 <li key={j}>
                   <img
@@ -99,7 +99,7 @@ export default function FounderStory({ paragraphs, numberedList, paragraphs2 }) 
         }
         if (b.kind === "box") {
           return (
-            <div className="founder-story__box" key={i}>
+            <div className="founder-story__box" key={i} data-reveal>
               {b.paras.map((p, j) => (
                 <p key={j} className={p.className}>
                   {renderTokens(p.tokens)}
@@ -110,13 +110,13 @@ export default function FounderStory({ paragraphs, numberedList, paragraphs2 }) 
         }
         if (b.kind === "highlight") {
           return (
-            <p className="founder-story__scratch" key={i}>
+            <p className="founder-story__scratch" key={i} data-reveal>
               <span className="founder-story__scratch-badge">{renderTokens(b.tokens)}</span>
             </p>
           );
         }
         return (
-          <p key={i} className={b.className}>
+          <p key={i} className={b.className} data-reveal>
             {b.lines
               ? b.lines.map((toks, j) => (
                   <Fragment key={j}>

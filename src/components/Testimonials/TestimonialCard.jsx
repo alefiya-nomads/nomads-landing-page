@@ -28,53 +28,55 @@ export default function TestimonialCard({ name, role, headline, highlightPhrase,
   const headlineParts = highlightPhrase ? headline.split(highlightPhrase) : [headline];
 
   return (
-    <figure className="testimonial-card">
-      <img
-        src="/Assets/quote.avif"
-        className="testimonial-card__quote testimonial-card__quote--open"
-        alt=""
-        aria-hidden="true"
-      />
+    <figure className="testimonial-card" data-reveal>
+      <div className="testimonial-card__inner">
+        <img
+          src="/Assets/quote.avif"
+          className="testimonial-card__quote testimonial-card__quote--open"
+          alt=""
+          aria-hidden="true"
+        />
 
-      <div className="testimonial-card__grid">
-        <div className="testimonial-card__person">
-          <div className="testimonial-card__avatar">
-            {avatarSrc ? (
-              <img src={avatarSrc} alt="" />
-            ) : (
-              <span className="testimonial-card__initials">{initials}</span>
-            )}
+        <div className="testimonial-card__grid">
+          <div className="testimonial-card__person">
+            <div className="testimonial-card__avatar">
+              {avatarSrc ? (
+                <img src={avatarSrc} alt="" />
+              ) : (
+                <span className="testimonial-card__initials">{initials}</span>
+              )}
+            </div>
+            <figcaption>
+              <div className="testimonial-card__name">{name}</div>
+              <div className="testimonial-card__role">{role}</div>
+            </figcaption>
           </div>
-          <figcaption>
-            <div className="testimonial-card__name">{name}</div>
-            <div className="testimonial-card__role">{role}</div>
-          </figcaption>
+
+          <blockquote className="testimonial-card__content">
+            <p className="testimonial-card__headline">
+              {headlineParts[0]}
+              {highlightPhrase && (
+                <>
+                  <span className="highlight">{highlightPhrase}</span>
+                  {headlineParts[1]}
+                </>
+              )}
+            </p>
+            {body.map((line, i) => (
+              <p key={i} className="testimonial-card__body-line">
+                {renderWithBold(line)}
+              </p>
+            ))}
+          </blockquote>
         </div>
 
-        <blockquote className="testimonial-card__content">
-          <p className="testimonial-card__headline">
-            {headlineParts[0]}
-            {highlightPhrase && (
-              <>
-                <span className="highlight">{highlightPhrase}</span>
-                {headlineParts[1]}
-              </>
-            )}
-          </p>
-          {body.map((line, i) => (
-            <p key={i} className="testimonial-card__body-line">
-              {renderWithBold(line)}
-            </p>
-          ))}
-        </blockquote>
+        <img
+          src="/Assets/quote.avif"
+          className="testimonial-card__quote testimonial-card__quote--close"
+          alt=""
+          aria-hidden="true"
+        />
       </div>
-
-      <img
-        src="/Assets/quote.avif"
-        className="testimonial-card__quote testimonial-card__quote--close"
-        alt=""
-        aria-hidden="true"
-      />
     </figure>
   );
 }

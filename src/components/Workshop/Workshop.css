@@ -1,0 +1,173 @@
+/* Dark Midnight-Blue foundation section, matching the reference. */
+.workshop {
+  background: var(--bg-navy);
+  padding: var(--space-3xl) 0;
+  overflow: hidden;
+}
+
+.workshop__wrap {
+  text-align: center;
+}
+
+/* Stone mono chip (#F2E6D8), plum ink — "UNLOCKED AFTER YOUR DIAGNOSTIC". */
+.workshop__chip {
+  display: inline-block;
+  background: #f2e6d8;
+  color: var(--brand-plum);
+  font-family: var(--font-mono);
+  font-weight: bold;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 12px;
+  margin-bottom: var(--space-lg);
+}
+
+/* White headline, Title Case to match the reference, with the "On-Demand"
+   phrase in a cream highlight box (plum ink). */
+.workshop__headline {
+  color: var(--white);
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  line-height: 1.2;
+  text-transform: capitalize;
+  max-width: 900px;
+  margin: 0 auto var(--space-lg);
+  text-wrap: balance;
+}
+
+.workshop__hl {
+  background: #f2e6d8;
+  color: var(--brand-plum);
+  padding: 0.02em 0.22em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.workshop__para {
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  max-width: 760px;
+  margin: 0 auto var(--space-md);
+}
+
+.workshop__para--bold {
+  font-weight: 800;
+  max-width: 680px;
+}
+
+/* Video card image + overlapping closing note. */
+.workshop__showcase {
+  position: relative;
+  max-width: 1040px;
+  margin: var(--space-2xl) auto 0;
+  padding-bottom: 56px;
+}
+
+.workshop__video {
+  display: block;
+  width: 68%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* White note card overlapping the video's bottom-right corner. */
+.workshop__closing {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 44%;
+  background: var(--white);
+  border: 2px solid #5d1b4e;
+  border-radius: 22px;
+  padding: var(--space-lg);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+.workshop__closing-para {
+  color: var(--ink-dark);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin: 0 0 var(--space-md);
+}
+
+.workshop__closer {
+  color: var(--brand-plum);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-align: center;
+  margin: var(--space-md) 0 0;
+}
+
+/* Tablet/mobile: full-width video with the note card hanging off its
+   bottom edge, smaller type; extra section bottom padding gives the
+   hanging card room before the seam badge. */
+@media (max-width: 900px) {
+  .workshop {
+    padding-bottom: 150px;
+  }
+
+  .workshop__showcase {
+    padding-bottom: 0;
+  }
+
+  .workshop__video {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .workshop__closing {
+    width: 50%;
+    margin: 0;
+  }
+
+  .workshop__closing-para,
+  .workshop__closer {
+    font-size: 0.8rem;
+  }
+}
+
+/* 701–900px: nudge the absolutely-positioned note card in from the left
+   and hang it 70px below the video's bottom edge. Scoped above 700px so
+   it doesn't disturb the centered flow layout below. */
+@media (min-width: 701px) and (max-width: 900px) {
+  .workshop__closing {
+    left: 25px;
+    right: auto;
+    bottom: -70px;
+  }
+}
+
+/* Below 700px the showcase stacks as a centered flex column and the note
+   card returns to the document flow at 80% width. */
+@media (max-width: 700px) {
+  .workshop__showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .workshop__closing {
+    position: relative;
+    width: 80%;
+  }
+}
+
+@media (max-width: 760px) {
+  .workshop {
+    padding: var(--space-2xl) 0 150px;
+  }
+
+  /* Mobile body copy bumped to 20px (headline/chip/closer unaffected;
+     the closing card stays at its 0.8rem compact size). */
+  .workshop__para {
+    font-size: 20px;
+  }
+}

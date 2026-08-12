@@ -100,12 +100,12 @@
   position: relative;
   display: flex;
   justify-content: flex-end;
-  margin-right: calc(-1 * (max(0px, (100vw - var(--container-max)) / 2) + var(--space-lg)));
 }
 
 .hero__photo {
-  width: 760px;
+  width: 480px;
   max-width: none;
+  flex-shrink: 0;
   height: auto;
   display: block;
 }
@@ -119,8 +119,8 @@
   z-index: 2;
 }
 
-/* Tablet (601–900px): photo + snapshot card sit side by side as one
-   horizontal unit below the copy, vertically centered. */
+/* Mobile/tablet (≤900px): photo stacks in a flex column (no gap) with the
+   snapshot card absolutely positioned to overlap it (bottom: 202px). */
 @media (max-width: 900px) {
   .hero__grid {
     grid-template-columns: 1fr;
@@ -130,9 +130,11 @@
     align-self: auto;
     margin-bottom: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--space-lg);
+    gap: 0;
+    position: relative;
   }
 
   .hero__photo-wrap {
@@ -144,7 +146,7 @@
 
   .hero__photo {
     width: 100%;
-    max-width: 320px;
+    max-width: 360px;
   }
 
   .hero__doodle {
@@ -152,23 +154,58 @@
   }
 }
 
-/* Narrow phones (≤600px): side-by-side gets cramped, so stack the photo
-   and card into one overlapping unit (card over the photo's lower-left),
-   the same relationship as desktop. */
-@media (max-width: 600px) {
-  .hero__visual {
-    display: block;
-    position: relative;
-    max-width: 360px;
-    margin: 0 auto;
+/* Mobile body copy bumped to 20px (headings unaffected). */
+@media (max-width: 760px) {
+  .hero {
+    padding-bottom: 0;
+    /* Clip the 110vw decorative band's horizontal bleed here, at the
+       viewport-wide section box, so its rotated off-screen corners stay
+       hidden WITHOUT the extra 10vw creating a page-wide horizontal
+       scrollbar / white strip down the right of every section.
+       overflow-x: clip (not hidden) avoids making .hero a scroll
+       container or forcing overflow-y. */
+    overflow-x: clip;
   }
 
+  /* h1.hero__headline needed to out-rank global.css's uniform 1.6rem
+     mobile heading rule (same specificity, this file loads later). */
+  h1.hero__headline {
+    font-size: 1.9rem;
+    text-wrap: balance;
+  }
+
+  .hero__eyebrow,
+  .hero__list li,
+  .hero__rpv-line,
+  .hero__followup {
+    font-size: 20px;
+  }
+
+  /* Diagonal beige band behind the woman (mobile only), matching the
+     reference image. A full-bleed 100vw parallelogram sits behind the
+     cutout photo; isolate gives photo-wrap its own stacking context so
+     the photo (z-index 1) renders above the band (z-index 0), while the
+     overlapping RPV snapshot card (a sibling at z-index 1) stays on top. */
   .hero__photo-wrap {
-    justify-content: flex-end;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .hero__photo-wrap::before {
+    content: "";
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    width: 110vw;
+    height: 180px;
+    background: #f2e6d8;
+    transform: translate(-50%, -50%) rotate(-11deg);
+    z-index: 0;
+    pointer-events: none;
   }
 
   .hero__photo {
-    width: 88%;
-    max-width: 88%;
+    position: relative;
+    z-index: 1;
   }
 }

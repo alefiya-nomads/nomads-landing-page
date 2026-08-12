@@ -6,8 +6,8 @@
   padding: var(--space-3xl) 0;
 }
 
-/* Plum "Who's Behind?" roundel straddling the seam with FourAreas above,
-   per the reference. */
+/* Plum "Who's Behind?" roundel straddling the seam with the Workshop
+   section above, per the reference. */
 .meet-nerd__badge {
   position: absolute;
   top: 0;
@@ -47,7 +47,8 @@
     padding: var(--space-2xl) 0;
   }
 
+  /* Keep the seam badge on mobile too (per the reference), just smaller. */
   .meet-nerd__badge {
-    display: none;
+    width: 96px;
   }
 }

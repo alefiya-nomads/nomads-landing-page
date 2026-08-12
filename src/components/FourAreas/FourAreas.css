@@ -148,5 +148,11 @@
      naturally on mobile instead. */
   .four-areas__card-title {
     white-space: normal;
+    font-size: 20px;
+  }
+
+  /* Mobile body copy bumped to 20px (section headline unaffected). */
+  .four-areas__card-body {
+    font-size: 20px;
   }
 }

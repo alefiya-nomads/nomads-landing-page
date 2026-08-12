@@ -84,7 +84,8 @@ p {
   h2.four-areas__headline,
   h2.meet-nerd__headline,
   h2.system-born__heading,
-  h2.curious__heading {
+  h2.curious__heading,
+  h2.workshop__headline {
     font-size: 1.6rem;
   }
 
@@ -101,13 +102,38 @@ p {
   h2.four-areas__headline,
   h2.system-born__heading,
   h2.curious__heading,
-  h2.calc__headline {
+  h2.calc__headline,
+  h2.workshop__headline {
     text-align: left;
   }
 
   h2.proof-intro__headline,
   h2.meet-nerd__headline {
     text-align: center;
+  }
+}
+
+/* Scroll reveal for content inside sections (see hooks/useReveal.js).
+   The hidden state lives here rather than in JS so content never flashes
+   visible before the observer wires up. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+[data-reveal].reveal--in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

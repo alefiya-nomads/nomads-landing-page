@@ -39,16 +39,19 @@
 /* Mobile type scale matched to the founder-column reference image so the
    line breaks land on the same words (measured at ~440px viewport). */
 @media (max-width: 760px) {
+  /* Mobile body copy bumped to 20px. NOTE: this overrides the reference-
+     matched mobile type scale that set these line breaks (design-v2.md
+     0.8) — flagged for review. */
   .founder-story {
-    font-size: 0.9rem;
+    font-size: 20px;
   }
 
   .founder-story__accent {
-    font-size: 1rem;
+    font-size: 20px;
   }
 
   .founder-story__strong {
-    font-size: 1.05rem;
+    font-size: 20px;
   }
 
   .founder-story__box {

@@ -1,15 +1,23 @@
+/* Same frame as the curious stat cards (.count-up-stat / --ice):
+   gradient-image rim + 3px white outer border, rounded corners, hard plum
+   offset shadow, wrapping an inner panel with a 3px #391129 border. */
 .testimonial-card {
   position: relative;
   margin: var(--space-2xl) 0;
-  padding: 56px 64px;
-  /* Lossless WebP of the cream paper texture, tiled at half its native
-     resolution — the uniform grain stays pixel-crisp at every card
-     size/aspect instead of being stretched by 100% 100%. */
-  background-image: url("/Assets/Images/testimonial image.webp");
-  background-size: 1000px auto;
-  background-repeat: repeat;
-  border: 2px solid var(--ink-dark);
-  box-shadow: var(--shadow-hard);
+  background: url("/Assets/landing-page/Gradient Background wide-07.png")
+    center / cover no-repeat;
+  border: 3px solid #fff;
+  border-radius: 0;
+  padding: 9px;
+  box-shadow: 9px 10px 0 0 var(--brand-plum-secondary);
+}
+
+.testimonial-card__inner {
+  position: relative;
+  background: url("/Assets/landing-page/1.webp") center / cover no-repeat;
+  border: 3px solid #391129;
+  border-radius: 0;
+  padding: 48px 56px;
 }
 
 .testimonial-card__quote {
@@ -124,8 +132,8 @@
 }
 
 @media (max-width: 700px) {
-  .testimonial-card {
-    padding: 48px 24px 40px;
+  .testimonial-card__inner {
+    padding: 40px 22px;
   }
   .testimonial-card__grid {
     grid-template-columns: 1fr;
@@ -136,5 +144,12 @@
   }
   .testimonial-card__headline {
     font-size: 1.4rem;
+  }
+}
+
+/* Mobile body copy bumped to 20px (headline/name/role unaffected). */
+@media (max-width: 760px) {
+  .testimonial-card__body-line {
+    font-size: 20px;
   }
 }

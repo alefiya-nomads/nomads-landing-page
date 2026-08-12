@@ -197,3 +197,11 @@
     display: none;
   }
 }
+
+/* Mobile body copy bumped to 20px (headings/labels unaffected). */
+@media (max-width: 760px) {
+  .checklist__label,
+  .checklist__cta-sub {
+    font-size: 20px;
+  }
+}

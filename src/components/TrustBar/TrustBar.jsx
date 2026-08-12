@@ -14,7 +14,9 @@ const COPIES = [0, 1, 2, 3];
 export default function TrustBar() {
   return (
     <section className="trustbar" aria-label="Preferred partners">
-      <p className="trustbar__label">{hero.trustbar}</p>
+      <p className="trustbar__label" data-reveal>
+        {hero.trustbar}
+      </p>
 
       <div className="trustbar__marquee">
         <div className="trustbar__track">

@@ -1,9 +1,13 @@
-/* v1's Section tone="workshop-gradient" background, inlined since v2
-   sections are plain <section> elements. */
+/* Cream paper/canvas texture backdrop. Tiled (not cover-stretched) at a
+   downscaled size so the fine weave stays pixel-crisp at any section
+   height — same anti-blur approach used for the other texture sections
+   (Founder/Checklist). A matching cream background-color fills any gap. */
 .testimonials {
-  background-image: url("/Assets/backgrounds/workshop-bg.jpg");
-  background-size: cover;
-  background-position: center;
+  background-color: #f6efe2;
+  background-image: url("/Assets/landing-page/Texture.webp");
+  background-size: 768px auto;
+  background-repeat: repeat;
+  background-position: top center;
   color: var(--ink-dark);
   padding-top: var(--space-lg);
   padding-bottom: var(--space-lg);

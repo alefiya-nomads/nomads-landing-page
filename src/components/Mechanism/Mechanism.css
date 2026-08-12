@@ -91,4 +91,10 @@
   .mechanism__card {
     padding: 22px;
   }
+
+  /* Mobile body copy bumped to 20px (headline unaffected). */
+  .mechanism__intro,
+  .mechanism__body {
+    font-size: 20px;
+  }
 }
