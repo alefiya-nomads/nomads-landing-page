@@ -62,7 +62,7 @@
 
   .trustbar__label {
     font-size: 1rem;
-    margin: 0;
+    margin: 0 0 16px;
   }
 
   .trustbar__set {
