@@ -8,14 +8,14 @@
     center / cover no-repeat;
   border: 3px solid #fff;
   border-radius: 0;
-  padding: 9px;
+  padding: 16px;
   box-shadow: 9px 10px 0 0 var(--brand-plum-secondary);
 }
 
 .testimonial-card__inner {
   position: relative;
   background: url("/Assets/landing-page/1.webp") center / cover no-repeat;
-  border: 3px solid #391129;
+  border: 4px solid #391129;
   border-radius: 0;
   padding: 48px 56px;
 }
