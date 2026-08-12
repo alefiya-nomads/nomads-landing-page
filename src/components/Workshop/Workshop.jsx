@@ -1,4 +1,5 @@
 import "./Workshop.css";
+import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { workshop } from "../../data/copy.js";
 
 /**
@@ -25,7 +26,7 @@ export default function Workshop() {
 
         <h2 className="workshop__headline" data-reveal data-reveal-delay="80">
           {before}
-          <span className="workshop__hl">On-Demand</span>
+          <HighlightSweep tone="cream2">On-Demand</HighlightSweep>
           {after}
         </h2>
 

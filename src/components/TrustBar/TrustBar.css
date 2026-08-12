@@ -10,7 +10,7 @@
   font-weight: 800;
   font-size: 1.15rem;
   color: var(--ink-dark);
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 16px;
 }
 
 .trustbar__marquee {

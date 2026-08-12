@@ -35,14 +35,6 @@
   text-wrap: balance;
 }
 
-.workshop__hl {
-  background: #f2e6d8;
-  color: var(--brand-plum);
-  padding: 0.02em 0.22em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
 .workshop__para {
   color: var(--white);
   font-family: var(--font-body);
