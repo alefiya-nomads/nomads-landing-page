@@ -1,9 +1,44 @@
+import { useEffect, useRef } from "react";
 import "./Problem97.css";
 import { problem } from "../../data/copy.js";
 
 const PUZZLE_SRC = "/Assets/Images/5th section left side puzzle image.png";
 
 export default function Problem97() {
+  const videoRef = useRef(null);
+
+  // Play the pie animation ONCE the first time it scrolls into view (no
+  // loop). Reduced-motion users get the finished final frame instead.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const showEnd = () => {
+      const seekEnd = () => { video.currentTime = video.duration || 0; };
+      if (video.readyState >= 1) seekEnd();
+      else video.addEventListener("loadedmetadata", seekEnd, { once: true });
+    };
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      showEnd();
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(showEnd);
+            io.disconnect();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+    io.observe(video);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section className="problem">
       <div className="problem__panel problem__panel--dark">
@@ -18,45 +53,24 @@ export default function Problem97() {
             {problem.lines[1]}
           </p>
 
-          <div className="problem__chart-row" data-reveal data-reveal-delay="120">
-            <div className="problem__chart" role="img" aria-label="97% of 100 people don't see the problem yet, 3% buy it immediately">
-              <span className="problem__chart-slice problem__chart-slice--small">
-                3%
-                <small>Buy it</small>
-              </span>
-              <div className="problem__chart-center">
-                <strong>100</strong>
-                <small>People</small>
-              </div>
-              <span className="problem__chart-slice problem__chart-slice--big">
-                97%
-                <small>Don't see the problem (yet)</small>
-              </span>
-            </div>
-
-            <h3 className="problem__chart-caption">
-              Say you&rsquo;re selling
-              <br />
-              medicine for ulcers.
-            </h3>
-          </div>
-
-          <div className="problem__callouts" data-reveal>
-            <div className="problem__callout">
-              <span className="problem__callout-num">03</span>
-              <div>
-                <strong>Ready to Take Action</strong>
-                <p>Know they have ulcers and buy immediately.</p>
-              </div>
-            </div>
-            <div className="problem__callout">
-              <span className="problem__callout-num">97</span>
-              <div>
-                <strong>Experiencing Pain</strong>
-                <p>Have stomach pain, but they don't know ulcers cause it.</p>
-              </div>
-            </div>
-          </div>
+          {/* Animated pie infographic (built in gif-studio/) — contains the
+              "Say you're selling medicine for ulcers." headline, the 97/3
+              pie, the 100-people badge and the 03/97 callout cards.
+              WebM carries a real alpha channel (transparent over the teal
+              panel); the MP4 fallback has the panel teal baked in. */}
+          <video
+            ref={videoRef}
+            className="problem__gif"
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="Out of 100 people, 3% know they have ulcers and buy immediately; 97% have stomach pain but don't see the problem yet"
+            data-reveal
+            data-reveal-delay="120"
+          >
+            <source src="/Assets/97-percent-pie.webm" type="video/webm" />
+            <source src="/Assets/97-percent-pie.mp4" type="video/mp4" />
+          </video>
 
           {/* Reference shows "97 people" here; copy.js's problem.lines[3] and
               legend say "70" (3/70/27 split) instead of the reference's 3/97

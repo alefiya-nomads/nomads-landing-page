@@ -4,7 +4,7 @@
   background-image: url("/Assets/landing-page/Gradient Background wide-02.webp");
   background-size: cover;
   background-position: center;
-  padding: var(--space-3xl) 0 var(--space-2xl);
+  padding: 60px 0 75px;
   overflow: hidden;
 }
 
@@ -147,7 +147,7 @@
 
 @media (max-width: 760px) {
   .calc {
-    padding: var(--space-2xl) 0 var(--space-xl);
+    padding: var(--space-2xl) 0 75px;
   }
 
   .calc__doodle-curvy,

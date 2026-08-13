@@ -35,6 +35,11 @@
   text-wrap: balance;
 }
 
+/* Mobile-only line break after "On-Demand" (enabled in the ≤760 block). */
+.workshop__brk {
+  display: none;
+}
+
 .workshop__para {
   color: var(--white);
   font-family: var(--font-body);
@@ -153,7 +158,22 @@
 
 @media (max-width: 760px) {
   .workshop {
-    padding: var(--space-2xl) 0 75px;
+    padding: 40px 0 75px;
+  }
+
+  /* Keep "On-Demand" from breaking at the hyphen — both words stay on one
+     line — and force the headline onto two lines: "A Private On-Demand" /
+     "Workshop With Alefiya." (1.5rem so line 2 fits on one line). */
+  h2.workshop__headline {
+    font-size: 1.5rem;
+  }
+
+  .workshop__headline .hl-sweep {
+    white-space: nowrap;
+  }
+
+  .workshop__brk {
+    display: inline;
   }
 
   /* Mobile intro copy: 18px, left-aligned (headline/chip/closer unaffected;

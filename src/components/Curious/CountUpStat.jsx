@@ -27,7 +27,7 @@ export default function CountUpStat({ target, suffix = "", decimals = 0, label, 
         entries.forEach((entry) => {
           if (entry.isIntersecting && !started) {
             setStarted(true);
-            const dur = 1500;
+            const dur = 3200;
             let startTs = null;
             const step = (ts) => {
               if (!startTs) startTs = ts;

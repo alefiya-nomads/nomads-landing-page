@@ -159,10 +159,10 @@
 @media (max-width: 900px) {
   .rpv-card {
     position: absolute;
-    left: -10px;
+    left: -5px;
     bottom: 202px;
     width: 100%;
-    max-width: 240px;
+    max-width: 300px;
     flex: none;
     margin: 0;
     border-radius: 14px;
@@ -216,9 +216,16 @@
   }
 }
 
+/* Tablet only (761–900px). */
+@media (min-width: 761px) and (max-width: 900px) {
+  .rpv-card {
+    bottom: 20px;
+  }
+}
+
 /* Mobile view: sit the snapshot card near the bottom of the stacked photo. */
 @media (max-width: 760px) {
   .rpv-card {
-    bottom: 40px;
+    bottom: 6px;
   }
 }

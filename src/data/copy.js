@@ -386,9 +386,9 @@ export const founder = {
       headline: "She saved me time, and made me so much money, and I am so so so happy that I found her.",
       highlightPhrase: "so much money",
       body: [
-        "Over the last two launches, I've made over a $100,000 each (the first grossed $150k and the next did half a million dollars), and a lot of the traffic from those came from email.",
+        "Over the last two launches, **I've made over a $100,000 each** (the first grossed $150k and the next did half a million dollars), and a lot of the traffic from those came from email.",
         "**Alefiya to me, she became almost like a second brain** when it came to executing the entire thing.",
-        "And honestly, with my hand on my heart, I can say that I am so grateful that I had her on my side because I would've lost my head trying to get all of these assets, trying to get all the data, trying to even figure out where to start. She knew exactly where to go, what to give me, and how to get me to execute other things, and that for me is everything.",
+        "And honestly, with my hand on my heart, I can say that I am so grateful that I had her on my side because I would've lost my head trying to get all of these assets, trying to get all the data, trying to even figure out where to start. **She knew exactly where to go, what to give me,** and how to get me to execute other things, and that for me is everything.",
       ],
     },
     {
@@ -406,8 +406,8 @@ export const founder = {
         "A sharp marketing strategist? Check.",
         "A savvy business mind? Absolutely.",
         "Going above and beyond for her clients? It's a value she lives by.",
-        "But what blows me away about Alefiya is how she's constantly innovating, refining her craft, and re-defining what it means to be a badass marketer/quiz funnel strategist/agency co-owner.",
-        "Words of advice: never underestimate her. Bonus words of advice (cuz why not): Work with her and her team any chance you get.’",
+        "But what blows me away about **Alefiya is how she's constantly innovating, refining her craft,** and re-defining what it means to be a badass marketer/quiz funnel strategist/agency co-owner.",
+        "**Words of advice: never underestimate her.** Bonus words of advice (cuz why not): Work with her and her team any chance you get.’",
       ],
     },
   ],

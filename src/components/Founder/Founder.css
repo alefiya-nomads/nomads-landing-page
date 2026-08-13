@@ -13,6 +13,18 @@
   height: auto;
   z-index: 2;
   pointer-events: none;
+  /* Slow continuous spin; base translate kept in the keyframes so it
+     stays centred on the seam while rotating. */
+  animation: founder-seal-spin 20s linear infinite;
+}
+
+@keyframes founder-seal-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .founder__split {
@@ -30,7 +42,7 @@
 
 .founder__photo-sticky {
   position: sticky;
-  top: 0;
+  top: 80px;
   display: flex;
   justify-content: center;
 }

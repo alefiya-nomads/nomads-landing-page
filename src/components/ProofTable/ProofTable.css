@@ -117,9 +117,11 @@
     padding: var(--space-sm) var(--space-md);
   }
 
-  /* Mobile body copy bumped to 20px (column headers unaffected). */
-  .proof__card p,
+  .proof__card p {
+    font-size: 14px;
+  }
+
   .proof__sub {
-    font-size: 20px;
+    font-size: 10px;
   }
 }

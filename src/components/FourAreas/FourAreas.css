@@ -67,7 +67,7 @@
   position: relative;
   z-index: 1;
   background: #F2E6D8;
-  border-radius: 0;
+  border-radius: 10px;
   padding: 30px;
   margin-top: -320px;
 }
@@ -131,6 +131,12 @@
   /* h2-qualified to override global.css's uniform 1.6rem mobile heading. */
   h2.four-areas__headline {
     font-size: 1.5rem;
+  }
+
+  /* Keep the "All Four Areas" highlight from splitting across lines, so
+     "All" stays on the same line as "Four Areas". */
+  .four-areas__headline .hl-sweep {
+    white-space: nowrap;
   }
 
   .four-areas__grid {

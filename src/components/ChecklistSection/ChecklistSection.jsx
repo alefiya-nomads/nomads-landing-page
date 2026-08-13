@@ -20,12 +20,6 @@ export default function ChecklistSection() {
   return (
     <section className="checklist">
       <img
-        className="checklist__doodle-compass"
-        src="/Assets/Doodle/compass doodle.png"
-        alt=""
-        aria-hidden="true"
-      />
-      <img
         className="checklist__doodle-note"
         src="/Assets/Doodle/3rd sec doodle.png"
         alt=""

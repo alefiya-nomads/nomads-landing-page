@@ -1,6 +1,7 @@
 import "./Hero.css";
 import Button from "../primitives/Button.jsx";
 import RpvSnapshotCard from "./RpvSnapshotCard.jsx";
+import HeroRotator from "./HeroRotator.jsx";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { hero } from "../../data/copy.js";
 
@@ -46,7 +47,7 @@ export default function Hero() {
             <br className="hl-br" />
             <HighlightSweep tone="plumdark">$1.5 M/year</HighlightSweep> {headlineLine3Suffix}{" "}
             <br className="hl-br" />
-            {headlineLine4Prefix} <span className="accent-word">website visitors?</span>
+            {headlineLine4Prefix} <HeroRotator words={hero.rotatingWords} />
           </h1>
 
           <ul className="hero__list" data-reveal data-reveal-delay="160">

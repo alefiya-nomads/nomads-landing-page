@@ -27,6 +27,7 @@ export default function Workshop() {
         <h2 className="workshop__headline" data-reveal data-reveal-delay="80">
           {before}
           <HighlightSweep tone="cream2">On-Demand</HighlightSweep>
+          <br className="workshop__brk" />
           {after}
         </h2>
 

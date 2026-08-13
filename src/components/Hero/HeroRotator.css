@@ -1,0 +1,19 @@
+/* Rotating hero accent word — cross-fades between rotatingWords, inherits
+   the .accent-word styling (Montserrat, plum). Rendered inline so the
+   first word of a long phrase stays on the same line as "current" and the
+   rest wrap below (via the component's explicit <br>). Inline elements
+   can't be transformed, so the swap is an opacity fade. */
+.hero-rotator {
+  display: inline;
+  transition: opacity 0.4s ease;
+}
+
+.hero-rotator--swap {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rotator {
+    transition: none;
+  }
+}

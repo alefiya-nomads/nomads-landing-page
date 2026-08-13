@@ -1,3 +1,4 @@
+import Header from "./components/Header/Header.jsx";
 import Hero from "./components/Hero/Hero.jsx";
 import TrustBar from "./components/TrustBar/TrustBar.jsx";
 import NotThisEconomy from "./components/NotThisEconomy/NotThisEconomy.jsx";
@@ -22,24 +23,27 @@ export default function App() {
   useReveal();
 
   return (
-    <main>
-      <Hero />
-      <TrustBar />
-      <NotThisEconomy />
-      <ChecklistSection />
-      <Mechanism />
-      <Problem97 />
-      <ProofIntro />
-      <ProofTable />
-      <Calculator />
-      <FourAreas />
-      <Workshop />
-      <MeetNerd />
-      <Founder />
-      <SystemBorn />
-      <Testimonials />
-      <Curious />
-      <Footer />
-    </main>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <TrustBar />
+        <NotThisEconomy />
+        <ChecklistSection />
+        <Mechanism />
+        <Problem97 />
+        <ProofIntro />
+        <ProofTable />
+        <Calculator />
+        <FourAreas />
+        <Workshop />
+        <MeetNerd />
+        <Founder />
+        <SystemBorn />
+        <Testimonials />
+        <Curious />
+        <Footer />
+      </main>
+    </>
   );
 }

@@ -9,6 +9,15 @@
   padding: 0;
 }
 
+/* Below the 1200 wrap width the card would touch both screen edges — add
+   symmetric side breathing room (761–1255px; mobile ≤760 has its own). */
+@media (min-width: 761px) and (max-width: 1255px) {
+  .mechanism .wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 /* Card overlaps up into the checklist section above it (design-v2.md 0.7 —
    let images/cards overlap — and per explicit direction: this section is
    half-overlapping the previous one). Double ring border (white + plum)

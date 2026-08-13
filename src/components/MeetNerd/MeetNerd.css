@@ -17,6 +17,18 @@
   height: auto;
   z-index: 2;
   pointer-events: none;
+  /* Slow continuous spin; base translate kept in the keyframes so it
+     stays seated on the seam while rotating. */
+  animation: meet-nerd-badge-spin 20s linear infinite;
+}
+
+@keyframes meet-nerd-badge-spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 .meet-nerd__wait {

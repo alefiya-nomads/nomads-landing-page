@@ -130,21 +130,67 @@
 /* Desktop: full-width hero with 40px side gutters (instead of the centered
    1200 wrap), so the copy sits 40px from the left edge on any screen. */
 @media (min-width: 901px) {
+  /* Tighter top so the hero content sits closer under the sticky header.
+     overflow: clip (both axes on desktop) so the tall band behind the gif
+     is cut at the hero's top and bottom edges — no corners peeking out the
+     top, and nothing bleeding down into the TrustBar below. */
+  .hero {
+    padding-top: 55px;
+    overflow: clip;
+  }
+
   .hero .wrap {
     max-width: none;
-    padding-left: 40px;
+    padding-left: 60px;
     padding-right: 40px;
   }
 
   .hero__copy {
     max-width: 900px;
     margin-left: 0;
+    /* Vertically centered against the full-height gif row. */
+    align-self: center;
   }
 
-  /* Cancel the wrap's right gutter for the gif so it still bleeds to the
-     viewport's right edge. */
+  /* Bleed the gif to the viewport's right edge (cancel the wrap's 40px
+     right gutter). The gif keeps its natural aspect (base rule: width
+     50vw, height auto) and bottom-aligns via the base .hero__visual
+     (align-self: end), so the FULL gif is visible — no cropped bottom. */
   .hero__photo-wrap {
     margin-right: -40px;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* Diagonal stone band behind the woman (desktop) — the mobile band's
+     vertical counterpart: a tall parallelogram sitting behind the gif,
+     with the photo (z-index 1) rendered on top of it (z-index 0). */
+  .hero__photo-wrap::before {
+    content: "";
+    position: absolute;
+    /* Extend a full viewport-height past the gif top and bottom so the
+       parallelogram's corners are ALWAYS clipped off (hero overflow: clip),
+       even at narrower desktop widths where the gif sits lower — a clean
+       full-height stripe with no visible corners at any width. */
+    top: -100vh;
+    bottom: -100vh;
+    right: 26%;
+    width: 46%;
+    background: #f2e6d8;
+    transform: rotate(-9deg);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero__photo {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Constrain the follow-up line so it breaks into 2 lines on desktop. */
+  .hero__followup {
+    max-width: 500px;
+    margin-top: 35px;
   }
 }
 
@@ -171,11 +217,32 @@
     margin-right: 0;
     margin-bottom: 0;
     flex: 0 1 auto;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* Diagonal beige band behind the woman (≤900px), matching the reference.
+     Full-bleed 110vw parallelogram behind the cutout photo; isolate makes
+     photo-wrap a stacking context so the photo (z-index 1) sits above the
+     band (z-index 0) and the RPV card (sibling, z-index 1) stays on top. */
+  .hero__photo-wrap::before {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 110vw;
+    height: 180px;
+    background: #f2e6d8;
+    transform: translate(-50%, -50%) rotate(-11deg);
+    z-index: 0;
+    pointer-events: none;
   }
 
   .hero__photo {
     width: 100%;
     max-width: 360px;
+    position: relative;
+    z-index: 1;
   }
 
   .hero__doodle {
@@ -183,9 +250,21 @@
   }
 }
 
+/* Tablet only (761–900px): larger photo cap, no bottom padding. */
+@media (min-width: 761px) and (max-width: 900px) {
+  .hero {
+    padding-bottom: 0;
+  }
+
+  .hero__photo {
+    max-width: 500px;
+  }
+}
+
 /* Mobile body copy bumped to 20px (headings unaffected). */
 @media (max-width: 760px) {
   .hero {
+    padding-top: 40px;
     padding-bottom: 0;
     /* Clip the 110vw decorative band's horizontal bleed here, at the
        viewport-wide section box, so its rotated off-screen corners stay
@@ -194,6 +273,10 @@
        overflow-x: clip (not hidden) avoids making .hero a scroll
        container or forcing overflow-y. */
     overflow-x: clip;
+  }
+
+  .hero__grid {
+    gap: 20px;
   }
 
   /* h1.hero__headline needed to out-rank global.css's uniform 1.6rem
@@ -205,36 +288,19 @@
 
   .hero__eyebrow,
   .hero__list li,
-  .hero__rpv-line,
-  .hero__followup {
+  .hero__rpv-line {
     font-size: 20px;
   }
 
-  /* Diagonal beige band behind the woman (mobile only), matching the
-     reference image. A full-bleed 100vw parallelogram sits behind the
-     cutout photo; isolate gives photo-wrap its own stacking context so
-     the photo (z-index 1) renders above the band (z-index 0), while the
-     overlapping RPV snapshot card (a sibling at z-index 1) stays on top. */
-  .hero__photo-wrap {
-    position: relative;
-    isolation: isolate;
+  .hero__followup {
+    font-size: 10px;
   }
 
-  .hero__photo-wrap::before {
-    content: "";
-    position: absolute;
-    top: 52%;
-    left: 50%;
-    width: 110vw;
-    height: 180px;
-    background: #f2e6d8;
-    transform: translate(-50%, -50%) rotate(-11deg);
-    z-index: 0;
-    pointer-events: none;
-  }
-
+  /* Enlarge the gif (into the wrap's side padding) so the woman is taller
+     and her face clears the overlapping RPV card. The band + stacking come
+     from the ≤900px block above. */
   .hero__photo {
-    position: relative;
-    z-index: 1;
+    width: 180%;
+    max-width: 540px;
   }
 }
