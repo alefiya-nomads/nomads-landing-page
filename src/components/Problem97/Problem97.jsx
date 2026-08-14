@@ -7,6 +7,15 @@ const PUZZLE_SRC = "/Assets/Images/5th section left side puzzle image.png";
 export default function Problem97() {
   const videoRef = useRef(null);
 
+  // Synchronous detection of Safari/iOS to avoid linter warnings on state updates in effects
+  const isSafari = typeof navigator !== "undefined" && (
+    (navigator.userAgent.toLowerCase().includes("safari") && 
+     !navigator.userAgent.toLowerCase().includes("chrome") && 
+     !navigator.userAgent.toLowerCase().includes("android")) ||
+    (/ipad|iphone|ipod/.test(navigator.userAgent.toLowerCase()) || 
+     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
+  );
+
   // Play the pie animation ONCE the first time it scrolls into view (no
   // loop). Reduced-motion users get the finished final frame instead.
   useEffect(() => {
@@ -68,7 +77,7 @@ export default function Problem97() {
             data-reveal
             data-reveal-delay="120"
           >
-            <source src="/Assets/97-percent-pie.webm" type="video/webm" />
+            {!isSafari && <source src="/Assets/97-percent-pie.webm" type="video/webm" />}
             <source src="/Assets/97-percent-pie.mp4" type="video/mp4" />
           </video>
 
