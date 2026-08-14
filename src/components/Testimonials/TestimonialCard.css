@@ -110,6 +110,7 @@
   line-height: 1.25;
   text-align: left;
   color: var(--ink-dark);
+  text-wrap: balance;
   margin: 0 0 var(--space-md);
 }
 
@@ -133,7 +134,7 @@
 
 @media (max-width: 1000px) {
   .testimonial-card__inner {
-    padding: 40px 35px;
+    padding: 40px 20px;
   }
   .testimonial-card__grid {
     grid-template-columns: 1fr;
@@ -143,7 +144,7 @@
     height: 100px;
   }
   .testimonial-card__headline {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   .testimonial-card__role {
     text-wrap: balance;
