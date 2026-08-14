@@ -159,3 +159,10 @@
     padding: var(--space-xl) 24px var(--space-2xl);
   }
 }
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .founder__copy-col {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}

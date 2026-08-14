@@ -11,7 +11,7 @@
   border: 8px solid var(--white);
   box-shadow: 0 0 0 8px #5D1B4E;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.25fr 0.75fr;
   overflow: hidden;
 }
 
@@ -83,6 +83,12 @@
   pointer-events: none;
 }
 
+@media (max-width: 1200px) {
+  .system-born__br {
+    display: none;
+  }
+}
+
 @media (max-width: 760px) {
   .system-born {
     padding: var(--space-2xl) var(--space-md);
@@ -107,7 +113,7 @@
   }
 
   .system-born__photo img {
-    max-height: 420px;
+    max-height: 750px;
   }
 
   /* Mobile body copy bumped to 20px (heading/badges unaffected). */
