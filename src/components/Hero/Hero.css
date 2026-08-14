@@ -33,7 +33,7 @@
    V1 used. The "website visitors?" phrase is the one short Kilimanjaro
    accent per 0.1 (see .accent-word, global.css). */
 .hero__headline {
-  font-size: clamp(1.7rem, 3.4vw, 3rem);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
   line-height: 1.2;
   margin-bottom: var(--space-lg);
   text-wrap: balance;
@@ -146,7 +146,7 @@
   }
 
   .hero__copy {
-    max-width: 900px;
+    max-width: 700px;
     margin-left: 0;
     /* Vertically centered against the full-height gif row. */
     align-self: center;
