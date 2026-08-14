@@ -45,13 +45,7 @@ export default function SystemBorn() {
             leads and sales</strong> from the traffic they already have.
           </p>
 
-          <img
-            className="system-born__doodle"
-            src="/Assets/Doodle/straight arrow.png"
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-          />
+
         </div>
 
         <div className="system-born__photo">

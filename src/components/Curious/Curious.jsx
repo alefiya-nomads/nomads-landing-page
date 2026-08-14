@@ -46,7 +46,7 @@ export default function Curious() {
                 )}
 
                 <Reveal delay={i * 100} className="curious__case-card">
-                  <div className="curious__case-inner">
+                  <div className={`curious__case-inner${tone ? ` curious__case-inner--${tone}` : ""}`}>
                     {c.logoSrc && (
                       <div className="curious__case-header">
                         <div className="curious__case-logo">

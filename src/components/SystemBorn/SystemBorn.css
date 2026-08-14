@@ -57,14 +57,7 @@
   margin: 0 0 var(--space-md);
 }
 
-.system-born__doodle {
-  position: absolute;
-  top: calc(var(--space-2xl) + 75px);
-  right: var(--space-xl);
-  width: 70px;
-  height: auto;
-  pointer-events: none;
-}
+
 
 .system-born__photo {
   position: relative;
@@ -107,9 +100,7 @@
     display: none;
   }
 
-  .system-born__doodle {
-    display: none;
-  }
+
 
   .system-born__photo::before {
     display: none;

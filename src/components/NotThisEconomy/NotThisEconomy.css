@@ -43,8 +43,10 @@
 .economy__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: var(--space-xl);
+  gap: var(--space-2xl);
   align-items: center;
+  max-width: none;
+  width: 80%;
 }
 
 /* Montserrat Extra Bold (inherited from the global h2 rule); Title Case
@@ -78,11 +80,11 @@
 
 .economy__visual {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .economy__laptop {
-  width: 56%;
+  width: 75%;
   max-width: 560px;
   height: auto;
   filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.45));
@@ -103,6 +105,7 @@
     padding-left: 22px;
     padding-right: 22px;
     gap: 10px;
+    width: 100%;
   }
 
   .economy__visual {

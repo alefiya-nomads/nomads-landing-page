@@ -40,5 +40,6 @@
 
   .proof-intro__sub {
     font-size: 15px;
+    text-wrap: balance;
   }
 }

@@ -76,6 +76,14 @@
   width: 100%;
 }
 
+.curious__case-inner--lavender {
+  background: var(--bg-lavender);
+}
+
+.curious__case-inner--ice {
+  background: var(--accent-teal);
+}
+
 /* Header: logo image + company name/type */
 .curious__case-header {
   display: flex;
