@@ -33,23 +33,9 @@
   margin: 0 auto;
 }
 
-.proof-intro__doodle {
-  position: absolute;
-  right: 48px;
-  top: 55%;
-  transform: translateY(-50%);
-  width: 230px;
-  height: auto;
-  pointer-events: none;
-}
-
 @media (max-width: 760px) {
   .proof-intro {
     padding: var(--space-2xl) 0;
-  }
-
-  .proof-intro__doodle {
-    display: none;
   }
 
   .proof-intro__sub {

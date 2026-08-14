@@ -40,7 +40,7 @@ export default function FourAreas() {
               <div className="four-areas__card" key={i} data-reveal data-reveal-delay={i * 90}>
                 <img className="four-areas__icon" src={ICONS[i]} alt="" aria-hidden="true" />
                 <h3 className="four-areas__card-title">{area.title}</h3>
-                <p className="four-areas__card-body">{area.body}</p>
+                <p className="four-areas__card-body" dangerouslySetInnerHTML={{ __html: area.body }}></p>
               </div>
             ))}
           </div>

@@ -1,6 +1,5 @@
 import "./ProofIntro.css";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
-import { proofOutro, problem } from "../../data/copy.js";
 
 export default function ProofIntro() {
   return (
@@ -13,16 +12,9 @@ export default function ProofIntro() {
         </h2>
 
         <p className="proof-intro__sub" data-reveal data-reveal-delay="120">
-          {problem.lines[3]}
+          This question led us to develop a proprietary diagnostic system that has helped our clients get incredible results…
         </p>
       </div>
-
-      <img
-        className="proof-intro__doodle"
-        src="/Assets/Doodle/tick box white doodle.png"
-        alt=""
-        aria-hidden="true"
-      />
     </section>
   );
 }

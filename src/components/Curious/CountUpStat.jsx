@@ -17,8 +17,10 @@ export default function CountUpStat({ target, suffix = "", decimals = 0, label, 
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reducedMotion) {
-      setValue(target);
-      setStarted(true);
+      setTimeout(() => {
+        setValue(target);
+        setStarted(true);
+      }, 0);
       return;
     }
 

@@ -30,13 +30,9 @@ export default function SystemBorn() {
           </p>
 
           <p className="system-born__para" data-reveal>
-            In under five minutes, a cold visitor can go from{" "}
-            <strong>
-              &ldquo;just{" "}
-              <br className="system-born__br" />
-              browsing&rdquo;
-            </strong>{" "}
-            to thinking, <strong>&ldquo;This is exactly what I need.&rdquo;</strong>
+            In under five minutes, a cold visitor can go from &ldquo;just{" "}
+            <br className="system-born__br" />
+            browsing&rdquo; to thinking, &ldquo;This is exactly what I need.&rdquo;
           </p>
 
           <span className="system-born__badge" data-reveal>
@@ -44,9 +40,9 @@ export default function SystemBorn() {
           </span>
 
           <p className="system-born__para system-born__para--bold" data-reveal data-reveal-delay="100">
-            I&rsquo;ve helped brands across 15+ industries maximize their{" "}
+            I&rsquo;ve helped brands across 15+ industries <strong>maximize their{" "}
             <br className="system-born__br" />
-            leads and sales from the traffic they already have.
+            leads and sales</strong> from the traffic they already have.
           </p>
 
           <img

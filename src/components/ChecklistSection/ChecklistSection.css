@@ -61,9 +61,9 @@
 
 .checklist__doodle-footprints {
   position: absolute;
-  right: 0;
+  right: -60px;
   bottom: 80px;
-  width: 260px;
+  width: 320px;
   height: auto;
   pointer-events: none;
 }

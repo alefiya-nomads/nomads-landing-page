@@ -33,7 +33,7 @@ export default function ChecklistSection() {
       />
       <img
         className="checklist__doodle-footprints"
-        src="/Assets/Doodle/footprint doodle.png"
+        src="/Assets/Gifs/Arrow.gif"
         alt=""
         aria-hidden="true"
       />

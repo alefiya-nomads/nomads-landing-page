@@ -2,7 +2,7 @@ import "./NotThisEconomy.css";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { notThisEconomy } from "../../data/copy.js";
 
-const LAPTOP_SRC = "/Assets/Images/2nd section laptop image.png";
+const LAPTOP_SRC = "/Assets/Images/tablet mockup.png";
 
 export default function NotThisEconomy() {
   const [, sub] = notThisEconomy.lines;

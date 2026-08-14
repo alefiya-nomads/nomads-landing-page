@@ -154,6 +154,56 @@
   text-align: center;
 }
 
+/* Narrow desktop (901–1400px): the gif shrinks with the viewport but the
+   card didn't, so it covered the woman's face. Compact card (same recipe
+   as the mobile variant), hugging the bottom-left so the face stays clear. */
+@media (min-width: 901px) and (max-width: 1400px) {
+  .rpv-card {
+    width: 270px;
+    left: -12px;
+    bottom: 16px;
+    border-radius: 14px;
+  }
+
+  .rpv-card__bar {
+    padding: 8px 12px;
+    font-size: 0.72rem;
+  }
+
+  .rpv-card__body {
+    padding: 10px;
+  }
+
+  .rpv-card__main {
+    gap: 8px;
+  }
+
+  .rpv-card__k {
+    font-size: 0.55rem;
+    padding: 3px 6px;
+  }
+
+  .rpv-card__v {
+    font-size: 1.5rem;
+  }
+
+  .rpv-card__chart {
+    padding: 10px 8px 0;
+  }
+
+  .rpv-card__bars {
+    height: 90px;
+  }
+
+  .rpv-card__potential {
+    width: 48px;
+  }
+
+  .rpv-card__cap {
+    font-size: 0.62rem;
+  }
+}
+
 /* Mobile/tablet (≤900px): card overlaps the stacked photo, pulled up from
    the bottom of the visual so it reads as one unit with the photo. */
 @media (max-width: 900px) {

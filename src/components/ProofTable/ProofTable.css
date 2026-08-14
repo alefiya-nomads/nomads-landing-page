@@ -53,6 +53,10 @@
   line-height: 1.55;
 }
 
+.proof__card p strong {
+  font-weight: 700;
+}
+
 .proof__card--before {
   border: 1px solid #5D1B4E;
 }

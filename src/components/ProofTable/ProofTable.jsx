@@ -51,6 +51,13 @@ function DoodleArrow() {
   );
 }
 
+function renderWithBold(text) {
+  if (!text) return null;
+  return text
+    .split(/\*\*(.+?)\*\*/g)
+    .map((part, i) => (i % 2 === 1 ? <strong key={i}>{part}</strong> : part));
+}
+
 export default function ProofTable() {
   return (
     <section className="proof">
@@ -73,7 +80,7 @@ export default function ProofTable() {
                     borderColor: tone.beforeBorder,
                   }}
                 >
-                  <p>{pair.before}</p>
+                  <p>{renderWithBold(pair.before)}</p>
                 </div>
 
                 <div className="proof__arrow">
@@ -88,7 +95,7 @@ export default function ProofTable() {
                     borderColor: tone.afterBg,
                   }}
                 >
-                  <p>{pair.after}</p>
+                  <p>{renderWithBold(pair.after)}</p>
                 </div>
               </div>
             );

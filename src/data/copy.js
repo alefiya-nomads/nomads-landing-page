@@ -230,29 +230,33 @@ export const problem = {
 export const proofTable = [
   {
     before:
-      "An executive coach was getting 2,800 LinkedIn profile views a quarter, but fewer than 500 new subscribers a month and $0 in revenue from emails.",
+      "An **executive coach** was getting 2,800 LinkedIn profile views a quarter, but fewer than 500 new subscribers a month and $0 in revenue from emails.",
     after:
-      "Our Personality Peak™ quiz got 2,100 subscribers in 35 days, making the client $1,700/day for her subscription offer.",
+      "Our **Personality Peak™** quiz got 2,100 subscribers in 35 days, **making the client $1,700/day for her subscription offer.**",
   },
   {
     before:
-      "A course creator made $70K+ from her tiny list (she believed in email potential), but her list was exhausted.",
-    after: "Our Champions Challenge™ quiz fuelled a 7,306% list surge within 72 hours.",
-  },
-  {
-    before:
-      "An ecommerce business was getting 440K visits, but only 250 demo bookings. At first, that seemed fine, until they realized it added up to just a 0.044% conversion rate.",
-    after: "With us, they achieved a 14% conversion rate to their demo video, generating £97,000 in 20 days.",
-  },
-  {
-    before: "A mastermind owner tanked 27 discovery calls, and closed one client.",
-    after: "Our positioning strategy (first pillar of C-RPV) closed 29 of the next 31 calls.",
-  },
-  {
-    before:
-      "A media business launch grossed $70K with a 6% email click-through rate (CTR). The client thought it was a flex until they saw our 45% CTR and hired us for their next launch.",
+      "A **course creator** made $70K+ from her tiny list (she believed in email potential), but her list was exhausted.",
     after:
-      "With us on board, her next launch hit $150K (double!) and the next one did HALF A MILLION DOLLARS (8X) with the same amount of traffic.",
+      "Our **Champions Challenge™** quiz fuelled a **7,306% list surge within 72 hours**.",
+  },
+  {
+    before:
+      "An **ecommerce** business was getting 440K visits, but only 250 demo bookings. At first, that seemed fine, until they realized it added up to just a **0.044% conversion rate.**",
+    after:
+      "**With us, they achieved a 14% conversion rate to their demo video, generating £97,000 in 20 days.**",
+  },
+  {
+    before:
+      "A **mastermind owner** tanked **27** discovery calls, and closed **one client**.",
+    after:
+      "Our positioning strategy (first pillar of C-RPV) **closed 29 of the next 31 calls**",
+  },
+  {
+    before:
+      "A **media business launch** grossed **$70K** with a **6%** email click-through rate (CTR). The client thought it was a flex until they saw our 45% CTR and hired us for their next launch.",
+    after:
+      "**With us on board, her next launch hit $150K (double!) and the next one did HALF A MILLION DOLLARS (8X) with the same amount of traffic.**",
   },
 ];
 
@@ -298,7 +302,7 @@ export const fourAreas = {
       n: "AREA 01",
       title: "Maximise Revenue per Visitor™",
       body:
-        "5 metrics you need to track, obsess, and optimise if you want to add $1.5M/year to your existing revenue by scaling how much average revenue you earn per visitor.",
+        "5 metrics you need to track, obsess, and optimise if you want to add $1.5M/year to your existing revenue by <strong>scaling how much average revenue you earn per visitor.</strong>",
     },
     {
       n: "AREA 02",
@@ -354,7 +358,7 @@ export const founder = {
     "And it gets worse, nearly 70% of that traffic was gone after just a single visit.",
     'They weren’t given a chance to engage or ask questions. It felt like **we were forcing people into a decision** they hadn’t been primed for: **“Buy or Bye.”**',
     "That changed when I pitched a conversion quiz project to a client.",
-    "Not the viral, BuzzFeed-style type, but intentional, insight-led quizzes that convert your visitors into warm leads and store them in a database you own: aka an email list or SMS list.",
+    "Not the viral, BuzzFeed-style type, but intentional, insight-led quizzes that convert your visitors into warm leads and store them in a database you own: **aka an email list** or **SMS list**.",
     "However… I couldn't find a model that worked across industries.",
     "So, I ditched the typical Buzzfeed quiz funnel knowledge available on the internet and rebuilt the entire strategy from scratch.",
     "I studied hours of real sales calls, demos, and live chats from customers who didn't convert.",
