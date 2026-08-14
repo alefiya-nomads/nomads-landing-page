@@ -47,6 +47,7 @@ export default function Workshop() {
             className="workshop__video"
             src="/Assets/Images/video image.png"
             alt="A private on-demand workshop with Alefiya Khorakiwala"
+            loading="lazy"
           />
 
           <div className="workshop__closing">

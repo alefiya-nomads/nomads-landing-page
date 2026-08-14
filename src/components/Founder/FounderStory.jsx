@@ -90,6 +90,7 @@ export default function FounderStory({ paragraphs, numberedList, paragraphs2 }) 
                     src={`/Assets/Icons/number points icon ${j + 1}.png`}
                     alt=""
                     aria-hidden="true"
+                    loading="lazy"
                   />
                   <span className="founder__numbered-label">{renderTokens(toks)}</span>
                 </li>

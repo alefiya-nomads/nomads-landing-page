@@ -50,7 +50,7 @@
 /* Same frame as the stat cards: gradient-image rim, 3px white border,
    rounded corners, hard plum offset shadow. */
 .curious__case-card {
-  background: url("/Assets/landing-page/Gradient Background wide-07.png")
+  background: url("/Assets/landing-page/Gradient Background wide-07.webp")
     center / cover no-repeat;
   border: 3px solid #fff;
   border-radius: 28px;

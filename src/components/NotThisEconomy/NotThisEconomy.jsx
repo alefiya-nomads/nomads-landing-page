@@ -23,6 +23,7 @@ export default function NotThisEconomy() {
         src="/Assets/Doodle/white circle badge.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
       />
       <div className="economy__frame">
         <div className="wrap economy__grid">
@@ -43,7 +44,7 @@ export default function NotThisEconomy() {
           </div>
 
           <div className="economy__visual" data-reveal data-reveal-delay="200">
-            <img src={LAPTOP_SRC} alt="RPV dashboard shown on a laptop" className="economy__laptop" />
+            <img src={LAPTOP_SRC} alt="RPV dashboard shown on a laptop" className="economy__laptop" loading="lazy" />
           </div>
         </div>
       </div>

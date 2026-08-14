@@ -95,17 +95,22 @@
 
   .economy__frame {
     margin: 10px;
-    padding: var(--space-xl) 0;
+    padding: var(--space-xl) 0 10px;
   }
 
   .economy__grid {
     grid-template-columns: 1fr;
     padding-left: 22px;
     padding-right: 22px;
+    gap: 10px;
   }
 
   .economy__visual {
     margin-top: var(--space-lg);
+  }
+
+  .economy__laptop {
+    width: 95%;
   }
 }
 

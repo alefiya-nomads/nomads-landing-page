@@ -50,7 +50,7 @@ export default function Curious() {
                     {c.logoSrc && (
                       <div className="curious__case-header">
                         <div className="curious__case-logo">
-                          <img src={c.logoSrc} alt={`${c.company} logo`} />
+                          <img src={c.logoSrc} alt={`${c.company} logo`} loading="lazy" />
                         </div>
                         <div>
                           <div className="curious__case-company">{c.company}</div>

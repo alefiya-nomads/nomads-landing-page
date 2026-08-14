@@ -9,7 +9,7 @@ export default function Mechanism() {
       <div className="wrap">
         <div className="mechanism__card">
           <div className="mechanism__visual" data-reveal>
-            <img src={LAPTOP_SRC} alt="Whiteboard sketch of the Compounding RPV OS" className="mechanism__laptop" />
+            <img src={LAPTOP_SRC} alt="Whiteboard sketch of the Compounding RPV OS" className="mechanism__laptop" loading="lazy" />
           </div>
 
           <div className="mechanism__copy">

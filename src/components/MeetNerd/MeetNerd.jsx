@@ -9,6 +9,7 @@ export default function MeetNerd() {
         src="/Assets/Doodle/purple badge whos behind.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
       />
       <div className="wrap center">
         <p className="meet-nerd__wait" data-reveal>

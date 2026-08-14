@@ -24,18 +24,21 @@ export default function ChecklistSection() {
         src="/Assets/Doodle/3rd sec doodle.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
       />
       <img
         className="checklist__doodle-arrows"
         src="/Assets/Doodle/blue straight arrow.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
       />
       <img
         className="checklist__doodle-footprints"
         src="/Assets/Gifs/Arrow.gif"
         alt=""
         aria-hidden="true"
+        loading="lazy"
       />
       <div className="wrap">
         <h2 className="checklist__headline" data-reveal>

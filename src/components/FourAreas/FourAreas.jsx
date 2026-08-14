@@ -30,6 +30,7 @@ export default function FourAreas() {
           src="/Assets/Doodle/curvy arrow white.png"
           alt=""
           aria-hidden="true"
+          loading="lazy"
         />
       </div>
 
@@ -38,7 +39,7 @@ export default function FourAreas() {
           <div className="four-areas__grid">
             {fourAreas.areas.map((area, i) => (
               <div className="four-areas__card" key={i} data-reveal data-reveal-delay={i * 90}>
-                <img className="four-areas__icon" src={ICONS[i]} alt="" aria-hidden="true" />
+                <img className="four-areas__icon" src={ICONS[i]} alt="" aria-hidden="true" loading="lazy" />
                 <h3 className="four-areas__card-title">{area.title}</h3>
                 <p className="four-areas__card-body" dangerouslySetInnerHTML={{ __html: area.body }}></p>
               </div>
@@ -50,6 +51,7 @@ export default function FourAreas() {
             src="/Assets/Doodle/blue straight arrow.png"
             alt=""
             aria-hidden="true"
+            loading="lazy"
           />
 
           <div className="four-areas__cta center" data-reveal>

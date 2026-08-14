@@ -10,6 +10,7 @@ export default function Founder() {
         src="/Assets/Doodle/white compass badge.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
       />
       <div className="founder__split">
         <div className="founder__photo-col">
@@ -18,6 +19,7 @@ export default function Founder() {
               className="founder__photo"
               src="/Assets/Images/alefiys image.png"
               alt="Alefiya Khoraki, co-founder and CMO at Nomads Marketing"
+              loading="lazy"
             />
           </div>
         </div>

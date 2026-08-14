@@ -43,7 +43,7 @@ export default function Problem97() {
     <section className="problem">
       <div className="problem__panel problem__panel--dark">
         <div className="problem__frame">
-          <img src={PUZZLE_SRC} alt="" className="problem__puzzle" aria-hidden="true" />
+          <img src={PUZZLE_SRC} alt="" className="problem__puzzle" aria-hidden="true" loading="lazy" />
         </div>
       </div>
 

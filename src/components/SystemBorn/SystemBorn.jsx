@@ -50,6 +50,7 @@ export default function SystemBorn() {
             src="/Assets/Doodle/straight arrow.png"
             alt=""
             aria-hidden="true"
+            loading="lazy"
           />
         </div>
 
@@ -57,6 +58,7 @@ export default function SystemBorn() {
           <img
             src="/Assets/Images/DSC04663 1.png"
             alt="Alefiya Khoraki seated in a wicker chair"
+            loading="lazy"
           />
         </div>
       </div>

@@ -10,6 +10,7 @@ function PointDoodle() {
       src="/Assets/Doodle/sczv 7.png"
       alt=""
       aria-hidden="true"
+      loading="lazy"
     />
   );
 }
@@ -22,12 +23,14 @@ export default function Calculator() {
         src="/Assets/Doodle/curvy line dashed arrow white.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
       />
       <img
         className="calc__doodle-thisway"
         src="/Assets/Doodle/thisway dashed arrow.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
       />
       <div className="wrap">
         <h2 className="calc__headline center" data-reveal>
@@ -72,7 +75,7 @@ export default function Calculator() {
 
         <div className="calc__mock-frame" data-reveal>
           <div className="calc__mock-bar">
-            <img className="calc__mock-logo" src="/icons/logo.avif" alt="Nomads" />
+            <img className="calc__mock-logo" src="/icons/logo.avif" alt="Nomads" loading="lazy" />
           </div>
           <div className="calc__mock-body">
             <span className="todo">Calculator screenshot / GIF — asset pending</span>

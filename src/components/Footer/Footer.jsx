@@ -24,7 +24,7 @@ export default function Footer() {
     <section className="footer" id="footer">
       <div className="wrap footer__grid">
         <div className="footer__photo" data-reveal>
-          <img src={PHOTO_SRC} alt="Alefiya Khoraki seated, reading a book" />
+          <img src={PHOTO_SRC} alt="Alefiya Khoraki seated, reading a book" loading="lazy" />
         </div>
 
         <div className="footer__copy">
@@ -53,6 +53,7 @@ export default function Footer() {
         src="/Assets/Doodle/arrow footer.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
       />
     </section>
   );

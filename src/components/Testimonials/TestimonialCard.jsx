@@ -35,13 +35,14 @@ export default function TestimonialCard({ name, role, headline, highlightPhrase,
           className="testimonial-card__quote testimonial-card__quote--open"
           alt=""
           aria-hidden="true"
+          loading="lazy"
         />
 
         <div className="testimonial-card__grid">
           <div className="testimonial-card__person">
             <div className="testimonial-card__avatar">
               {avatarSrc ? (
-                <img src={avatarSrc} alt="" />
+                <img src={avatarSrc} alt="" loading="lazy" />
               ) : (
                 <span className="testimonial-card__initials">{initials}</span>
               )}
@@ -75,6 +76,7 @@ export default function TestimonialCard({ name, role, headline, highlightPhrase,
           className="testimonial-card__quote testimonial-card__quote--close"
           alt=""
           aria-hidden="true"
+          loading="lazy"
         />
       </div>
     </figure>
