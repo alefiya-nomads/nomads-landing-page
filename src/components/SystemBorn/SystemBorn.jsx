@@ -56,7 +56,7 @@ export default function SystemBorn() {
 
         <div className="system-born__photo">
           <img
-            src="/Assets/Images/DSC04663 1.png"
+            src="/Assets/Images/DSC04663 1.webp"
             alt="Alefiya Khoraki seated in a wicker chair"
             loading="lazy"
           />

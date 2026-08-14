@@ -45,7 +45,7 @@ export default function Workshop() {
         <div className="workshop__showcase" data-reveal data-reveal-delay="120">
           <img
             className="workshop__video"
-            src="/Assets/Images/video image.png"
+            src="/Assets/Images/video image.webp"
             alt="A private on-demand workshop with Alefiya Khorakiwala"
             loading="lazy"
           />

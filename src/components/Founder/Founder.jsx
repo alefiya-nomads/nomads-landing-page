@@ -17,7 +17,7 @@ export default function Founder() {
           <div className="founder__photo-sticky">
             <img
               className="founder__photo"
-              src="/Assets/Images/alefiys image.png"
+              src="/Assets/Images/alefiys image.webp"
               alt="Alefiya Khoraki, co-founder and CMO at Nomads Marketing"
               loading="lazy"
             />

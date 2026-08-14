@@ -2,7 +2,7 @@ import "./Footer.css";
 import Button from "../primitives/Button.jsx";
 import { footer } from "../../data/copy.js";
 
-const PHOTO_SRC = "/Assets/Images/footer alefiya image.png";
+const PHOTO_SRC = "/Assets/Images/footer alefiya image.webp";
 
 /**
  * Closing footer, rebuilt to the reference: dark textured banner with the
