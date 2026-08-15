@@ -87,8 +87,11 @@
 
 /* Mobile body copy bumped to 20px (gif annotations unaffected). */
 @media (max-width: 760px) {
-  .problem__stat-label,
-  .problem__para {
+  .problem__stat-label {
     font-size: 20px;
+  }
+
+  .problem__para {
+    font-size: 18px;
   }
 }

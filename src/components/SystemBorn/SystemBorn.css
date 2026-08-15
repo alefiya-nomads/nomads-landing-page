@@ -116,8 +116,8 @@
     max-height: 750px;
   }
 
-  /* Mobile body copy bumped to 20px (heading/badges unaffected). */
+  /* Mobile body copy set to 18px (heading/badges unaffected). */
   .system-born__para {
-    font-size: 20px;
+    font-size: 18px;
   }
 }

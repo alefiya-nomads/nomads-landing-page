@@ -160,17 +160,17 @@
     padding: var(--space-lg) var(--space-md);
   }
 
-  /* Mobile body copy + point labels bumped to 20px (headline unaffected). */
+  /* Mobile body copy + point labels set to 18px (headline unaffected). */
   .calc__point-label,
   .calc__point-body,
   .calc__gap-text {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   /* .center is a global class on this element; matching its specificity
      here (element+class order) flips it left on mobile. */
   .calc__subtitle.center {
-    font-size: 17px;
+    font-size: 18px;
     text-align: left;
   }
 }

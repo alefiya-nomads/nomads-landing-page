@@ -288,12 +288,9 @@
 
   .hero__eyebrow,
   .hero__list li,
-  .hero__rpv-line {
-    font-size: 20px;
-  }
-
+  .hero__rpv-line,
   .hero__followup {
-    font-size: 10px;
+    font-size: 18px;
   }
 
   /* Enlarge the gif (into the wrap's side padding) so the woman is taller

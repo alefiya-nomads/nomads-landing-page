@@ -120,6 +120,6 @@
 /* Mobile body copy bumped to 20px (headings unaffected). */
 @media (max-width: 760px) {
   .economy__sub {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
