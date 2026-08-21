@@ -1,81 +1,169 @@
+import { useState } from "react";
 import "./ChecklistSection.css";
 import Button from "../primitives/Button.jsx";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
-import { checklistIntro, scenarios, checklistOutro } from "../../data/copy.js";
+import { scenarios, checklistOutro } from "../../data/copy.js";
+
+const pad = (n) => String(n + 1).padStart(2, "0");
+
+/* Semicircle 0–10 diagnostic gauge with a needle pointing at `score`. */
+function Gauge({ score }) {
+  const cx = 100;
+  const cy = 92;
+  const r = 74;
+  const a = Math.PI * (1 - score / 10); // 0 -> π (left), 10 -> 0 (right)
+  const nx = cx + (r - 12) * Math.cos(a);
+  const ny = cy - (r - 12) * Math.sin(a);
+
+  return (
+    <svg
+      className="checklist__gauge"
+      viewBox="0 0 200 108"
+      role="img"
+      aria-label={`Diagnostic score: ${score} out of 10`}
+    >
+      <path
+        d={`M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
+        className="checklist__gauge-track"
+      />
+      {[0, 2, 4, 6, 8, 10].map((t) => {
+        const ta = Math.PI * (1 - t / 10);
+        const x1 = cx + r * Math.cos(ta);
+        const y1 = cy - r * Math.sin(ta);
+        const x2 = cx + (r - 9) * Math.cos(ta);
+        const y2 = cy - (r - 9) * Math.sin(ta);
+        const lx = cx + (r + 12) * Math.cos(ta);
+        const ly = cy - (r + 12) * Math.sin(ta);
+        return (
+          <g key={t}>
+            <line x1={x1} y1={y1} x2={x2} y2={y2} className="checklist__gauge-tick" />
+            <text x={lx} y={ly + 3} className="checklist__gauge-tick-label">
+              {t}
+            </text>
+          </g>
+        );
+      })}
+      <line x1={cx} y1={cy} x2={nx} y2={ny} className="checklist__gauge-needle" />
+      <circle cx={cx} cy={cy} r="5.5" className="checklist__gauge-hub" />
+    </svg>
+  );
+}
+
+/* The reaction panel body for a scenario — reused in the desktop side panel
+   and inline inside each item below 900px. */
+function ReactionContent({ scenario }) {
+  const v = scenario.verdict || {};
+  const hasScore = typeof v.score === "number";
+
+  return (
+    <>
+      <span className="checklist__panel-label">Reaction</span>
+
+      {scenario.reaction?.text && (
+        <p className="checklist__reaction">{scenario.reaction.text}</p>
+      )}
+
+      <div className="checklist__gif" aria-hidden="true">
+        <span className="checklist__gif-note">GIF / image — asset pending</span>
+      </div>
+
+      {(hasScore || v.scoreLabel) && (
+        <>
+          <span className="checklist__panel-label">Diagnostic Gauge</span>
+          {hasScore ? (
+            <div className="checklist__gauge-wrap">
+              <Gauge score={v.score} />
+              <span className="checklist__gauge-score">{v.score}/10</span>
+            </div>
+          ) : (
+            <span className="checklist__score-label">{v.scoreLabel}</span>
+          )}
+        </>
+      )}
+
+      {v.lines && (
+        <div className="checklist__verdict">
+          {v.lines.map((line, i) => (
+            <p
+              key={i}
+              className={i === 0 ? "checklist__verdict-lead" : "checklist__verdict-line"}
+            >
+              {i === 0 && v.emoji ? `${line} ${v.emoji}` : line}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {v.cta && (
+        <div className="checklist__panel-cta">
+          <Button href="#diagnostic">{v.cta}</Button>
+        </div>
+      )}
+    </>
+  );
+}
 
 export default function ChecklistSection() {
-  // Manual line breaks (design-v2.md 0.6) matching the reference image's
-  // 3-line headline pattern (7 words / 3 words / 4 highlighted words).
-  // These concatenate back to checklistIntro.heading verbatim.
-  const headlineLine1 = "Do you have what it takes to";
-  const headlineLine2 = "add $1.5M/year from";
-  const headlineLine3 = "your existing marketing spend?";
+  // Which scenario's reaction is shown. Single-select: ticking a box reveals
+  // that item's reaction (in the side panel on desktop, inline below 900px).
+  const [active, setActive] = useState(0);
+  const s = scenarios[active];
 
-  // The reference image shows this button in sentence case, not the ALL-CAPS
-  // string copy.js's checklistOutro.ctaLabel carries — rendering the reference's
-  // casing per design-v2.md 0.8 (flagged, not silently picked: same words,
-  // casing differs from the copy.js source).
   const ctaLabel = "Show me how to add $1.5m in extra revenue this year";
 
   return (
     <section className="checklist">
-      <img
-        className="checklist__doodle-note"
-        src="/Assets/Doodle/3rd sec doodle.png"
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-      />
-      <img
-        className="checklist__doodle-arrows"
-        src="/Assets/Doodle/blue straight arrow.png"
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-      />
-      <img
-        className="checklist__doodle-footprints"
-        src="/Assets/Gifs/Arrow.gif"
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-      />
-      <div className="wrap">
-        <h2 className="checklist__headline" data-reveal>
-          {headlineLine1}{" "}
-          <br className="hl-br" />
-          {headlineLine2}{" "}
-          <br className="hl-br" />
-          <HighlightSweep tone="plum">{headlineLine3}</HighlightSweep>
-        </h2>
+      <div className="wrap checklist__grid">
+        {/* LEFT — the question list */}
+        <div className="checklist__left">
+          <h2 className="checklist__headline" data-reveal>
+            Do you have what it takes to add $1.5M/year from{" "}
+            <HighlightSweep tone="plum">your existing marketing spend?</HighlightSweep>
+          </h2>
 
-        <div className="checklist__intro-row" data-reveal data-reveal-delay="120">
-          <span className="checklist__tag">{checklistIntro.sub}</span>
-          {/* Reference reads "TICK THE BOX AND FIND OUT." — copy.js's chip
-              says "Check all that apply" (conflict flagged, defaulting to
-              the reference per design-v2.md 0.8). CSS uppercases it. */}
-          <span className="checklist__intro-text">Tick the box and find out.</span>
+          <div className="checklist__intro-row" data-reveal data-reveal-delay="120">
+            <span className="checklist__tag">Step 01</span>
+            <span className="checklist__intro-text">Tick a box to find out.</span>
+          </div>
+
+          <ul className="checklist__list">
+            {scenarios.map((scenario, i) => (
+              <li
+                key={scenario.id}
+                className={`checklist__item${active === i ? " checklist__item--active" : ""}`}
+              >
+                <label className="checklist__label">
+                  <span className="checklist__num">{pad(i)}</span>
+                  <input
+                    type="checkbox"
+                    className="checklist__checkbox"
+                    checked={active === i}
+                    onChange={() => setActive(i)}
+                  />
+                  <span className="checklist__situation">{scenario.situation}</span>
+                </label>
+
+                {/* Inline reaction shown inside the ticked box below 900px. */}
+                {active === i && (
+                  <div className="checklist__item-reveal">
+                    <ReactionContent scenario={scenario} />
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          <div className="checklist__cta" data-reveal>
+            <Button href="#diagnostic">{ctaLabel}</Button>
+            <p className="checklist__cta-sub">{checklistOutro.sub}</p>
+          </div>
         </div>
 
-        <ul className="checklist__list">
-          {scenarios.map((scenario, i) => (
-            <li
-              key={scenario.id}
-              className={`checklist__item ${i % 2 === 0 ? "checklist__item--plum" : "checklist__item--navy"}`}
-              data-reveal
-              data-reveal-delay={i * 70}
-            >
-              <label className="checklist__label">
-                <input type="checkbox" className="checklist__checkbox" />
-                <span>{scenario.situation}</span>
-              </label>
-            </li>
-          ))}
-        </ul>
-
-        <div className="checklist__cta" data-reveal>
-          <Button href="#diagnostic">{ctaLabel}</Button>
-          <p className="checklist__cta-sub">{checklistOutro.sub}</p>
+        {/* RIGHT — side panel for the ticked item (desktop only) */}
+        <div className="checklist__right">
+          <div className="checklist__panel" aria-live="polite">
+            <ReactionContent scenario={s} />
+          </div>
         </div>
       </div>
     </section>

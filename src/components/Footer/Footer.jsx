@@ -29,18 +29,23 @@ export default function Footer() {
 
         <div className="footer__copy">
           <p className="footer__chip" data-reveal>
-            {footer.lines[0]}
+            {footer.intro}
           </p>
 
-          <p className="footer__body" data-reveal data-reveal-delay="100">
-            {footer.lines[1]}
+          <p className="footer__lead" data-reveal data-reveal-delay="80">
+            {footer.lead}
           </p>
 
-          <h2 className="footer__heading" data-reveal data-reveal-delay="180">
-            {footer.signature}
+          <h2 className="footer__statement" data-reveal data-reveal-delay="140">
+            {footer.statement}
           </h2>
 
-          <div data-reveal data-reveal-delay="260">
+          <div className="footer__signature" data-reveal data-reveal-delay="220">
+            <h2 className="footer__heading">{footer.signature}</h2>
+            <span className="footer__signature-script">{footer.signatureScript}</span>
+          </div>
+
+          <div data-reveal data-reveal-delay="300">
             <Button variant="onDark" href="#diagnostic" className="footer__cta">
               {cta}
             </Button>

@@ -108,7 +108,7 @@
 }
 
 .founder-story p {
-  margin: 0 0 var(--space-md);
+  margin: 0 0 15px;
 }
 
 .founder__numbered {
@@ -116,14 +116,14 @@
   font-weight: 800;
   list-style: none;
   padding-left: 0;
-  margin: 0 0 var(--space-md);
+  margin: 0 0 15px;
 }
 
 .founder__numbered li {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: var(--space-sm);
+  margin-bottom: 15px;
 }
 
 .founder__numbered-icon {

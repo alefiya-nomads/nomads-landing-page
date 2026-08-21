@@ -1,174 +1,130 @@
+/* Interactive split: the question list on the left, the ticked item's
+   reaction panel on the right. Cream grain-textured section per branding. */
 .checklist {
   position: relative;
   background-color: var(--bg-cream);
-  /* The old single-JPG background (landscape gradient + baked-in grain)
-     blurred badly when cover-stretched over this tall section. Split it:
-     a heavily-blurred tiny gradient layer that scales cleanly to any box,
-     plus a neutral-gray noise tile blended on top at native 1:1 so the
-     grain stays pixel-crisp at every viewport size. */
   background-image: url("/Assets/landing-page/grain.webp"),
     url("/Assets/landing-page/checklist-bg-smooth.webp");
   background-size: 256px 256px, 100% 100%;
   background-repeat: repeat, no-repeat;
   background-position: top left, center;
   background-blend-mode: soft-light, normal;
-  /* Extra bottom padding gives Mechanism's card room to genuinely overlap
-     this section's box (not just visually share a similar cream color) —
-     per the explicit "4th section half-overlaps the 3rd" direction. */
-  padding: 80px 0 calc(var(--space-3xl) + 200px);
-  overflow: hidden;
+  padding: 80px 0 280px;
 }
 
-/* Content stays above the decorative compass doodle. */
-.checklist .wrap {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.checklist__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-2xl);
+  /* Stretch both columns to the row height so the right column is as tall
+     as the (usually taller) question list — this gives the sticky panel
+     room to stick, the same pattern as Founder's photo column. */
+  align-items: stretch;
 }
 
-/* Doodles — positions mirror the reference image: compass bleeding off the
-   left edge behind the bars, note beside the intro row, three arrows at the
-   lower left, footprints trailing down the bottom-right corner. */
-.checklist__doodle-compass {
-  position: absolute;
-  left: 0;
-  top: 320px;
-  width: 230px;
-  height: auto;
-  pointer-events: none;
-}
-
-.checklist__doodle-note {
-  position: absolute;
-  right: 170px;
-  top: 235px;
-  width: 210px;
-  height: auto;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.checklist__doodle-arrows {
-  position: absolute;
-  left: 10%;
-  bottom: 420px;
-  width: 55px;
-  height: auto;
-  pointer-events: none;
-}
-
-.checklist__doodle-footprints {
-  position: absolute;
-  right: -60px;
-  bottom: 80px;
-  width: 320px;
-  height: auto;
-  pointer-events: none;
-}
-
-/* Montserrat Extra Bold (inherited from global h2); Title Case reproduces
-   the reference image's visual treatment without altering the verbatim
-   sentence-case copy in copy.js. */
+/* ---- Left column ---- */
 .checklist__headline {
-  text-transform: capitalize;
-  font-size: clamp(1.5rem, 2.8vw, 2.3rem);
   line-height: 1.3;
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto var(--space-lg);
-  text-align: left;
+  margin: 0 0 var(--space-lg);
   text-wrap: balance;
-}
-
-/* Sparing plum accent highlight (design-v2.md 0.2/0.6). */
-.checklist__highlight {
-  display: inline;
-  background: var(--brand-plum);
-  color: var(--white);
-  padding: 0.05em 0.22em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .checklist__intro-row {
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto var(--space-xl);
+  margin: 0 0 var(--space-lg);
 }
 
-/* Roboto Mono label per design-v2.md 0.1 — small tag/label use only. */
 .checklist__tag {
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   background: var(--midnight-blue);
   color: var(--white);
-  padding: 10px 16px;
+  padding: 8px 14px;
 }
 
 .checklist__intro-text {
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--brand-plum);
 }
 
 .checklist__list {
   list-style: none;
-  margin: 0 auto var(--space-xl);
+  margin: 0 0 var(--space-xl);
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  max-width: 760px;
 }
 
 .checklist__item {
-  background: var(--white);
-  border: 2px solid var(--ink-dark);
-  border-top-width: 16px;
-  border-radius: 12px;
+  border-top: 1px solid rgba(57, 17, 41, 0.18);
+  transition: background 0.15s ease;
 }
 
-.checklist__item--plum {
-  border-top-color: var(--brand-plum);
+.checklist__item:last-child {
+  border-bottom: 1px solid rgba(57, 17, 41, 0.18);
 }
 
-.checklist__item--navy {
-  border-top-color: var(--midnight-blue);
+.checklist__item--active {
+  background: rgba(93, 27, 78, 0.08);
 }
 
 .checklist__label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-md);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-md) var(--space-sm);
   cursor: pointer;
-  font-size: 1rem;
-  color: var(--ink-dark);
-  line-height: 1.4;
+}
+
+.checklist__num {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--brand-plum);
+  padding-top: 3px;
 }
 
 .checklist__checkbox {
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin: 0;
+  width: 22px;
+  height: 22px;
+  margin: 1px 0 0;
   accent-color: var(--brand-plum);
   border: 2px solid var(--ink-dark);
+  cursor: pointer;
+}
+
+.checklist__situation {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: var(--ink-dark);
+}
+
+.checklist__item--active .checklist__situation {
+  font-weight: 700;
+}
+
+/* Inline reaction inside a ticked item — hidden on desktop (the side panel
+   handles it), shown below 900px. */
+.checklist__item-reveal {
+  display: none;
 }
 
 .checklist__cta {
-  text-align: center;
+  text-align: left;
+}
+
+.checklist__cta .btn {
+  font-size: 0.9rem;
 }
 
 .checklist__cta-sub {
@@ -177,51 +133,189 @@
   font-size: 0.95rem;
 }
 
-@media (max-width: 700px) {
-  .checklist__intro-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-sm);
-  }
+/* ---- Right column: reaction panel ---- */
+.checklist__panel {
+  position: sticky;
+  top: 100px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(57, 17, 41, 0.15);
+  border-radius: 14px;
+  padding: var(--space-xl);
 }
 
+.checklist__panel-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-plum);
+  margin: 0 0 var(--space-sm);
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(57, 17, 41, 0.15);
+}
+
+.checklist__panel-label ~ .checklist__panel-label {
+  margin-top: var(--space-lg);
+}
+
+.checklist__reaction {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-md);
+}
+
+.checklist__gif {
+  aspect-ratio: 16 / 10;
+  border: 2px dashed var(--brand-plum);
+  border-radius: 8px;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(93, 27, 78, 0.05),
+    rgba(93, 27, 78, 0.05) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checklist__gif-note {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--brand-plum);
+}
+
+.checklist__gauge-wrap {
+  text-align: center;
+}
+
+.checklist__gauge {
+  width: 210px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.checklist__gauge-track {
+  fill: none;
+  stroke: rgba(57, 17, 41, 0.15);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.checklist__gauge-tick {
+  stroke: rgba(57, 17, 41, 0.4);
+  stroke-width: 2;
+}
+
+.checklist__gauge-tick-label {
+  fill: var(--ink-dark);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-anchor: middle;
+}
+
+.checklist__gauge-needle {
+  stroke: var(--brand-plum);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.checklist__gauge-hub {
+  fill: var(--brand-plum);
+}
+
+.checklist__gauge-score {
+  display: block;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--brand-plum);
+  margin-top: -6px;
+}
+
+.checklist__score-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--brand-plum);
+}
+
+.checklist__verdict {
+  margin-top: var(--space-md);
+}
+
+.checklist__verdict-lead {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-sm);
+}
+
+.checklist__verdict-line {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-sm);
+}
+
+.checklist__panel-cta {
+  margin-top: var(--space-lg);
+}
+
+.checklist__panel-cta .btn {
+  font-size: 0.85rem;
+}
+
+/* ---- Responsive ---- */
 @media (max-width: 900px) {
-  .checklist {
-    padding: 35px 0 calc(var(--space-2xl) + 380px);
+  .checklist__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
   }
 
-  .checklist__doodle-compass,
-  .checklist__doodle-note,
-  .checklist__doodle-arrows,
-  .checklist__doodle-footprints {
+  /* Reaction shows inline inside the ticked box instead of the side panel. */
+  .checklist__right {
     display: none;
   }
+
+  .checklist__item-reveal {
+    display: block;
+    padding: var(--space-md) var(--space-md) var(--space-lg);
+    border-top: 1px dashed rgba(57, 17, 41, 0.25);
+  }
 }
 
-/* Mobile body copy bumped to 20px; the checklist labels are a touch
-   smaller (18px) with tighter horizontal padding to fit narrow screens. */
 @media (max-width: 760px) {
-  /* Trim the bottom padding so the Mechanism card (which pulls up -380px)
-     sits closer to the CTA sub-line — smaller gap on mobile. */
   .checklist {
-    padding-bottom: 380px;
+    padding: 40px 0;
+  }
+
+  .checklist__situation {
+    font-size: 16px;
+  }
+
+  .checklist__reaction {
+    font-size: 1.1rem;
   }
 
   .checklist__cta-sub {
     font-size: 10px;
   }
 
-  .checklist__label {
-    font-size: 18px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
-@media (min-width: 1707px) {
-  .checklist__headline,
-  .checklist__intro-row,
-  .checklist__list {
-    max-width: 800px;
+  .checklist__panel {
+    padding: var(--space-lg);
   }
 }

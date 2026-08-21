@@ -40,22 +40,24 @@
   padding: var(--space-xl) 0;
 }
 
+/* Single centered reading column (mockup image removed) — the headline is
+   now the section's sole focus (design-v2.md 0.5). max-width re-constrains
+   the .wrap so the centered statement doesn't run edge-to-edge in the frame. */
 .economy__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: var(--space-2xl);
-  align-items: center;
-  max-width: none;
-  width: 80%;
+  max-width: 860px;
+  width: 100%;
+  text-align: center;
 }
 
 /* Montserrat Extra Bold (inherited from the global h2 rule); Title Case
    styling reproduces the reference image's visual treatment without
-   altering the verbatim sentence-case copy in copy.js. */
+   altering the verbatim sentence-case copy in copy.js. Centered on
+   desktop/tablet; the global mobile block keeps it left-aligned at
+   <=760px (this heading renders >3 lines there, per rule 0.9). */
 .economy__headline {
   color: var(--white);
-  text-transform: capitalize;
-  font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+  text-align: center;
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
   line-height: 1.28;
   margin-bottom: var(--space-lg);
   text-wrap: balance;
@@ -73,21 +75,9 @@
 
 .economy__sub {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 1.1rem;
-  max-width: 620px;
-  margin: 0;
-}
-
-.economy__visual {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.economy__laptop {
-  width: 75%;
-  max-width: 560px;
-  height: auto;
-  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.45));
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 @media (max-width: 900px) {
@@ -101,25 +91,17 @@
   }
 
   .economy__grid {
-    grid-template-columns: 1fr;
     padding-left: 22px;
     padding-right: 22px;
-    gap: 10px;
-    width: 100%;
-  }
-
-  .economy__visual {
-    margin-top: var(--space-lg);
-  }
-
-  .economy__laptop {
-    width: 95%;
   }
 }
 
-/* Mobile body copy bumped to 20px (headings unaffected). */
+/* Mobile body copy bumped (headings unaffected). Left-aligned to pair with
+   the heading, which the global 0.9 rule keeps left at <=760px. */
 @media (max-width: 760px) {
   .economy__sub {
     font-size: 18px;
+    text-align: left;
+    margin: 0;
   }
 }

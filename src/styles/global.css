@@ -82,6 +82,8 @@ p {
   h2.proof-intro__headline,
   h2.calc__headline,
   h2.four-areas__headline,
+  h2.stages__headline,
+  h2.stages__bridge,
   h2.meet-nerd__headline,
   h2.system-born__heading,
   h2.curious__heading,
@@ -95,14 +97,19 @@ p {
      1.5rem size above — re-check if a heading's copy changes. */
   /* calc + system-born are explicit user overrides of the line-count
      grouping (calc centered, system-born left). */
+  /* uncover renders >3 lines at 375px (32-word lead-style heading; its
+     mobile size is set in Uncover.css, not the uniform block above). */
   h1.hero__headline,
   h2.economy__headline,
   h2.checklist__headline,
   h2.mechanism__headline,
   h2.four-areas__headline,
+  h2.stages__headline,
+  h2.stages__bridge,
   h2.system-born__heading,
   h2.curious__heading,
   h2.calc__headline,
+  h2.uncover__headline,
   h2.workshop__headline {
     text-align: left;
   }
@@ -110,6 +117,31 @@ p {
   h2.proof-intro__headline,
   h2.meet-nerd__headline {
     text-align: center;
+  }
+}
+
+/* Desktop view (>=761px): every section heading renders at a uniform 40px
+   (per request), overriding each section's fluid clamp()/per-component
+   sizes. The `main` prefix raises specificity above the per-component rules
+   (some of which set heading sizes inside their own media queries). The
+   mobile block above (<=760px) keeps its own uniform size. */
+@media (min-width: 761px) {
+  main h1.hero__headline,
+  main h2.economy__headline,
+  main h2.uncover__headline,
+  main h2.checklist__headline,
+  main h2.mechanism__headline,
+  main h2.problem__headline,
+  main h2.proof-intro__headline,
+  main h2.calc__headline,
+  main h2.four-areas__headline,
+  main h2.stages__headline,
+  main h2.stages__bridge,
+  main h2.workshop__headline,
+  main h2.meet-nerd__headline,
+  main h2.system-born__heading,
+  main h2.curious__heading {
+    font-size: 40px;
   }
 }
 

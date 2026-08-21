@@ -93,6 +93,6 @@
   --shadow-hard-on-dark: 7px 7px 0 0 rgba(0, 0, 0, 0.55);
 
   /* ---- Container widths ---- */
-  --container-max: 1200px;
+  --container-max: 1300px;
   --measure-max: 720px;
 }

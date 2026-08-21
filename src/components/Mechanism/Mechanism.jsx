@@ -24,7 +24,6 @@ export default function Mechanism() {
               Our proprietary diagnostic{" "}
               <br className="hl-br" />
               system: Compounding Revenue{" "}
-              <br className="hl-br" />
               Per Vistor Operating System
             </h2>
             <p className="mechanism__body" data-reveal data-reveal-delay="280">

@@ -4,7 +4,7 @@
   font-weight: 700;
   font-size: 1rem;
   letter-spacing: 0.02em;
-  text-transform: none;
+  text-transform: uppercase;
   text-decoration: none;
   border: 2px solid #391129;
   border-radius: var(--radius-flat);

@@ -1,6 +1,5 @@
 import "./Hero.css";
 import Button from "../primitives/Button.jsx";
-import RpvSnapshotCard from "./RpvSnapshotCard.jsx";
 import HeroRotator from "./HeroRotator.jsx";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { hero } from "../../data/copy.js";
@@ -77,11 +76,12 @@ export default function Hero() {
         </div>
 
         <div className="hero__visual">
+          {/* The RPV Snapshot card that used to overlay this photo was
+              replaced by the "What you'll uncover" section below the
+              trust bar (see components/Uncover). */}
           <div className="hero__photo-wrap" data-reveal data-reveal-delay="200">
             <img src={PHOTO_SRC} alt="Alefiya, co-founder and CMO at Nomads Marketing" className="hero__photo" />
           </div>
-
-          <RpvSnapshotCard />
         </div>
       </div>
     </section>

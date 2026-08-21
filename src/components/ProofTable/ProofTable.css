@@ -1,7 +1,7 @@
+/* Before / After / Data three-column proof table on the paper-texture
+   section. Card tones + section background unchanged from before. */
 .proof {
   background-image: url("/Assets/landing-page/Texture.webp");
-  /* Tile at native resolution instead of stretching one copy over the
-     whole (tall) section — keeps the paper grain crisp. */
   background-size: auto;
   background-repeat: repeat;
   background-position: top left;
@@ -10,21 +10,50 @@
 
 .proof__headers {
   display: grid;
-  grid-template-columns: 1fr 44px 1fr;
-  gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+  grid-template-columns: 1fr 1fr 0.85fr;
+  gap: var(--space-lg);
+  align-items: end;
+  margin-bottom: var(--space-lg);
+}
+
+.proof__head {
+  position: relative;
 }
 
 .proof__col-label {
   font-family: var(--font-body);
   font-weight: 800;
   font-size: clamp(1.3rem, 2.2vw, 1.75rem);
-  text-align: center;
+  color: var(--midnight-blue);
   margin: 0;
 }
 
-.proof__col-spacer {
+.proof__col-sub {
   display: block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-plum);
+  margin-top: 5px;
+}
+
+.proof__head--after .proof__col-sub,
+.proof__head:not(.proof__head--before) .proof__col-sub {
+  color: var(--midnight-blue);
+}
+
+/* Arrow bridging the Before and After columns, sitting in the gap. */
+.proof__head-arrow {
+  position: absolute;
+  right: 80px;
+  bottom: 4px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 70px;
+  color: var(--ink-dark);
+  line-height: 1;
 }
 
 .proof__rows {
@@ -35,48 +64,70 @@
 
 .proof__row {
   display: grid;
-  grid-template-columns: 1fr 44px 1fr;
-  gap: var(--space-md);
-  align-items: center;
+  grid-template-columns: 1fr 1fr 0.85fr;
+  gap: var(--space-lg);
+  align-items: stretch;
 }
 
 .proof__card {
   padding: var(--space-md) var(--space-lg);
   border-radius: 12px;
+  border: 1px solid #5d1b4e;
 }
 
 .proof__card p {
-  margin: 0;
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 0.95rem;
   line-height: 1.55;
+  margin: 0;
 }
 
 .proof__card p strong {
   font-weight: 700;
 }
 
-.proof__card--before {
-  border: 1px solid #5D1B4E;
-}
-
-.proof__card--after {
-  border: 1px solid #5D1B4E;
-}
-
-.proof__arrow {
+/* ---- Data column (big numbers) ---- */
+/* Each result cell is a color-coordinated card (tone bg + border), with the
+   big number in the row's dark accent so it pops. */
+.proof__data {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid #5d1b4e;
+  border-radius: 12px;
 }
 
-.proof__arrow-icon {
-  flex-shrink: 0;
-  width: 40px;
-  height: auto;
+.proof__data-hero {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+  line-height: 1;
+  color: var(--midnight-blue);
 }
 
+.proof__data-line {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--ink-dark);
+  margin-top: 10px;
+}
+
+.proof__data-sub {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--brand-plum);
+  margin-top: 6px;
+}
+
+/* ---- CTA ---- */
 .proof__cta {
   text-align: center;
   margin-top: var(--space-2xl);
@@ -90,8 +141,29 @@
 .proof__sub {
   font-size: var(--fs-body-sm);
   color: var(--ink-dark);
-  margin: var(--space-sm) 0 0;
+  margin-top: var(--space-sm);
   opacity: 0.8;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
+  .proof__headers {
+    display: none;
+  }
+
+  .proof__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(57, 17, 41, 0.15);
+  }
+
+  .proof__data {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 14px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -99,30 +171,8 @@
     padding: var(--space-2xl) 0;
   }
 
-  .proof__headers {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-sm);
-  }
-
-  .proof__col-spacer {
-    display: none;
-  }
-
-  .proof__row {
-    grid-template-columns: 1fr;
-    gap: var(--space-sm);
-  }
-
-  .proof__arrow {
-    justify-content: center;
-  }
-
-  .proof__card {
-    padding: var(--space-sm) var(--space-md);
-  }
-
   .proof__card p {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .proof__sub {

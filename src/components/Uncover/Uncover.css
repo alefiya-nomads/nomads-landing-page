@@ -1,0 +1,454 @@
+/* ============================================================
+   "What you'll uncover" — diagnostic-journey preview section.
+   Sits between the white trust bar and the navy "not this
+   economy" band; replaces the hero RPV Snapshot card as the
+   payoff preview. Deep Purple foundation surface (design-v2.md
+   0.2) with a faint stone dot-grid for the field-notebook feel.
+   Cards 02 + 05 (the payoff moments) are light so they pop —
+   the multi-tone card rotation from design-v2.md Section 1;
+   card 05 gets the sitewide white-border + plum-ring frame.
+   ============================================================ */
+.uncover {
+  background-color: var(--deep-purple);
+  background-image: radial-gradient(rgba(228, 200, 188, 0.09) 1px, transparent 1.5px);
+  background-size: 26px 26px;
+  padding: var(--space-3xl) 0;
+}
+
+.uncover__eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin: 0 0 var(--space-sm);
+}
+
+/* Lead-style heading: a full-sentence headline, so it runs smaller and
+   looser than the display h2s — generous line spacing per 0.1. */
+.uncover__headline {
+  color: var(--white);
+  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.55;
+  letter-spacing: 0;
+  max-width: 900px;
+  margin: 0 0 var(--space-xl);
+}
+
+.uncover__cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-sm);
+}
+
+.uncover-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 16px;
+  padding: 14px 14px 16px;
+}
+
+.uncover-card--dark {
+  background: #31182a;
+  border: 1px solid rgba(228, 200, 188, 0.22);
+}
+
+.uncover-card--light {
+  background: #faf3e6;
+  border: 2px solid var(--white);
+  box-shadow: var(--shadow-hard-on-dark);
+}
+
+/* Final card: double-ring treatment (white border + plum ring), same
+   motif as the Mechanism card / SystemBorn frame — the row's focal end. */
+.uncover-card--final {
+  box-shadow: 0 0 0 3px var(--brand-plum), 7px 7px 0 0 rgba(0, 0, 0, 0.55);
+}
+
+.uncover-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.uncover-card__num {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+}
+
+.uncover-card--dark .uncover-card__num {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.uncover-card--light .uncover-card__num {
+  color: var(--ink-dark);
+}
+
+.uncover-card__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(228, 200, 188, 0.4);
+}
+
+.uncover-card--light .uncover-card__dot {
+  background: rgba(57, 17, 41, 0.25);
+}
+
+.uncover-card__dot--accent {
+  background: var(--brand-plum);
+  box-shadow: 0 0 0 3px rgba(93, 27, 78, 0.25);
+}
+
+/* flex:1 makes every visual absorb the height difference so all five
+   labels sit on a shared bottom line regardless of visual height. */
+.uncover-card__visual {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.uncover-card__rule {
+  display: block;
+  height: 1px;
+  margin: 10px 0;
+}
+
+.uncover-card--dark .uncover-card__rule {
+  background: rgba(228, 200, 188, 0.25);
+}
+
+.uncover-card--light .uncover-card__rule {
+  background: rgba(57, 17, 41, 0.2);
+}
+
+.uncover-card__label {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.uncover-card--dark .uncover-card__label {
+  color: var(--white);
+}
+
+.uncover-card--light .uncover-card__label {
+  color: var(--ink-dark);
+}
+
+/* ---- 01: mini quiz ---- */
+.uncover-quiz__q {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 10px;
+}
+
+.uncover-quiz__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.uncover-quiz__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0 7px;
+}
+
+.uncover-quiz__box {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+}
+
+.uncover-quiz__box--checked {
+  position: relative;
+  background: var(--stone);
+  border-color: var(--stone);
+}
+
+.uncover-quiz__box--checked::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0;
+  width: 4px;
+  height: 8px;
+  border: solid var(--deep-purple);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.uncover-quiz__line {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.uncover-quiz__pips {
+  display: flex;
+  gap: 6px;
+}
+
+.uncover-quiz__pips i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.uncover-quiz__pips i.is-on {
+  background: var(--stone);
+}
+
+/* ---- 02: current RPV math ---- */
+.uncover-rpv {
+  text-align: center;
+}
+
+.uncover-rpv__big {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2.3rem;
+  line-height: 1;
+  color: var(--brand-plum);
+}
+
+.uncover-rpv__cap {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-dark);
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+.uncover-rpv__math {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-dark);
+}
+
+.uncover-rpv__math--total {
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* ---- 03: five metrics, three blurred ---- */
+.uncover-metrics__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.uncover-metrics__list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.uncover-metrics__list li > span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: rgba(228, 200, 188, 0.7);
+}
+
+.uncover-metrics__hidden i {
+  flex: 1;
+  height: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.16);
+  filter: blur(2.5px);
+}
+
+.uncover-metrics__cap {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---- 04: symptom → pillar + score ---- */
+.uncover-pillars__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uncover-pillars__when {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.uncover-pillars__name {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--stone);
+}
+
+.uncover-pillars__score {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+}
+
+/* ---- 05: the opportunity ---- */
+.uncover-opp {
+  text-align: center;
+}
+
+.uncover-opp__pre {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-dark);
+  opacity: 0.85;
+}
+
+.uncover-opp__big {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1.05;
+  color: var(--brand-plum);
+  margin: 2px 0;
+}
+
+.uncover-opp__sub {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--brand-plum);
+  margin-bottom: 10px;
+}
+
+.uncover-opp__bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+  height: 56px;
+}
+
+.uncover-opp__bars i {
+  width: 12px;
+  border-radius: 3px 3px 0 0;
+  background: var(--brand-plum);
+}
+
+/* ---- footer line ---- */
+.uncover__footer {
+  margin: var(--space-2xl) 0 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(228, 200, 188, 0.2);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.uncover__footer-accent {
+  color: var(--stone);
+}
+
+/* Tablet: two-up grid, final card centered full-row so the payoff stays
+   the visual finale rather than dangling left in a half-empty row. */
+@media (max-width: 1100px) {
+  .uncover__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-md);
+  }
+
+  .uncover-card--final {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .uncover__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .uncover-card {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .uncover {
+    padding: var(--space-2xl) 0;
+  }
+
+  /* Deliberately below the uniform 1.6rem mobile heading size: this is a
+     32-word lead-style heading — 1.6rem would run ~9 lines at 375px.
+     h2-qualified to make the intent explicit next to the global rule. */
+  h2.uncover__headline {
+    font-size: 1.35rem;
+    line-height: 1.6;
+  }
+
+  .uncover-card__label {
+    font-size: 18px;
+  }
+
+  .uncover-metrics__list li {
+    font-size: 15px;
+  }
+
+  .uncover-pillars__when {
+    font-size: 14px;
+  }
+
+  .uncover-pillars__name {
+    font-size: 15px;
+  }
+
+  .uncover__footer {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+  }
+}

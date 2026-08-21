@@ -6,9 +6,9 @@ export default function ProofIntro() {
     <section className="proof-intro">
       <div className="wrap center">
         <h2 className="proof-intro__headline" data-reveal>
-          How Do You Convince{" "}
+          How do you convince{" "}
           <br className="hl-br" />
-          <HighlightSweep tone="plumdark">Them To Buy From You?</HighlightSweep>
+          <HighlightSweep tone="plumdark">them to buy from you?</HighlightSweep>
         </h2>
 
         <p className="proof-intro__sub" data-reveal data-reveal-delay="120">

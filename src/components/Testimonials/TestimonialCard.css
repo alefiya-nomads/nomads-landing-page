@@ -1,106 +1,50 @@
-/* Same frame as the curious stat cards (.count-up-stat / --ice):
-   gradient-image rim + 3px white outer border, rounded corners, hard plum
-   offset shadow, wrapping an inner panel with a 3px #391129 border. */
+/* Full-bleed split: portrait image on a dark panel (left), testimonial
+   copy on a light textured panel (right). Text sizes are unchanged from
+   the previous card (headline 1.75rem, body 1.05rem, role 0.88rem). */
 .testimonial-card {
-  position: relative;
-  margin: var(--space-2xl) 0;
-  background: url("/Assets/landing-page/Gradient Background wide-07.webp")
-    center / cover no-repeat;
-  border: 3px solid #fff;
-  border-radius: 0;
-  padding: 16px;
-  box-shadow: 9px 10px 0 0 var(--brand-plum-secondary);
-}
-
-.testimonial-card__inner {
-  position: relative;
-  background: url("/Assets/landing-page/1.webp") center / cover no-repeat;
-  border: 4px solid #391129;
-  border-radius: 0;
-  padding: 48px 56px;
-}
-
-.testimonial-card__quote {
-  position: absolute;
-  width: 25px;
-  height: auto;
-  opacity: 0.9;
-  pointer-events: none;
-}
-
-.testimonial-card__quote--open {
-  top: 20px;
-  left: 24px;
-}
-
-.testimonial-card__quote--close {
-  bottom: 20px;
-  right: 24px;
-  transform: rotate(180deg);
-}
-
-.testimonial-card__grid {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  align-items: center;
-  gap: var(--space-xl);
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  /* Reset the default <figure> margin (16px 40px) so the split is
+     truly full-bleed to the section edges. */
+  margin: 0;
 }
 
-.testimonial-card__person {
+/* Alternating: the reversed card puts the image on the RIGHT, copy on the
+   LEFT (columns swapped via explicit grid placement). */
+.testimonial-card--reversed .testimonial-card__text {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.testimonial-card--reversed .testimonial-card__media {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Left — dark background with the (transparent PNG) portrait over it. */
+.testimonial-card__media {
+  background: url("/Assets/landing-page/Gradient Background wide-07.webp") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 55px 0;
+}
+
+.testimonial-card__photo {
+  display: block;
+  width: 60%;
+  height: auto;
+}
+
+/* Right — light textured background with the copy. */
+.testimonial-card__text {
+  background: url("/Assets/landing-page/1.webp") center / cover no-repeat;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.testimonial-card__avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at 35% 30%, #ffd9a8 0%, #f0a868 40%, var(--brand-plum) 100%);
-  border: 3px solid var(--white);
-  box-shadow: 0 6px 18px rgba(57, 17, 41, 0.25);
-  margin-bottom: var(--space-sm);
-}
-
-.testimonial-card__avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* v1 used Kilimanjaro (--font-display) for initials/name/headline —
-   deliberately swapped to Montserrat bold in v2 per direction. */
-.testimonial-card__initials {
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 2.4rem;
-  color: var(--white);
-  text-shadow: 0 2px 6px rgba(57, 17, 41, 0.35);
-}
-
-.testimonial-card__name {
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 1.35rem;
-  color: var(--ink-dark);
-  margin-bottom: 4px;
-}
-
-.testimonial-card__role {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.88rem;
-  color: var(--ink-dark);
-  max-width: 420px;
-}
-
-.testimonial-card__content {
-  margin: 0;
-  width: 100%;
+  justify-content: center;
+  padding: 55px var(--space-2xl);
 }
 
 .testimonial-card__headline {
@@ -110,12 +54,11 @@
   line-height: 1.25;
   text-align: left;
   color: var(--ink-dark);
-  text-wrap: balance;
   margin: 0 0 var(--space-md);
 }
 
-/* Keep the highlight phrase in the same Montserrat bold as the rest of
-   the headline (the global .highlight rule sets Kilimanjaro). */
+/* Keep the highlight phrase in Montserrat bold (global .highlight sets
+   the Kilimanjaro display font otherwise). */
 .testimonial-card__headline .highlight {
   font-family: inherit;
   font-weight: inherit;
@@ -128,36 +71,38 @@
   margin: 0 0 var(--space-sm);
 }
 
-.testimonial-card__body-line:last-child {
-  margin-bottom: 0;
+/* Role in a plum tag at the bottom of the copy. */
+.testimonial-card__role-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--brand-plum);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 8px 14px;
+  margin-top: var(--space-md);
 }
 
-@media (max-width: 1000px) {
-  .testimonial-card__inner {
-    padding: 40px 20px;
-  }
-  .testimonial-card__grid {
+/* Stack on tablet/mobile: image on top, copy below. */
+@media (max-width: 900px) {
+  .testimonial-card {
     grid-template-columns: 1fr;
   }
-  .testimonial-card__avatar {
-    width: 100px;
-    height: 100px;
+
+  /* Stacked: image on top for BOTH cards — undo the column swap. */
+  .testimonial-card--reversed .testimonial-card__media,
+  .testimonial-card--reversed .testimonial-card__text {
+    grid-column: auto;
+    grid-row: auto;
   }
-  .testimonial-card__headline {
-    font-size: 1.3rem;
-  }
-  .testimonial-card__role {
-    text-wrap: balance;
+
+  .testimonial-card__text {
+    padding: var(--space-2xl) var(--space-lg);
   }
 }
 
-/* Mobile body copy bumped to 20px (headline/name/role unaffected).
-   Frame rim trimmed so the content column isn't squeezed thin. */
 @media (max-width: 760px) {
-  .testimonial-card {
-    padding: 8px;
-  }
-
   .testimonial-card__body-line {
     font-size: 15px;
   }

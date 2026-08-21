@@ -1,16 +1,27 @@
 .trustbar {
   background: var(--white);
   padding: 28px 0;
-  overflow: hidden;
+  position: relative;
 }
 
+/* Plum band that straddles the seam between the Hero above and this logo
+   strip — pulled up with a negative margin so it overlaps both. */
 .trustbar__label {
+  display: block;
+  width: fit-content;
+  max-width: 90%;
+  margin: -60px auto 44px;
+  padding: 14px 46px;
+  background: var(--brand-plum);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   text-align: center;
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 1.15rem;
-  color: var(--ink-dark);
-  margin: 0 0 40px;
+  position: relative;
+  z-index: 3;
 }
 
 .trustbar__marquee {
@@ -61,8 +72,10 @@
   }
 
   .trustbar__label {
-    font-size: 1rem;
-    margin: 0 0 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    margin: -46px auto 24px;
+    padding: 14px 20px;
   }
 
   .trustbar__set {

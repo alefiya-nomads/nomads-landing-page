@@ -44,6 +44,64 @@ export const hero = {
   },
 };
 
+/**
+ * "What you'll uncover" — diagnostic-journey preview section, sits below
+ * the trust bar and replaces the hero RPV Snapshot card as the payoff
+ * preview. Copy provided directly by Alefiya (Aug 2026); the attached
+ * layout references are inspiration-only — theme follows design-v2.md.
+ */
+export const uncover = {
+  eyebrow: "What you'll uncover",
+  lead:
+    "A 10-step diagnostic that works out what one visitor earns you today, and what the same visitor could earn once four Compounding Revenue Per Visitor™ pillars work together.",
+  // Must stay an exact substring of `lead` — the component splits on it
+  // to place the highlight sweep.
+  leadHighlight: "and what the same visitor could earn",
+  cards: [
+    {
+      n: "01",
+      label: "Answer 10 questions",
+      quiz: { q: "Q4", bars: 3, checkedBar: 0, pips: 6, pipsOn: 4 },
+    },
+    {
+      n: "02",
+      label: "See how much $$$ each visitor makes",
+      stat: "$2.17",
+      statCaption: "Current Revenue Per Visitor™",
+      math: ["× 50,000 visitors", "= $108,500"],
+    },
+    {
+      n: "03",
+      label: "See the 5 metrics that make Revenue per Visitor™",
+      metrics: ["Visitors", "Opt-in rate"],
+      blurredCount: 3,
+      caption: "5 metrics behind it",
+    },
+    {
+      n: "04",
+      label:
+        "Score all four with your team and diagnose which pillar gets you to $1.5M first",
+      pillars: [
+        { when: "If revenue is unpredictable", pillar: "Maximise RPV™" },
+        { when: "If losing on price", pillar: "Contrarian POV™" },
+        { when: "If buyers doubt", pillar: "Speed to Decision™" },
+        { when: "If revenue has plateaued", pillar: "Compounding RPS™" },
+      ],
+      score: "68/100",
+    },
+    {
+      n: "05",
+      label: "Walk away knowing where to start",
+      pre: "Your first step to",
+      stat: "$125k/mo",
+      sub: "($1.5M/year)",
+    },
+  ],
+  footer: "10 QUESTIONS. ONE CLEAR PATH TO $1.5M/YEAR.",
+  // Exact substring of `footer` — rendered in the stone accent color.
+  footerAccent: "$1.5M/YEAR.",
+};
+
 export const notThisEconomy = {
   lines: [
     'This isn’t the economy to continue pouring money down the drain in hopes of getting "more traffic".',
@@ -210,6 +268,51 @@ export const mechanism = {
   productionNote: "LINK TO DIAGNOSTIC TO ADD THE SNAPSHOT WHEN IT'S DESIGN-READY",
 };
 
+/**
+ * "Four stages" system section (below Mechanism) — the horizontal zigzag
+ * timeline explaining how the system converts the unaware 70%.
+ * Copy provided by Alefiya (Aug 2026, Quiz Design Feedback doc), verbatim.
+ */
+export const fourStages = {
+  heading:
+    "This question led us to develop a system that lets you sell to the 70% of the market your competitors ignore.",
+  // Must stay an exact substring of `heading` — the component splits on it
+  // to place the highlight sweep.
+  headingHighlight: "70% of the market",
+  intro:
+    "We reverse engineered hundreds of customer journeys to find the moment someone goes from “I don’t think this is for me” to “I need this.” It happens in four stages.",
+  stages: [
+    {
+      n: "01",
+      name: "Curiosity",
+      body: "We lead by offering to diagnose the symptom, “stomach pain,” instead of the problem, “I have ulcers.”",
+    },
+    {
+      n: "02",
+      name: "Consideration",
+      body: "We challenge their current solution with your Contrarian POV™ and build consideration for switching from the old approach to the new one.",
+    },
+    {
+      n: "03",
+      name: "Conviction",
+      body: "We handle the most common buyer objections before the pitch, so they arrive already convinced of your credibility.",
+    },
+    {
+      n: "04",
+      name: "Conversion",
+      body: "Most visitors arrive at your pitch undecided, which is why so few convert. Yours arrive decided.",
+    },
+  ],
+  outroBold:
+    "Same traffic. Same spend. A much bigger pool of people who ignored you now believe your offer is for them.",
+  outro:
+    "If your customers find you online, the four stages hold. That’s been true across 15+ industries so far, including SaaS, agencies, courses, law firms, clinics and architecture practices.",
+  ctaLabel: "INCREASE MY TOTAL SELLABLE MARKET",
+  ctaSub: "with the same monthly marketing spend",
+  bridge:
+    "Here’s how Compounding Revenue Per Visitor™ added millions to our clients’ businesses",
+};
+
 export const problem = {
   chip: "The 97% problem",
   lines: [
@@ -233,30 +336,41 @@ export const proofTable = [
       "An **executive coach** was getting 2,800 LinkedIn profile views a quarter, but fewer than 500 new subscribers a month and $0 in revenue from emails.",
     after:
       "Our **Personality Peak™** quiz got 2,100 subscribers in 35 days, **making the client $1,700/day for her subscription offer.**",
+    stat: { hero: "4.2×", lines: ["500 → 2,100 subscribers", "Growth in 35 days"] },
   },
   {
     before:
       "A **course creator** made $70K+ from her tiny list (she believed in email potential), but her list was exhausted.",
     after:
       "Our **Champions Challenge™** quiz fuelled a **7,306% list surge within 72 hours**.",
+    stat: {
+      hero: "7,306%",
+      lines: ["List growth in 72 hours", "What she grew in 6 months → in just 72 hours"],
+    },
   },
   {
     before:
       "An **ecommerce** business was getting 440K visits, but only 250 demo bookings. At first, that seemed fine, until they realized it added up to just a **0.044% conversion rate.**",
     after:
       "**With us, they achieved a 14% conversion rate to their demo video, generating £97,000 in 20 days.**",
+    stat: {
+      hero: "318×",
+      lines: ["0.044% → 14% conversion", "530 demos + £96K added in 12 days"],
+    },
   },
   {
     before:
       "A **mastermind owner** tanked **27** discovery calls, and closed **one client**.",
     after:
       "Our positioning strategy (first pillar of C-RPV) **closed 29 of the next 31 calls**",
+    stat: { hero: "25×", lines: ["3.7% → 93.5% close rate", "$8K → $108K/mo"] },
   },
   {
     before:
       "A **media business launch** grossed **$70K** with a **6%** email click-through rate (CTR). The client thought it was a flex until they saw our 45% CTR and hired us for their next launch.",
     after:
       "**With us on board, her next launch hit $150K (double!) and the next one did HALF A MILLION DOLLARS (8X) with the same amount of traffic.**",
+    stat: { hero: "7.1×", lines: ["$70K → $500K revenue", "Growth with the same traffic"] },
   },
 ];
 
@@ -449,10 +563,11 @@ export const curious = {
 };
 
 export const footer = {
-  lines: [
-    "Then let's get you started with this diagnostic, so you can:",
-    'Become the savvy founder who can confidently say, "Based on the data, if we optimize this metric, we\'ll add $125k/mo ($1.5M/year)" to your team.',
-  ],
-  signature: "Compound Revenue per Visitor™ with Alefiya Khoraki & Nomads' Team",
+  intro: "Then let's get you started with this diagnostic, so you can:",
+  lead: "Become the savvy founder who can confidently say,",
+  statement:
+    "Based on the data, if we optimize this metric, we'll add $125k/mo ($1.5M/year) to your team",
+  signature: "Compound Revenue per Visitor™",
+  signatureScript: "with Alefiya Khoraki & Nomads' Team",
   ctaLabel: "START THE DIAGNOSTIC NOW",
 };

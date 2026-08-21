@@ -1,0 +1,323 @@
+/* ============================================================
+   "Four stages" system section — horizontal zigzag timeline.
+   Plain cream section (per the approved mock: quiet background,
+   the content is the focus). A dashed plum spine runs across the
+   middle band; four white cards with plum number badges alternate
+   above/below it, connected by short dashed drops to nodes on the
+   spine. The spine draws itself in and nodes pop when the timeline
+   scrolls into view; cards fade one-by-one via data-reveal.
+   ============================================================ */
+.stages {
+  background-color: var(--bg-cream);
+  padding: var(--space-3xl) 0 var(--space-2xl);
+}
+
+.stages__headline {
+  margin: 0 0 var(--space-md);
+  text-wrap: balance;
+}
+
+.stages__intro {
+  max-width: 760px;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-2xl);
+}
+
+/* ---- The zigzag timeline ---- */
+/* Two equal 1fr rows with no row gap: the row boundary is exactly the
+   vertical middle, which is where the spine sits — so up-cards bottom-align
+   to the line and down-cards top-align regardless of content height. */
+.stages__timeline {
+  /* THE one animation knob: total duration of the whole sequence. The
+     spine draws linearly over this; each box (and its node/connector)
+     fades during its quarter of it — edit this single value (in code or
+     DevTools) and all four parts re-divide automatically. */
+  --stages-total: 2s;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: 1fr 1fr;
+  column-gap: var(--space-md);
+  row-gap: 0;
+  margin: 0 0 var(--space-2xl);
+}
+
+/* The dashed spine, drawn left-to-right when the timeline enters view.
+   LINEAR so the tip's position maps 1:1 to time — each card's --slot-delay
+   is computed from this 3.6s draw so the box appears just as the tip
+   reaches its column. */
+.stages__spine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0;
+  border-top: 2px dashed var(--brand-plum);
+  transition: width var(--stages-total) linear;
+}
+
+.stages__timeline--in .stages__spine {
+  width: 100%;
+}
+
+.stages__slot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Padding reserves room for the dashed connector between card and spine. */
+.stages__slot--up {
+  grid-row: 1;
+  justify-content: flex-end;
+  padding-bottom: 44px;
+}
+
+.stages__slot--down {
+  grid-row: 2;
+  justify-content: flex-start;
+  padding-top: 44px;
+}
+
+/* Short dashed connector from the card to the spine. */
+.stages__slot::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  border-left: 2px dashed var(--brand-plum);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transition-delay: calc(var(--stages-total) / 4 * var(--i, 0));
+}
+
+.stages__slot--up::before {
+  bottom: 0;
+  height: 40px;
+}
+
+.stages__slot--down::before {
+  top: 0;
+  height: 40px;
+}
+
+/* Node sitting on the spine (pops in with its card's delay). */
+.stages__slot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: var(--brand-plum);
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: calc(var(--stages-total) / 4 * var(--i, 0));
+}
+
+.stages__slot--up::after {
+  bottom: -7px;
+}
+
+.stages__slot--down::after {
+  top: -7px;
+}
+
+.stages__timeline--in .stages__slot::before {
+  opacity: 1;
+}
+
+.stages__timeline--in .stages__slot::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---- Stage cards ---- */
+/* Card fade is driven by the SAME in-view trigger as the spine (not the
+   sitewide data-reveal observer) so the stagger stays perfectly in sync
+   with the drawing line: each card starts at its --slot-delay. */
+.stages__card {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--brand-plum);
+  border-radius: 12px;
+  box-shadow: 6px 6px 0 0 var(--brand-plum);
+  padding: var(--space-md) var(--space-sm) var(--space-lg);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(28px);
+  transition-property: opacity, transform;
+  transition-duration: calc(var(--stages-total) / 4);
+  transition-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(var(--stages-total) / 4 * var(--i, 0));
+  will-change: opacity, transform;
+}
+
+.stages__timeline--in .stages__card {
+  opacity: 1;
+  transform: none;
+}
+
+.stages__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-plum);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: var(--space-sm);
+}
+
+.stages__name {
+  font-size: 1.15rem;
+  margin: 0 0 var(--space-xs);
+}
+
+.stages__body {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ink-dark);
+  margin: 0;
+}
+
+/* ---- Outro, CTA, bridge ---- */
+.stages__outro {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto var(--space-sm);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink-dark);
+}
+
+.stages__outro--bold {
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.stages__cta {
+  text-align: center;
+  margin: var(--space-lg) 0 var(--space-xl);
+}
+
+.stages__cta-sub {
+  margin: var(--space-sm) 0 0;
+  color: var(--brand-plum);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.stages__bridge {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto var(--space-sm);
+  text-wrap: balance;
+}
+
+.stages__bridge-arrow {
+  display: block;
+  margin: 0 auto;
+  width: 16px;
+  height: 34px;
+  stroke: var(--brand-plum);
+  stroke-width: 2;
+  fill: none;
+}
+
+.stages__bridge-arrow line {
+  stroke-dasharray: 4 4;
+}
+
+/* ---- Responsive: vertical stepper below 900px ---- */
+@media (max-width: 900px) {
+  .stages__timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding-left: 26px;
+  }
+
+  /* Spine becomes a vertical dashed line on the left, drawn top-to-bottom
+     with the same linear timing so cards still appear as the tip passes. */
+  .stages__spine {
+    top: 0;
+    left: 8px;
+    width: 0;
+    height: 0;
+    border-top: 0;
+    border-left: 2px dashed var(--brand-plum);
+    transition: height var(--stages-total) linear;
+  }
+
+  .stages__timeline--in .stages__spine {
+    width: 0;
+    height: 100%;
+  }
+
+  .stages__slot--up,
+  .stages__slot--down {
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  /* No connectors in the stacked view; node sits on the left spine. */
+  .stages__slot::before {
+    display: none;
+  }
+
+  .stages__slot--up::after,
+  .stages__slot--down::after {
+    top: 24px;
+    bottom: auto;
+    left: -25px;
+    margin-left: 0;
+  }
+}
+
+/* Reduced motion: the global block collapses durations, but the staggered
+   delays would still hold cards back seconds — zero them so everything
+   appears immediately. */
+@media (prefers-reduced-motion: reduce) {
+  .stages__spine,
+  .stages__card,
+  .stages__slot::before,
+  .stages__slot::after {
+    transition-delay: 0s;
+  }
+}
+
+@media (max-width: 760px) {
+  .stages {
+    padding: var(--space-2xl) 0;
+  }
+
+  .stages__intro {
+    font-size: 18px;
+  }
+
+  .stages__name {
+    font-size: 20px;
+  }
+
+  .stages__body {
+    font-size: 18px;
+  }
+
+  .stages__outro {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .stages__cta-sub {
+    font-size: 10px;
+  }
+}

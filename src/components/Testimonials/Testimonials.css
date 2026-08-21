@@ -1,27 +1,6 @@
-/* Cream paper/canvas texture backdrop. Tiled (not cover-stretched) at a
-   downscaled size so the fine weave stays pixel-crisp at any section
-   height — same anti-blur approach used for the other texture sections
-   (Founder/Checklist). A matching cream background-color fills any gap. */
+/* Full-bleed split testimonial rows (dark image panel + light copy panel).
+   The panels fully cover the section, so no section-level texture or
+   padding is needed. */
 .testimonials {
-  background-color: #f6efe2;
-  background-image: url("/Assets/landing-page/Texture.webp");
-  background-size: 768px auto;
-  background-repeat: repeat;
-  background-position: top center;
   color: var(--ink-dark);
-  padding-top: var(--space-lg);
-  padding-bottom: var(--space-lg);
-}
-
-@media (max-width: 760px) {
-  .testimonials {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
-  /* Tighter side gutters so the card content column isn't so narrow. */
-  .testimonials .wrap {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
 }

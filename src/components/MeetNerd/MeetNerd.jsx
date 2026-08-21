@@ -16,10 +16,10 @@ export default function MeetNerd() {
           Wait...
         </p>
         <h2 className="meet-nerd__headline" data-reveal data-reveal-delay="120">
-          Meet The{" "}
-          <HighlightSweep tone="plum">Marketing Nerd Behind</HighlightSweep>{" "}
+          Meet the{" "}
+          <HighlightSweep tone="plum">marketing nerd behind</HighlightSweep>{" "}
           <br className="hl-br" />
-          The Compounding RPV OS.
+          the Compounding RPV OS.
         </h2>
       </div>
     </section>

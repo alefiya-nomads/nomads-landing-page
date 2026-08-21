@@ -90,6 +90,11 @@
   --sweep-color: #5d1b4e;
 }
 
+.hl-sweep--stone {
+  --sweep-bg: var(--stone);
+  --sweep-color: #5d1b4e;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hl-sweep,
   .hl-sweep__text {

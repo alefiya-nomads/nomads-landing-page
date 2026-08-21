@@ -18,8 +18,8 @@
   white-space: nowrap;
   background: var(--brand-plum);
   color: var(--white);
-  font-family: var(--font-body);
-  font-weight: 800;
+  font-family: var(--font-mono);
+  font-weight: 700;
   font-size: clamp(1.2rem, 2.4vw, 1.5rem);
   padding: 12px 32px;
 }
@@ -58,36 +58,50 @@
   padding: var(--space-2xl) 0 var(--space-3xl);
 }
 
+/* Single row of four cards (was a 2x2 grid) per the reference layout.
+   Kept inside the cream panel that overlaps up into the dark band above. */
 .four-areas__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
-  max-width: 900px;
-  margin: 0 auto var(--space-xl);
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
+  gap: 20px;
+  max-width: 1300px;
+  margin: -320px auto var(--space-xl);
   position: relative;
   z-index: 1;
-  background: #F2E6D8;
+  background: transparent;
   border-radius: 10px;
-  padding: 30px;
-  margin-top: -320px;
 }
 
 .four-areas__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--white);
   border: 1px solid #5D1B4E;
   border-radius: 12px;
-  padding: var(--space-lg);
-  box-shadow: 10px 10px 0 0 #5D1B4E;
+  /* Extra top padding leaves room for the corner badge above the title. */
+  padding: 40px 20px var(--space-lg);
+  box-shadow: 8px 8px 0 0 #5D1B4E;
 }
 
+/* Numbered brush badge seated in the card's top-right corner. */
+.four-areas__badge {
+  position: absolute;
+  top: -18px;
+  right: -8px;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Per-card hand-drawn symbol, top-left above the title (restored from v2). */
 .four-areas__icon {
   display: block;
   width: 36px;
   height: 36px;
   margin-bottom: var(--space-sm);
-}
-
-.four-areas__icon {
   object-fit: contain;
 }
 
@@ -97,8 +111,6 @@
   font-size: 1.1rem;
   color: var(--ink-dark);
   margin: 0 0 var(--space-sm);
-  /* copy.js stores the reference's forced title breaks as \n. */
-  white-space: pre-line;
 }
 
 .four-areas__card-body {
@@ -123,6 +135,15 @@
   margin-top: var(--space-lg);
 }
 
+/* Tablet: two-up grid (the four-in-a-row gets too narrow below ~1080px). */
+@media (max-width: 1080px) {
+  .four-areas__grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 640px;
+    margin-top: -300px;
+  }
+}
+
 @media (max-width: 760px) {
   .four-areas__top {
     padding: var(--space-2xl) 0 calc(var(--space-2xl) + 160px);
@@ -141,9 +162,17 @@
 
   .four-areas__grid {
     grid-template-columns: 1fr;
+    max-width: 480px;
     margin-top: -220px;
     background: transparent;
     padding: 0;
+    gap: var(--space-xl);
+  }
+
+  /* Panel padding is gone on mobile, so pull the badge inside the card
+     edge to avoid it hanging past the viewport. */
+  .four-areas__badge {
+    right: 6px;
   }
 
   .four-areas__bottom {

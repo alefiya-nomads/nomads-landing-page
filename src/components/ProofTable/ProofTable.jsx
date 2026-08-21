@@ -1,55 +1,29 @@
 import "./ProofTable.css";
 import { proofTable, proofOutro } from "../../data/copy.js";
 import Button from "../primitives/Button.jsx";
+import CountUp from "../primitives/CountUp.jsx";
+
+// Split a display stat like "7,306%", "318×", "4.2×" or "$8K" into the
+// pieces CountUp animates: a leading prefix, the numeric target, its
+// decimal places, whether it uses thousands grouping, and a trailing
+// suffix. Returns null if there's no number to count (falls back to text).
+function parseStat(hero) {
+  const match = String(hero).match(/^(.*?)([\d,]+(?:\.\d+)?)(.*)$/);
+  if (!match) return null;
+  const [, prefix, numStr, suffix] = match;
+  const target = Number(numStr.replace(/,/g, ""));
+  if (Number.isNaN(target)) return null;
+  const decimals = numStr.includes(".") ? numStr.split(".")[1].length : 0;
+  return { prefix, target, suffix, decimals, separator: numStr.includes(",") };
+}
 
 const TONES = [
-  {
-    beforeBg: "var(--bg-lavender)",
-    beforeBorder: "#c9a8d4",
-    afterBg: "var(--brand-plum)",
-    afterText: "var(--white)",
-    arrow: "var(--brand-plum)",
-  },
-  {
-    beforeBg: "#f2e6d8",
-    beforeBorder: "var(--stone)",
-    afterBg: "var(--ink-dark)",
-    afterText: "var(--white)",
-    arrow: "var(--ink-dark)",
-  },
-  {
-    beforeBg: "#e4fbff",
-    beforeBorder: "#a0b4d4",
-    afterBg: "var(--midnight-blue)",
-    afterText: "var(--white)",
-    arrow: "var(--midnight-blue)",
-  },
-  {
-    beforeBg: "#e0b5a3",
-    beforeBorder: "#c9a8d4",
-    afterBg: "var(--brand-plum)",
-    afterText: "var(--white)",
-    arrow: "var(--brand-plum)",
-  },
-  {
-    beforeBg: "var(--bg-lavender)",
-    beforeBorder: "#a0b4d4",
-    afterBg: "#2a0d20",
-    afterText: "var(--white)",
-    arrow: "#2a0d20",
-  },
+  { beforeBg: "var(--bg-lavender)", beforeBorder: "#c9a8d4", afterBg: "var(--brand-plum)", afterText: "var(--white)" },
+  { beforeBg: "#f2e6d8", beforeBorder: "var(--stone)", afterBg: "var(--ink-dark)", afterText: "var(--white)" },
+  { beforeBg: "#e4fbff", beforeBorder: "#a0b4d4", afterBg: "var(--midnight-blue)", afterText: "var(--white)" },
+  { beforeBg: "#e0b5a3", beforeBorder: "#c9a8d4", afterBg: "var(--brand-plum)", afterText: "var(--white)" },
+  { beforeBg: "var(--bg-lavender)", beforeBorder: "#a0b4d4", afterBg: "#2a0d20", afterText: "var(--white)" },
 ];
-
-function DoodleArrow() {
-  return (
-    <img
-      className="proof__arrow-icon"
-      src="/Assets/Doodle/sczv 6.png"
-      alt=""
-      aria-hidden="true"
-    />
-  );
-}
 
 function renderWithBold(text) {
   if (!text) return null;
@@ -63,39 +37,69 @@ export default function ProofTable() {
     <section className="proof">
       <div className="wrap">
         <div className="proof__headers" data-reveal>
-          <h3 className="proof__col-label">Before</h3>
-          <span className="proof__col-spacer" />
-          <h3 className="proof__col-label">After</h3>
+          <div className="proof__head proof__head--before">
+            <h3 className="proof__col-label">Before</h3>
+            <span className="proof__col-sub">The problem</span>
+            <span className="proof__head-arrow" aria-hidden="true">→</span>
+          </div>
+          <div className="proof__head">
+            <h3 className="proof__col-label">After</h3>
+            <span className="proof__col-sub">With our system</span>
+          </div>
+          <div className="proof__head proof__head--data" aria-hidden="true" />
         </div>
 
         <div className="proof__rows">
           {proofTable.map((pair, i) => {
             const tone = TONES[i % TONES.length];
+            const stat = pair.stat || {};
+            const heroParts = stat.hero ? parseStat(stat.hero) : null;
             return (
               <div className="proof__row" key={i} data-reveal data-reveal-delay={i * 80}>
                 <div
                   className="proof__card proof__card--before"
-                  style={{
-                    background: tone.beforeBg,
-                    borderColor: tone.beforeBorder,
-                  }}
+                  style={{ background: tone.beforeBg, borderColor: tone.beforeBorder }}
                 >
                   <p>{renderWithBold(pair.before)}</p>
                 </div>
 
-                <div className="proof__arrow">
-                  <DoodleArrow />
+                <div
+                  className="proof__card proof__card--after"
+                  style={{ background: tone.afterBg, color: tone.afterText, borderColor: tone.afterBg }}
+                >
+                  <p>{renderWithBold(pair.after)}</p>
                 </div>
 
                 <div
-                  className="proof__card proof__card--after"
-                  style={{
-                    background: tone.afterBg,
-                    color: tone.afterText,
-                    borderColor: tone.afterBg,
-                  }}
+                  className="proof__data"
+                  style={{ background: tone.beforeBg, borderColor: tone.beforeBorder }}
                 >
-                  <p>{renderWithBold(pair.after)}</p>
+                  {stat.hero &&
+                    (heroParts ? (
+                      <CountUp
+                        className="proof__data-hero"
+                        style={{ color: tone.afterBg }}
+                        target={heroParts.target}
+                        prefix={heroParts.prefix}
+                        suffix={heroParts.suffix}
+                        decimals={heroParts.decimals}
+                        separator={heroParts.separator}
+                        duration={3200}
+                      />
+                    ) : (
+                      <span className="proof__data-hero" style={{ color: tone.afterBg }}>
+                        {stat.hero}
+                      </span>
+                    ))}
+                  {stat.lines &&
+                    stat.lines.map((line, j) => (
+                      <span
+                        key={j}
+                        className={j === 0 ? "proof__data-line" : "proof__data-sub"}
+                      >
+                        {line}
+                      </span>
+                    ))}
                 </div>
               </div>
             );

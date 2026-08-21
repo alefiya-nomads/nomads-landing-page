@@ -19,28 +19,30 @@ export default function Workshop() {
 
   return (
     <section className="workshop" id="workshop">
-      <div className="wrap workshop__wrap">
-        <span className="workshop__chip" data-reveal>
-          {workshop.chip}
-        </span>
+      <div className="wrap workshop__grid">
+        <div className="workshop__copy">
+          <span className="workshop__chip" data-reveal>
+            {workshop.chip}
+          </span>
 
-        <h2 className="workshop__headline" data-reveal data-reveal-delay="80">
-          {before}
-          <HighlightSweep tone="cream2">On-Demand</HighlightSweep>
-          <br className="workshop__brk" />
-          {after}
-        </h2>
+          <h2 className="workshop__headline" data-reveal data-reveal-delay="80">
+            {before}
+            <HighlightSweep tone="cream2">On-Demand</HighlightSweep>
+            <br className="workshop__brk" />
+            {after}
+          </h2>
 
-        {workshop.lines.map((line, i) => (
-          <p
-            key={i}
-            className={`workshop__para${i === 1 ? " workshop__para--bold" : ""}`}
-            data-reveal
-            data-reveal-delay={160 + i * 90}
-          >
-            {line}
-          </p>
-        ))}
+          {workshop.lines.map((line, i) => (
+            <p
+              key={i}
+              className={`workshop__para${i === 1 ? " workshop__para--bold" : ""}`}
+              data-reveal
+              data-reveal-delay={160 + i * 90}
+            >
+              {line}
+            </p>
+          ))}
+        </div>
 
         <div className="workshop__showcase" data-reveal data-reveal-delay="120">
           <img

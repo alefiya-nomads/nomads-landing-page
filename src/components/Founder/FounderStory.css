@@ -15,7 +15,7 @@
   border: 4px solid var(--ink-dark);
   box-shadow: 0 0 0 4px white;
   padding: var(--space-lg);
-  margin: 0 0 var(--space-md);
+  margin: 0 0 15px;
 }
 
 .founder-story__box .founder-story__lead {

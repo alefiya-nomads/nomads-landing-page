@@ -2,8 +2,6 @@ import "./NotThisEconomy.css";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { notThisEconomy } from "../../data/copy.js";
 
-const LAPTOP_SRC = "/Assets/Images/tablet mockup.png";
-
 export default function NotThisEconomy() {
   const [, sub] = notThisEconomy.lines;
 
@@ -41,10 +39,6 @@ export default function NotThisEconomy() {
             <p className="economy__sub" data-reveal data-reveal-delay="120">
               {sub}
             </p>
-          </div>
-
-          <div className="economy__visual" data-reveal data-reveal-delay="200">
-            <img src={LAPTOP_SRC} alt="RPV dashboard shown on a laptop" className="economy__laptop" loading="lazy" />
           </div>
         </div>
       </div>

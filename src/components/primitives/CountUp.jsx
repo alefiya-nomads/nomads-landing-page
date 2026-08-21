@@ -16,6 +16,7 @@ export default function CountUp({
   separator = false,
   as: Tag = "span",
   className,
+  style,
 }) {
   const prefersReducedMotion =
     typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -55,7 +56,7 @@ export default function CountUp({
     : value.toFixed(decimals);
 
   return (
-    <Tag ref={ref} className={className}>
+    <Tag ref={ref} className={className} style={style}>
       {prefix}
       {formatted}
       {suffix}
