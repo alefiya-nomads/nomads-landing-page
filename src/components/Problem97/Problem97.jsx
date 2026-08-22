@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import "./Problem97.css";
 import { problem } from "../../data/copy.js";
 
-const PUZZLE_SRC = "/Assets/Images/5th section left side puzzle image.png";
 
 export default function Problem97() {
   const videoRef = useRef(null);
@@ -51,12 +50,6 @@ export default function Problem97() {
   return (
     <section className="problem">
       <div className="problem__panel problem__panel--dark">
-        <div className="problem__frame">
-          <img src={PUZZLE_SRC} alt="" className="problem__puzzle" aria-hidden="true" loading="lazy" />
-        </div>
-      </div>
-
-      <div className="problem__panel problem__panel--light">
         <div className="problem__content">
           <p className="problem__stat-label" data-reveal>
             {problem.lines[1]}
@@ -80,7 +73,11 @@ export default function Problem97() {
             {!isSafari && <source src="/Assets/97-percent-pie.webm" type="video/webm" />}
             <source src="/Assets/97-percent-pie.mp4" type="video/mp4" />
           </video>
+        </div>
+      </div>
 
+      <div className="problem__panel problem__panel--light">
+        <div className="problem__content">
           {/* Reference shows "97 people" here; copy.js's problem.lines[3] and
               legend say "70" (3/70/27 split) instead of the reference's 3/97
               split — flagged per 0.8, defaulting to the reference's numbers. */}
@@ -96,6 +93,10 @@ export default function Problem97() {
           <p className="problem__para problem__para--bold" data-reveal data-reveal-delay="180">
             {problem.lines[5]}
           </p>
+
+          <h2 className="problem__question" data-reveal data-reveal-delay="240">
+            How do you convince them to buy from you?
+          </h2>
         </div>
       </div>
     </section>

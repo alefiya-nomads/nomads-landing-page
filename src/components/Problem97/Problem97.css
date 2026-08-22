@@ -45,6 +45,11 @@
   margin: 0 0 var(--space-lg);
 }
 
+/* Stat label now sits on the dark panel — light it up so it's readable. */
+.problem__panel--dark .problem__stat-label {
+  color: var(--white);
+}
+
 /* Animated 97/3 pie infographic (gif-studio build) — transparent-alpha
    video sitting directly on the teal panel. */
 .problem__gif {
@@ -57,7 +62,7 @@
 .problem__para {
   font-size: 1rem;
   line-height: 1.55;
-  color: var(--ink-dark);
+  color: #152638;
   margin: 0 0 var(--space-md);
 }
 
@@ -68,11 +73,23 @@
 
 .problem__highlight {
   display: inline-block;
-  background: var(--brand-plum);
+  background: #152638;
   color: var(--white);
   font-weight: 800;
+  font-size: 20px;
   padding: 6px 14px;
   margin: 0 0 var(--space-md);
+}
+
+/* Closing question at the foot of the light column — a heading, sized a
+   touch smaller than the sitewide 40px section headings. */
+.problem__question {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  color: #152638;
+  margin: var(--space-lg) 0 0;
 }
 
 @media (max-width: 900px) {
@@ -93,5 +110,9 @@
 
   .problem__para {
     font-size: 18px;
+  }
+
+  .problem__question {
+    font-size: 22px;
   }
 }

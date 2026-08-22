@@ -155,7 +155,8 @@
 }
 
 /* Below 700px the showcase stacks as a centered flex column and the note
-   card returns to the document flow at 80% width. */
+   card returns to normal document flow — the base absolute positioning and
+   its left/bottom offsets are dropped so it just sits below the video. */
 @media (max-width: 700px) {
   .workshop__showcase {
     display: flex;
@@ -165,7 +166,9 @@
   }
 
   .workshop__closing {
-    position: relative;
+    position: static;
+    left: auto;
+    bottom: auto;
     width: 100%;
   }
 }

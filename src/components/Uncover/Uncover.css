@@ -1,247 +1,264 @@
 /* ============================================================
-   "What you'll uncover" — diagnostic-journey preview section.
-   Sits between the white trust bar and the navy "not this
-   economy" band; replaces the hero RPV Snapshot card as the
-   payoff preview. Deep Purple foundation surface (design-v2.md
-   0.2) with a faint stone dot-grid for the field-notebook feel.
-   Cards 02 + 05 (the payoff moments) are light so they pop —
-   the multi-tone card rotation from design-v2.md Section 1;
-   card 05 gets the sitewide white-border + plum-ring frame.
+   "What you'll uncover" — rebuilt to the 5-card mock:
+   dark textured band (Dark Backgrounds-01.webp), mono chip on
+   midnight, big white headline with a plum highlight band, and
+   five rounded cards in the mock's color rotation — cream, plum,
+   mauve, midnight, ice — each with a contrast-matched circular
+   number badge and its label pinned to the bottom. Cards 03–05
+   have deliberately blank middles per the mock. Rounded corners
+   depart from the sitewide radius-0 rule — reference fidelity
+   (design-v2.md 0.8) wins for this card treatment.
    ============================================================ */
 .uncover {
   background-color: var(--deep-purple);
-  background-image: radial-gradient(rgba(228, 200, 188, 0.09) 1px, transparent 1.5px);
-  background-size: 26px 26px;
+  background-image: url("/Assets/landing-page/Dark Backgrounds-01.webp");
+  background-size: cover;
+  background-position: center;
   padding: var(--space-3xl) 0;
 }
 
+/* Mono chip on midnight (mock's "LET'S FIND OUT:" treatment — the text
+   itself stays the section's own copy). */
 .uncover__eyebrow {
+  display: inline-block;
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 0.8rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--stone);
-  margin: 0 0 var(--space-sm);
+  color: #391129;
+  background: #f2e6d8;
+  padding: 8px 14px;
+  margin: 0 0 var(--space-md);
 }
 
-/* Lead-style heading: a full-sentence headline, so it runs smaller and
-   looser than the display h2s — generous line spacing per 0.1. */
+/* Big display headline (40px on desktop via the global main-h2 rule). */
 .uncover__headline {
   color: var(--white);
-  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
-  font-weight: 700;
-  line-height: 1.55;
-  letter-spacing: 0;
-  max-width: 900px;
-  margin: 0 0 var(--space-xl);
+  line-height: 1.35;
+  max-width: 1050px;
+  margin: 0 0 var(--space-2xl);
 }
 
 .uncover__cards {
+  /* THE one animation knob: length of the endless in→hold→out cycle every
+     card visual loops on (per-element stagger delays ride on top of it). */
+  --uncover-loop: 6s;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: var(--space-sm);
+  gap: var(--space-md);
 }
 
 .uncover-card {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  border-radius: 16px;
-  padding: 14px 14px 16px;
+  min-height: 360px;
+  border-radius: 14px;
+  padding: 18px 18px 20px;
 }
 
-.uncover-card--dark {
-  background: #31182a;
-  border: 1px solid rgba(228, 200, 188, 0.22);
+/* Mock color rotation. */
+.uncover-card--cream {
+  background: #f2e6d8;
 }
 
-.uncover-card--light {
-  background: #faf3e6;
-  border: 2px solid var(--white);
-  box-shadow: var(--shadow-hard-on-dark);
+.uncover-card--plum {
+  background: var(--brand-plum);
 }
 
-/* Final card: double-ring treatment (white border + plum ring), same
-   motif as the Mechanism card / SystemBorn frame — the row's focal end. */
-.uncover-card--final {
-  box-shadow: 0 0 0 3px var(--brand-plum), 7px 7px 0 0 rgba(0, 0, 0, 0.55);
+.uncover-card--mauve {
+  background: #a76d84;
 }
 
-.uncover-card__head {
-  display: flex;
-  justify-content: space-between;
+.uncover-card--navy {
+  background: var(--midnight-blue);
+}
+
+.uncover-card--ice {
+  background: var(--accent-teal);
+}
+
+/* Circular number badge, contrast-inverted per card (mock). */
+.uncover-card__badge {
+  display: inline-flex;
   align-items: center;
-  margin-bottom: 12px;
-}
-
-.uncover-card__num {
-  font-family: var(--font-mono);
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  align-self: flex-start;
+  margin-bottom: 14px;
 }
 
-.uncover-card--dark .uncover-card__num {
-  color: rgba(255, 255, 255, 0.75);
+.uncover-card--cream .uncover-card__badge {
+  background: var(--brand-plum);
+  color: var(--white);
 }
 
-.uncover-card--light .uncover-card__num {
+.uncover-card--plum .uncover-card__badge {
+  background: #f2e6d8;
+  color: var(--brand-plum);
+}
+
+.uncover-card--mauve .uncover-card__badge {
+  background: #f2e6d8;
   color: var(--ink-dark);
 }
 
-.uncover-card__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius-pill);
-  background: rgba(228, 200, 188, 0.4);
+.uncover-card--navy .uncover-card__badge {
+  background: var(--accent-teal);
+  color: var(--midnight-blue);
 }
 
-.uncover-card--light .uncover-card__dot {
-  background: rgba(57, 17, 41, 0.25);
+.uncover-card--ice .uncover-card__badge {
+  background: var(--midnight-blue);
+  color: var(--white);
 }
 
-.uncover-card__dot--accent {
-  background: var(--brand-plum);
-  box-shadow: 0 0 0 3px rgba(93, 27, 78, 0.25);
-}
-
-/* flex:1 makes every visual absorb the height difference so all five
-   labels sit on a shared bottom line regardless of visual height. */
+/* flex:1 absorbs the height difference so every label sits on a shared
+   bottom line; blank cards keep their height from the row/min-height. */
 .uncover-card__visual {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-.uncover-card__rule {
-  display: block;
-  height: 1px;
-  margin: 10px 0;
-}
-
-.uncover-card--dark .uncover-card__rule {
-  background: rgba(228, 200, 188, 0.25);
-}
-
-.uncover-card--light .uncover-card__rule {
-  background: rgba(57, 17, 41, 0.2);
-}
-
+/* Label pinned at the bottom, contrast-matched to the card bg. */
 .uncover-card__label {
   margin: 0;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 18px;
   line-height: 1.4;
 }
 
-.uncover-card--dark .uncover-card__label {
-  color: var(--white);
-}
-
-.uncover-card--light .uncover-card__label {
+.uncover-card--cream .uncover-card__label {
   color: var(--ink-dark);
 }
 
-/* ---- 01: mini quiz ---- */
-.uncover-quiz__q {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 10px;
+.uncover-card--plum .uncover-card__label,
+.uncover-card--mauve .uncover-card__label,
+.uncover-card--navy .uncover-card__label {
+  color: var(--white);
 }
 
-.uncover-quiz__bars {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 14px;
+.uncover-card--ice .uncover-card__label {
+  color: var(--midnight-blue);
 }
 
-.uncover-quiz__bar {
+/* ---- 01: quiz rows (mock: white input rows with a square tick box).
+   Rows slide in staggered when the card row enters view; the checked
+   box then fills plum and its tick fades in. ---- */
+.uncover-quiz {
+  gap: 10px;
+}
+
+.uncover-quiz__row {
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 24px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 0 7px;
+  height: 32px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  background: var(--white);
+  border: 1px solid rgba(57, 17, 41, 0.12);
+  padding: 0 9px;
+  opacity: 0;
+  transform: translateX(-14px);
+}
+
+.uncover__cards--in .uncover-quiz__row {
+  animation: uncover-slide-loop var(--uncover-loop) cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  animation-delay: calc(0.25s + var(--qi, 0) * 0.18s);
 }
 
 .uncover-quiz__box {
   flex-shrink: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(57, 17, 41, 0.4);
+  background: var(--white);
+  position: relative;
 }
 
-.uncover-quiz__box--checked {
-  position: relative;
-  background: var(--stone);
-  border-color: var(--stone);
+.uncover__cards--in .uncover-quiz__box--checked {
+  animation: uncover-box-fill-loop var(--uncover-loop) ease infinite;
+  animation-delay: 1.1s;
 }
 
 .uncover-quiz__box--checked::after {
   content: "";
   position: absolute;
-  left: 3px;
-  top: 0;
+  left: 3.5px;
+  top: 0.5px;
   width: 4px;
   height: 8px;
-  border: solid var(--deep-purple);
+  border: solid var(--white);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+  opacity: 0;
+}
+
+.uncover__cards--in .uncover-quiz__box--checked::after {
+  animation: uncover-tick-loop var(--uncover-loop) ease infinite;
+  animation-delay: 1.25s;
 }
 
 .uncover-quiz__line {
   flex: 1;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.18);
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(57, 17, 41, 0.12);
 }
 
-.uncover-quiz__pips {
-  display: flex;
-  gap: 6px;
-}
-
-.uncover-quiz__pips i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.uncover-quiz__pips i.is-on {
-  background: var(--stone);
-}
-
-/* ---- 02: current RPV math ---- */
+/* ---- 02: $2.17 count-up + cream math note (mock) ---- */
 .uncover-rpv {
   text-align: center;
 }
 
 .uncover-rpv__big {
   display: block;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 2.3rem;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 2.6rem;
   line-height: 1;
-  color: var(--brand-plum);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.uncover-rpv__note {
+  display: block;
+  background: #f2e6d8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.uncover__cards--in .uncover-rpv__note {
+  animation: uncover-fade-loop var(--uncover-loop) cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  animation-delay: 0.6s;
 }
 
 .uncover-rpv__cap {
   display: block;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--ink-dark);
-  opacity: 0.85;
-  margin-top: 6px;
+}
+
+.uncover-rpv__rule {
+  display: block;
+  height: 1px;
+  width: 80px;
+  margin: 8px auto;
+  background: rgba(57, 17, 41, 0.25);
 }
 
 .uncover-rpv__math {
@@ -256,14 +273,15 @@
   margin-top: 2px;
 }
 
-/* ---- 03: five metrics, three blurred ---- */
+/* ---- 03: five metrics on mauve, three blurred out. Rows slide in
+   staggered (same motion as the quiz rows); the rule + caption follow. */
 .uncover-metrics__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
 }
 
 .uncover-metrics__list li {
@@ -272,53 +290,116 @@
   gap: 8px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--white);
+  opacity: 0;
+  transform: translateX(-14px);
+}
+
+.uncover__cards--in .uncover-metrics__list li {
+  animation: uncover-slide-loop var(--uncover-loop) cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  animation-delay: calc(0.25s + var(--mi, 0) * 0.15s);
 }
 
 .uncover-metrics__list li > span {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: rgba(228, 200, 188, 0.7);
+  color: #f2e6d8;
 }
 
 .uncover-metrics__hidden i {
   flex: 1;
   height: 10px;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.35);
   filter: blur(2.5px);
+}
+
+.uncover-metrics__foot {
+  display: block;
+  opacity: 0;
+}
+
+.uncover__cards--in .uncover-metrics__foot {
+  animation: uncover-fade-loop var(--uncover-loop) cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  animation-delay: 1.15s;
+}
+
+.uncover-metrics__rule {
+  display: block;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  margin: 12px 0 8px;
 }
 
 .uncover-metrics__cap {
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* ---- 04: symptom → pillar + score ---- */
-.uncover-pillars__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* ---- 04: symptom → down arrow → pillar on midnight, cycling through
+   the four pairs (JS interval toggles --swap for a cross-fade; no
+   forwards-fill entrance here — a fill would out-cascade the swap). ---- */
+.uncover-pillars {
+  text-align: center;
+}
+
+.uncover-pillars__stage {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  /* Reserves the tallest pair's height so the cycle never reflows the
+     card (conditions/pillars wrap to 1–2 lines at card width). */
+  min-height: 118px;
+  transition: opacity 0.35s ease;
+}
+
+.uncover-pillars__stage--swap {
+  opacity: 0;
 }
 
 .uncover-pillars__when {
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 500;
-  line-height: 1.3;
-  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.uncover-pillars__arrow {
+  width: 14px;
+  height: 28px;
+  stroke: var(--accent-teal);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 
 .uncover-pillars__name {
-  display: block;
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 800;
   line-height: 1.3;
-  color: var(--stone);
+  color: var(--accent-teal);
+}
+
+.uncover-pillars__foot {
+  display: block;
+  opacity: 0;
+}
+
+.uncover__cards--in .uncover-pillars__foot {
+  animation: uncover-fade-loop var(--uncover-loop) cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  animation-delay: 0.9s;
+}
+
+.uncover-pillars__rule {
+  display: block;
+  height: 1px;
+  width: 80px;
+  margin: 12px auto 8px;
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .uncover-pillars__score {
@@ -328,7 +409,7 @@
   color: var(--white);
 }
 
-/* ---- 05: the opportunity ---- */
+/* ---- 05: the opportunity stat on ice + ascending bars growing in ---- */
 .uncover-opp {
   text-align: center;
 }
@@ -337,17 +418,17 @@
   display: block;
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--ink-dark);
+  color: var(--midnight-blue);
   opacity: 0.85;
 }
 
 .uncover-opp__big {
   display: block;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 2rem;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.6rem;
   line-height: 1.05;
-  color: var(--brand-plum);
+  color: var(--midnight-blue);
   margin: 2px 0;
 }
 
@@ -355,8 +436,8 @@
   display: block;
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--brand-plum);
-  margin-bottom: 10px;
+  color: var(--midnight-blue);
+  margin-bottom: 12px;
 }
 
 .uncover-opp__bars {
@@ -370,7 +451,110 @@
 .uncover-opp__bars i {
   width: 12px;
   border-radius: 3px 3px 0 0;
-  background: var(--brand-plum);
+  background: var(--midnight-blue);
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.uncover__cards--in .uncover-opp__bars i {
+  animation: uncover-bar-loop var(--uncover-loop) cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  animation-delay: calc(0.45s + var(--bi, 0) * 0.12s);
+}
+
+/* Endless cycle keyframes: enter quickly, hold most of the cycle, exit
+   near the end, then repeat. Because every element shares the SAME cycle
+   duration, their different animation-delays keep the stagger aligned on
+   every iteration, not just the first. */
+@keyframes uncover-slide-loop {
+  0% {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  8% {
+    opacity: 1;
+    transform: none;
+  }
+  80% {
+    opacity: 1;
+    transform: none;
+  }
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+}
+
+@keyframes uncover-fade-loop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  8% {
+    opacity: 1;
+    transform: none;
+  }
+  80% {
+    opacity: 1;
+    transform: none;
+  }
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes uncover-box-fill-loop {
+  0% {
+    background: var(--white);
+    border-color: rgba(57, 17, 41, 0.4);
+  }
+  5% {
+    background: var(--brand-plum);
+    border-color: var(--brand-plum);
+  }
+  66% {
+    background: var(--brand-plum);
+    border-color: var(--brand-plum);
+  }
+  74%,
+  100% {
+    background: var(--white);
+    border-color: rgba(57, 17, 41, 0.4);
+  }
+}
+
+@keyframes uncover-tick-loop {
+  0% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  62% {
+    opacity: 1;
+  }
+  68%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes uncover-bar-loop {
+  0% {
+    transform: scaleY(0);
+  }
+  9% {
+    transform: scaleY(1);
+  }
+  80% {
+    transform: scaleY(1);
+  }
+  90%,
+  100% {
+    transform: scaleY(0);
+  }
 }
 
 /* ---- footer line ---- */
@@ -379,7 +563,7 @@
   padding-top: var(--space-md);
   border-top: 1px solid rgba(228, 200, 188, 0.2);
   text-align: center;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.18em;
@@ -390,15 +574,47 @@
   color: var(--stone);
 }
 
-/* Tablet: two-up grid, final card centered full-row so the payoff stays
-   the visual finale rather than dangling left in a half-empty row. */
+/* Reduced motion: everything lands in its final state immediately (the
+   card-04 rotation is also disabled in JS, holding the first pair). */
+@media (prefers-reduced-motion: reduce) {
+  .uncover-quiz__row,
+  .uncover-rpv__note,
+  .uncover-metrics__list li,
+  .uncover-metrics__foot,
+  .uncover-pillars__foot {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .uncover-quiz__box--checked {
+    background: var(--brand-plum);
+    border-color: var(--brand-plum);
+  }
+
+  .uncover-quiz__box--checked::after {
+    opacity: 1;
+    animation: none;
+  }
+
+  .uncover-opp__bars i {
+    transform: none;
+    animation: none;
+  }
+}
+
+/* Tablet: two-up grid, final card centered full-row so the row doesn't
+   dangle a lone card bottom-left. */
 @media (max-width: 1100px) {
   .uncover__cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-md);
   }
 
-  .uncover-card--final {
+  .uncover-card {
+    min-height: 300px;
+  }
+
+  .uncover-card--ice {
     grid-column: 1 / -1;
     width: 100%;
     max-width: 420px;
@@ -423,12 +639,8 @@
     padding: var(--space-2xl) 0;
   }
 
-  /* Deliberately below the uniform 1.6rem mobile heading size: this is a
-     32-word lead-style heading — 1.6rem would run ~9 lines at 375px.
-     h2-qualified to make the intent explicit next to the global rule. */
-  h2.uncover__headline {
-    font-size: 1.35rem;
-    line-height: 1.6;
+  .uncover-card {
+    min-height: 240px;
   }
 
   .uncover-card__label {
@@ -445,6 +657,11 @@
 
   .uncover-pillars__name {
     font-size: 15px;
+  }
+
+  .uncover-opp__pre,
+  .uncover-opp__sub {
+    font-size: 14px;
   }
 
   .uncover__footer {

@@ -13,18 +13,6 @@
   z-index: 1;
 }
 
-/* Doodles — positions mirror the reference image: white dashed curvy arrow
-   at the top right pointing toward the subtitle, "This way" signpost with
-   dashed trail bleeding in from the bottom-left edge. */
-.calc__doodle-curvy {
-  position: absolute;
-  top: 200px;
-  right: 0;
-  width: 340px;
-  height: auto;
-  pointer-events: none;
-}
-
 /* Two-column layout: copy on the left, calculator mock on the right. */
 .calc__grid {
   display: grid;
@@ -180,8 +168,8 @@
     padding: var(--space-2xl) 0 75px;
   }
 
-  .calc__doodle-curvy {
-    display: none;
+  .calc__chip {
+    padding: 10px;
   }
 
   .calc__mock-body {

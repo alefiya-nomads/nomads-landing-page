@@ -4,6 +4,12 @@ import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import useInView from "../../hooks/useInView.js";
 import { fourStages } from "../../data/copy.js";
 
+// The closing phrase of the heading gets the plum sweep highlight; the "M"
+// of "market" renders in the Better Brush script. Split off the lead so the
+// highlight wraps exactly that phrase.
+const HEAD_SWEEP = "the market your competitors ignore.";
+const [headBefore] = fourStages.heading.split(HEAD_SWEEP);
+
 /**
  * "Four stages" — the horizontal zigzag timeline (approved mock): a dashed
  * plum spine runs across the middle band, four numbered cards alternate
@@ -13,18 +19,18 @@ import { fourStages } from "../../data/copy.js";
  * stepper below 900px.
  */
 export default function FourStages() {
-  const [headBefore, headAfter] = fourStages.heading.split(fourStages.headingHighlight);
-
   // Triggers the spine-draw + node-pop once the timeline scrolls into view.
   const [tlRef, tlInView] = useInView({ threshold: 0.25 });
 
   return (
     <section className="stages">
       <div className="wrap">
-        <h2 className="stages__headline" data-reveal>
+        <h2 className="stages__heading" data-reveal>
           {headBefore}
-          <HighlightSweep tone="plum">{fourStages.headingHighlight}</HighlightSweep>
-          {headAfter}
+          <HighlightSweep tone="plumdark">
+            the{" "}
+            <span className="stages__script-m">M</span>arket your competitors ignore.
+          </HighlightSweep>
         </h2>
 
         <p className="stages__intro" data-reveal data-reveal-delay="100">
@@ -46,8 +52,13 @@ export default function FourStages() {
               className={`stages__slot ${i % 2 === 0 ? "stages__slot--up" : "stages__slot--down"}`}
               style={{ gridColumn: i + 1, "--i": i }}
             >
-              <article className="stages__card">
-                <span className="stages__badge">{stage.n}</span>
+              <article className={`stages__card stages__card--c${i}`}>
+                <img
+                  className="stages__badge"
+                  src={`/Assets/Doodle/red point ${i + 1}.png`}
+                  alt={`Step ${stage.n}`}
+                  loading="lazy"
+                />
                 <h3 className="stages__name">{stage.name}</h3>
                 <p className="stages__body">{stage.body}</p>
               </article>
@@ -66,14 +77,6 @@ export default function FourStages() {
           <Button href="#diagnostic">{fourStages.ctaLabel}</Button>
           <p className="stages__cta-sub">{fourStages.ctaSub}</p>
         </div>
-
-        <h2 className="stages__bridge" data-reveal>
-          {fourStages.bridge}
-        </h2>
-        <svg className="stages__bridge-arrow" viewBox="0 0 16 34" aria-hidden="true">
-          <line x1="8" y1="0" x2="8" y2="26" />
-          <polyline points="2,24 8,32 14,24" />
-        </svg>
       </div>
     </section>
   );

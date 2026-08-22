@@ -57,14 +57,21 @@ function ReactionContent({ scenario }) {
 
   return (
     <>
-      <span className="checklist__panel-label">Reaction</span>
-
       {scenario.reaction?.text && (
         <p className="checklist__reaction">{scenario.reaction.text}</p>
       )}
 
-      <div className="checklist__gif" aria-hidden="true">
-        <span className="checklist__gif-note">GIF / image — asset pending</span>
+      <div className="checklist__media" aria-hidden="true">
+        {scenario.reaction?.gif ? (
+          <img
+            className="checklist__media-img"
+            src={scenario.reaction.gif}
+            alt=""
+            loading="lazy"
+          />
+        ) : (
+          <span className="checklist__media-note">GIF / image — asset pending</span>
+        )}
       </div>
 
       {(hasScore || v.scoreLabel) && (
@@ -96,7 +103,9 @@ function ReactionContent({ scenario }) {
 
       {v.cta && (
         <div className="checklist__panel-cta">
-          <Button href="#diagnostic">{v.cta}</Button>
+          <Button variant="onDark" href="#diagnostic">
+            {v.cta}
+          </Button>
         </div>
       )}
     </>
@@ -133,13 +142,15 @@ export default function ChecklistSection() {
                 className={`checklist__item${active === i ? " checklist__item--active" : ""}`}
               >
                 <label className="checklist__label">
-                  <span className="checklist__num">{pad(i)}</span>
-                  <input
-                    type="checkbox"
-                    className="checklist__checkbox"
-                    checked={active === i}
-                    onChange={() => setActive(i)}
-                  />
+                  <span className="checklist__marker">
+                    <span className="checklist__num">{pad(i)}</span>
+                    <input
+                      type="checkbox"
+                      className="checklist__checkbox"
+                      checked={active === i}
+                      onChange={() => setActive(i)}
+                    />
+                  </span>
                   <span className="checklist__situation">{scenario.situation}</span>
                 </label>
 

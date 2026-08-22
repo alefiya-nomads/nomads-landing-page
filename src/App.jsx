@@ -4,10 +4,8 @@ import TrustBar from "./components/TrustBar/TrustBar.jsx";
 import Uncover from "./components/Uncover/Uncover.jsx";
 import NotThisEconomy from "./components/NotThisEconomy/NotThisEconomy.jsx";
 import ChecklistSection from "./components/ChecklistSection/ChecklistSection.jsx";
-import Mechanism from "./components/Mechanism/Mechanism.jsx";
 import FourStages from "./components/FourStages/FourStages.jsx";
 import Problem97 from "./components/Problem97/Problem97.jsx";
-import ProofIntro from "./components/ProofIntro/ProofIntro.jsx";
 import ProofTable from "./components/ProofTable/ProofTable.jsx";
 import Calculator from "./components/Calculator/Calculator.jsx";
 import FourAreas from "./components/FourAreas/FourAreas.jsx";
@@ -33,10 +31,8 @@ export default function App() {
         <Uncover />
         <NotThisEconomy />
         <ChecklistSection />
-        <Mechanism />
-        <FourStages />
         <Problem97 />
-        <ProofIntro />
+        <FourStages />
         <ProofTable />
         <Calculator />
         <FourAreas />

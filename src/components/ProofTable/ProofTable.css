@@ -5,13 +5,22 @@
   background-size: auto;
   background-repeat: repeat;
   background-position: top left;
-  padding: var(--space-3xl) 0;
+  padding: 80px 0;
+}
+
+/* The bridge intro (moved here from FourStages) sits above the table; give
+   it room before the Before/After header row. */
+.proof .stages__bridge {
+  margin-bottom: var(--space-2xl);
 }
 
 .proof__headers {
   display: grid;
   grid-template-columns: 1fr 1fr 0.85fr;
-  gap: var(--space-lg);
+  /* Smaller base column gap (after ↔ data); the wider before ↔ after gap
+     comes from .proof__card--before's right margin. Kept identical on the
+     headers so the Before/After labels stay aligned over their cards. */
+  column-gap: 16px;
   align-items: end;
   margin-bottom: var(--space-lg);
 }
@@ -26,6 +35,15 @@
   font-size: clamp(1.3rem, 2.2vw, 1.75rem);
   color: var(--midnight-blue);
   margin: 0;
+}
+
+/* Per-column heading colors: Before in dark plum, After in brand plum. */
+.proof__head--before .proof__col-label {
+  color: #391129;
+}
+
+.proof__head:not(.proof__head--before) .proof__col-label {
+  color: #5d1b4e;
 }
 
 .proof__col-sub {
@@ -48,7 +66,9 @@
 .proof__head-arrow {
   position: absolute;
   right: 80px;
-  bottom: 4px;
+  /* Vertically centered on the Before/After label line (the tall 70px
+     glyph would otherwise float above it). */
+  bottom: -14px;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 70px;
@@ -65,7 +85,7 @@
 .proof__row {
   display: grid;
   grid-template-columns: 1fr 1fr 0.85fr;
-  gap: var(--space-lg);
+  column-gap: 16px;
   align-items: stretch;
 }
 
@@ -73,6 +93,48 @@
   padding: var(--space-md) var(--space-lg);
   border-radius: 12px;
   border: 1px solid #5d1b4e;
+}
+
+/* Anchor for the doodle arrow that bridges the before → after gap. The
+   right margin widens the before ↔ after gap (on top of the 16px column
+   gap) without moving the grid tracks, so header labels stay aligned. */
+.proof__card--before {
+  position: relative;
+  margin-right: 40px;
+}
+
+/* Doodle arrow hanging off the before card's right edge, centered in the
+   gap and vertically on the row (before card stretches to row height).
+   Desktop only — the row stacks to one column at ≤860px. */
+.proof__row-arrow {
+  position: absolute;
+  right: -43px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Subject heading atop each before card (reference) — plum, bold, caps. */
+.proof__before-heading,
+.proof__after-heading {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-sm);
+}
+
+.proof__before-heading {
+  color: #5d1b4e;
+}
+
+/* After card is dark — heading inherits its light (afterText) color. */
+.proof__after-heading {
+  color: inherit;
 }
 
 .proof__card p {
@@ -99,12 +161,15 @@
   border-radius: 12px;
 }
 
+/* All three inherit the data cell's color, which is set per row to the
+   after card's text color (afterText) — so the stat block matches the
+   after card's background + text exactly. */
 .proof__data-hero {
   font-family: var(--font-body);
   font-weight: 800;
   font-size: clamp(2rem, 3.6vw, 3.1rem);
   line-height: 1;
-  color: var(--midnight-blue);
+  color: inherit;
 }
 
 .proof__data-line {
@@ -112,18 +177,18 @@
   font-weight: 700;
   font-size: 0.95rem;
   line-height: 1.3;
-  color: var(--ink-dark);
+  color: inherit;
   margin-top: 10px;
 }
 
 .proof__data-sub {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.72rem;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   line-height: 1.4;
-  color: var(--brand-plum);
+  color: inherit;
   margin-top: 6px;
 }
 
@@ -151,28 +216,76 @@
     display: none;
   }
 
+  /* Keep the row horizontal (the 3 columns stay side by side) below 860px;
+     just tighten the gap and card padding to fit. */
   .proof__row {
-    grid-template-columns: 1fr;
     gap: var(--space-sm);
-    padding-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
     border-bottom: 1px solid rgba(57, 17, 41, 0.15);
   }
 
+  .proof__card,
   .proof__data {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 4px 14px;
+    padding: 16px;
+  }
+
+  /* Keep the bridge arrow (resized to sit in the narrower before→after
+     gap, which the smaller before-card margin opens up here). */
+  .proof__card--before {
+    margin-right: 20px;
+  }
+
+  .proof__row-arrow {
+    width: 22px;
+    right: -30px;
+  }
+}
+
+/* Below 660px the columns get too narrow — stack the boxes vertically. The
+   bridge arrow stays visible but rotates to point DOWN, centered in the gap
+   between the before card (top) and the after card (below). */
+@media (max-width: 660px) {
+  .proof__rows {
+    gap: 16px;
+  }
+
+  .proof__row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Extra gap below the before card (on top of the row gap) so the
+     down-arrow has room between the 1st and 2nd box. */
+  .proof__card--before {
+    margin-right: 0;
+    margin-bottom: 26px;
+  }
+
+  .proof__row-arrow {
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: -31px;
+    margin-left: -11px;
+    transform: rotate(90deg);
   }
 }
 
 @media (max-width: 760px) {
   .proof {
-    padding: var(--space-2xl) 0;
+    padding: 40px 0;
   }
 
   .proof__card p {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  .proof__cta {
+    margin-top: 0;
+  }
+
+  .proof__cta .btn {
+    font-size: 0.7rem;
+    line-height: 1.4;
   }
 
   .proof__sub {

@@ -9,20 +9,46 @@
    ============================================================ */
 .stages {
   background-color: var(--bg-cream);
-  padding: var(--space-3xl) 0 var(--space-2xl);
+  background-image: url("/Assets/landing-page/Gradient Background wide-07.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 90px 0 50px;
 }
 
-.stages__headline {
-  margin: 0 0 var(--space-md);
+/* Section heading + intro (moved here from the old StagesIntro), styled
+   to the reference: centered deep-plum Title Case, closing phrase in the
+   plum sweep highlight, and a Better-Brush script "M" in "Market". */
+.stages__heading {
+  text-align: center;
+  color: #391129;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1.3;
+  text-transform: capitalize;
   text-wrap: balance;
+  max-width: 900px;
+  margin: 0 auto var(--space-sm);
+}
+
+.stages__script-m {
+  font-family: var(--font-script);
+  font-weight: 400;
+  /* Opt out of the sweep's text-clip so the tall script M gets a solid
+     fill and its full glyph renders (poking above/below the box) instead
+     of being clipped to the box's line-box height. */
+  color: var(--white);
+  -webkit-text-fill-color: var(--white);
 }
 
 .stages__intro {
-  max-width: 760px;
-  font-size: 1.05rem;
-  line-height: 1.55;
+  text-align: center;
+  max-width: 640px;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--ink-dark);
-  margin: 0 0 var(--space-2xl);
+  margin: 0 auto var(--space-xl);
 }
 
 /* ---- The zigzag timeline ---- */
@@ -142,10 +168,11 @@
    with the drawing line: each card starts at its --slot-delay. */
 .stages__card {
   width: 100%;
+  /* Per-card background set by the .stages__card--c{0-3} modifiers below;
+     1px plum (#5d1b4e) stroke on all four, no shadow (per request). */
   background: var(--white);
   border: 1px solid var(--brand-plum);
   border-radius: 12px;
-  box-shadow: 6px 6px 0 0 var(--brand-plum);
   padding: var(--space-md) var(--space-sm) var(--space-lg);
   text-align: center;
   opacity: 0;
@@ -162,19 +189,13 @@
   transform: none;
 }
 
+/* Number badge is now a "red point" doodle image (transparent PNG),
+   centered above the stage name. */
 .stages__badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-pill);
-  background: var(--brand-plum);
-  color: var(--white);
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 1.05rem;
-  margin-bottom: var(--space-sm);
+  display: block;
+  width: 46px;
+  height: auto;
+  margin: 0 auto var(--space-sm);
 }
 
 .stages__name {
@@ -189,12 +210,52 @@
   margin: 0;
 }
 
+/* ---- Per-card colors (requested): dark plum / cream / midnight / ice.
+   Text + number badge are contrast-matched to each card so the two dark
+   cards stay readable. ---- */
+.stages__card--c0 {
+  background: #391129;
+}
+
+.stages__card--c1 {
+  background: #f2e6d8;
+}
+
+.stages__card--c2 {
+  background: #152638;
+}
+
+.stages__card--c3 {
+  background: #e4fbff;
+}
+
+/* Light text on the two dark cards. */
+.stages__card--c0 .stages__name,
+.stages__card--c0 .stages__body,
+.stages__card--c2 .stages__name,
+.stages__card--c2 .stages__body {
+  color: var(--white);
+}
+
+/* Dark text on the two light cards. */
+.stages__card--c1 .stages__name,
+.stages__card--c1 .stages__body {
+  color: #391129;
+}
+
+.stages__card--c3 .stages__name,
+.stages__card--c3 .stages__body {
+  color: #152638;
+}
+
+
 /* ---- Outro, CTA, bridge ---- */
 .stages__outro {
   text-align: center;
-  max-width: 860px;
+  max-width: 530px;
   margin: 0 auto var(--space-sm);
   font-size: 1rem;
+  font-weight: 500;
   line-height: 1.55;
   color: var(--ink-dark);
 }
@@ -296,10 +357,6 @@
 }
 
 @media (max-width: 760px) {
-  .stages {
-    padding: var(--space-2xl) 0;
-  }
-
   .stages__intro {
     font-size: 18px;
   }
@@ -309,7 +366,7 @@
   }
 
   .stages__body {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .stages__outro {

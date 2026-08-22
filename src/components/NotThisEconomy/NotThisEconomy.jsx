@@ -1,18 +1,18 @@
 import "./NotThisEconomy.css";
-import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { notThisEconomy } from "../../data/copy.js";
 
 export default function NotThisEconomy() {
   const [, sub] = notThisEconomy.lines;
 
   // Manual line breaks (design-v2.md 0.6) matching the reference image's
-  // 4-line headline pattern. These concatenate back to notThisEconomy.lines[0]
-  // verbatim — kept as literals since the sentence has no clean split points
-  // to chain off of.
-  const headlineLine1 = "This isn’t the economy to";
-  const headlineLine2 = "continue pouring money";
-  const headlineLine3 = "down the drain in hopes";
-  const headlineLine4Prefix = "of";
+  // 3-line headline pattern, with the closing quoted phrase rendered in the
+  // Better Brush script (per the mock). These concatenate back to
+  // notThisEconomy.lines[0] verbatim — kept as literals since the sentence
+  // has no clean split points to chain off of.
+  const headlineLine1 = "This isn’t the economy to continue";
+  const headlineLine2 = "pouring money down the drain in";
+  const headlineLine3Prefix = "hopes of getting";
+  const scriptPhrase = '"more traffic"';
 
   return (
     <section className="economy">
@@ -24,6 +24,15 @@ export default function NotThisEconomy() {
         loading="lazy"
       />
       <div className="economy__frame">
+        {/* Single white doodle arrow on the right. */}
+        <img
+          className="economy__arrow"
+          src="/Assets/Doodle/straight arrow.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        />
+
         <div className="wrap economy__grid">
           <div className="economy__copy">
             <h2 className="economy__headline" data-reveal>
@@ -31,9 +40,10 @@ export default function NotThisEconomy() {
               <br className="hl-br" />
               {headlineLine2}{" "}
               <br className="hl-br" />
-              {headlineLine3}{" "}
-              <br className="hl-br" />
-              {headlineLine4Prefix} <HighlightSweep tone="iceblue">getting "more traffic".</HighlightSweep>
+              <span className="economy__tail">
+                {headlineLine3Prefix}{" "}
+                <span className="economy__script">{scriptPhrase}</span>
+              </span>
             </h2>
 
             <p className="economy__sub" data-reveal data-reveal-delay="120">

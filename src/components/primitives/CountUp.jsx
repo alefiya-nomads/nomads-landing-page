@@ -14,6 +14,10 @@ export default function CountUp({
   decimals = 0,
   duration = 1500,
   separator = false,
+  // loop: after reaching the target, wait loopPauseMs then recount from 0,
+  // forever (skipped entirely under prefers-reduced-motion).
+  loop = false,
+  loopPauseMs = 1800,
   as: Tag = "span",
   className,
   style,
@@ -28,19 +32,34 @@ export default function CountUp({
     const node = ref.current;
     if (!node || prefersReducedMotion) return;
 
+    let cancelled = false;
+    let rafId = null;
+    let timeoutId = null;
+
+    const run = () => {
+      let startTs = null;
+      const step = (ts) => {
+        if (cancelled) return;
+        if (!startTs) startTs = ts;
+        const p = Math.min((ts - startTs) / duration, 1);
+        setValue(Number((target * p).toFixed(decimals)));
+        if (p < 1) {
+          rafId = requestAnimationFrame(step);
+        } else if (loop) {
+          timeoutId = setTimeout(() => {
+            if (!cancelled) run();
+          }, loopPauseMs);
+        }
+      };
+      rafId = requestAnimationFrame(step);
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !startedRef.current) {
             startedRef.current = true;
-            let startTs = null;
-            const step = (ts) => {
-              if (!startTs) startTs = ts;
-              const p = Math.min((ts - startTs) / duration, 1);
-              setValue(Number((target * p).toFixed(decimals)));
-              if (p < 1) requestAnimationFrame(step);
-            };
-            requestAnimationFrame(step);
+            run();
             io.unobserve(node);
           }
         });
@@ -48,8 +67,13 @@ export default function CountUp({
       { threshold: 0.35 }
     );
     io.observe(node);
-    return () => io.disconnect();
-  }, [target, decimals, duration, prefersReducedMotion]);
+    return () => {
+      cancelled = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      if (timeoutId) clearTimeout(timeoutId);
+      io.disconnect();
+    };
+  }, [target, decimals, duration, prefersReducedMotion, loop, loopPauseMs]);
 
   const formatted = separator
     ? value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })

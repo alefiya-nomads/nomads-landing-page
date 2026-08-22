@@ -84,9 +84,11 @@ p {
   h2.four-areas__headline,
   h2.stages__headline,
   h2.stages__bridge,
+  h2.stages-intro__headline,
   h2.meet-nerd__headline,
   h2.system-born__heading,
   h2.curious__heading,
+  h2.uncover__headline,
   h2.workshop__headline {
     font-size: 1.6rem;
   }
@@ -97,8 +99,6 @@ p {
      1.5rem size above — re-check if a heading's copy changes. */
   /* calc + system-born are explicit user overrides of the line-count
      grouping (calc centered, system-born left). */
-  /* uncover renders >3 lines at 375px (32-word lead-style heading; its
-     mobile size is set in Uncover.css, not the uniform block above). */
   h1.hero__headline,
   h2.economy__headline,
   h2.checklist__headline,
@@ -106,6 +106,7 @@ p {
   h2.four-areas__headline,
   h2.stages__headline,
   h2.stages__bridge,
+  h2.stages-intro__headline,
   h2.system-born__heading,
   h2.curious__heading,
   h2.calc__headline,
@@ -137,6 +138,7 @@ p {
   main h2.four-areas__headline,
   main h2.stages__headline,
   main h2.stages__bridge,
+  main h2.stages-intro__headline,
   main h2.workshop__headline,
   main h2.meet-nerd__headline,
   main h2.system-born__heading,

@@ -1,10 +1,9 @@
 import "./Hero.css";
 import Button from "../primitives/Button.jsx";
 import HeroRotator from "./HeroRotator.jsx";
-import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { hero } from "../../data/copy.js";
 
-const PHOTO_SRC = "/Assets/Gifs/Hero section gif.gif";
+const PHOTO_SRC = "/Assets/Images/hero section img.png";
 
 export default function Hero() {
   const [eyebrowIntro, bullet1, bullet2, rpvLine] = hero.eyebrow;
@@ -18,10 +17,11 @@ export default function Hero() {
   // concatenate back to hero.headlinePrefix + the rotating word verbatim —
   // kept as literals since chaining .split() for 4 break points got
   // unreadable; update these if copy.js's headlinePrefix ever changes.
-  const headlineLine1 = "What would it take to";
-  const headlineLine2 = "add an additional";
-  const headlineLine3Suffix = "with your";
-  const headlineLine4Prefix = "current";
+  // Reference line pattern: "What would it take / to add an additional /
+  // $1.5M/year (big, own line) / with your current <rotator>?"
+  const headlineLine1 = "What would it take";
+  const headlineLine2 = "to add an additional";
+  const headlineLine4Prefix = "with your current";
 
   // Bold the lead sentence of the RPV definition line.
   const [rpvBold, rpvRest] = rpvLine.split("Increase how much you earn per visitor");
@@ -40,13 +40,15 @@ export default function Hero() {
           </p>
 
           <h1 className="hero__headline" data-reveal data-reveal-delay="80">
-            {headlineLine1}{" "}
-            <br className="hl-br" />
-            {headlineLine2}{" "}
-            <br className="hl-br" />
-            <HighlightSweep tone="plumdark">$1.5 M/year</HighlightSweep> {headlineLine3Suffix}{" "}
-            <br className="hl-br" />
-            {headlineLine4Prefix} <HeroRotator words={hero.rotatingWords} />
+            <span className="hero__headline-lead">
+              {headlineLine1} {headlineLine2}
+            </span>
+            <span className="hero__headline-big">
+              <span className="hero__headline-mark">$1.5M/year</span>
+            </span>{" "}
+            <span className="hero__headline-tail">
+              {headlineLine4Prefix} <HeroRotator words={hero.rotatingWords} />
+            </span>
           </h1>
 
           <ul className="hero__list" data-reveal data-reveal-delay="160">

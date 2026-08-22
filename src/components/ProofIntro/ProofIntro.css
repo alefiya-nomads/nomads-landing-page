@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center;
   padding: var(--space-3xl) 0;
+  padding-bottom: 255px;
   overflow: hidden;
 }
 

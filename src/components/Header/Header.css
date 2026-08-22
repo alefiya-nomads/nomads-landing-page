@@ -100,3 +100,16 @@
     font-size: 0.8rem;
   }
 }
+
+/* Very narrow phones: shrink the CTA + gap so the logo and button stay on
+   one row instead of the button wrapping below the logo. */
+@media (max-width: 400px) {
+  .site-header__inner {
+    column-gap: 10px;
+  }
+
+  .site-header .btn {
+    padding: 8px 10px;
+    font-size: 0.66rem;
+  }
+}

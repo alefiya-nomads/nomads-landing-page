@@ -37,7 +37,7 @@
 .economy__frame {
   margin: 0 var(--space-lg);
   border: 1px solid rgba(255, 255, 255, 0.7);
-  padding: var(--space-xl) 0;
+  padding: 125px 0;
 }
 
 /* Single centered reading column (mockup image removed) — the headline is
@@ -63,14 +63,45 @@
   text-wrap: balance;
 }
 
-/* Ice Blue accent highlight (design-v2.md 0.2/0.6) — sparing use only. */
-.economy__highlight {
-  display: inline;
-  background: #E4FBFF;
-  color: var(--midnight-blue);
-  padding: 0.05em 0.22em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+/* Keeps "hopes of getting" and the script phrase together on the mock's
+   third line (the oversized script would otherwise wrap alone). At 40px
+   heading / 70px script the pair is ~930px wide, so the lock only holds
+   where the frame can contain it — below ~1020px the script wraps to its
+   own line instead of overflowing the frame. */
+@media (min-width: 1020px) {
+  .economy__tail {
+    white-space: nowrap;
+  }
+}
+
+/* The quoted phrase in the Better Brush script, oversized and in the
+   mock's muted plum — the section's one decorative accent (0.1: script
+   for decorative accents only, never load-bearing text). */
+.economy__script {
+  font-family: var(--font-script);
+  /* em-based so it scales 1:1 with the heading text. */
+  font-size: 1em;
+  font-weight: 100;
+  line-height: 0.9;
+  color: #8a4f70;
+  /* Title Case "More Traffic" per the mock — display only; the source
+     string in copy.js/JSX stays verbatim lowercase. */
+  text-transform: capitalize;
+  white-space: nowrap;
+  vertical-align: -0.1em;
+}
+
+/* Trio of white doodle arrows on the frame's right (mock) — staggered
+   heights like the hand-drawn reference. */
+/* Single white doodle arrow on the right, pointing down (asset is drawn
+   pointing up, so it's flipped). */
+.economy__arrow {
+  position: absolute;
+  right: 155px;
+  top: 50%;
+  width: 75px;
+  height: auto;
+  pointer-events: none;
 }
 
 .economy__sub {
@@ -81,13 +112,14 @@
 }
 
 @media (max-width: 900px) {
-  .economy__badge {
+  .economy__badge,
+  .economy__arrow {
     display: none;
   }
 
   .economy__frame {
     margin: 10px;
-    padding: var(--space-xl) 0 10px;
+    padding: 24px 0;
   }
 
   .economy__grid {
@@ -99,6 +131,14 @@
 /* Mobile body copy bumped (headings unaffected). Left-aligned to pair with
    the heading, which the global 0.9 rule keeps left at <=760px. */
 @media (max-width: 760px) {
+  .economy {
+    padding: 4px 0;
+  }
+
+  .economy__script {
+    font-size: 0.7em;
+  }
+
   .economy__sub {
     font-size: 18px;
     text-align: left;

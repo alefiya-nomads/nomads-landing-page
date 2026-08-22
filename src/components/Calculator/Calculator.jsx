@@ -18,13 +18,6 @@ function PointDoodle() {
 export default function Calculator() {
   return (
     <section className="calc">
-      <img
-        className="calc__doodle-curvy"
-        src="/Assets/Doodle/curvy line dashed arrow white.png"
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-      />
       <div className="wrap calc__grid">
         {/* Left column — copy */}
         <div className="calc__copy">

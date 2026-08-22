@@ -184,6 +184,14 @@
   }
 }
 
+/* 700–760px only: larger bottom padding (per request). After the ≤760
+   block so it wins in this range; below 700px the ≤760 value applies. */
+@media (min-width: 700px) and (max-width: 760px) {
+  #curious {
+    padding-bottom: 150px !important;
+  }
+}
+
 @media (min-width: 1001px) {
   .curious__column {
     display: grid;

@@ -2,11 +2,22 @@ import "./Testimonials.css";
 import TestimonialCard from "./TestimonialCard.jsx";
 import { founder } from "../../data/copy.js";
 
-// Both testimonials use Lara's landing-page image on the left for now —
-// Ryan's own image gets added later (just replace index 1).
+// Per-testimonial portrait cutout on the left panel.
 const LANDING_IMAGES = [
   "/Assets/testimonial/lara landing page.png",
-  "/Assets/testimonial/lara landing page.png",
+  "/Assets/testimonial/ryan landing page.png",
+];
+
+// Per-testimonial media-panel background (behind the portrait cutout).
+const MEDIA_BGS = [
+  "/Assets/landing-page/Dark Backgrounds-01.webp",
+  "/Assets/landing-page/green eagel bg.webp",
+];
+
+// Per-testimonial copy-panel background (full CSS `background` value).
+const TEXT_BGS = [
+  'url("/Assets/landing-page/Texture.webp")',
+  "#ffffff",
 ];
 
 /**
@@ -26,7 +37,10 @@ export default function Testimonials() {
           highlightPhrase={t.highlightPhrase}
           body={t.body}
           imageSrc={LANDING_IMAGES[i]}
+          mediaBg={MEDIA_BGS[i % MEDIA_BGS.length]}
+          textBg={TEXT_BGS[i % TEXT_BGS.length]}
           reversed={i % 2 === 1}
+          seamDoodle={i === 0}
         />
       ))}
     </section>

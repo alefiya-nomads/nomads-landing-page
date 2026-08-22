@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   background: linear-gradient(135deg, var(--bg-cream) 55%, #f3e3d8 100%);
-  padding: var(--space-2xl) 0 var(--space-3xl);
+  padding: var(--space-2xl) 0 0;
   /* Clip the 50vw gif's scrollbar-width overshoot (and the mobile band)
      so neither creates a page-wide horizontal scrollbar. overflow-x: clip
      leaves vertical bleed (visual margin) untouched. */
@@ -37,6 +37,49 @@
   line-height: 1.2;
   margin-bottom: var(--space-lg);
   text-wrap: balance;
+}
+
+/* Lead lines ("What would it take" / "to add an additional") + the tail
+   at 30px. Two-class selector so it out-ranks global.css's uniform
+   `main h1.hero__headline` 40px desktop rule. */
+.hero h1.hero__headline {
+  font-size: 30px;
+}
+
+/* "$1.5M/year" oversized on its own line. The font-size lives on THIS
+   wrapper (not the inner .hl-sweep__text) so the highlight box scales with
+   the text and its plum background fully covers the glyphs. */
+/* Each lead line ("What would it take" / "to add an additional") is its
+   own block so they render on separate lines (no <br>) and are
+   individually styleable (target :nth-of-type(1)/(2) for per-line sizes). */
+.hero__headline-lead {
+  display: block;
+}
+
+.hero__headline-big {
+  display: block;
+  width: fit-content;
+  font-size: 85px;
+  line-height: 1.3;
+  margin: 4px 0;
+}
+
+/* "$1.5M/year" as plain plum text (no box, no padding). */
+.hero__headline-mark {
+  color: #5d1b4e;
+}
+
+/* Scaled down so it fits the narrow column on phones. */
+@media (max-width: 760px) {
+  .hero__headline-big {
+    font-size: 52px;
+  }
+}
+
+/* The closing "with your current <rotator>?" line — its own block so it
+   always starts on a fresh line, never sharing one with the big stat. */
+.hero__headline-tail {
+  display: block;
 }
 
 /* Reference shows the highlight box in brand plum, and the accent phrase
@@ -110,8 +153,9 @@
 }
 
 .hero__photo {
-  /* Fills the right half of the screen, right-aligned to the edge. */
-  width: 50vw;
+  /* Right-aligned to the edge; a touch narrower than the old half-screen
+     gif (was 50vw) so the new hero image reads a little smaller. */
+  width: 35vw;
   max-width: none;
   flex-shrink: 0;
   height: auto;
@@ -136,20 +180,39 @@
      top, and nothing bleeding down into the TrustBar below. */
   .hero {
     padding-top: 55px;
+    padding-bottom: 55px;
     overflow: clip;
   }
 
   .hero .wrap {
     max-width: none;
-    padding-left: 60px;
-    padding-right: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  /* Swapped layout: image in the left column, copy in the right column.
+     grid-row: 1 on both keeps them side-by-side — without it, sparse
+     auto-placement pushes the DOM-later image down to a 2nd row. */
+  .hero__visual {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    /* The new hero image is a self-contained circular composition (not a
+       bottom-bleeding cutout), so center it vertically in the row and drop
+       the negative bottom-bleed — otherwise it sinks below the hero's bottom
+       edge and gets clipped by overflow: clip. */
+    align-self: center;
+    margin-bottom: 0;
   }
 
   .hero__copy {
+    grid-column: 2;
+    grid-row: 1;
     max-width: 700px;
     margin-left: 0;
     /* Vertically centered against the full-height gif row. */
     align-self: center;
+    padding-bottom: 30px;
   }
 
   /* Bleed the gif to the viewport's right edge (cancel the wrap's 40px
@@ -157,29 +220,13 @@
      50vw, height auto) and bottom-aligns via the base .hero__visual
      (align-self: end), so the FULL gif is visible — no cropped bottom. */
   .hero__photo-wrap {
-    margin-right: -40px;
+    /* Image sits on the LEFT: bleed to the viewport's left edge (cancel the
+       wrap's left gutter) and left-align the photo within its column. */
+    justify-content: flex-start;
+    margin-right: 0;
+    width: fit-content;
     position: relative;
     isolation: isolate;
-  }
-
-  /* Diagonal stone band behind the woman (desktop) — the mobile band's
-     vertical counterpart: a tall parallelogram sitting behind the gif,
-     with the photo (z-index 1) rendered on top of it (z-index 0). */
-  .hero__photo-wrap::before {
-    content: "";
-    position: absolute;
-    /* Extend a full viewport-height past the gif top and bottom so the
-       parallelogram's corners are ALWAYS clipped off (hero overflow: clip),
-       even at narrower desktop widths where the gif sits lower — a clean
-       full-height stripe with no visible corners at any width. */
-    top: -100vh;
-    bottom: -100vh;
-    right: 26%;
-    width: 46%;
-    background: #f2e6d8;
-    transform: rotate(-9deg);
-    z-index: 0;
-    pointer-events: none;
   }
 
   .hero__photo {
@@ -191,6 +238,24 @@
   .hero__followup {
     max-width: 500px;
     margin-top: 35px;
+  }
+}
+
+/* Narrow desktop (901–1100px): tighter side gutters + column gap so the
+   two columns still fit comfortably, with a smaller big-stat size. */
+@media (min-width: 901px) and (max-width: 1100px) {
+  .hero .wrap {
+    max-width: none;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .hero__grid {
+    gap: 5px;
+  }
+
+  .hero__headline-mark {
+    font-size: 70px;
   }
 }
 
@@ -221,26 +286,9 @@
     isolation: isolate;
   }
 
-  /* Diagonal beige band behind the woman (≤900px), matching the reference.
-     Full-bleed 110vw parallelogram behind the cutout photo; isolate makes
-     photo-wrap a stacking context so the photo (z-index 1) sits above the
-     band (z-index 0) and the RPV card (sibling, z-index 1) stays on top. */
-  .hero__photo-wrap::before {
-    content: "";
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    width: 110vw;
-    height: 180px;
-    background: #f2e6d8;
-    transform: translate(-50%, -50%) rotate(-11deg);
-    z-index: 0;
-    pointer-events: none;
-  }
-
   .hero__photo {
     width: 100%;
-    max-width: 360px;
+    max-width: 320px;
     position: relative;
     z-index: 1;
   }
@@ -257,7 +305,7 @@
   }
 
   .hero__photo {
-    max-width: 500px;
+    max-width: 440px;
   }
 }
 
@@ -288,16 +336,16 @@
 
   .hero__eyebrow,
   .hero__list li,
-  .hero__rpv-line,
-  .hero__followup {
+  .hero__rpv-line {
     font-size: 18px;
   }
 
-  /* Enlarge the gif (into the wrap's side padding) so the woman is taller
-     and her face clears the overlapping RPV card. The band + stacking come
-     from the ≤900px block above. */
+  .hero__followup {
+    font-size: 11px;
+  }
+
   .hero__photo {
-    width: 180%;
-    max-width: 540px;
+    width: 100%;
+    max-width: 470px;
   }
 }

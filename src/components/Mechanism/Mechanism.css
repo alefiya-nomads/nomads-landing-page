@@ -73,8 +73,12 @@
 }
 
 @media (max-width: 900px) {
+  /* proof-intro (the section now above) has 255px of dark bottom padding
+     at this width — overlap up into that empty zone, staying ~55px clear
+     of its text (the old -380px was tuned for the checklist section that
+     used to sit here and covered the intro text). */
   .mechanism__card {
-    margin-top: -380px;
+    margin-top: -200px;
     grid-template-columns: 1fr;
     padding: var(--space-lg);
   }
@@ -102,6 +106,10 @@
   }
 
   .mechanism__card {
+    /* proof-intro's bottom padding shrinks to 64px here, so pull the
+       overlap right back — just a small rise that keeps the card ~34px
+       below the intro text. */
+    margin-top: -30px;
     padding: 12px;
   }
 

@@ -95,6 +95,11 @@
   --sweep-color: #5d1b4e;
 }
 
+.hl-sweep--cream3 {
+  --sweep-bg: #f2e6d8;
+  --sweep-color: #391129;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hl-sweep,
   .hl-sweep__text {

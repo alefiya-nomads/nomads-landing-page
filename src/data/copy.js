@@ -19,7 +19,7 @@ export const hero = {
     "You've probably never known how much revenue each visitor brings in.",
     "That's your Revenue Per Visitor™. Increase how much you earn per visitor, and you can grow your revenue by $1.5M/year.",
   ],
-  headlinePrefix: "What would it take to add an additional $1.5 M/year with your current",
+  headlinePrefix: "What would it take to add an additional $1.5M/year with your current",
   rotatingWords: [
     "website visitors",
     "ad spend",
@@ -332,6 +332,8 @@ export const problem = {
 
 export const proofTable = [
   {
+    heading: "Executive coach",
+    afterHeading: "Personality Peak™ quiz",
     before:
       "An **executive coach** was getting 2,800 LinkedIn profile views a quarter, but fewer than 500 new subscribers a month and $0 in revenue from emails.",
     after:
@@ -339,6 +341,8 @@ export const proofTable = [
     stat: { hero: "4.2×", lines: ["500 → 2,100 subscribers", "Growth in 35 days"] },
   },
   {
+    heading: "Course creator",
+    afterHeading: "Champions Challenge™ quiz",
     before:
       "A **course creator** made $70K+ from her tiny list (she believed in email potential), but her list was exhausted.",
     after:
@@ -349,6 +353,8 @@ export const proofTable = [
     },
   },
   {
+    heading: "Ecommerce business",
+    afterHeading: "Achieved 14% conversion rate",
     before:
       "An **ecommerce** business was getting 440K visits, but only 250 demo bookings. At first, that seemed fine, until they realized it added up to just a **0.044% conversion rate.**",
     after:
@@ -359,6 +365,8 @@ export const proofTable = [
     },
   },
   {
+    heading: "Mastermind owner",
+    afterHeading: "Positioning strategy (Pillar 1)",
     before:
       "A **mastermind owner** tanked **27** discovery calls, and closed **one client**.",
     after:
@@ -366,6 +374,8 @@ export const proofTable = [
     stat: { hero: "25×", lines: ["3.7% → 93.5% close rate", "$8K → $108K/mo"] },
   },
   {
+    heading: "Media business launch",
+    afterHeading: "Next launch: $150K (double!)",
     before:
       "A **media business launch** grossed **$70K** with a **6%** email click-through rate (CTR). The client thought it was a flex until they saw our 45% CTR and hired us for their next launch.",
     after:
@@ -554,8 +564,9 @@ export const curious = {
       caseStudyUrl: "#",
     },
     {
-      company: "Video Mastermind",
+      company: "Awesome Business Videos",
       type: "",
+      logoSrc: "/Assets/curious-section/awesome video.jpg",
       text: "A video mastermind owner who'd sat through 27 discovery calls and closed one client. Then closed 29 of the next 31 after repositioning with a Contrarian POV — going from $8,000 to $108,000 a month.",
       caseStudyUrl: "#",
     },

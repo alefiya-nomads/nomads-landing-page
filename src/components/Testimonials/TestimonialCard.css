@@ -8,6 +8,45 @@
   /* Reset the default <figure> margin (16px 40px) so the split is
      truly full-bleed to the section edges. */
   margin: 0;
+  /* Anchors the seam doodle to this card's bottom edge. */
+  position: relative;
+}
+
+/* The card holding the seam doodle must stack above the next card so the
+   doodle's lower half isn't painted over by it. */
+.testimonial-card:has(.testimonial-card__seam-doodle) {
+  z-index: 2;
+}
+
+/* Circle doodle straddling the seam between the two testimonials —
+   horizontally centered, vertically centered on the boundary, and slowly
+   rotating. The translate is baked into the keyframes so it stays seated on
+   the seam while it spins. */
+.testimonial-card__seam-doodle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 132px;
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+  animation: testimonial-doodle-spin 22s linear infinite;
+}
+
+@keyframes testimonial-doodle-spin {
+  from {
+    transform: translate(-50%, 50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, 50%) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-card__seam-doodle {
+    animation: none;
+    transform: translate(-50%, 50%);
+  }
 }
 
 /* Alternating: the reversed card puts the image on the RIGHT, copy on the
@@ -24,7 +63,12 @@
 
 /* Left — dark background with the (transparent PNG) portrait over it. */
 .testimonial-card__media {
-  background: url("/Assets/landing-page/Gradient Background wide-07.webp") center / cover no-repeat;
+  /* Per-card background image is set inline (see TestimonialCard.jsx /
+     Testimonials.jsx MEDIA_BGS); these keep the fit + a fallback color. */
+  background-color: var(--deep-purple);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,9 +82,10 @@
   height: auto;
 }
 
-/* Right — light textured background with the copy. */
+/* Right — copy panel; its background is set per card inline (see
+   TestimonialCard.jsx / Testimonials.jsx TEXT_BGS). Fallback color here. */
 .testimonial-card__text {
-  background: url("/Assets/landing-page/1.webp") center / cover no-repeat;
+  background-color: var(--bg-cream);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,6 +148,10 @@
 }
 
 @media (max-width: 760px) {
+  .testimonial-card__headline {
+    font-size: 1.45rem;
+  }
+
   .testimonial-card__body-line {
     font-size: 15px;
   }

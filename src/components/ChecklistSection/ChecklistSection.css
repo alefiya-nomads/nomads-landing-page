@@ -1,15 +1,15 @@
-/* Interactive split: the question list on the left, the ticked item's
-   reaction panel on the right. Cream grain-textured section per branding. */
+/* Interactive split, rebuilt to the checklist reference mock: the question
+   list lives in a white rounded card (plum number circles, square tick
+   boxes, beige active row), and the ticked item's reaction shows in a dark
+   plum rounded panel on the right (mono "Reaction" chip, white copy, cream
+   media box). Section background unchanged per explicit direction.
+   Rounded corners here depart from the sitewide radius-0 rule — reference
+   fidelity (design-v2.md 0.8) wins for this section's card treatment. */
 .checklist {
   position: relative;
-  background-color: var(--bg-cream);
-  background-image: url("/Assets/landing-page/grain.webp"),
-    url("/Assets/landing-page/checklist-bg-smooth.webp");
-  background-size: 256px 256px, 100% 100%;
-  background-repeat: repeat, no-repeat;
-  background-position: top left, center;
-  background-blend-mode: soft-light, normal;
-  padding: 80px 0 280px;
+  /* Same cream gradient as the hero section. */
+  background: linear-gradient(135deg, var(--bg-cream) 55%, #f3e3d8 100%);
+  padding: 80px 0 90px;
 }
 
 .checklist__grid {
@@ -56,50 +56,88 @@
   color: var(--brand-plum);
 }
 
+/* The white card holding the rows (reference: rounded, soft diffuse
+   shadow; overflow hidden so the beige active-row bg clips to the card's
+   rounded corners). */
 .checklist__list {
   list-style: none;
   margin: 0 0 var(--space-xl);
   padding: 0;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(57, 17, 41, 0.1);
+  overflow: hidden;
 }
 
 .checklist__item {
-  border-top: 1px solid rgba(57, 17, 41, 0.18);
   transition: background 0.15s ease;
 }
 
-.checklist__item:last-child {
-  border-bottom: 1px solid rgba(57, 17, 41, 0.18);
+.checklist__item + .checklist__item {
+  border-top: 1px solid rgba(57, 17, 41, 0.12);
 }
 
+/* Active row: warm beige band spanning the full card width (reference). */
 .checklist__item--active {
-  background: rgba(93, 27, 78, 0.08);
+  background: #f2e6d8;
 }
 
 .checklist__label {
   display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-  padding: var(--space-md) var(--space-sm);
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 18px 22px;
   cursor: pointer;
 }
 
+/* Number + tick box grouped so they read as one unit: side-by-side on
+   desktop, stacked vertically on mobile (see the ≤760 block). */
+.checklist__marker {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* Plum filled circle with the white mono row number (reference). */
 .checklist__num {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-plum);
+  color: var(--white);
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 0.85rem;
-  color: var(--brand-plum);
-  padding-top: 3px;
 }
 
+/* Square outlined tick box (reference) — custom-drawn so it looks the same
+   in every browser; checked state drops in a plum checkmark. */
 .checklist__checkbox {
+  appearance: none;
+  -webkit-appearance: none;
   flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-  margin: 1px 0 0;
-  accent-color: var(--brand-plum);
-  border: 2px solid var(--ink-dark);
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  background: var(--white);
+  border: 2px solid rgba(57, 17, 41, 0.55);
+  border-radius: 7px;
+  display: grid;
+  place-content: center;
   cursor: pointer;
+}
+
+.checklist__checkbox:checked::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: var(--brand-plum);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
 .checklist__situation {
@@ -119,8 +157,9 @@
   display: none;
 }
 
+/* CTA centered under the card (reference). */
 .checklist__cta {
-  text-align: left;
+  text-align: center;
 }
 
 .checklist__cta .btn {
@@ -129,31 +168,31 @@
 
 .checklist__cta-sub {
   margin: var(--space-sm) 0 0;
-  color: var(--brand-plum);
+  color: var(--ink-dark);
   font-size: 0.95rem;
 }
 
-/* ---- Right column: reaction panel ---- */
+/* ---- Right column: dark plum reaction panel (reference) ---- */
 .checklist__panel {
   position: sticky;
   top: 100px;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(57, 17, 41, 0.15);
-  border-radius: 14px;
-  padding: var(--space-xl);
+  background: var(--ink-dark);
+  border-radius: 20px;
+  padding: 40px 36px;
 }
 
+/* Mono chip label on the lighter plum (reference "Reaction" chip — casing
+   comes straight from the label text, no transform). */
 .checklist__panel-label {
-  display: block;
+  display: inline-block;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--brand-plum);
-  margin: 0 0 var(--space-sm);
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(57, 17, 41, 0.15);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  background: var(--brand-plum);
+  color: var(--white);
+  padding: 6px 12px;
+  margin: 25px 0 var(--space-md);
 }
 
 .checklist__panel-label ~ .checklist__panel-label {
@@ -163,34 +202,39 @@
 .checklist__reaction {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 1.4;
-  color: var(--ink-dark);
+  font-size: 1.3rem;
+  line-height: 1.45;
+  color: var(--white);
   margin: 0 0 var(--space-md);
 }
 
-.checklist__gif {
+/* Cream media box (reference) — shows the scenario gif when one exists,
+   otherwise stays an empty cream placeholder with a faint pending note. */
+.checklist__media {
   aspect-ratio: 16 / 10;
-  border: 2px dashed var(--brand-plum);
-  border-radius: 8px;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(93, 27, 78, 0.05),
-    rgba(93, 27, 78, 0.05) 10px,
-    transparent 10px,
-    transparent 20px
-  );
+  background: #f2e6d8;
+  border-radius: 14px;
+  margin-top: var(--space-lg);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-.checklist__gif-note {
+.checklist__media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.checklist__media-note {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--brand-plum);
+  font-size: 0.78rem;
+  color: rgba(57, 17, 41, 0.55);
 }
 
+/* Gauge recolored for the dark panel. */
 .checklist__gauge-wrap {
   text-align: center;
 }
@@ -205,31 +249,31 @@
 
 .checklist__gauge-track {
   fill: none;
-  stroke: rgba(57, 17, 41, 0.15);
+  stroke: rgba(255, 255, 255, 0.22);
   stroke-width: 6;
   stroke-linecap: round;
 }
 
 .checklist__gauge-tick {
-  stroke: rgba(57, 17, 41, 0.4);
+  stroke: rgba(255, 255, 255, 0.55);
   stroke-width: 2;
 }
 
 .checklist__gauge-tick-label {
-  fill: var(--ink-dark);
+  fill: #f2e6d8;
   font-family: var(--font-mono);
   font-size: 9px;
   text-anchor: middle;
 }
 
 .checklist__gauge-needle {
-  stroke: var(--brand-plum);
+  stroke: var(--stone);
   stroke-width: 3.5;
   stroke-linecap: round;
 }
 
 .checklist__gauge-hub {
-  fill: var(--brand-plum);
+  fill: var(--stone);
 }
 
 .checklist__gauge-score {
@@ -238,7 +282,7 @@
   font-family: var(--font-body);
   font-weight: 800;
   font-size: 1.6rem;
-  color: var(--brand-plum);
+  color: var(--white);
   margin-top: -6px;
 }
 
@@ -247,7 +291,7 @@
   font-family: var(--font-body);
   font-weight: 800;
   font-size: 1.15rem;
-  color: var(--brand-plum);
+  color: var(--white);
 }
 
 .checklist__verdict {
@@ -259,7 +303,7 @@
   font-weight: 800;
   font-size: 1.15rem;
   line-height: 1.35;
-  color: var(--ink-dark);
+  color: var(--white);
   margin: 0 0 var(--space-sm);
 }
 
@@ -267,7 +311,7 @@
   font-family: var(--font-body);
   font-size: 0.98rem;
   line-height: 1.55;
-  color: var(--ink-dark);
+  color: rgba(255, 255, 255, 0.88);
   margin: 0 0 var(--space-sm);
 }
 
@@ -286,21 +330,64 @@
     gap: var(--space-xl);
   }
 
-  /* Reaction shows inline inside the ticked box instead of the side panel. */
+  /* Reaction shows inline inside the ticked box instead of the side panel —
+     same dark plum panel treatment, nested inside the card row. */
   .checklist__right {
     display: none;
   }
 
   .checklist__item-reveal {
     display: block;
-    padding: var(--space-md) var(--space-md) var(--space-lg);
-    border-top: 1px dashed rgba(57, 17, 41, 0.25);
+    margin: 0 18px 18px;
+    background: var(--ink-dark);
+    border-radius: 16px;
+    padding: var(--space-md);
   }
 }
 
 @media (max-width: 760px) {
   .checklist {
     padding: 40px 0;
+  }
+
+  .checklist__grid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .checklist__item--active {
+    padding-bottom: 1px;
+  }
+
+  .checklist__item-reveal {
+    margin: 0 8px 18px;
+  }
+
+  .checklist__label {
+    padding: 14px 14px;
+    gap: 12px;
+  }
+
+  /* Stack the number over the tick box on mobile (per the reference). */
+  .checklist__marker {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .checklist__num {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+
+  .checklist__checkbox {
+    width: 26px;
+    height: 26px;
+  }
+
+  .checklist__checkbox:checked::before {
+    width: 14px;
+    height: 14px;
   }
 
   .checklist__situation {
@@ -313,9 +400,5 @@
 
   .checklist__cta-sub {
     font-size: 10px;
-  }
-
-  .checklist__panel {
-    padding: var(--space-lg);
   }
 }

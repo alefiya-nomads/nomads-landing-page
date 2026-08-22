@@ -1,8 +1,13 @@
 import "./Footer.css";
 import Button from "../primitives/Button.jsx";
+import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { footer } from "../../data/copy.js";
 
-const PHOTO_SRC = "/Assets/Images/footer alefiya image.webp";
+const PHOTO_SRC = "/Assets/Images/footer image.png";
+
+// The payoff phrase in the statement gets the cream sweep highlight.
+const STATEMENT_SWEEP = "we'll add $125k/mo ($1.5M/year)";
+const [statementBefore, statementAfter] = footer.statement.split(STATEMENT_SWEEP);
 
 /**
  * Closing footer, rebuilt to the reference: dark textured banner with the
@@ -37,7 +42,9 @@ export default function Footer() {
           </p>
 
           <h2 className="footer__statement" data-reveal data-reveal-delay="140">
-            {footer.statement}
+            {statementBefore}
+            <HighlightSweep tone="cream3">{STATEMENT_SWEEP}</HighlightSweep>
+            {statementAfter}
           </h2>
 
           <div className="footer__signature" data-reveal data-reveal-delay="220">
