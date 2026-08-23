@@ -46,9 +46,12 @@ export default function Problem97() {
             {problem.lines[1]}
           </p>
 
-          {/* Animated pie infographic — contains the "Say you're selling
-              medicine for ulcers." headline, the 97/3 pie, the 100-people
-              badge and the 03/97 callout cards. */}
+          <p className="problem__gif-lead" data-reveal data-reveal-delay="80">
+            {"Say you're selling medicine for ulcers."}
+          </p>
+
+          {/* Animated pie infographic — the 97/3 pie, the 100-people badge
+              and the 03/97 callout cards. */}
           <video
             ref={videoRef}
             className="problem__gif"

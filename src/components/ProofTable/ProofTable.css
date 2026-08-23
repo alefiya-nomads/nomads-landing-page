@@ -123,8 +123,7 @@
   font-family: var(--font-body);
   font-weight: 800;
   font-size: 15px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   margin: 0 0 var(--space-sm);
 }
 

@@ -54,6 +54,7 @@
   font-size: clamp(1.5rem, 2.6vw, 2.05rem);
   line-height: 1.3;
   color: var(--brand-plum);
+  text-transform: capitalize;
   margin: 0 0 var(--space-md);
 }
 

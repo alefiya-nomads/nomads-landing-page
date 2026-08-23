@@ -109,6 +109,14 @@
   margin: var(--space-md) 0 0;
 }
 
+/* Narrow desktop (901–990px): drop the hanging note card further so it
+   clears the video edge. */
+@media (min-width: 901px) and (max-width: 990px) {
+  .workshop__closing {
+    bottom: -100px;
+  }
+}
+
 /* Tablet/mobile: full-width video with the note card hanging off its
    bottom edge, smaller type; extra section bottom padding gives the
    hanging card room before the seam badge. */

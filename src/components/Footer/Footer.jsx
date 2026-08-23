@@ -12,7 +12,9 @@ const [statementBefore, statementAfter] = footer.statement.split(STATEMENT_SWEEP
 // Break the intro chip after the word "with" so the rest starts on a new
 // line (derived from copy.js so the text stays verbatim).
 const INTRO_BREAK_AT = footer.intro.indexOf("with") + "with".length;
-const introBefore = footer.intro.slice(0, INTRO_BREAK_AT);
+// Trailing space stays on line 1 so "with this" reads correctly when the
+// <br> is hidden on desktop (it only breaks on mobile — see Footer.css).
+const introBefore = footer.intro.slice(0, INTRO_BREAK_AT) + " ";
 const introAfter = footer.intro.slice(INTRO_BREAK_AT).trimStart();
 
 /**
@@ -41,7 +43,7 @@ export default function Footer() {
         <div className="footer__copy">
           <p className="footer__chip" data-reveal>
             {introBefore}
-            <br />
+            <br className="footer__chip-break" />
             {introAfter}
           </p>
 

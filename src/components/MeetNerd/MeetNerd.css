@@ -77,3 +77,10 @@
     font-size: 1.8rem;
   }
 }
+
+/* Very narrow phones (≤355px): shrink the headline so it fits. */
+@media (max-width: 355px) {
+  h2.meet-nerd__headline {
+    font-size: 1.3rem;
+  }
+}

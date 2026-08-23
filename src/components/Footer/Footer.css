@@ -48,6 +48,12 @@
   margin: 0 0 var(--space-lg);
 }
 
+/* The intro chip's line break only applies on mobile (see the ≤760px block);
+   on larger views it renders as one line. */
+.footer__chip-break {
+  display: none;
+}
+
 /* Normal lead line above the statement. */
 .footer__lead {
   color: var(--white);
@@ -155,7 +161,11 @@
   }
 
   .footer__chip {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  .footer__chip-break {
+    display: inline;
   }
 
   .footer__lead {

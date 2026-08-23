@@ -42,7 +42,7 @@
   /* "0" isn't a valid font-weight; 400 (Regular) is the lightest Montserrat
      weight loaded, so it's the effective minimum. */
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--midnight-blue);
   text-align: center;
   margin: 0 0 5px;
@@ -51,6 +51,16 @@
 /* Stat label now sits on the dark panel — light it up so it's readable. */
 .problem__panel--dark .problem__stat-label {
   color: var(--white);
+}
+
+/* Lead-in line above the pie gif (Montserrat, light for the dark panel). */
+.problem__gif-lead {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--white);
+  text-align: center;
+  margin: 0 0 var(--space-md);
 }
 
 /* Animated 97/3 pie infographic (gif-studio build) — transparent-alpha
