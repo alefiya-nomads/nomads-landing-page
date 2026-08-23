@@ -2,24 +2,26 @@ import { useEffect, useRef } from "react";
 import "./Problem97.css";
 import { problem } from "../../data/copy.js";
 
+// Animated WebP with a real alpha channel (encoded loop=1: plays once and
+// holds the last frame). <img>+WebP is the one transparent-animation format
+// every browser supports — iOS Safari can't play VP9-alpha WebM, and
+// HEVC-alpha can only be encoded on macOS. Source: gif-studio/frames (RGBA).
+const PIE_ANIM = "/Assets/Gifs/97-percent-pie.webp";
+// Static final frame for reduced-motion users.
+const PIE_STILL = "/Assets/Gifs/97-percent-pie-final.webp";
 
 export default function Problem97() {
-  const videoRef = useRef(null);
+  const imgRef = useRef(null);
 
-  // Play the pie animation ONCE the first time it scrolls into view (no
-  // loop). Reduced-motion users get the finished final frame instead.
+  // Start the play-once animation the first time it scrolls into view (the
+  // WebP begins playing when its src is assigned). Reduced-motion users get
+  // the finished final frame instead.
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const showEnd = () => {
-      const seekEnd = () => { video.currentTime = video.duration || 0; };
-      if (video.readyState >= 1) seekEnd();
-      else video.addEventListener("loadedmetadata", seekEnd, { once: true });
-    };
+    const img = imgRef.current;
+    if (!img) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      showEnd();
+      img.src = PIE_STILL;
       return;
     }
 
@@ -27,14 +29,14 @@ export default function Problem97() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            video.play().catch(showEnd);
+            img.src = PIE_ANIM;
             io.disconnect();
           }
         });
       },
       { threshold: 0.35 }
     );
-    io.observe(video);
+    io.observe(img);
     return () => io.disconnect();
   }, []);
 
@@ -51,23 +53,16 @@ export default function Problem97() {
           </p>
 
           {/* Animated pie infographic — the 97/3 pie, the 100-people badge
-              and the 03/97 callout cards. */}
-          <video
-            ref={videoRef}
+              and the 03/97 callout cards. src is assigned on scroll-into-view
+              (see the effect above); CSS aspect-ratio reserves the space so
+              the layout doesn't jump when it loads. */}
+          <img
+            ref={imgRef}
             className="problem__gif"
-            muted
-            playsInline
-            preload="metadata"
-            aria-label="Out of 100 people, 3% know they have ulcers and buy immediately; 97% have stomach pain but don't see the problem yet"
+            alt="Out of 100 people, 3% know they have ulcers and buy immediately; 97% have stomach pain but don't see the problem yet"
             data-reveal
             data-reveal-delay="120"
-          >
-            {/* Transparent version preferred (VP9 WebM w/ alpha, pix_fmt
-                yuva420p); the MP4 fallback has the panel's average dark
-                tone (#2A2C31) baked in for browsers without VP9 alpha. */}
-            <source src="/Assets/Gifs/97-percent-pie.webm" type="video/webm" />
-            <source src="/Assets/Gifs/97-percent-pie.mp4" type="video/mp4" />
-          </video>
+          />
         </div>
       </div>
 
