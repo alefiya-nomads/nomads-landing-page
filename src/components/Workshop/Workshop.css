@@ -51,7 +51,8 @@
   color: var(--white);
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 1.05rem;
+  /* 16px on desktop; the ≤760px block sets 18px on mobile. */
+  font-size: 16px;
   line-height: 1.65;
   margin: 0 0 var(--space-md);
 }
@@ -119,7 +120,7 @@
   /* Stack: copy above, showcase centered below. */
   .workshop__grid {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: 6px;
   }
 
   .workshop__showcase {
@@ -196,7 +197,7 @@
   /* Mobile intro copy: 18px, left-aligned (headline/chip/closer unaffected;
      the closing card stays at its 0.8rem compact size). */
   .workshop__para {
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
   }
 

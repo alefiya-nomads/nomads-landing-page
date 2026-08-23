@@ -565,7 +565,7 @@
   text-align: center;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 1rem;
   letter-spacing: 0.18em;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -644,7 +644,7 @@
   }
 
   .uncover-card__label {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .uncover-metrics__list li {

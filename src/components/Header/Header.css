@@ -113,3 +113,12 @@
     font-size: 0.66rem;
   }
 }
+
+/* The sitewide "every non-navbar button = 0.8rem on mobile" rule shouldn't
+   touch the navbar CTA — pin it to its own size in the 641–760px gap (below
+   640px it already has its own overrides above). */
+@media (min-width: 641px) and (max-width: 760px) {
+  .site-header .btn {
+    font-size: 0.75rem;
+  }
+}

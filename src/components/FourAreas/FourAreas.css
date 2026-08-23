@@ -128,7 +128,7 @@
 .four-areas__card-body {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.55;
   color: var(--ink-dark);
   margin: 0;
@@ -205,7 +205,7 @@
 
   /* Mobile body copy bumped to 20px (section headline unaffected). */
   .four-areas__card-body {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .four-areas__card {

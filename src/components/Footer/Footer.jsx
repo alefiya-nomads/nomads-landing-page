@@ -9,6 +9,12 @@ const PHOTO_SRC = "/Assets/Images/footer image.png";
 const STATEMENT_SWEEP = "we'll add $125k/mo ($1.5M/year)";
 const [statementBefore, statementAfter] = footer.statement.split(STATEMENT_SWEEP);
 
+// Break the intro chip after the word "with" so the rest starts on a new
+// line (derived from copy.js so the text stays verbatim).
+const INTRO_BREAK_AT = footer.intro.indexOf("with") + "with".length;
+const introBefore = footer.intro.slice(0, INTRO_BREAK_AT);
+const introAfter = footer.intro.slice(INTRO_BREAK_AT).trimStart();
+
 /**
  * Closing footer, rebuilt to the reference: dark textured banner with the
  * seated-Alefiya image (badge + "Let's Find The Leak" script baked in) on
@@ -34,7 +40,9 @@ export default function Footer() {
 
         <div className="footer__copy">
           <p className="footer__chip" data-reveal>
-            {footer.intro}
+            {introBefore}
+            <br />
+            {introAfter}
           </p>
 
           <p className="footer__lead" data-reveal data-reveal-delay="80">

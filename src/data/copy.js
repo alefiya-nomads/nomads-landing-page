@@ -358,7 +358,7 @@ export const proofTable = [
     before:
       "An **ecommerce** business was getting 440K visits, but only 250 demo bookings. At first, that seemed fine, until they realized it added up to just a **0.044% conversion rate.**",
     after:
-      "**With us, they achieved a 14% conversion rate to their demo video, generating £97,000 in 20 days.**",
+      "With us, they **achieved a 14% conversion rate to their demo video,** generating £97,000 in 20 days.",
     stat: {
       hero: "318×",
       lines: ["0.044% → 14% conversion", "530 demos + £96K added in 12 days"],
@@ -379,7 +379,7 @@ export const proofTable = [
     before:
       "A **media business launch** grossed **$70K** with a **6%** email click-through rate (CTR). The client thought it was a flex until they saw our 45% CTR and hired us for their next launch.",
     after:
-      "**With us on board, her next launch hit $150K (double!) and the next one did HALF A MILLION DOLLARS (8X) with the same amount of traffic.**",
+      "With us on board, her next launch hit $150K (double!) **and the next one did HALF A MILLION DOLLARS (8X)** with the same amount of traffic.",
     stat: { hero: "7.1×", lines: ["$70K → $500K revenue", "Growth with the same traffic"] },
   },
 ];

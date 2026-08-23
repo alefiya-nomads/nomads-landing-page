@@ -39,10 +39,13 @@
 }
 
 .problem__stat-label {
-  font-weight: 800;
+  /* "0" isn't a valid font-weight; 400 (Regular) is the lightest Montserrat
+     weight loaded, so it's the effective minimum. */
+  font-weight: 400;
   font-size: 1.1rem;
   color: var(--midnight-blue);
-  margin: 0 0 var(--space-lg);
+  text-align: center;
+  margin: 0 0 5px;
 }
 
 /* Stat label now sits on the dark panel — light it up so it's readable. */
@@ -67,7 +70,6 @@
 }
 
 .problem__para--bold {
-  font-weight: 800;
   margin-bottom: 0;
 }
 
@@ -109,7 +111,7 @@
   }
 
   .problem__para {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .problem__question {

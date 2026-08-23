@@ -106,7 +106,8 @@
 
 .economy__sub {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 1.15rem;
+  /* 16px on desktop; the ≤760px block bumps it to 18px on mobile. */
+  font-size: 16px;
   max-width: 650px;
   margin: 0 auto;
 }
@@ -119,7 +120,7 @@
 
   .economy__frame {
     margin: 10px;
-    padding: 24px 0;
+    padding: 50px 0;
   }
 
   .economy__grid {
@@ -140,7 +141,7 @@
   }
 
   .economy__sub {
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
     margin: 0;
   }

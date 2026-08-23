@@ -81,14 +81,15 @@
 
 .calc__point-label {
   font-weight: 800;
-  font-size: 1.05rem;
+  /* 16px on desktop; the ≤760px block sets 18px on mobile. */
+  font-size: 16px;
   color: var(--white);
   margin: 0 0 var(--space-xs);
 }
 
 .calc__point-body {
   color: var(--white);
-  font-size: 0.95rem;
+  font-size: 16px;
   line-height: 1.5;
   margin: 0;
   opacity: 0.8;
@@ -145,9 +146,27 @@
 
 .calc__gap-text {
   color: var(--white);
-  font-size: 0.95rem;
+  font-size: 16px;
   line-height: 1.5;
   margin-bottom: var(--space-md);
+}
+
+/* Desktop: tighten the vertical rhythm of the copy column (each item's
+   bottom margin steps down one notch). Mobile keeps the roomier spacing. */
+@media (min-width: 761px) {
+  .calc__chip,
+  .calc__headline {
+    margin-bottom: var(--space-md);
+  }
+
+  .calc__subtitle,
+  .calc__points {
+    margin-bottom: var(--space-lg);
+  }
+
+  .calc__gap-text {
+    margin-bottom: var(--space-sm);
+  }
 }
 
 
@@ -168,6 +187,11 @@
     padding: var(--space-2xl) 0 75px;
   }
 
+  /* Uniform 27px bottom margin on every item in the copy column on mobile. */
+  .calc__copy > * {
+    margin-bottom: 27px;
+  }
+
   .calc__chip {
     padding: 10px;
   }
@@ -181,7 +205,7 @@
   .calc__point-label,
   .calc__point-body,
   .calc__gap-text {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   /* .center is a global class on this element; matching its specificity

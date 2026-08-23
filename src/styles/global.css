@@ -7,6 +7,11 @@
 
 html {
   scroll-behavior: smooth;
+  /* Pin the root font size so 1rem is always 16px regardless of the user's
+     browser "Font size" preference (Medium/Large/etc.) — keeps every rem-based
+     size identical across devices. Browser zoom still scales everything
+     proportionally, as it should. */
+  font-size: 16px;
 }
 
 /* 100vw-based breakout margins (Founder, Footer) overshoot by the

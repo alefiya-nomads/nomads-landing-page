@@ -6,15 +6,6 @@ import { problem } from "../../data/copy.js";
 export default function Problem97() {
   const videoRef = useRef(null);
 
-  // Synchronous detection of Safari/iOS to avoid linter warnings on state updates in effects
-  const isSafari = typeof navigator !== "undefined" && (
-    (navigator.userAgent.toLowerCase().includes("safari") && 
-     !navigator.userAgent.toLowerCase().includes("chrome") && 
-     !navigator.userAgent.toLowerCase().includes("android")) ||
-    (/ipad|iphone|ipod/.test(navigator.userAgent.toLowerCase()) || 
-     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
-  );
-
   // Play the pie animation ONCE the first time it scrolls into view (no
   // loop). Reduced-motion users get the finished final frame instead.
   useEffect(() => {
@@ -55,11 +46,9 @@ export default function Problem97() {
             {problem.lines[1]}
           </p>
 
-          {/* Animated pie infographic (built in gif-studio/) — contains the
-              "Say you're selling medicine for ulcers." headline, the 97/3
-              pie, the 100-people badge and the 03/97 callout cards.
-              WebM carries a real alpha channel (transparent over the teal
-              panel); the MP4 fallback has the panel teal baked in. */}
+          {/* Animated pie infographic — contains the "Say you're selling
+              medicine for ulcers." headline, the 97/3 pie, the 100-people
+              badge and the 03/97 callout cards. */}
           <video
             ref={videoRef}
             className="problem__gif"
@@ -70,8 +59,11 @@ export default function Problem97() {
             data-reveal
             data-reveal-delay="120"
           >
-            {!isSafari && <source src="/Assets/97-percent-pie.webm" type="video/webm" />}
-            <source src="/Assets/97-percent-pie.mp4" type="video/mp4" />
+            {/* Transparent version preferred (VP9 WebM w/ alpha, pix_fmt
+                yuva420p); the MP4 fallback has the panel's average dark
+                tone (#2A2C31) baked in for browsers without VP9 alpha. */}
+            <source src="/Assets/Gifs/97-percent-pie.webm" type="video/webm" />
+            <source src="/Assets/Gifs/97-percent-pie.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
@@ -95,7 +87,7 @@ export default function Problem97() {
           </p>
 
           <h2 className="problem__question" data-reveal data-reveal-delay="240">
-            How do you convince them to buy from you?
+            How do you convince<br />them to buy from you?
           </h2>
         </div>
       </div>

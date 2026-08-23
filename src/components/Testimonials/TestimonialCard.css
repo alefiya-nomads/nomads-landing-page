@@ -111,7 +111,8 @@
 
 .testimonial-card__body-line {
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  /* 16px on desktop; the ≤760px block sets 15px on mobile. */
+  font-size: 16px;
   color: var(--ink-dark);
   margin: 0 0 var(--space-sm);
 }
@@ -154,5 +155,18 @@
 
   .testimonial-card__body-line {
     font-size: 15px;
+  }
+
+  /* Hide the seam doodle on mobile. */
+  .testimonial-card__seam-doodle {
+    display: none;
+  }
+
+  .testimonial-card__photo {
+    width: 70%;
+  }
+
+  .testimonial-card__media {
+    padding: 30px 0;
   }
 }

@@ -17,7 +17,8 @@
 
 .hero__eyebrow {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  /* 16px on desktop; the ≤760px block bumps it to 18px on mobile. */
+  font-size: 16px;
   font-weight: 500;
   color: var(--ink-dark);
   max-width: 620px;
@@ -69,10 +70,17 @@
   color: #5d1b4e;
 }
 
-/* Scaled down so it fits the narrow column on phones. */
-@media (max-width: 760px) {
+/* Larger phones (401–760px): big stat at 60px. */
+@media (min-width: 401px) and (max-width: 760px) {
   .hero__headline-big {
-    font-size: 52px;
+    font-size: 60px;
+  }
+}
+
+/* Smallest phones (≤400px): scaled down so "$1.5M/year" doesn't overflow. */
+@media (max-width: 400px) {
+  .hero__headline-big {
+    font-size: 45px;
   }
 }
 
@@ -327,17 +335,18 @@
     gap: 20px;
   }
 
-  /* h1.hero__headline needed to out-rank global.css's uniform 1.6rem
-     mobile heading rule (same specificity, this file loads later). */
-  h1.hero__headline {
-    font-size: 1.7rem;
+  /* Matches the base `.hero h1.hero__headline` (0,2,1) specificity so this
+     wins over the 30px desktop lead size on mobile; also out-ranks global's
+     uniform mobile heading rule. */
+  .hero h1.hero__headline {
+    font-size: 22px;
     text-wrap: balance;
   }
 
   .hero__eyebrow,
   .hero__list li,
   .hero__rpv-line {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .hero__followup {

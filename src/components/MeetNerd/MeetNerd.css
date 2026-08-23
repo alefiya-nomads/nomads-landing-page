@@ -69,3 +69,11 @@
     width: 96px;
   }
 }
+
+/* Larger phones (401–760px): bump the headline up (below 400px keeps the
+   1.5rem set above). Placed after the ≤760px block so it wins in-range. */
+@media (min-width: 401px) and (max-width: 760px) {
+  h2.meet-nerd__headline {
+    font-size: 1.8rem;
+  }
+}
