@@ -14,10 +14,10 @@ export default function BuyAnyway() {
     <section className="buy-anyway">
       <div className="wrap buy-anyway__inner">
         <h2 className="buy-anyway__headline" data-reveal>
-          <span className="buy-anyway__line">People Who Are Actively Looking</span>{" "}
-          <span className="buy-anyway__line">For A Solution Will Buy Anyway.</span>
+          <span className="buy-anyway__line">People who are actively looking</span>{" "}
+          <span className="buy-anyway__line">for a solution will buy anyway.</span>
           <span className="buy-anyway__line buy-anyway__line--accent">
-            But <span className="buy-anyway__script-w">W</span>hat About The Rest?
+            But <span className="buy-anyway__script-w">W</span>hat about the rest?
           </span>
         </h2>
 

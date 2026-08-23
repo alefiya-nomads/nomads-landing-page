@@ -27,7 +27,7 @@ export default function Curious() {
           {preSweep}
           <HighlightSweep tone="plum">$1.5M/year</HighlightSweep>
           {postSweep}
-          <span className="curious__accent-e">E</span>
+          <span className="curious__accent-e">e</span>
           {restOfEconomy}
         </h2>
 
