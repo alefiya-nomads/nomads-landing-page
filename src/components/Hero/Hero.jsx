@@ -69,7 +69,7 @@ export default function Hero() {
           </p>
 
           <div data-reveal data-reveal-delay="320">
-            <Button href="#diagnostic">{hero.ctaLabel}</Button>
+            <Button href="https://nomads-quiz-v2.vercel.app/">{hero.ctaLabel}</Button>
           </div>
 
           <p className="hero__followup" data-reveal data-reveal-delay="400">

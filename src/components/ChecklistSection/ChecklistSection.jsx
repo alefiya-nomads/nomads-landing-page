@@ -103,7 +103,7 @@ function ReactionContent({ scenario }) {
 
       {v.cta && (
         <div className="checklist__panel-cta">
-          <Button variant="onDark" href="#diagnostic">
+          <Button variant="onDark" href="https://nomads-quiz-v2.vercel.app/">
             {v.cta}
           </Button>
         </div>
@@ -165,7 +165,7 @@ export default function ChecklistSection() {
           </ul>
 
           <div className="checklist__cta" data-reveal>
-            <Button href="#diagnostic">{ctaLabel}</Button>
+            <Button href="https://nomads-quiz-v2.vercel.app/">{ctaLabel}</Button>
             <p className="checklist__cta-sub">{checklistOutro.sub}</p>
           </div>
         </div>

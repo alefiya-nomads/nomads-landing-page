@@ -24,7 +24,7 @@ export default function Header() {
         <p className="site-header__tagline">
           Could you add $1.5M/year by making more $ per visitor?
         </p>
-        <Button href="#diagnostic">Start the Diagnostic Now</Button>
+        <Button href="https://nomads-quiz-v2.vercel.app/">Start the Diagnostic Now</Button>
       </div>
     </header>
   );

@@ -64,7 +64,7 @@ export default function Calculator() {
           <div className="calc__bottom" data-reveal>
             <p className="calc__gap-text">{calculator.lines[4]}</p>
             <div>
-              <Button href="#diagnostic" variant="onDark">
+              <Button href="https://nomads-quiz-v2.vercel.app/" variant="onDark">
                 Show me my potential rpv
               </Button>
             </div>

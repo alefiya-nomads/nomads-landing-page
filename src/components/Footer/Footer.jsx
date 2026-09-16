@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
 
           <div data-reveal data-reveal-delay="300">
-            <Button variant="onDark" href="#diagnostic" className="footer__cta">
+            <Button variant="onDark" href="https://nomads-quiz-v2.vercel.app/" className="footer__cta">
               {cta}
             </Button>
           </div>
