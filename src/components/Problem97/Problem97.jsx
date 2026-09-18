@@ -10,6 +10,28 @@ const PIE_ANIM = "/Assets/Gifs/97-percent-pie.webp";
 // Static final frame for reduced-motion users.
 const PIE_STILL = "/Assets/Gifs/97-percent-pie-final.webp";
 
+// Puzzle cut-out for the dark statement panel.
+const PUZZLE = "/Assets/Images/5th section left side puzzle image 2.png";
+
+// copy.js stores lines[5] as a single sentence ("Sooo…how do you convince…").
+// The reference splits it in two: "Sooo…" on its own line, then the question
+// starting with a capital "H" — casing follows the reference (design-v2.md
+// 0.8). Falls back to the whole line if the copy ever stops matching.
+const CONVINCE_LINE = (() => {
+  const tail = problem.lines[5].split("Sooo…")[1];
+  return tail ? tail.charAt(0).toUpperCase() + tail.slice(1) : problem.lines[5];
+})();
+
+/**
+ * Merged section (formerly two: BuyAnyway + Problem97).
+ *
+ * Left  — dark navy textured panel: the puzzle art with the "People who are
+ *         actively looking for a solution will buy anyway. But what about the
+ *         rest?" statement and its script subline at the foot.
+ * Right — ice-blue panel: the 97% diagnosis — the stat line, the animated
+ *         97/3 pie infographic, the "you lose the 97 people" explanation,
+ *         the "Even though they do." highlight and the closing question.
+ */
 export default function Problem97() {
   const imgRef = useRef(null);
 
@@ -42,7 +64,21 @@ export default function Problem97() {
 
   return (
     <section className="problem">
+      {/* LEFT — the whole "buy anyway" statement is baked into the artwork
+          (puzzle pieces + headline + script subline), so no DOM text here;
+          the alt carries the wording for screen readers. */}
       <div className="problem__panel problem__panel--dark">
+        <img
+          className="problem__puzzle"
+          src={PUZZLE}
+          alt="People who are actively looking for a solution will buy anyway. But what about the rest? Your audience needs guidance before they’re ready to purchase."
+          loading="lazy"
+          data-reveal
+        />
+      </div>
+
+      {/* RIGHT — the 97% diagnosis. */}
+      <div className="problem__panel problem__panel--light">
         <div className="problem__content">
           <p className="problem__stat-label" data-reveal>
             {problem.lines[1]}
@@ -52,10 +88,10 @@ export default function Problem97() {
             {"Say you're selling medicine for ulcers."}
           </p>
 
-          {/* Animated pie infographic — the 97/3 pie, the 100-people badge
-              and the 03/97 callout cards. src is assigned on scroll-into-view
-              (see the effect above); CSS aspect-ratio reserves the space so
-              the layout doesn't jump when it loads. */}
+          {/* Animated pie infographic — the 97/3 pie, the 100-people badge and
+              the 03/97 callout cards. src is assigned on scroll-into-view (see
+              the effect above); CSS aspect-ratio reserves the space so the
+              layout doesn't jump when it loads. */}
           <img
             ref={imgRef}
             className="problem__gif"
@@ -63,11 +99,7 @@ export default function Problem97() {
             data-reveal
             data-reveal-delay="120"
           />
-        </div>
-      </div>
 
-      <div className="problem__panel problem__panel--light">
-        <div className="problem__content">
           {/* Reference shows "97 people" here; copy.js's problem.lines[3] and
               legend say "70" (3/70/27 split) instead of the reference's 3/97
               split — flagged per 0.8, defaulting to the reference's numbers. */}
@@ -80,8 +112,12 @@ export default function Problem97() {
             {problem.lines[4]}
           </p>
 
-          <p className="problem__para problem__para--bold" data-reveal data-reveal-delay="180">
-            {problem.lines[5]}
+          <p className="problem__sooo" data-reveal data-reveal-delay="140">
+            Sooo&hellip;
+          </p>
+
+          <p className="problem__para" data-reveal data-reveal-delay="180">
+            {CONVINCE_LINE}
           </p>
 
           <h2 className="problem__question" data-reveal data-reveal-delay="240">

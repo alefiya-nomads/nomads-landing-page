@@ -1,36 +1,45 @@
+/* ============================================================
+   Merged section (formerly BuyAnyway + Problem97): the "buy
+   anyway" statement on a dark puzzle panel (left) and the 97%
+   problem diagnosis on an ice-blue panel (right).
+   ============================================================ */
 .problem {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: stretch;
 }
 
 .problem__panel {
   padding: var(--space-2xl) var(--space-lg);
 }
 
+/* ---- LEFT: dark navy textured panel ----
+   The artwork carries the whole statement (puzzle pieces + headline +
+   script subline are baked into the PNG), so the panel just centres it on
+   the navy texture — there is no DOM text to style here. */
 .problem__panel--dark {
-  background-image: url("/Assets/landing-page/blue multi texture.webp");
+  background-color: #0e1c30;
+  background-image: url("/Assets/backgrounds/5th section.png");
   background-size: cover;
   background-position: center;
-}
-
-.problem__panel--light {
-  background: var(--accent-teal);
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
-}
-
-/* Real containing frame (not a coincidentally-positioned overlay — see the
-   NotThisEconomy fix) so the puzzle art and headline never render outside
-   the keyline border, per design-v2.md 0.8. */
-.problem__frame {
-  position: relative;
-  overflow: hidden;
+  justify-content: center;
 }
 
 .problem__puzzle {
   display: block;
   width: 100%;
+  max-width: 600px;
   height: auto;
+}
+
+/* ---- RIGHT: ice-blue diagnosis panel ---- */
+.problem__panel--light {
+  background: var(--accent-teal);
+  display: flex;
+  align-items: center;
 }
 
 .problem__content {
@@ -44,32 +53,25 @@
   font-weight: 400;
   font-size: 1rem;
   color: var(--midnight-blue);
-  text-align: center;
-  margin: 0 0 5px;
+  margin: 0 0 var(--space-xs);
 }
 
-/* Stat label now sits on the dark panel — light it up so it's readable. */
-.problem__panel--dark .problem__stat-label {
-  color: var(--white);
-}
-
-/* Lead-in line above the pie gif (Montserrat, light for the dark panel). */
+/* Bold lead-in line above the pie infographic. */
 .problem__gif-lead {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: var(--white);
-  text-align: center;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--midnight-blue);
   margin: 0 0 var(--space-md);
 }
 
-/* Animated 97/3 pie infographic (gif-studio build) — transparent-alpha
-   video sitting directly on the teal panel. */
+/* Animated 97/3 pie infographic (gif-studio build) — transparent alpha
+   sitting directly on the ice-blue panel. */
 .problem__gif {
   display: block;
   width: 100%;
   height: auto;
-  /* Native frame ratio (1560×1168) — reserves the box before the animated
+  /* Native frame ratio (1560x1168) — reserves the box before the animated
      WebP's src is assigned on scroll, so the layout doesn't jump. */
   aspect-ratio: 1560 / 1168;
   margin: 0 0 var(--space-lg);
@@ -82,10 +84,6 @@
   margin: 0 0 var(--space-md);
 }
 
-.problem__para--bold {
-  margin-bottom: 0;
-}
-
 .problem__highlight {
   display: inline-block;
   background: #152638;
@@ -96,17 +94,25 @@
   margin: 0 0 var(--space-md);
 }
 
-/* Closing question at the foot of the light column — a heading, sized a
-   touch smaller than the sitewide 40px section headings. */
+/* "Sooo…" sits tight above the question it introduces. */
+.problem__sooo {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #152638;
+  margin: 0 0 4px;
+}
+
+/* Closing question at the foot of the light column. */
 .problem__question {
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: 1.75rem;
+  font-size: 2rem;
   line-height: 1.25;
   color: #152638;
   margin: var(--space-lg) 0 0;
 }
 
+/* Stack the two panels: statement first, diagnosis beneath it. */
 @media (max-width: 900px) {
   .problem {
     grid-template-columns: 1fr;
@@ -115,15 +121,28 @@
   .problem__panel {
     padding: var(--space-xl) var(--space-md);
   }
+
+  .problem__puzzle {
+    max-width: 520px;
+  }
+
+  .problem__content {
+    max-width: none;
+  }
 }
 
-/* Mobile body copy bumped to 20px (gif annotations unaffected). */
+/* Mobile body copy bumped (pie annotations unaffected — they're pixels). */
 @media (max-width: 760px) {
   .problem__stat-label {
     font-size: 20px;
   }
 
-  .problem__para {
+  .problem__gif-lead {
+    font-size: 18px;
+  }
+
+  .problem__para,
+  .problem__sooo {
     font-size: 16px;
   }
 

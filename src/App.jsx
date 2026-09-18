@@ -4,7 +4,6 @@ import TrustBar from "./components/TrustBar/TrustBar.jsx";
 import Uncover from "./components/Uncover/Uncover.jsx";
 import NotThisEconomy from "./components/NotThisEconomy/NotThisEconomy.jsx";
 import ChecklistSection from "./components/ChecklistSection/ChecklistSection.jsx";
-import BuyAnyway from "./components/BuyAnyway/BuyAnyway.jsx";
 import FourStages from "./components/FourStages/FourStages.jsx";
 import Problem97 from "./components/Problem97/Problem97.jsx";
 import ProofTable from "./components/ProofTable/ProofTable.jsx";
@@ -32,7 +31,6 @@ export default function App() {
         <Uncover />
         <NotThisEconomy />
         <ChecklistSection />
-        <BuyAnyway />
         <Problem97 />
         <FourStages />
         <ProofTable />
