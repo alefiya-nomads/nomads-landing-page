@@ -163,9 +163,10 @@ export const scenarios = [
       text: "“I've booked calls with 4 other companies, and will choose one after comparing pricing.” ~Your buyer",
     },
     verdict: {
+      score: 10,
       scoreLabel: "Highest score",
       note:
-        "Source doc says “Highest score” as text, not a number. The HTML POC's “5/10” is unsourced — confirm the real number (or keep this qualitative) before launch.",
+        "Source doc says “Highest score” as text, not a number; per user decision (2026-09-22) the gauge shows the needle at 10 with the doc's “Highest score” wording as the caption.",
       emoji: "🤕",
       lines: [
         "This one is costing you the most.",

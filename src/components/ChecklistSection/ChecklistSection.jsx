@@ -80,7 +80,11 @@ function ReactionContent({ scenario, gifSrc }) {
           {hasScore ? (
             <div className="checklist__gauge-wrap">
               <Gauge score={v.score} />
-              <span className="checklist__gauge-score">{v.score}/10</span>
+              {/* Items whose doc copy is qualitative ("Highest score") keep
+                  that wording as the caption instead of the N/10 readout. */}
+              <span className="checklist__gauge-score">
+                {v.scoreLabel || `${v.score}/10`}
+              </span>
             </div>
           ) : (
             <span className="checklist__score-label">{v.scoreLabel}</span>
