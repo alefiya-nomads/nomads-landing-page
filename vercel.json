@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/Assets/Landing Page Gifs/(.*)",
+      "source": "/Assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
