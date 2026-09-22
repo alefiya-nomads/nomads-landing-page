@@ -7,9 +7,12 @@ import { scenarios, checklistOutro } from "../../data/copy.js";
 const pad = (n) => String(n + 1).padStart(2, "0");
 
 // Numbered reaction animations: item N shows /Assets/Landing Page Gifs/N.webp
-// (one per scenario, matched by position in the list). Animated WebP encoded
-// from the original N.gif files (1200px, q65) — ~85% smaller than the GIFs.
-const gifFor = (i) => `/Assets/Landing Page Gifs/${i + 1}.webp`;
+// (one per scenario, matched by position in the list). Two encode sets exist:
+// the 1200px desktop files and 720px "-mobile" files at ~40% of the bytes —
+// small screens display the animation at ~280-420 CSS px, so the smaller
+// encode looks identical there but downloads far faster on mobile networks.
+const gifFor = (i, small) =>
+  `/Assets/Landing Page Gifs/${i + 1}${small ? "-mobile" : ""}.webp`;
 
 /* Semicircle 0–10 diagnostic gauge with a needle pointing at `score`. */
 function Gauge({ score }) {
@@ -114,6 +117,12 @@ export default function ChecklistSection() {
   // that item's reaction (in the side panel on desktop, inline below 900px).
   const [active, setActive] = useState(0);
   const s = scenarios[active];
+  // Which encode set this visit uses — decided once per mount at the same
+  // 900px breakpoint that swaps the side panel for the inline reveal, so the
+  // prefetch below and every <img> always agree on one set of URLs.
+  const [smallScreen] = useState(
+    () => window.matchMedia("(max-width: 900px)").matches
+  );
   const sectionRef = useRef(null);
   const activeRef = useRef(active);
   useEffect(() => {
@@ -145,7 +154,7 @@ export default function ChecklistSection() {
           order.unshift(...order.splice(order.indexOf(activeRef.current), 1));
           for (const i of order) {
             try {
-              await (await fetch(gifFor(i), { priority: "low" })).blob();
+              await (await fetch(gifFor(i, smallScreen), { priority: "low" })).blob();
             } catch {
               // Offline / aborted — the <img> will fetch on demand instead.
             }
@@ -156,7 +165,7 @@ export default function ChecklistSection() {
     );
     io.observe(section);
     return () => io.disconnect();
-  }, []);
+  }, [smallScreen]);
 
   const ctaLabel = "Show me how to add $1.5m in extra revenue this year";
 
@@ -197,7 +206,7 @@ export default function ChecklistSection() {
                 {/* Inline reaction shown inside the ticked box below 900px. */}
                 {active === i && (
                   <div className="checklist__item-reveal">
-                    <ReactionContent scenario={scenario} gifSrc={gifFor(i)} />
+                    <ReactionContent scenario={scenario} gifSrc={gifFor(i, smallScreen)} />
                   </div>
                 )}
               </li>
@@ -213,7 +222,7 @@ export default function ChecklistSection() {
         {/* RIGHT — side panel for the ticked item (desktop only) */}
         <div className="checklist__right">
           <div className="checklist__panel" aria-live="polite">
-            <ReactionContent scenario={s} gifSrc={gifFor(active)} />
+            <ReactionContent scenario={s} gifSrc={gifFor(active, smallScreen)} />
           </div>
         </div>
       </div>
