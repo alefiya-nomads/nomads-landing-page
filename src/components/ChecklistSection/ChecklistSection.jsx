@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./ChecklistSection.css";
 import Button from "../primitives/Button.jsx";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
@@ -114,11 +114,54 @@ export default function ChecklistSection() {
   // that item's reaction (in the side panel on desktop, inline below 900px).
   const [active, setActive] = useState(0);
   const s = scenarios[active];
+  const sectionRef = useRef(null);
+  const activeRef = useRef(active);
+  useEffect(() => {
+    activeRef.current = active;
+  }, [active]);
+
+  // Warm the browser cache with every reaction animation once the section
+  // nears the viewport (600px early), so ticking a box swaps to an
+  // already-downloaded file instead of waiting out a multi-MB fetch on the
+  // production network. The .blob() await matters: fetch() resolves on
+  // headers, and Chrome stalls/discards response bodies nobody reads — only
+  // consuming the body fully commits the file to the HTTP cache and makes
+  // the downloads genuinely one-at-a-time (ticked item first).
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    // Respect data-saver mode and very slow connections — those users keep
+    // the on-demand <img> loading instead of a ~17MB speculative download.
+    const conn = navigator.connection;
+    if (conn && (conn.saveData || /(^|-)2g/.test(conn.effectiveType || ""))) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        io.disconnect();
+        (async () => {
+          const order = scenarios.map((_, i) => i);
+          order.unshift(...order.splice(order.indexOf(activeRef.current), 1));
+          for (const i of order) {
+            try {
+              await (await fetch(gifFor(i), { priority: "low" })).blob();
+            } catch {
+              // Offline / aborted — the <img> will fetch on demand instead.
+            }
+          }
+        })();
+      },
+      { rootMargin: "600px 0px" }
+    );
+    io.observe(section);
+    return () => io.disconnect();
+  }, []);
 
   const ctaLabel = "Show me how to add $1.5m in extra revenue this year";
 
   return (
-    <section className="checklist">
+    <section className="checklist" ref={sectionRef}>
       <div className="wrap checklist__grid">
         {/* LEFT — the question list */}
         <div className="checklist__left">
