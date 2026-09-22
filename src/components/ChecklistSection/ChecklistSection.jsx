@@ -6,6 +6,11 @@ import { scenarios, checklistOutro } from "../../data/copy.js";
 
 const pad = (n) => String(n + 1).padStart(2, "0");
 
+// Numbered reaction animations: item N shows /Assets/Landing Page Gifs/N.webp
+// (one per scenario, matched by position in the list). Animated WebP encoded
+// from the original N.gif files (1200px, q65) — ~85% smaller than the GIFs.
+const gifFor = (i) => `/Assets/Landing Page Gifs/${i + 1}.webp`;
+
 /* Semicircle 0–10 diagnostic gauge with a needle pointing at `score`. */
 function Gauge({ score }) {
   const cx = 100;
@@ -50,8 +55,9 @@ function Gauge({ score }) {
 }
 
 /* The reaction panel body for a scenario — reused in the desktop side panel
-   and inline inside each item below 900px. */
-function ReactionContent({ scenario }) {
+   and inline inside each item below 900px. `gifSrc` is the numbered local
+   GIF matched to the item's position. */
+function ReactionContent({ scenario, gifSrc }) {
   const v = scenario.verdict || {};
   const hasScore = typeof v.score === "number";
 
@@ -62,16 +68,7 @@ function ReactionContent({ scenario }) {
       )}
 
       <div className="checklist__media" aria-hidden="true">
-        {scenario.reaction?.gif ? (
-          <img
-            className="checklist__media-img"
-            src={scenario.reaction.gif}
-            alt=""
-            loading="lazy"
-          />
-        ) : (
-          <span className="checklist__media-note">GIF / image — asset pending</span>
-        )}
+        <img className="checklist__media-img" src={gifSrc} alt="" loading="lazy" />
       </div>
 
       {(hasScore || v.scoreLabel) && (
@@ -157,7 +154,7 @@ export default function ChecklistSection() {
                 {/* Inline reaction shown inside the ticked box below 900px. */}
                 {active === i && (
                   <div className="checklist__item-reveal">
-                    <ReactionContent scenario={scenario} />
+                    <ReactionContent scenario={scenario} gifSrc={gifFor(i)} />
                   </div>
                 )}
               </li>
@@ -173,7 +170,7 @@ export default function ChecklistSection() {
         {/* RIGHT — side panel for the ticked item (desktop only) */}
         <div className="checklist__right">
           <div className="checklist__panel" aria-live="polite">
-            <ReactionContent scenario={s} />
+            <ReactionContent scenario={s} gifSrc={gifFor(active)} />
           </div>
         </div>
       </div>
