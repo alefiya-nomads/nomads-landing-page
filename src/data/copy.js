@@ -375,7 +375,7 @@ export const proofTable = [
     before:
       "A **mastermind owner** tanked **27** discovery calls, and closed **one client**.",
     after:
-      "Our positioning strategy (first pillar of C-RPV) **closed 29 of the next 31 calls**",
+      "Our positioning strategy (first pillar of C-RPV™) **closed 29 of the next 31 calls**",
     stat: { hero: "25×", lines: ["3.7% → 93.5% close rate", "$8K → $108K/mo"] },
   },
   {
@@ -459,7 +459,7 @@ export const workshop = {
   chip: "Unlocked after your diagnostic",
   heading: "A private on-demand workshop with Alefiya.",
   lines: [
-    "Once you see your potential RPV, you'll want to show your team. The workshop doesn't just give you a structured way to share it, but also to go after the goal together.",
+    "Once you see your potential RPV™, you'll want to show your team. The workshop doesn't just give you a structured way to share it, but also to go after the goal together.",
     "Alefiya walks you through the four key areas that take businesses from where they are to an extra $1.5M on the same traffic.",
   ],
   productionNote: "[add handdraw image]",
@@ -572,7 +572,7 @@ export const curious = {
       company: "Awesome Business Videos",
       type: "",
       logoSrc: "/Assets/curious-section/awesome video.jpg",
-      text: "A video mastermind owner who'd sat through 27 discovery calls and closed one client. Then closed 29 of the next 31 after repositioning with a Contrarian POV — going from $8,000 to $108,000 a month.",
+      text: "A video mastermind owner who'd sat through 27 discovery calls and closed one client. Then closed 29 of the next 31 after repositioning with a Contrarian POV™ — going from $8,000 to $108,000 a month.",
       caseStudyUrl: "#",
     },
   ],
