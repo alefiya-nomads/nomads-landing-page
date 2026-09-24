@@ -115,7 +115,6 @@ export default function Uncover() {
               />
               <span className="uncover-rpv__note">
                 <span className="uncover-rpv__cap">{rpvCard.statCaption}</span>
-                <i className="uncover-rpv__rule" aria-hidden="true" />
                 {rpvCard.math.map((line, i) => (
                   <span
                     key={line}

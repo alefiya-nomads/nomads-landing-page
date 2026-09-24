@@ -253,14 +253,6 @@
   color: var(--ink-dark);
 }
 
-.uncover-rpv__rule {
-  display: block;
-  height: 1px;
-  width: 80px;
-  margin: 8px auto;
-  background: rgba(57, 17, 41, 0.25);
-}
-
 .uncover-rpv__math {
   display: block;
   font-family: var(--font-mono);
