@@ -47,17 +47,12 @@ export default function FounderStory({ paragraphs, numberedList, paragraphs2 }) 
         { tokens: toTokens(paragraphs2[4]) },
       ],
     });
-    // Yemi: "that worked across industries." stays together — break before
-    // "that" (desktop only; natural wrap on mobile via hl-br).
-    const however = paragraphs2[5] || "";
-    const howeverCut = however.indexOf(" that ");
+    // One flowing paragraph, no forced break — it wraps naturally at every
+    // width (Yemi's "weird break" fix, then br removed entirely on request).
     blocks.push({
       kind: "p",
       className: "founder-story__strong",
-      lines:
-        howeverCut > -1
-          ? [toTokens(however.slice(0, howeverCut)), toTokens(however.slice(howeverCut + 1))]
-          : [toTokens(however)],
+      tokens: toTokens(paragraphs2[5] || ""),
     });
     // One sentence, with the "strategy from scratch." tail highlighted
     // inline (Yemi: it completes the sentence, not its own line).
