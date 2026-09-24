@@ -35,12 +35,9 @@ export default function SystemBorn() {
             browsing&rdquo; to thinking, &ldquo;This is exactly what I need.&rdquo;
           </p>
 
-          <span className="system-born__badge" data-reveal>
-            Today
-          </span>
-
+          {/* Yemi: no pulled-out "Today" chip — plain "Today, I've helped…" */}
           <p className="system-born__para system-born__para--bold" data-reveal data-reveal-delay="100">
-            I&rsquo;ve helped brands across 15+ industries <strong>maximize their{" "}
+            Today, I&rsquo;ve helped brands across 15+ industries <strong>maximize their{" "}
             <br className="system-born__br" />
             leads and sales</strong> from the traffic they already have.
           </p>

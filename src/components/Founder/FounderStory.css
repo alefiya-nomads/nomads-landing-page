@@ -26,14 +26,16 @@
   margin-bottom: 0;
 }
 
+/* Inline highlight completing the "…rebuilt the entire strategy from
+   scratch." sentence (Yemi: highlighted, but never its own line). */
 .founder-story__scratch-badge {
-  display: inline-block;
+  display: inline;
   background: var(--brand-plum);
   color: var(--white);
   font-weight: 800;
-  font-size: 1.2rem;
-  padding: 0.35em 0.7em;
-  transform: skewX(-4deg) rotate(-1deg);
+  padding: 0.12em 0.3em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 /* Mobile type scale matched to the founder-column reference image so the

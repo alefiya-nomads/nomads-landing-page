@@ -70,6 +70,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
+  /* Column: portrait (name baked into the art) with the credentials tag
+     directly beneath it. */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -118,14 +121,18 @@
 }
 
 /* Role in a plum tag at the bottom of the copy. */
+/* Credentials tag — sits under the portrait (and its baked-in name) on the
+   media panel. Long lines (Ryan's) wrap centred within the panel. */
 .testimonial-card__role-tag {
   display: inline-block;
-  align-self: flex-start;
   background: var(--brand-plum);
   color: var(--white);
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.88rem;
+  line-height: 1.4;
+  text-align: center;
+  max-width: min(85%, 560px);
   padding: 8px 14px;
   margin-top: var(--space-md);
 }

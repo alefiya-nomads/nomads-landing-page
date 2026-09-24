@@ -23,11 +23,12 @@ export default function FounderStory({ paragraphs, numberedList, paragraphs2 }) 
         )
       );
 
-    // Reference design splits the "So, I ditched..." sentence: the tail
-    // "strategy from scratch." becomes its own plum-highlighted badge.
+    // Yemi (landing page changes doc): "strategy from scratch." must complete
+    // the sentence inline — highlighted, but never pulled onto its own line.
     const scratchRe = /\s*strategy from scratch\.\s*$/i;
     const soDitched = paragraphs2[6] || "";
     const soDitchedPrefix = soDitched.replace(scratchRe, "");
+    const soDitchedTail = scratchRe.test(soDitched) ? "strategy from scratch." : "";
 
     const blocks = [];
     paragraphs.forEach((t) => blocks.push({ kind: "p", tokens: toTokens(t) }));
@@ -46,10 +47,10 @@ export default function FounderStory({ paragraphs, numberedList, paragraphs2 }) 
         { tokens: toTokens(paragraphs2[4]) },
       ],
     });
-    // Reference shows this as 2 lines breaking after "that" — force the
-    // break on desktop, natural wrap on mobile (hl-br).
+    // Yemi: "that worked across industries." stays together — break before
+    // "that" (desktop only; natural wrap on mobile via hl-br).
     const however = paragraphs2[5] || "";
-    const howeverCut = however.indexOf(" worked");
+    const howeverCut = however.indexOf(" that ");
     blocks.push({
       kind: "p",
       className: "founder-story__strong",
@@ -58,10 +59,13 @@ export default function FounderStory({ paragraphs, numberedList, paragraphs2 }) 
           ? [toTokens(however.slice(0, howeverCut)), toTokens(however.slice(howeverCut + 1))]
           : [toTokens(however)],
     });
-    blocks.push({ kind: "p", tokens: toTokens(soDitchedPrefix) });
-    // Reference image ends at the "Strategy from scratch." badge — the
-    // remaining copy.js paragraphs are intentionally not rendered here.
-    blocks.push({ kind: "highlight", tokens: toTokens("Strategy from scratch.") });
+    // One sentence, with the "strategy from scratch." tail highlighted
+    // inline (Yemi: it completes the sentence, not its own line).
+    blocks.push({
+      kind: "scratch",
+      tokens: toTokens(soDitchedPrefix),
+      tail: soDitchedTail,
+    });
 
     return { blocks };
   }, [paragraphs, numberedList, paragraphs2]);
@@ -109,10 +113,16 @@ export default function FounderStory({ paragraphs, numberedList, paragraphs2 }) 
             </div>
           );
         }
-        if (b.kind === "highlight") {
+        if (b.kind === "scratch") {
           return (
-            <p className="founder-story__scratch" key={i} data-reveal>
-              <span className="founder-story__scratch-badge">{renderTokens(b.tokens)}</span>
+            <p key={i} data-reveal>
+              {renderTokens(b.tokens)}
+              {b.tail && (
+                <>
+                  {" "}
+                  <span className="founder-story__scratch-badge">{b.tail}</span>
+                </>
+              )}
             </p>
           );
         }

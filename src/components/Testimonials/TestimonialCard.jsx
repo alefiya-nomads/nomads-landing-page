@@ -25,20 +25,25 @@ export default function TestimonialCard({ name, role, headline, highlightPhrase,
         style={mediaBg ? { backgroundImage: `url("${mediaBg}")` } : undefined}
       >
         <img className="testimonial-card__photo" src={imageSrc} alt={name} loading="lazy" />
+        {/* Credentials sit under the person's name (baked into the portrait
+            art), not under the testimonial — Yemi, landing page changes doc. */}
+        <span className="testimonial-card__role-tag">{role}</span>
       </div>
 
       <div
         className="testimonial-card__text"
         style={textBg ? { background: textBg } : undefined}
       >
+        {/* Pull quote wrapped in real quotation marks (Yemi). */}
         <p className="testimonial-card__headline">
-          {headlineParts[0]}
+          &ldquo;{headlineParts[0]}
           {highlightPhrase && (
             <>
               <span className="highlight">{highlightPhrase}</span>
               {headlineParts[1]}
             </>
           )}
+          &rdquo;
         </p>
 
         {body.map((line, i) => (
@@ -46,8 +51,6 @@ export default function TestimonialCard({ name, role, headline, highlightPhrase,
             {renderWithBold(line)}
           </p>
         ))}
-
-        <span className="testimonial-card__role-tag">{role}</span>
       </div>
 
       {seamDoodle && (

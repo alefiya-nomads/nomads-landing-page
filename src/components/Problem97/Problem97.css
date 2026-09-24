@@ -28,11 +28,26 @@
   justify-content: center;
 }
 
+/* Artwork + the 97% stat line beneath it, centred as one block. */
+.problem__statement {
+  width: 100%;
+  max-width: 600px;
+}
+
 .problem__puzzle {
   display: block;
   width: 100%;
-  max-width: 600px;
   height: auto;
+}
+
+/* "They make up almost 97% of your audience." — sits beneath the baked-in
+   headline, aligned to its left edge. */
+.problem__statement-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: var(--white);
+  margin: var(--space-sm) 0 0;
 }
 
 /* ---- RIGHT: ice-blue diagnosis panel ---- */
@@ -45,15 +60,6 @@
 .problem__content {
   max-width: 560px;
   margin: 0 auto;
-}
-
-.problem__stat-label {
-  /* "0" isn't a valid font-weight; 400 (Regular) is the lightest Montserrat
-     weight loaded, so it's the effective minimum. */
-  font-weight: 400;
-  font-size: 1rem;
-  color: var(--midnight-blue);
-  margin: 0 0 var(--space-xs);
 }
 
 /* Bold lead-in line above the pie infographic. */
@@ -122,7 +128,7 @@
     padding: var(--space-xl) var(--space-md);
   }
 
-  .problem__puzzle {
+  .problem__statement {
     max-width: 520px;
   }
 
@@ -133,8 +139,8 @@
 
 /* Mobile body copy bumped (pie annotations unaffected — they're pixels). */
 @media (max-width: 760px) {
-  .problem__stat-label {
-    font-size: 20px;
+  .problem__statement-sub {
+    font-size: 16px;
   }
 
   .problem__gif-lead {

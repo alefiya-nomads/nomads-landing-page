@@ -28,8 +28,8 @@ export default function App() {
       <main>
         <Hero />
         <TrustBar />
-        <Uncover />
         <NotThisEconomy />
+        <Uncover />
         <ChecklistSection />
         <Problem97 />
         <FourStages />

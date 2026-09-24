@@ -33,7 +33,7 @@ export default function FourAreas() {
             through{" "}
             <HighlightSweep tone="cream2">all four areas</HighlightSweep> of{" "}
             <br className="hl-br" />
-            Compounding RPV OS:
+            Compounding RPV™ OS:
           </h2>
         </div>
         <img

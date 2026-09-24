@@ -10,8 +10,11 @@ const PIE_ANIM = "/Assets/Gifs/97-percent-pie.webp";
 // Static final frame for reduced-motion users.
 const PIE_STILL = "/Assets/Gifs/97-percent-pie-final.webp";
 
-// Puzzle cut-out for the dark statement panel.
-const PUZZLE = "/Assets/Images/5th section left side puzzle image 2.png";
+// Puzzle cut-out for the dark statement panel. The "- no subline" export is
+// the same art with the script "Your audience needs guidance…" line cropped
+// off — Yemi flagged it as not being in the copy doc (landing page changes
+// doc, item 6).
+const PUZZLE = "/Assets/Images/5th section left side puzzle image 2 - no subline.png";
 
 // copy.js stores lines[5] as a single sentence ("Sooo…how do you convince…").
 // The reference splits it in two: "Sooo…" on its own line, then the question
@@ -64,27 +67,28 @@ export default function Problem97() {
 
   return (
     <section className="problem">
-      {/* LEFT — the whole "buy anyway" statement is baked into the artwork
-          (puzzle pieces + headline + script subline), so no DOM text here;
-          the alt carries the wording for screen readers. */}
+      {/* LEFT — the "buy anyway" statement: the artwork carries the puzzle
+          pieces + headline; the 97% stat line sits beneath it as DOM text
+          (per the copy doc's arrangement). */}
       <div className="problem__panel problem__panel--dark">
-        <img
-          className="problem__puzzle"
-          src={PUZZLE}
-          alt="People who are actively looking for a solution will buy anyway. But what about the rest? Your audience needs guidance before they’re ready to purchase."
-          loading="lazy"
-          data-reveal
-        />
-      </div>
-
-      {/* RIGHT — the 97% diagnosis. */}
-      <div className="problem__panel problem__panel--light">
-        <div className="problem__content">
-          <p className="problem__stat-label" data-reveal>
+        <div className="problem__statement">
+          <img
+            className="problem__puzzle"
+            src={PUZZLE}
+            alt="People who are actively looking for a solution will buy anyway. But what about the rest?"
+            loading="lazy"
+            data-reveal
+          />
+          <p className="problem__statement-sub" data-reveal data-reveal-delay="80">
             {problem.lines[1]}
           </p>
+        </div>
+      </div>
 
-          <p className="problem__gif-lead" data-reveal data-reveal-delay="80">
+      {/* RIGHT — the 97% diagnosis, opening with the ulcer example. */}
+      <div className="problem__panel problem__panel--light">
+        <div className="problem__content">
+          <p className="problem__gif-lead" data-reveal>
             {"Say you're selling medicine for ulcers."}
           </p>
 

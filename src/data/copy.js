@@ -32,7 +32,7 @@ export const hero = {
     "Because what would change if you made an extra $1.5 million with your current marketing spend?",
   ctaLabel: "Start the Diagnostic Now",
   ctaRisk: "Takes 5 minutes. Costs nothing. You leave with your actual RPV™ number.",
-  trustbar: "Preferred Partner of",
+  trustbar: "Vetted Partner Of",
   snapshotCard: {
     title: "Your RPV Snapshot",
     currentLabel: "Current RPV",
@@ -131,9 +131,11 @@ export const scenarios = [
         "Oopsies, Alex (your visitor) is skeptical, and he's not going to read through six website pages to find the feature, testimonial, or use case relevant to him.",
     },
     verdict: {
-      todo: true,
+      // Score supplied by Yemi (landing page changes doc, Sept 2026): Box 1 – 8.
+      score: 8,
       note:
-        "Verdict copy was never written in the source doc — it only contains the author's placeholder note “If they check this box, display”. Do not invent a score/verdict here; this is an open item for Alefiya.",
+        "Verdict LINES were never written in the source doc (author's placeholder: “If they check this box, display”) — still an open item for Alefiya. The score itself is now sourced from Yemi's landing-page-changes doc.",
+      cta: "START THE DIAGNOSTIC NOW",
     },
   },
   {
@@ -185,7 +187,8 @@ export const scenarios = [
         '“Hmmmmm, this seems interesting.” “Maybe” “Oh, I forgot to take out the trash” ~Alex’s attention after landing on a product page he wasn’t searching for.',
     },
     verdict: {
-      note: "No numeric score given in the source doc. HTML POC's “3/10” is unsourced — confirm before build.",
+      // Score supplied by Yemi (landing page changes doc, Sept 2026): Box 4 – 9.
+      score: 9,
       emoji: "😬",
       lines: [
         "This one's urgent and worth fixing before the next campaign.",
@@ -204,7 +207,8 @@ export const scenarios = [
         "Your buyer listens while driving, gymming, or fighting with his wife. How likely is he to buy a book, download a PDF, or watch a webinar while doing that?",
     },
     verdict: {
-      note: "No numeric score given in the source doc. HTML POC's “4/10” is unsourced — confirm before build.",
+      // Score supplied by Yemi (landing page changes doc, Sept 2026): Box 5 – 8.
+      score: 8,
       emoji: "😅",
       lines: [
         "Yeah, that stings a little.",
@@ -355,14 +359,14 @@ export const proofTable = [
   },
   {
     heading: "Ecommerce business",
-    afterHeading: "Achieved 14% conversion rate",
+    afterHeading: "Perfect Pick™ quiz",
     before:
       "An **ecommerce** business was getting 440K visits, but only 250 demo bookings. At first, that seemed fine, until they realized it added up to just a **0.044% conversion rate.**",
     after:
       "With us, they **achieved a 14% conversion rate to their demo video,** generating £97,000 in 20 days.",
     stat: {
       hero: "318×",
-      lines: ["0.044% → 14% conversion", "530 demos + £96K added in 12 days"],
+      lines: ["0.044% → 14% conversion", "530 demos + £97K added in 20 days"],
     },
   },
   {
@@ -421,7 +425,7 @@ export const calculator = {
 };
 
 export const fourAreas = {
-  intro: "In under 5 minutes, the diagnostic will walk you through all four areas of Compounding RPV OS:",
+  intro: "In under 5 minutes, the diagnostic will walk you through all four areas of Compounding RPV™ OS:",
   areas: [
     {
       n: "AREA 01",
@@ -485,7 +489,7 @@ export const founder = {
     "That changed when I pitched a conversion quiz project to a client.",
     "Not the viral, BuzzFeed-style type, but intentional, insight-led quizzes that convert your visitors into warm leads and store them in a database you own: **aka an email list** or **SMS list**.",
     "However… I couldn't find a model that worked across industries.",
-    "So, I ditched the typical Buzzfeed quiz funnel knowledge available on the internet and rebuilt the entire strategy from scratch.",
+    "So, I ditched the typical BuzzFeed quiz funnel knowledge available on the internet and rebuilt the entire strategy from scratch.",
     "I studied hours of real sales calls, demos, and live chats from customers who didn't convert.",
     "That's how **our proprietary system: Compounding Revenue per Visitor™ OS** was born.",
     "A system that helps businesses stop losing the traffic they've already worked hard (and paid) to get by turning those visitors into decision-ready leads.",
@@ -526,7 +530,7 @@ export const founder = {
       cite:
         "–Ryan Schwartz, founder of Empire Engineering (The marketer 8-figure giants like Amy Porterfield, Dan Martelle, and Joanna Wiebe)",
       name: "Ryan Schwartz",
-      role: "Founder of Empire Engineering",
+      role: "Founder of Empire Engineering (The marketer 8-figure giants like Amy Porterfield, Dan Martelle, and Joanna Wiebe)",
       avatarSrc: "/Assets/testimonial/ryan.jpg",
       headline: "Words of advice: never underestimate her.",
       highlightPhrase: "never underestimate her",

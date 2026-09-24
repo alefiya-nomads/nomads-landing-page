@@ -19,7 +19,7 @@ export default function MeetNerd() {
           Meet the{" "}
           <HighlightSweep tone="plum">marketing nerd behind</HighlightSweep>{" "}
           <br className="hl-br" />
-          the Compounding RPV OS.
+          the Compounding RPV™ OS.
         </h2>
       </div>
     </section>

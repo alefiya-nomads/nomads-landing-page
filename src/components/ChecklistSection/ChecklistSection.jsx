@@ -14,12 +14,36 @@ const pad = (n) => String(n + 1).padStart(2, "0");
 const gifFor = (i, small) =>
   `/Assets/Landing Page Gifs/${i + 1}${small ? "-mobile" : ""}.webp`;
 
-/* Semicircle 0–10 diagnostic gauge with a needle pointing at `score`. */
+/* Semicircle 0–10 diagnostic gauge. The needle sweeps from 0 up to `score`
+   (ease-out, ~1.1s) every time a box is ticked — per Yemi's landing-page-
+   changes doc ("the gauge is supposed to animate from 0 to the specified
+   number"). Reduced-motion users get the final position immediately. */
 function Gauge({ score }) {
+  const [shown, setShown] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setShown(score);
+      return;
+    }
+    let raf;
+    const t0 = performance.now();
+    const DURATION = 1100;
+    const tick = (now) => {
+      const p = Math.min((now - t0) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setShown(score * eased);
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    setShown(0);
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [score]);
+
   const cx = 100;
   const cy = 92;
   const r = 74;
-  const a = Math.PI * (1 - score / 10); // 0 -> π (left), 10 -> 0 (right)
+  const a = Math.PI * (1 - shown / 10); // 0 -> π (left), 10 -> 0 (right)
   const nx = cx + (r - 12) * Math.cos(a);
   const ny = cy - (r - 12) * Math.sin(a);
 
@@ -79,7 +103,9 @@ function ReactionContent({ scenario, gifSrc }) {
           <span className="checklist__panel-label">Diagnostic Gauge</span>
           {hasScore ? (
             <div className="checklist__gauge-wrap">
-              <Gauge score={v.score} />
+              {/* Keyed per scenario so the 0→score sweep replays even when two
+                  boxes share the same score (e.g. boxes 1 and 5, both 8). */}
+              <Gauge key={scenario.id} score={v.score} />
               {/* Items whose doc copy is qualitative ("Highest score") keep
                   that wording as the caption instead of the N/10 readout. */}
               <span className="checklist__gauge-score">
@@ -181,6 +207,7 @@ export default function ChecklistSection() {
           <h2 className="checklist__headline" data-reveal>
             Do you have what it takes to add $1.5M/year from{" "}
             <HighlightSweep tone="plum">your existing marketing spend?</HighlightSweep>
+            {" Let's find out:"}
           </h2>
 
           <div className="checklist__intro-row" data-reveal data-reveal-delay="120">
