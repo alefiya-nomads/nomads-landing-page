@@ -77,9 +77,10 @@
   display: block;
   width: 100%;
   height: auto;
-  /* Native frame ratio (1560x1168) — reserves the box before the animated
-     WebP's src is assigned on scroll, so the layout doesn't jump. */
-  aspect-ratio: 1560 / 1168;
+  /* Native frame ratio (square market-pie render) — reserves the box before
+     the animated WebP's src is assigned on scroll, so the layout doesn't
+     jump. */
+  aspect-ratio: 1 / 1;
   margin: 0 0 var(--space-lg);
 }
 

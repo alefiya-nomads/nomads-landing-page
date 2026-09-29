@@ -6,9 +6,9 @@ import { problem } from "../../data/copy.js";
 // holds the last frame). <img>+WebP is the one transparent-animation format
 // every browser supports — iOS Safari can't play VP9-alpha WebM, and
 // HEVC-alpha can only be encoded on macOS. Source: gif-studio/frames (RGBA).
-const PIE_ANIM = "/Assets/Gifs/97-percent-pie.webp";
+const PIE_ANIM = "/Assets/Gifs/market-pie.webp";
 // Static final frame for reduced-motion users.
-const PIE_STILL = "/Assets/Gifs/97-percent-pie-final.webp";
+const PIE_STILL = "/Assets/Gifs/market-pie-final.webp";
 
 // Puzzle cut-out for the dark statement panel. The "- no subline" export is
 // the same art with the script "Your audience needs guidance…" line cropped
@@ -92,14 +92,14 @@ export default function Problem97() {
             {"Say you're selling medicine for ulcers."}
           </p>
 
-          {/* Animated pie infographic — the 97/3 pie, the 100-people badge and
-              the 03/97 callout cards. src is assigned on scroll-into-view (see
-              the effect above); CSS aspect-ratio reserves the space so the
-              layout doesn't jump when it loads. */}
+          {/* Animated market-split pie (gif-studio/pie-market.html): 3% ready
+              to buy now, 7% open to it, and three 30% groups. src is assigned
+              on scroll-into-view (see the effect above); CSS aspect-ratio
+              reserves the space so the layout doesn't jump when it loads. */}
           <img
             ref={imgRef}
             className="problem__gif"
-            alt="Out of 100 people, 3% know they have ulcers and buy immediately; 97% have stomach pain but don't see the problem yet"
+            alt="Pie chart of 100 buyers: 3% ready to buy now, 7% are open to it, 30% not thinking about it, 30% don't think they're interested, and 30% know they're not interested"
             data-reveal
             data-reveal-delay="120"
           />
