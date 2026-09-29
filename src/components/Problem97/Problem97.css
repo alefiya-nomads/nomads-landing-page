@@ -81,7 +81,22 @@
      the animated WebP's src is assigned on scroll, so the layout doesn't
      jump. */
   aspect-ratio: 1 / 1;
-  margin: 0 0 var(--space-lg);
+  /* Centered in all views (auto margins guarantee it even where
+     justify-self isn't supported on block boxes). */
+  align-self: center;
+  justify-self: center;
+  margin: 0 auto var(--space-lg);
+}
+
+/* Desktop: pie at 75% of the column, lead line centered above it. */
+@media (min-width: 761px) {
+  .problem__gif {
+    width: 75%;
+  }
+
+  .problem__gif-lead {
+    text-align: center;
+  }
 }
 
 .problem__para {
@@ -142,6 +157,10 @@
 @media (max-width: 760px) {
   .problem__statement-sub {
     font-size: 16px;
+  }
+
+  .problem__gif {
+    width: 85%;
   }
 
   .problem__gif-lead {
