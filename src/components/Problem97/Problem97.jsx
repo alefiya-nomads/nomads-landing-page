@@ -68,8 +68,7 @@ export default function Problem97() {
   return (
     <section className="problem">
       {/* LEFT — the "buy anyway" statement: the artwork carries the puzzle
-          pieces + headline; the 97% stat line sits beneath it as DOM text
-          (per the copy doc's arrangement). */}
+          pieces + headline. */}
       <div className="problem__panel problem__panel--dark">
         <div className="problem__statement">
           <img
@@ -79,9 +78,6 @@ export default function Problem97() {
             loading="lazy"
             data-reveal
           />
-          <p className="problem__statement-sub" data-reveal data-reveal-delay="80">
-            {problem.lines[1]}
-          </p>
         </div>
       </div>
 
@@ -125,7 +121,7 @@ export default function Problem97() {
           </p>
 
           <h2 className="problem__question" data-reveal data-reveal-delay="240">
-            How do you convince<br />them to buy from you?
+            How do you convince them to buy from you?
           </h2>
         </div>
       </div>

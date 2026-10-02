@@ -275,15 +275,15 @@ export const mechanism = {
 
 /**
  * "Four stages" system section (below Mechanism) — the horizontal zigzag
- * timeline explaining how the system converts the unaware 70%.
+ * timeline explaining how the system converts the unaware 60%.
  * Copy provided by Alefiya (Aug 2026, Quiz Design Feedback doc), verbatim.
  */
 export const fourStages = {
   heading:
-    "This question led us to develop a system that lets you sell to the 70% of the market your competitors ignore.",
+    "This question led us to develop a system that lets you sell to the 60% of the market your competitors ignore.",
   // Must stay an exact substring of `heading` — the component splits on it
   // to place the highlight sweep.
-  headingHighlight: "70% of the market",
+  headingHighlight: "60% of the market",
   intro:
     "We reverse engineered hundreds of customer journeys to find the moment someone goes from “I don’t think this is for me” to “I need this.” It happens in four stages.",
   stages: [

@@ -40,16 +40,6 @@
   height: auto;
 }
 
-/* "They make up almost 97% of your audience." — sits beneath the baked-in
-   headline, aligned to its left edge. */
-.problem__statement-sub {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 1.15rem;
-  color: var(--white);
-  margin: var(--space-sm) 0 0;
-}
-
 /* ---- RIGHT: ice-blue diagnosis panel ---- */
 .problem__panel--light {
   background: var(--accent-teal);
@@ -155,10 +145,6 @@
 
 /* Mobile body copy bumped (pie annotations unaffected — they're pixels). */
 @media (max-width: 760px) {
-  .problem__statement-sub {
-    font-size: 16px;
-  }
-
   .problem__gif {
     width: 85%;
   }
