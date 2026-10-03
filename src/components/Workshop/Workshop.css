@@ -78,10 +78,10 @@
 
 /* White note card overlapping the video's bottom-right corner. */
 .workshop__closing {
-  position: absolute;
+  position: relative;
   left: 20px;
   bottom: -40px;
-  width: 60%;
+  width: 90%;
   background: var(--white);
   border: 2px solid #5d1b4e;
   border-radius: 22px;
@@ -109,13 +109,6 @@
   margin: var(--space-md) 0 0;
 }
 
-/* Narrow desktop (901–990px): drop the hanging note card further so it
-   clears the video edge. */
-@media (min-width: 901px) and (max-width: 990px) {
-  .workshop__closing {
-    bottom: -100px;
-  }
-}
 
 /* Tablet/mobile: full-width video with the note card hanging off its
    bottom edge, smaller type; extra section bottom padding gives the
@@ -142,9 +135,12 @@
     margin: 0 auto;
   }
 
+  /* Full width, horizontally centered — left reset so the base rule's
+     20px relative offset doesn't push it off-centre. */
   .workshop__closing {
-    width: 50%;
-    margin: 0;
+    width: 100%;
+    left: auto;
+    margin: 0 auto;
   }
 
   .workshop__closer {
@@ -155,13 +151,6 @@
 /* 701–900px: nudge the absolutely-positioned note card in from the left
    and hang it 70px below the video's bottom edge. Scoped above 700px so
    it doesn't disturb the centered flow layout below. */
-@media (min-width: 701px) and (max-width: 900px) {
-  .workshop__closing {
-    left: 25px;
-    right: auto;
-    bottom: -70px;
-  }
-}
 
 /* Below 700px the showcase stacks as a centered flex column and the note
    card returns to normal document flow — the base absolute positioning and
