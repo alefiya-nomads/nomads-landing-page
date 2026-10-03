@@ -103,40 +103,21 @@
 
 .calc__mock-frame {
   width: 100%;
-  max-width: 440px;
   border: 1px solid rgba(57, 17, 41, 0.2);
   border-radius: 6px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.3);
 }
 
-.calc__mock-bar {
-  display: flex;
-  align-items: center;
-  padding: 6px 12px;
-  background: var(--brand-plum);
-  border-bottom: 1px solid rgba(57, 17, 41, 0.1);
-}
-
-.calc__mock-logo {
-  height: 16px;
-  width: auto;
-  display: block;
-  /* Force the mark to render white on the plum bar regardless of the
-     source asset's own color. */
-  filter: brightness(0) invert(1);
-}
-
+/* The quiz walkthrough GIF fills the frame body edge to edge. */
 .calc__mock-body {
-  padding: var(--space-xl) var(--space-lg);
-  min-height: 380px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 
-.calc__mock-body .todo {
-  text-align: center;
+.calc__gif {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 
@@ -176,10 +157,6 @@
     grid-template-columns: 1fr;
     gap: var(--space-xl);
   }
-
-  .calc__mock-frame {
-    max-width: 480px;
-  }
 }
 
 @media (max-width: 760px) {
@@ -194,11 +171,6 @@
 
   .calc__chip {
     padding: 10px;
-  }
-
-  .calc__mock-body {
-    min-height: 220px;
-    padding: var(--space-lg) var(--space-md);
   }
 
   /* Mobile body copy + point labels set to 18px (headline unaffected). */

@@ -74,11 +74,13 @@ export default function Calculator() {
         {/* Right column — calculator mock placeholder */}
         <div className="calc__visual" data-reveal data-reveal-delay="120">
           <div className="calc__mock-frame">
-            <div className="calc__mock-bar">
-              <img className="calc__mock-logo" src="/icons/logo.avif" alt="Nomads" loading="lazy" />
-            </div>
             <div className="calc__mock-body">
-              <span className="todo">Calculator screenshot / GIF — asset pending</span>
+              <img
+                className="calc__gif"
+                src="/Assets/Gifs/calculator.gif"
+                alt="Walkthrough of the RPV diagnostic quiz"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
