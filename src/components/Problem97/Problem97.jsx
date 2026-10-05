@@ -32,7 +32,7 @@ const CONVINCE_LINE = (() => {
  *         actively looking for a solution will buy anyway. But what about the
  *         rest?" statement and its script subline at the foot.
  * Right — ice-blue panel: the 97% diagnosis — the stat line, the animated
- *         97/3 pie infographic, the "you lose the 97 people" explanation,
+ *         market-split pie infographic, the "you lose the 60 people" explanation,
  *         the "Even though they do." highlight and the closing question.
  */
 export default function Problem97() {
@@ -85,7 +85,7 @@ export default function Problem97() {
       <div className="problem__panel problem__panel--light">
         <div className="problem__content">
           <p className="problem__gif-lead" data-reveal>
-            {"Say you're selling medicine for ulcers."}
+            {"Say you're selling medicine for ulcers. Out of 100 people"}
           </p>
 
           {/* Animated market-split pie (gif-studio/pie-market.html): 3% ready
@@ -100,11 +100,8 @@ export default function Problem97() {
             data-reveal-delay="120"
           />
 
-          {/* Reference shows "97 people" here; copy.js's problem.lines[3] and
-              legend say "70" (3/70/27 split) instead of the reference's 3/97
-              split — flagged per 0.8, defaulting to the reference's numbers. */}
           <p className="problem__para" data-reveal>
-            So when your messaging targets the problem ("medicine for ulcers"), <strong>you lose the 97 people</strong>{" "}
+            So when your messaging targets the problem ("medicine for ulcers"), <strong>you lose the 60 people</strong>{" "}
             who genuinely believe they don&rsquo;t have ulcers.
           </p>
 
