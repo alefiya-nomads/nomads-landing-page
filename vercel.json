@@ -1,4 +1,16 @@
 {
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/opt-in", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/opt-in", "destination": "/index.html" },
+    { "source": "/diagnostic-start-now", "destination": "https://nomads-quiz.vercel.app/" },
+    { "source": "/diagnostic-results", "destination": "https://nomads-quiz.vercel.app/" },
+    { "source": "/assets/:path+", "destination": "https://nomads-quiz.vercel.app/assets/:path*" },
+    { "source": "/fonts/:path+", "destination": "https://nomads-quiz.vercel.app/fonts/:path*" },
+    { "source": "/api/:path+", "destination": "https://nomads-quiz.vercel.app/api/:path*" }
+  ],
   "headers": [
     {
       "source": "/Assets/(.*)",

@@ -124,7 +124,7 @@ export default function ProofTable() {
         </div>
 
         <div className="proof__cta" data-reveal>
-          <Button href="https://nomads-quiz-v2.vercel.app/">
+          <Button href="/diagnostic-start-now">
             Show me how to convert
             <br />
             more of the 97% of my traffic

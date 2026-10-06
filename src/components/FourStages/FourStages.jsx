@@ -74,7 +74,7 @@ export default function FourStages() {
         </p>
 
         <div className="stages__cta" data-reveal>
-          <Button href="https://nomads-quiz-v2.vercel.app/">{fourStages.ctaLabel}</Button>
+          <Button href="/diagnostic-start-now">{fourStages.ctaLabel}</Button>
           <p className="stages__cta-sub">{fourStages.ctaSub}</p>
         </div>
       </div>

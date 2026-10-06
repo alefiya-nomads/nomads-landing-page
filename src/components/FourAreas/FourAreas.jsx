@@ -67,7 +67,7 @@ export default function FourAreas() {
           />
 
           <div className="four-areas__cta center" data-reveal>
-            <Button href="https://nomads-quiz-v2.vercel.app/">Start the diagnostic now</Button>
+            <Button href="/diagnostic-start-now">Start the diagnostic now</Button>
           </div>
         </div>
       </div>
