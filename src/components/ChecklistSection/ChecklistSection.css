@@ -265,11 +265,23 @@
   margin: 0 auto;
 }
 
+/* Stroke is the green → yellow → red gradient set inline in the JSX. */
 .checklist__gauge-track {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.22);
-  stroke-width: 6;
+  stroke-width: 8;
   stroke-linecap: round;
+}
+
+.checklist__gauge-stop--green {
+  stop-color: #5fd68a;
+}
+
+.checklist__gauge-stop--yellow {
+  stop-color: #f6d860;
+}
+
+.checklist__gauge-stop--red {
+  stop-color: #f0645a;
 }
 
 .checklist__gauge-tick {
@@ -323,6 +335,9 @@
   line-height: 1.35;
   color: var(--white);
   margin: 0 0 var(--space-sm);
+  /* Even line lengths, so short phrases like "DO THIS NOW." don't strand
+     a word on its own line. */
+  text-wrap: balance;
 }
 
 .checklist__verdict-line {
@@ -339,6 +354,12 @@
 
 .checklist__panel-cta .btn {
   font-size: 0.85rem;
+}
+
+/* Buttons whose doc copy is sentence case (box 1) keep it instead of the
+   sitewide uppercase. */
+.checklist__panel-cta .btn.checklist__cta-keep-case {
+  text-transform: none;
 }
 
 /* ---- Responsive ---- */

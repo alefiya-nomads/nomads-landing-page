@@ -149,6 +149,11 @@
   font-weight: 700;
 }
 
+/* Multi-paragraph "after" copy (QC doc rows with two sentences). */
+.proof__card p + p {
+  margin-top: var(--space-xs);
+}
+
 /* ---- Data column (big numbers) ---- */
 /* Each result cell is a color-coordinated card (tone bg + border), with the
    big number in the row's dark accent so it pops. */

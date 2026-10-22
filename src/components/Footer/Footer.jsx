@@ -5,7 +5,9 @@ import { footer } from "../../data/copy.js";
 
 const PHOTO_SRC = "/Assets/Images/footer image.png";
 
-// The payoff phrase in the statement gets the cream sweep highlight.
+// The payoff phrase in the statement gets the cream sweep highlight
+// ("we'll add" is joined with a no-break space when rendered, so the
+// highlight never wraps with "we'll" stranded on the line above).
 const STATEMENT_SWEEP = "we'll add $125k/mo ($1.5M/year)";
 const [statementBefore, statementAfter] = footer.statement.split(STATEMENT_SWEEP);
 
@@ -53,7 +55,9 @@ export default function Footer() {
 
           <h2 className="footer__statement" data-reveal data-reveal-delay="140">
             {statementBefore}
-            <HighlightSweep tone="cream3">{STATEMENT_SWEEP}</HighlightSweep>
+            <HighlightSweep tone="cream3">
+              {STATEMENT_SWEEP.replace("we'll add", "we'll\u00a0add")}
+            </HighlightSweep>
             {statementAfter}
           </h2>
 

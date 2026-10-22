@@ -8,16 +8,18 @@ function renderWithBold(text) {
 
 /**
  * Testimonial split — portrait image on a dark panel (left), testimonial
- * copy on a light textured panel (right): the pull-quote headline (with one
+ * copy on a light panel (right): the pull-quote headline (with one
  * phrase in the sitewide highlight box), the body paragraphs, and the
  * person's role in a plum tag. The name is baked into the left-side image.
  */
-export default function TestimonialCard({ name, role, headline, highlightPhrase, body, imageSrc, mediaBg, textBg, reversed, seamDoodle }) {
+export default function TestimonialCard({ name, role, headline, highlightPhrase, body, imageSrc, mediaBg, textBg, reversed, seamDoodle, readable }) {
   const headlineParts = highlightPhrase ? headline.split(highlightPhrase) : [headline];
 
   return (
     <figure
-      className={`testimonial-card${reversed ? " testimonial-card--reversed" : ""}`}
+      className={`testimonial-card${reversed ? " testimonial-card--reversed" : ""}${
+        readable ? " testimonial-card--readable" : ""
+      }`}
       data-reveal
     >
       <div

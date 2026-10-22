@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import "./ChecklistSection.css";
 import Button from "../primitives/Button.jsx";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
@@ -17,9 +17,16 @@ const gifFor = (i, small) =>
 /* Semicircle 0–10 diagnostic gauge. The needle sweeps from 0 up to `score`
    (ease-out, ~1.1s) every time a box is ticked — per Yemi's landing-page-
    changes doc ("the gauge is supposed to animate from 0 to the specified
-   number"). Reduced-motion users get the final position immediately. */
+   number"). Reduced-motion users get the final position immediately.
+   The arc runs green → yellow → red so a score reads as good or bad at a
+   glance (Landing Page QC doc: "the speedometer has to have green yellow
+   red"). */
 function Gauge({ score }) {
   const [shown, setShown] = useState(0);
+  // Unique per gauge: the desktop panel and the inline (≤900px) reveal can
+  // both be mounted, and a url(#id) that resolves into a display:none SVG
+  // paints nothing.
+  const gradientId = "gauge-arc-" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -54,9 +61,24 @@ function Gauge({ score }) {
       role="img"
       aria-label={`Diagnostic score: ${score} out of 10`}
     >
+      <defs>
+        <linearGradient
+          id={gradientId}
+          gradientUnits="userSpaceOnUse"
+          x1={cx - r}
+          y1="0"
+          x2={cx + r}
+          y2="0"
+        >
+          <stop offset="0" className="checklist__gauge-stop--green" />
+          <stop offset="0.5" className="checklist__gauge-stop--yellow" />
+          <stop offset="1" className="checklist__gauge-stop--red" />
+        </linearGradient>
+      </defs>
       <path
         d={`M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
         className="checklist__gauge-track"
+        stroke={`url(#${gradientId})`}
       />
       {[0, 2, 4, 6, 8, 10].map((t) => {
         const ta = Math.PI * (1 - t / 10);
@@ -104,7 +126,7 @@ function ReactionContent({ scenario, gifSrc }) {
           {hasScore ? (
             <div className="checklist__gauge-wrap">
               {/* Keyed per scenario so the 0→score sweep replays even when two
-                  boxes share the same score (e.g. boxes 1 and 5, both 8). */}
+                  boxes share the same score (e.g. boxes 1 and 3, both 10). */}
               <Gauge key={scenario.id} score={v.score} />
               {/* Items whose doc copy is qualitative ("Highest score") keep
                   that wording as the caption instead of the N/10 readout. */}
@@ -133,7 +155,11 @@ function ReactionContent({ scenario, gifSrc }) {
 
       {v.cta && (
         <div className="checklist__panel-cta">
-          <Button variant="onDark" href="/diagnostic-start-now">
+          <Button
+            variant="onDark"
+            href="/diagnostic-start-now"
+            className={v.ctaKeepCase ? "checklist__cta-keep-case" : ""}
+          >
             {v.cta}
           </Button>
         </div>

@@ -9,6 +9,14 @@ import { uncover } from "../../data/copy.js";
 // ▁▃▂▅▆█ pattern from the copy spec (rise, small dip, then climb).
 const OPP_BAR_HEIGHTS = [18, 34, 26, 52, 66, 88];
 
+// Card labels mark emphasis the way the copy doc does — *word* — which
+// renders as italics.
+function renderWithItalics(text) {
+  return text
+    .split(/\*(.+?)\*/g)
+    .map((part, i) => (i % 2 === 1 ? <em key={i}>{part}</em> : part));
+}
+
 /**
  * "What you'll uncover" — rebuilt to the 5-card mock: dark textured band
  * (Dark Backgrounds-01), mono chip, big white headline with a plum
@@ -22,7 +30,8 @@ const OPP_BAR_HEIGHTS = [18, 34, 26, 52, 66, 88];
  *   03 — the metric list slides in, three rows blurred out
  *   04 — one "If …" symptom over a down arrow over its pillar, cycling
  *        through all four pairs (HeroRotator-style cross-fade)
- *   05 — the $125k/mo stat with the ascending bars growing in
+ *   05 — "Your first step to stacking $125k/mo ($1.5M/year) on top of
+ *        your current monthly revenue." with the ascending bars growing in
  * All copy is verbatim from copy.js (sourced from the docx).
  */
 export default function Uncover() {
@@ -188,7 +197,7 @@ export default function Uncover() {
                 <span className="uncover-pillars__score">{pillarsCard.score}</span>
               </span>
             </div>
-            <p className="uncover-card__label">{pillarsCard.label}</p>
+            <p className="uncover-card__label">{renderWithItalics(pillarsCard.label)}</p>
           </article>
 
           {/* 05 — ice: the opportunity stat + ascending bars growing in */}
@@ -198,6 +207,7 @@ export default function Uncover() {
               <span className="uncover-opp__pre">{oppCard.pre}</span>
               <span className="uncover-opp__big">{oppCard.stat}</span>
               <span className="uncover-opp__sub">{oppCard.sub}</span>
+              <span className="uncover-opp__post">{oppCard.post}</span>
               <div className="uncover-opp__bars" aria-hidden="true">
                 {OPP_BAR_HEIGHTS.map((h, i) => (
                   <i key={i} style={{ height: `${h}%`, "--bi": i }} />

@@ -2,6 +2,12 @@ import "./Workshop.css";
 import HighlightSweep from "../primitives/HighlightSweep.jsx";
 import { workshop } from "../../data/copy.js";
 
+function renderWithBold(text) {
+  return text
+    .split(/\*\*(.+?)\*\*/g)
+    .map((part, i) => (i % 2 === 1 ? <strong key={i}>{part}</strong> : part));
+}
+
 /**
  * Section J — "A Private On-Demand Workshop With Alefiya." Rebuilt to the
  * reference: dark navy section, centered mono chip + white headline (with
@@ -53,12 +59,12 @@ export default function Workshop() {
           />
 
           <div className="workshop__closing">
-            {workshop.closingLines.slice(0, 2).map((line, i) => (
+            {workshop.closingLines.slice(0, -1).map((line, i) => (
               <p key={i} className="workshop__closing-para">
-                {line}
+                {renderWithBold(line)}
               </p>
             ))}
-            <p className="workshop__closer">{workshop.closingLines[2]}</p>
+            <p className="workshop__closer">{workshop.closingLines.at(-1)}</p>
           </div>
         </div>
       </div>

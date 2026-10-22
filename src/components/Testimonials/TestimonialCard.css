@@ -1,5 +1,5 @@
 /* Full-bleed split: portrait image on a dark panel (left), testimonial
-   copy on a light textured panel (right). Text sizes are unchanged from
+   copy on a light panel (right). Text sizes are unchanged from
    the previous card (headline 1.75rem, body 1.05rem, role 0.88rem). */
 .testimonial-card {
   display: grid;
@@ -120,6 +120,15 @@
   margin: 0 0 var(--space-sm);
 }
 
+/* Lara's card: bigger, heavier body text for readability (QC doc: "this
+   isn't very clear to read on the page"). Mobile size in the ≤760px block. */
+.testimonial-card--readable .testimonial-card__body-line {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
 /* Role in a plum tag at the bottom of the copy. */
 /* Credentials tag — sits under the portrait (and its baked-in name) on the
    media panel. Long lines (Ryan's) wrap centred within the panel. */
@@ -162,6 +171,10 @@
 
   .testimonial-card__body-line {
     font-size: 15px;
+  }
+
+  .testimonial-card--readable .testimonial-card__body-line {
+    font-size: 16px;
   }
 
   /* Hide the seam doodle on mobile. */

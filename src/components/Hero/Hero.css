@@ -23,10 +23,13 @@
   color: var(--ink-dark);
   max-width: 620px;
   margin: 0 0 var(--space-lg);
+  text-wrap: pretty;
 }
 
+/* Keep the bolded phrase ("an extra $1.5M/year") on one line. */
 .hero__eyebrow strong {
   font-weight: 800;
+  white-space: nowrap;
 }
 
 /* Montserrat Extra Bold (inherited from the global h1 rule), generous
@@ -264,6 +267,12 @@
 
   .hero__headline-mark {
     font-size: 70px;
+  }
+
+  /* The dashed doodle (top-right, 92px) overlaps the copy column here
+     because the gutter is only 30px — keep the eyebrow's lines clear of it. */
+  .hero__eyebrow {
+    padding-right: 70px;
   }
 }
 

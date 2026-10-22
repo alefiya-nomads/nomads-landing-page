@@ -8,9 +8,10 @@ const PHOTO_SRC = "/Assets/Images/hero section img.png";
 export default function Hero() {
   const [eyebrowIntro, bullet1, bullet2, rpvLine] = hero.eyebrow;
 
-  // Bold the two called-out figures in the intro line, verbatim text unchanged.
-  const [introA, introRest] = eyebrowIntro.split("$10k+");
-  const [introB, introC] = introRest.split("$1.5M more a year");
+  // Bold the called-out figure in the intro line, verbatim text unchanged
+  // (Landing Page QC doc bolds "an extra $1.5M/year").
+  const INTRO_BOLD = "an extra $1.5M/year";
+  const [introA, introB] = eyebrowIntro.split(INTRO_BOLD);
 
   // Manual line breaks (design-v2.md 0.6) matching the reference image's
   // exact 4-line pattern, not the browser's auto-wrap. These four pieces
@@ -33,10 +34,8 @@ export default function Hero() {
         <div className="hero__copy">
           <p className="hero__eyebrow" data-reveal>
             {introA}
-            <strong>$10k+</strong>
+            <strong>{INTRO_BOLD}</strong>
             {introB}
-            <strong>$1.5M more a year</strong>
-            {introC}
           </p>
 
           <h1 className="hero__headline" data-reveal data-reveal-delay="80">

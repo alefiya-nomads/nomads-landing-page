@@ -30,11 +30,18 @@ const TONES = [
   { beforeBg: "var(--bg-lavender)", beforeBorder: "#a0b4d4", afterBg: "#2a0d20", afterText: "var(--white)" },
 ];
 
+// Copy-doc emphasis: **bold** and *italic*.
 function renderWithBold(text) {
   if (!text) return null;
-  return text
-    .split(/\*\*(.+?)\*\*/g)
-    .map((part, i) => (i % 2 === 1 ? <strong key={i}>{part}</strong> : part));
+  return text.split(/(\*\*.+?\*\*|\*[^*]+\*)/g).map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**") && part.length > 4) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith("*") && part.endsWith("*") && part.length > 2) {
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    }
+    return part;
+  });
 }
 
 export default function ProofTable() {
@@ -87,7 +94,9 @@ export default function ProofTable() {
                   {pair.afterHeading && (
                     <h4 className="proof__after-heading">{pair.afterHeading}</h4>
                   )}
-                  <p>{renderWithBold(pair.after)}</p>
+                  {(Array.isArray(pair.after) ? pair.after : [pair.after]).map((para, j) => (
+                    <p key={j}>{renderWithBold(para)}</p>
+                  ))}
                 </div>
 
                 <div

@@ -135,6 +135,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 1.4;
+  text-wrap: pretty;
 }
 
 .uncover-card--cream .uncover-card__label {
@@ -406,29 +407,39 @@
   text-align: center;
 }
 
-.uncover-opp__pre {
+/* The sentence wraps around the two numbers: "Your first step to stacking"
+   / $125k/mo (big) / ($1.5M/year) (mid) / "on top of your current monthly
+   revenue." */
+.uncover-opp__pre,
+.uncover-opp__post {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 600;
+  line-height: 1.35;
   color: var(--midnight-blue);
-  opacity: 0.85;
+  text-wrap: balance;
 }
 
 .uncover-opp__big {
   display: block;
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   line-height: 1.05;
   color: var(--midnight-blue);
-  margin: 2px 0;
+  margin: 6px 0 2px;
 }
 
 .uncover-opp__sub {
   display: block;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.2;
   color: var(--midnight-blue);
+  margin-bottom: 6px;
+}
+
+.uncover-opp__post {
   margin-bottom: 12px;
 }
 
@@ -652,7 +663,7 @@
   }
 
   .uncover-opp__pre,
-  .uncover-opp__sub {
+  .uncover-opp__post {
     font-size: 14px;
   }
 

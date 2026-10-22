@@ -14,7 +14,8 @@
 
 export const hero = {
   eyebrow: [
-    "For founders and marketing teams spending $10k+ a month on traffic who want $1.5M more a year without increasing marketing spend:",
+    // Landing Page QC doc (Oct 2026): rewritten eyebrow, "an extra $1.5M/year" bold.
+    "For founders and marketing teams reaching 10,000+ visitors a month across their digital channels who want to generate an extra $1.5M/year without increasing marketing spend.",
     "You already track how many visitors you get.",
     "You've probably never known how much revenue each visitor brings in.",
     "That's your Revenue Per Visitor™. Increase how much you earn per visitor, and you can grow your revenue by $1.5M/year.",
@@ -79,8 +80,10 @@ export const uncover = {
     },
     {
       n: "04",
+      // Landing Page QC doc (Oct 2026). *word* = the doc's emphasis markers,
+      // rendered as italics by the Uncover component.
       label:
-        "Score all four with your team and diagnose which pillar gets you to $1.5M first",
+        "Your metrics show *where* you lose revenue. The 4 pillars show *why*. Score them with your team. Lowest score = your first fix.",
       pillars: [
         { when: "If revenue is unpredictable", pillar: "Maximise RPV™" },
         { when: "If losing on price", pillar: "Contrarian POV™" },
@@ -92,9 +95,14 @@ export const uncover = {
     {
       n: "05",
       label: "Walk away knowing where to start",
-      pre: "Your first step to",
+      // Landing Page QC doc (Oct 2026): the visual reads "Your first step to
+      // stacking 125k/mo(1.5M/year) on top of your current monthly revenue."
+      // — $ signs and the space before the bracket restored to match the
+      // rest of the page.
+      pre: "Your first step to stacking",
       stat: "$125k/mo",
       sub: "($1.5M/year)",
+      post: "on top of your current monthly revenue.",
     },
   ],
   footer: "10 QUESTIONS. ONE CLEAR PATH TO $1.5M/YEAR.",
@@ -131,11 +139,17 @@ export const scenarios = [
         "Oopsies, Alex (your visitor) is skeptical, and he's not going to read through six website pages to find the feature, testimonial, or use case relevant to him.",
     },
     verdict: {
-      // Score supplied by Yemi (landing page changes doc, Sept 2026): Box 1 – 8.
-      score: 8,
-      note:
-        "Verdict LINES were never written in the source doc (author's placeholder: “If they check this box, display”) — still an open item for Alefiya. The score itself is now sourced from Yemi's landing-page-changes doc.",
-      cta: "START THE DIAGNOSTIC NOW",
+      // Score + verdict copy from the Landing Page QC doc (Oct 2026), verbatim.
+      score: 10,
+      lines: [
+        "Your urgency level: DO THIS NOW.",
+        "Every visitor who leaves without buying is a potential customer gone (and wasted marketing spend).",
+        "This is the most important 5 minutes you'll spend on your business this week.",
+      ],
+      // The QC doc (and its speedometer reference image) write this button in
+      // sentence case, unlike the other boxes' ALL-CAPS label — kept as written.
+      cta: "Start the diagnostic →",
+      ctaKeepCase: true,
     },
   },
   {
@@ -335,57 +349,69 @@ export const problem = {
   ],
 };
 
+// Before/after copy + row order from the Landing Page QC doc (Oct 2026),
+// verbatim incl. its bold (**…**). Order per Yemi: Golfbays, Media business,
+// Video mastermind, Executive coach, Course creator. `after` may hold several
+// paragraphs. Headings and stat cells are the build's own and unchanged.
 export const proofTable = [
+  {
+    heading: "Ecommerce business",
+    afterHeading: "Perfect Pick™ quiz",
+    before:
+      "An e-commerce business was getting 440K visits, but only 250 demo bookings. At first, that seemed fine, until they realized it added up to just booking 1 freakin demo per 2500 web visitors (**0.044% conversion rate).**",
+    after: [
+      "With all four of our CRPV\u00a0™ quantum leap moves in place, Golfbays went on to book one demo per seven quiz takers (14%), and generated £96,000+ in just 12 days on the same ad spend.",
+    ],
+    stat: {
+      hero: "318×",
+      lines: ["0.044% → 14% conversion", "£96K+ added in just 12 days"],
+    },
+  },
+  {
+    heading: "Media business launch",
+    afterHeading: "Next launch: $150K (double!)",
+    before:
+      "A media business launch grossed **$70K** with a **6%** email click-through rate (CTR). The client thought it was a flex until they saw our 45% CTR and hired us for their next launch.",
+    after: [
+      "With our Compounding Revenue Per Subscriber™ move, her next launch hit $150K on the same traffic.",
+      "We carried the buyer insights and proof into the following launch, which brought in $500K with email click-through rates as high as 40%.",
+    ],
+    stat: { hero: "7.1×", lines: ["$70K → $500K revenue", "Growth with the same traffic"] },
+  },
+  {
+    heading: "Mastermind owner",
+    afterHeading: "Positioning strategy (Pillar 1)",
+    before: "A video mastermind owner tanked **27** discovery calls and closed **one client**.",
+    after: [
+      "We crafted his **category-dominating argument (Contrarian POV™)** that made him *THE* only option in his industry.",
+      "He went on to close **29 of the next 31 calls, taking monthly revenue from $8,000 to $108,000.**",
+    ],
+    stat: { hero: "25×", lines: ["3.7% → 93.5% close rate", "$8K → $108K/mo"] },
+  },
   {
     heading: "Executive coach",
     afterHeading: "Personality Peak™ quiz",
     before:
-      "An **executive coach** was getting 2,800 LinkedIn profile views a quarter, but fewer than 500 new subscribers a month and $0 in revenue from emails.",
-    after:
-      "Our **Personality Peak™** quiz got 2,100 subscribers in 35 days, **making the client $1,700/day for her subscription offer.**",
+      "An executive coach was getting 2,800 LinkedIn profile views a quarter, but fewer than 500 new subscribers a month and $0 in revenue from emails.",
+    after: [
+      "We found the trigger that let her reach a 20× larger market with our Maximize Revenue Per Visitor™ move.",
+      "Her Personality Peak™ quiz then brought in **2,100 subscribers in 35 days, generating $1,000/day** from her subscription offer.",
+    ],
     stat: { hero: "4.2×", lines: ["500 → 2,100 subscribers", "Growth in 35 days"] },
   },
   {
     heading: "Course creator",
     afterHeading: "Champions Challenge™ quiz",
     before:
-      "A **course creator** made $70K+ from her tiny list (she believed in email potential), but her list was exhausted.",
-    after:
-      "Our **Champions Challenge™** quiz fuelled a **7,306% list surge within 72 hours**.",
+      "A course creator made $70K+ from her tiny list (she believed in email potential), but her list was exhausted.",
+    after: [
+      "Our Speed to Decision™ move let **fresh prospects experience her expertise** in under five minutes.",
+      "Her **list grew by 7,706% in 72 hours,** putting her offer in front of 350+ high-intent prospects without spending a dime on ads.",
+    ],
     stat: {
-      hero: "7,306%",
+      hero: "7,706%",
       lines: ["List growth in 72 hours", "What she grew in 6 months → in just 72 hours"],
     },
-  },
-  {
-    heading: "Ecommerce business",
-    afterHeading: "Perfect Pick™ quiz",
-    before:
-      "An **ecommerce** business was getting 440K visits, but only 250 demo bookings. At first, that seemed fine, until they realized it added up to just a **0.044% conversion rate.**",
-    after:
-      "With us, they **achieved a 14% conversion rate to their demo video,** generating £97,000 in 20 days.",
-    stat: {
-      hero: "318×",
-      lines: ["0.044% → 14% conversion", "530 demos + £97K added in 20 days"],
-    },
-  },
-  {
-    heading: "Mastermind owner",
-    afterHeading: "Positioning strategy (Pillar 1)",
-    before:
-      "A **mastermind owner** tanked **27** discovery calls, and closed **one client**.",
-    after:
-      "Our positioning strategy (first pillar of C-RPV™) **closed 29 of the next 31 calls**",
-    stat: { hero: "25×", lines: ["3.7% → 93.5% close rate", "$8K → $108K/mo"] },
-  },
-  {
-    heading: "Media business launch",
-    afterHeading: "Next launch: $150K (double!)",
-    before:
-      "A **media business launch** grossed **$70K** with a **6%** email click-through rate (CTR). The client thought it was a flex until they saw our 45% CTR and hired us for their next launch.",
-    after:
-      "With us on board, her next launch hit $150K (double!) **and the next one did HALF A MILLION DOLLARS (8X)** with the same amount of traffic.",
-    stat: { hero: "7.1×", lines: ["$70K → $500K revenue", "Growth with the same traffic"] },
   },
 ];
 
@@ -459,13 +485,14 @@ export const workshop = {
   chip: "Unlocked after your diagnostic",
   heading: "A private on-demand workshop with Alefiya.",
   lines: [
-    "Once you see your potential RPV™, you'll want to show your team. The workshop doesn't just give you a structured way to share it, but also to go after the goal together.",
+    "Once you see your potential Revenue per Visitor™, you'll want to show your team. The workshop doesn't just give you a structured way to share it, but also to go after the goal together.",
     "Alefiya walks you through the four key areas that take businesses from where they are to an extra $1.5M on the same traffic.",
   ],
   productionNote: "[add handdraw image]",
+  // Landing Page QC doc (Oct 2026), verbatim incl. its bold. The last line
+  // renders as the card's bold closer.
   closingLines: [
-    "In each area, you and your team score yourselves through a set of exercises. That score tells you exactly which area is weakest and where to start.",
-    "So instead of leaving with a number and a shrug, you leave with a number and a clear first step toward that $1.5M.",
+    "In each area, you and your team work through a few exercises to score yourselves. You’ll see exactly where you’re falling short and **what to fix first to add $1.5M on top of your last 12 months’ revenue.**",
     "Worth watching with your team. Bring them on!",
   ],
 };
@@ -558,7 +585,7 @@ export const curious = {
       company: "Golfbays",
       type: "E-commerce company",
       logoSrc: "/Assets/curious-section/golfsbay.avif",
-      text: "An ecommerce brand with 440K monthly Shopify visits scaled from 0.044% web to demo conversion rate to 14% and made £97,000 in 20 days with the same ad spend.",
+      text: "An ecommerce brand with 440K monthly Shopify visits scaled from 0.044% web to demo conversion rate to 14% and made £96,000+ in 12 days with the same ad spend.",
       caseStudyUrl: "#",
     },
     {
@@ -580,9 +607,10 @@ export const curious = {
 
 export const footer = {
   intro: "Then let's get you started with this diagnostic, so you can:",
-  lead: "Become the savvy founder who can confidently say,",
+  // Landing Page QC doc (Oct 2026), verbatim incl. its quotation marks.
+  lead: "Become the savvy founder who can confidently say to your team,",
   statement:
-    "Based on the data, if we optimize this metric, we'll add $125k/mo ($1.5M/year) to your team",
+    "“Based on the data, if we optimize “this” metric, we'll add $125k/mo ($1.5M/year).”",
   signature: "Compound Revenue per Visitor™",
   signatureScript: "with Alefiya Khoraki & Nomads' Team",
   ctaLabel: "START THE DIAGNOSTIC NOW",
