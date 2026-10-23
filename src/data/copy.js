@@ -146,10 +146,9 @@ export const scenarios = [
         "Every visitor who leaves without buying is a potential customer gone (and wasted marketing spend).",
         "This is the most important 5 minutes you'll spend on your business this week.",
       ],
-      // The QC doc (and its speedometer reference image) write this button in
-      // sentence case, unlike the other boxes' ALL-CAPS label — kept as written.
+      // Words from the QC doc; shown in the same uppercase button style as
+      // the other boxes (user, Oct 23).
       cta: "Start the diagnostic →",
-      ctaKeepCase: true,
     },
   },
   {

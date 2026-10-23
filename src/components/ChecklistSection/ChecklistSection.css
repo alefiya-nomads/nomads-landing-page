@@ -356,12 +356,6 @@
   font-size: 0.85rem;
 }
 
-/* Buttons whose doc copy is sentence case (box 1) keep it instead of the
-   sitewide uppercase. */
-.checklist__panel-cta .btn.checklist__cta-keep-case {
-  text-transform: none;
-}
-
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
   .checklist__grid {

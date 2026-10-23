@@ -155,11 +155,7 @@ function ReactionContent({ scenario, gifSrc }) {
 
       {v.cta && (
         <div className="checklist__panel-cta">
-          <Button
-            variant="onDark"
-            href="/diagnostic-start-now"
-            className={v.ctaKeepCase ? "checklist__cta-keep-case" : ""}
-          >
+          <Button variant="onDark" href="/diagnostic-start-now">
             {v.cta}
           </Button>
         </div>
