@@ -77,7 +77,7 @@ export default function Calculator() {
             <div className="calc__mock-body">
               <img
                 className="calc__gif"
-                src="/Assets/Gifs/calculator.gif"
+                src="/Assets/Gifs/calculator-results.gif"
                 alt="Walkthrough of the RPV diagnostic quiz"
                 loading="lazy"
               />
