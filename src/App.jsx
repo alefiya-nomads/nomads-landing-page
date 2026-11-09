@@ -11,8 +11,10 @@ import Calculator from "./components/Calculator/Calculator.jsx";
 import FourAreas from "./components/FourAreas/FourAreas.jsx";
 import Workshop from "./components/Workshop/Workshop.jsx";
 import MeetNerd from "./components/MeetNerd/MeetNerd.jsx";
-import Founder from "./components/Founder/Founder.jsx";
-import SystemBorn from "./components/SystemBorn/SystemBorn.jsx";
+import BioIntro from "./components/BioIntro/BioIntro.jsx";
+import BioJourney from "./components/BioJourney/BioJourney.jsx";
+import BioPause from "./components/BioPause/BioPause.jsx";
+import BioBirth from "./components/BioBirth/BioBirth.jsx";
 import Testimonials from "./components/Testimonials/Testimonials.jsx";
 import Curious from "./components/Curious/Curious.jsx";
 import Footer from "./components/Footer/Footer.jsx";
@@ -38,8 +40,10 @@ export default function App() {
         <FourAreas />
         <Workshop />
         <MeetNerd />
-        <Founder />
-        <SystemBorn />
+        <BioIntro />
+        <BioJourney />
+        <BioPause />
+        <BioBirth />
         <Testimonials />
         <Curious />
         <Footer />

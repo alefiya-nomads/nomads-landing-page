@@ -1,0 +1,460 @@
+/* ============================================================
+   Bio 4 — "The birth of Compounding Revenue Per Visitor™ OS"
+   (homepage's second Bio 3, rebuilt). Split: portrait + phone
+   mockup on the landing's teal map texture (left, sticky on
+   desktop) + story on white (right), closing with the ice-blue
+   "today" box. Portrait-first at <=900px.
+   ============================================================ */
+.bio4 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+/* ---- Left: portrait ---- */
+.bio4__visual {
+  background-color: #1d3b3f;
+  background-image: url("/Assets/landing-page/green eagel bg.webp");
+  background-size: cover;
+  background-position: center;
+  padding: 72px 6%;
+}
+
+.bio4__photo-sticky {
+  position: sticky;
+  top: calc(var(--header-height) + 32px);
+  display: flex;
+  justify-content: center;
+}
+
+.bio4__photo {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  max-height: calc(100vh - var(--header-height) - 64px);
+  max-height: calc(100svh - var(--header-height) - 64px);
+  object-fit: contain;
+}
+
+/* ---- Right: story ---- */
+.bio4__text {
+  background: var(--white);
+  padding: 72px clamp(24px, 4vw, 110px) 88px;
+  display: flex;
+  justify-content: center;
+}
+
+.bio4__inner {
+  width: 100%;
+  max-width: 640px;
+}
+
+.bio4__headline {
+  color: var(--midnight-blue);
+  line-height: 1.2;
+  margin: 0 0 var(--space-md);
+}
+
+.bio4__para {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--midnight-blue);
+  margin: 0 0 var(--space-md);
+}
+
+.bio4__para strong {
+  font-weight: 700;
+}
+
+/* Key-number chips in this section use the teal of its map background
+   instead of plum. */
+.bio4 .num-hl {
+  --num-hl-color: #1f5f5c;
+  --num-hl-bg: rgba(31, 95, 92, 0.13);
+  --num-hl-ring: rgba(31, 95, 92, 0.28);
+}
+
+/* ---- Labels (replace the static navy tags) ---- */
+.bio4-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--midnight-blue);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 7px 18px 7px 8px;
+  margin: 0 0 var(--space-md);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.bio4-label__star {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  padding: 5px;
+  border-radius: 50%;
+  background: var(--stone);
+  fill: var(--midnight-blue);
+  animation: bio4-spin 9s linear infinite;
+}
+
+@keyframes bio4-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* "Bigger picture" — three rings rippling outward (a zoom-out). */
+.bio4-zoom {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--stone);
+}
+
+.bio4-zoom i {
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  border: 2px solid var(--midnight-blue);
+  animation: bio4-ripple 2.4s ease-out infinite;
+}
+
+.bio4-zoom i:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.bio4-zoom i:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+@keyframes bio4-ripple {
+  0% {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* ---- Connect block: lead line + two bullets ---- */
+.bio4-connect {
+  margin: 0 0 var(--space-md);
+}
+
+.bio4-connect__lead {
+  margin-bottom: 12px;
+}
+
+.bio4__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.bio4__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--midnight-blue);
+}
+
+.bio4__arrow {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* ---- The big question card ---- */
+.bio4-ask {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--midnight-blue);
+  color: var(--white);
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin: 0 0 var(--space-lg);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.bio4-ask__mark {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--stone);
+  color: var(--midnight-blue);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.bio4-ask__word {
+  opacity: 0.18;
+  transition: opacity 0.35s ease;
+  transition-delay: calc(0.15s + var(--wi) * 0.07s);
+}
+
+.bio4-ask.is-in .bio4-ask__word {
+  opacity: 1;
+}
+
+/* ---- 15 / 85 split ---- */
+.bio4-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  align-items: center;
+  gap: 24px;
+  margin: 0 0 var(--space-lg);
+}
+
+.bio4-split__last {
+  margin-bottom: 0;
+}
+
+.bio4-donut {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.bio4-donut__svg {
+  width: 140px;
+  height: 140px;
+  transform: rotate(-90deg);
+}
+
+.bio4-donut__track {
+  fill: none;
+  stroke: rgba(21, 38, 56, 0.08);
+  stroke-width: 18;
+}
+
+.bio4-donut__seg {
+  fill: none;
+  stroke-width: 18;
+  stroke-dasharray: 0 100;
+  stroke-dashoffset: calc(var(--start) * -1);
+  transition: stroke-dasharray 0.7s ease;
+  transition-delay: calc(0.2s + var(--di) * 0.18s);
+}
+
+.bio4-donut.is-in .bio4-donut__seg {
+  stroke-dasharray: var(--len) 100;
+}
+
+.bio4-donut__seg--quiz {
+  stroke: var(--brand-plum);
+}
+
+.bio4-donut__seg--quad {
+  stroke: var(--midnight-blue);
+}
+
+.bio4-donut__seg.quad-1,
+.bio4-donut__seg.quad-3 {
+  stroke: #2c4a66;
+}
+
+.bio4-donut__legend {
+  display: flex;
+  gap: 14px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--midnight-blue);
+}
+
+.bio4-donut__key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bio4-donut__key i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.bio4-donut__key--quiz i {
+  background: var(--brand-plum);
+}
+
+.bio4-donut__key--quad i {
+  background: var(--midnight-blue);
+}
+
+/* ---- "today" box ---- */
+.bio4-today {
+  background: #e4fbff;
+  border-radius: 17px;
+  padding: 26px 26px 28px;
+}
+
+.bio4-today__label {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--midnight-blue);
+  margin: 0 0 var(--space-sm);
+}
+
+.bio4-today__para {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--midnight-blue);
+  margin: 0 0 var(--space-md);
+}
+
+.bio4-today__para strong {
+  font-weight: 700;
+}
+
+.bio4-today__book {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 0 0 var(--space-md);
+}
+
+.bio4-today__lesson {
+  margin-bottom: 0;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .bio4-label__star,
+  .bio4-zoom i {
+    animation: none;
+  }
+
+  .bio4-zoom i {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  .bio4-ask__word {
+    opacity: 1;
+    transition: none;
+  }
+
+  .bio4-donut__seg {
+    stroke-dasharray: var(--len) 100;
+    transition: none;
+  }
+}
+
+/* ---- Narrow desktop ---- */
+/* Up to ~1380px a 50/50 split leaves the text column too narrow for the
+   hand-set two-line heading at the uniform 40px: give the text more room. */
+@media (min-width: 901px) and (max-width: 1380px) {
+  .bio4 {
+    grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  }
+
+  .bio4__text {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1150px) {
+  .bio4-ask {
+    font-size: 19px;
+  }
+}
+
+/* ---- Tablet / mobile ---- */
+@media (max-width: 900px) {
+  .bio4 {
+    grid-template-columns: 1fr;
+  }
+
+  .bio4__visual {
+    padding: 40px 24px 0;
+  }
+
+  .bio4__photo-sticky {
+    position: static;
+  }
+
+  .bio4__photo {
+    max-width: 400px;
+    max-height: none;
+  }
+
+  .bio4__text {
+    padding: 48px 32px 56px;
+  }
+}
+
+@media (max-width: 760px) {
+  .bio4__text {
+    padding: 36px 18px 48px;
+  }
+
+  .bio4__para,
+  .bio4__list li,
+  .bio4-today__para {
+    font-size: 16px;
+  }
+
+  /* Smaller so the longest label stays on one line on phones (rule 0.1). */
+  .bio4-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.02em;
+  }
+
+  .bio4-ask {
+    font-size: 18px;
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .bio4-ask__mark {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .bio4-today {
+    padding: 20px 16px 22px;
+  }
+
+  .bio4-today__label {
+    font-size: 36px;
+  }
+
+  .bio4-today__book {
+    font-size: 18px;
+  }
+}
+
+/* Small screens: graphics move under their copy. */
+@media (max-width: 560px) {
+  .bio4-split {
+    grid-template-columns: 1fr;
+  }
+
+}

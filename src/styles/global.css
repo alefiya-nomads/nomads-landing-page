@@ -94,7 +94,11 @@ p {
   h2.system-born__heading,
   h2.curious__heading,
   h2.uncover__headline,
-  h2.workshop__headline {
+  h2.workshop__headline,
+  h2.bio1__headline,
+  h2.bio2__headline,
+  h2.bio3__headline,
+  h2.bio4__headline {
     font-size: 1.6rem;
   }
 
@@ -116,12 +120,16 @@ p {
   h2.curious__heading,
   h2.calc__headline,
   h2.uncover__headline,
-  h2.workshop__headline {
+  h2.workshop__headline,
+  h2.bio1__headline {
     text-align: left;
   }
 
   h2.proof-intro__headline,
-  h2.meet-nerd__headline {
+  h2.meet-nerd__headline,
+  h2.bio2__headline,
+  h2.bio3__headline,
+  h2.bio4__headline {
     text-align: center;
   }
 }
@@ -147,7 +155,11 @@ p {
   main h2.workshop__headline,
   main h2.meet-nerd__headline,
   main h2.system-born__heading,
-  main h2.curious__heading {
+  main h2.curious__heading,
+  main h2.bio1__headline,
+  main h2.bio2__headline,
+  main h2.bio3__headline,
+  main h2.bio4__headline {
     font-size: 40px;
   }
 }
