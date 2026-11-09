@@ -1,0 +1,680 @@
+/* ============================================================
+   Bio 2 — "By 2022 … It was marketing." (homepage Bio 2, rebuilt).
+   Split: portrait on the landing's dark plum texture (left,
+   sticky on desktop) + the story on the landing's paper texture
+   (right). Stacks portrait-first at <=900px, as the homepage
+   does on mobile.
+   ============================================================ */
+.bio2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+/* ---- Left: portrait ---- */
+/* Lavender -> plum gradient (landing asset "gradient-cream-dark"). On
+   mouse/trackpad desktops it is pinned to the viewport (rule below), so
+   this left column shows the image's pale-lavender left half fading into
+   plum as the page scrolls. */
+.bio2__visual {
+  background-color: #4a2440;
+  background-image: url("/Assets/backgrounds/gradient-cream-dark.jpg");
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding: 72px 6%;
+}
+
+/* Touch tablets (iPadOS etc.) ignore fixed backgrounds and would blow the
+   image up to the whole column height, so pin it only where it works. */
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+  .bio2__visual {
+    background-attachment: fixed;
+  }
+}
+
+/* Rides along while the (much taller) story scrolls past. */
+.bio2__photo-sticky {
+  position: sticky;
+  top: calc(var(--header-height) + 40px);
+  display: flex;
+  justify-content: center;
+}
+
+.bio2__photo {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  max-height: calc(100vh - var(--header-height) - 80px);
+  max-height: calc(100svh - var(--header-height) - 80px);
+  object-fit: contain;
+}
+
+/* ---- Right: story ---- */
+.bio2__text {
+  /* Light pink story panel. */
+  background: #f9eef3;
+  padding: 64px clamp(24px, 4vw, 110px) 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.bio2__inner {
+  width: 100%;
+  max-width: 640px;
+}
+
+/* ---- Journey rail ---- */
+.bio2__story {
+  position: relative;
+  padding-left: 44px;
+}
+
+.bio2__rail {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  bottom: 24px;
+  width: 0;
+  border-left: 2px dashed rgba(93, 27, 78, 0.28);
+}
+
+.bio2__rail-fill {
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 2px;
+  height: calc(var(--fill, 0) * 100%);
+  background: var(--brand-plum);
+}
+
+.bio2__mile {
+  position: relative;
+}
+
+/* Node on the rail, aligned with the milestone's first line. */
+.bio2__node {
+  position: absolute;
+  left: -40px;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f9eef3;
+  border: 2px solid rgba(93, 27, 78, 0.4);
+  transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.bio2__node--lit {
+  background: var(--brand-plum);
+  border-color: var(--brand-plum);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 5px rgba(93, 27, 78, 0.15);
+}
+
+.bio2__mile--card > .bio2__node {
+  top: 35px;
+}
+
+/* "By 2022" — the rail's first stop, in the landing's plum chip style
+   (as .calc__chip / .four-areas__chip: square plum block, white mono). */
+.bio2__year {
+  display: inline-block;
+  background: var(--brand-plum);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 26px;
+  padding: 6px 18px;
+  margin: 0 0 var(--space-md);
+}
+
+/* Centre the rail node on the 38px-tall chip. */
+.bio2__mile--year > .bio2__node {
+  top: 10px;
+}
+
+/* ---- Copy ---- */
+.bio2__headline {
+  color: var(--ink-dark-alt);
+  line-height: 1.15;
+  margin: 0 0 var(--space-md);
+}
+
+.bio2__para {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-md);
+}
+
+.bio2__para strong {
+  font-weight: 700;
+}
+
+/* ---- 70% card ---- */
+.bio2-gone {
+  background: var(--ink-dark-alt);
+  color: var(--white);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin: 4px 0 var(--space-lg);
+}
+
+.bio2-gone__text {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 0 0 18px;
+}
+
+.bio2-gone__viz {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.bio2-gone__pct {
+  flex-shrink: 0;
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--stone);
+  min-width: 3.2ch;
+  font-variant-numeric: tabular-nums;
+}
+
+.bio2-gone__people {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* A simple "person" glyph: head + shoulders. */
+.bio2-gone__person {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 5;
+  max-width: 22px;
+  width: 100%;
+  justify-self: center;
+}
+
+.bio2-gone__person::before,
+.bio2-gone__person::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  background: var(--stone);
+  transform: translateX(-50%);
+}
+
+.bio2-gone__person::before {
+  top: 0;
+  width: 54%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.bio2-gone__person::after {
+  bottom: 0;
+  width: 100%;
+  height: 52%;
+  border-radius: 999px 999px 4px 4px;
+}
+
+/* Leavers fade + drift right, one after another. */
+.bio2-gone__person--gone {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: calc(0.5s + var(--pi) * 0.12s);
+}
+
+.bio2-gone--in .bio2-gone__person--gone {
+  opacity: 0.18;
+  transform: translateX(6px);
+}
+
+/* ---- "That changed…" (plum sweeps, one line each) ---- */
+.bio2__changed {
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 1.55;
+  color: var(--ink-dark-alt);
+  margin: var(--space-xs) 0 var(--space-md);
+}
+
+.bio2__changed-line {
+  display: block;
+}
+
+/* ---- The rebuild statement ---- */
+.bio2__ditched {
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.35;
+  color: var(--ink-dark-alt);
+  margin: var(--space-sm) 0 var(--space-md);
+  text-wrap: pretty;
+}
+
+/* ---- Three objection buckets ---- */
+.bio2__studied {
+  margin-bottom: var(--space-lg);
+}
+
+.bio2__studied .bio2__para {
+  margin-bottom: var(--space-sm);
+}
+
+.bio2-buckets {
+  display: flex;
+  gap: 18px;
+}
+
+.bio2-bucket {
+  width: 46px;
+  height: auto;
+  overflow: visible;
+}
+
+.bio2-bucket__body,
+.bio2-bucket__handle {
+  fill: none;
+  stroke: var(--ink-dark-alt);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.bio2-bucket__fill {
+  fill: var(--brand-plum);
+  transform: translateY(34px);
+  transition: transform 0.8s cubic-bezier(0.3, 1, 0.4, 1);
+  transition-delay: calc(0.2s + var(--bi) * 0.3s);
+}
+
+.bio2-buckets--in .bio2-bucket__fill {
+  transform: translateY(6px);
+}
+
+/* ---- Ecosystem card ---- */
+/* Plain white panel on the pink story column (no border / hard shadow). */
+.bio2-born {
+  background: var(--white);
+  border-radius: 17px;
+  padding: 26px 26px 28px;
+}
+
+.bio2-born__title {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--ink-dark-alt);
+  margin: 0 0 var(--space-md);
+}
+
+.bio2-born__para {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-dark);
+  margin: 0 0 var(--space-md);
+}
+
+.bio2-born__para strong {
+  font-weight: 700;
+}
+
+.bio2-born__gaps {
+  margin: 0;
+}
+
+/* Five-minute timer (replaces the static "In under five minutes" chip):
+   the ring fills and the hand sweeps once on scroll-in. */
+.bio2-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--ink-dark);
+  border-radius: 999px;
+  padding: 6px 18px 6px 6px;
+  margin: 0 0 var(--space-md);
+}
+
+.bio2-timer__ring {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.bio2-timer__track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 4;
+}
+
+.bio2-timer__arc {
+  fill: none;
+  stroke: var(--stone);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transform: rotate(-90deg);
+  transform-origin: 22px 22px;
+  transition: stroke-dashoffset 1.8s ease-in-out;
+}
+
+.bio2-timer__hand {
+  stroke: var(--white);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transform-origin: 22px 22px;
+  transition: transform 1.8s ease-in-out;
+}
+
+.bio2-timer--in .bio2-timer__arc {
+  stroke-dashoffset: 0;
+}
+
+.bio2-timer--in .bio2-timer__hand {
+  transform: rotate(360deg);
+}
+
+.bio2-timer__label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* Cold → warm line: bold and a step larger than the card's body copy;
+   "just browsing" fills pink, then the decision line warms to plum. */
+.bio2-born__para.bio2-cold {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.bio2-cold__from,
+.bio2-cold__to {
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background: rgba(57, 17, 41, 0.08);
+  transition: background 0.6s ease, color 0.6s ease;
+}
+
+.bio2-cold__from {
+  transition-delay: 0.2s;
+}
+
+.bio2-cold__to {
+  transition-delay: 0.9s;
+}
+
+.bio2-cold--in .bio2-cold__from {
+  background: #f3dde7;
+  color: var(--ink-dark);
+}
+
+.bio2-cold--in .bio2-cold__to {
+  background: var(--brand-plum);
+  color: var(--white);
+}
+
+/* Conversion-rates result (sentence + 1% → 5% bars) in its own box. */
+.bio2-rates {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 20px;
+  background: #f9eef3;
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin: 0 0 var(--space-md);
+}
+
+.bio2-rates__text {
+  margin: 0;
+}
+
+.bio2-rates__chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 104px;
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--ink-dark-alt);
+}
+
+.bio2-rates__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  height: 100%;
+  width: 42px;
+}
+
+.bio2-rates__val {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--ink-dark-alt);
+  font-variant-numeric: tabular-nums;
+}
+
+.bio2-rates__col i {
+  display: block;
+  width: 100%;
+  height: 0;
+  border-radius: 6px 6px 0 0;
+  transition: height 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bio2-rates__col--from i {
+  background: rgba(21, 38, 56, 0.35);
+}
+
+.bio2-rates__col--to i {
+  background: var(--brand-plum);
+  transition-delay: 0.25s;
+}
+
+.bio2-rates__chart--in .bio2-rates__col i {
+  /* Bar area = column height minus the value label; --h is the bar's
+     share of the tallest (set from the copy figures in the JSX). */
+  height: calc((100% - 26px) * var(--h, 1));
+}
+
+/* ---- Reduced motion: final states ---- */
+@media (prefers-reduced-motion: reduce) {
+  .bio2-gone__person--gone {
+    opacity: 0.18;
+    transition: none;
+  }
+
+  .bio2-bucket__fill {
+    transform: translateY(6px);
+    transition: none;
+  }
+
+  .bio2-timer__arc {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+
+  .bio2-cold__from {
+    background: #f3dde7;
+    color: var(--ink-dark);
+    transition: none;
+  }
+
+  .bio2-cold__to {
+    background: var(--brand-plum);
+    color: var(--white);
+    transition: none;
+  }
+
+  .bio2-rates__col i {
+    height: calc((100% - 26px) * var(--h, 1));
+    transition: none;
+  }
+}
+
+/* ---- Narrow desktop ---- */
+@media (min-width: 901px) and (max-width: 1150px) {
+  .bio2 {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .bio2__text {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .bio2__ditched {
+    font-size: 22px;
+  }
+}
+
+/* ---- Tablet / mobile: stack, portrait first ---- */
+@media (max-width: 900px) {
+  .bio2 {
+    grid-template-columns: 1fr;
+  }
+
+  .bio2__visual {
+    padding: 40px 24px;
+  }
+
+  .bio2__photo-sticky {
+    position: static;
+  }
+
+  .bio2__photo {
+    max-width: 440px;
+    max-height: none;
+  }
+
+  .bio2__text {
+    padding: 48px 32px 56px;
+  }
+}
+
+@media (max-width: 760px) {
+  .bio2__text {
+    padding: 36px 18px 48px;
+  }
+
+  .bio2__story {
+    padding-left: 32px;
+  }
+
+  .bio2__rail {
+    left: 7px;
+  }
+
+  .bio2__node {
+    left: -33px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .bio2__para,
+  .bio2-born__para {
+    font-size: 16px;
+  }
+
+  .bio2__changed {
+    font-size: 18px;
+  }
+
+  .bio2__ditched {
+    font-size: 20px;
+  }
+
+  .bio2-gone {
+    padding: 18px;
+  }
+
+  .bio2-gone__text {
+    font-size: 17px;
+  }
+
+  .bio2-gone__viz {
+    gap: 12px;
+  }
+
+  .bio2-gone__pct {
+    font-size: 1.8rem;
+  }
+
+  .bio2-gone__people {
+    gap: 4px;
+  }
+
+  .bio2-born {
+    padding: 18px 16px 20px;
+  }
+
+  .bio2__mile--card > .bio2__node {
+    top: 26px;
+  }
+
+  /* Rule 0.9 centres this 1-line heading on mobile; cancel the rail's
+     left padding so it centres on the whole column, not the indented one. */
+  .bio2__headline {
+    margin-left: -32px;
+  }
+
+  .bio2-born__title {
+    font-size: 18px;
+  }
+
+  .bio2-timer__label {
+    font-size: 0.75rem;
+  }
+}
+
+/* Small phones: the conversion chart drops below its sentence. */
+@media (max-width: 480px) {
+  .bio2-born__para.bio2-cold {
+    font-size: 18px;
+  }
+
+  .bio2-rates {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .bio2-rates__chart {
+    justify-self: start;
+  }
+}
+
+/* Narrowest phones (~320-380px): keep "IN UNDER FIVE MINUTES" on one line. */
+@media (max-width: 380px) {
+  .bio2-born {
+    padding: 16px 12px 18px;
+  }
+
+  .bio2-timer {
+    gap: 8px;
+    padding-right: 12px;
+  }
+
+  .bio2-timer__label {
+    font-size: 0.66rem;
+    letter-spacing: 0.03em;
+  }
+}

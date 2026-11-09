@@ -1,0 +1,692 @@
+/* ============================================================
+   Bio 3 — "The pause that changed everything" (homepage Bio 3,
+   rebuilt). Split: story on cream (left) + portrait on the
+   landing's dark plum texture (right, sticky on desktop).
+   Portrait-first at <=900px, as the homepage does on mobile.
+   ============================================================ */
+.bio3 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+/* ---- Left: story ---- */
+.bio3__text {
+  background: var(--bg-cream);
+  padding: 72px clamp(24px, 4vw, 110px) 88px;
+  display: flex;
+  justify-content: center;
+}
+
+.bio3__inner {
+  width: 100%;
+  max-width: 640px;
+}
+
+.bio3__headline {
+  color: var(--midnight-blue);
+  line-height: 1.15;
+  margin: 0 0 var(--space-md);
+}
+
+.bio3__para {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--midnight-blue);
+  margin: 0 0 var(--space-md);
+}
+
+.bio3__para strong {
+  font-weight: 700;
+}
+
+/* ---- Pause pill (was a static navy tag) ---- */
+.bio3-pause {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--midnight-blue);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 7px 18px 7px 8px;
+  margin: 0 0 var(--space-md);
+}
+
+.bio3-pause__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--stone);
+  color: var(--midnight-blue);
+  flex-shrink: 0;
+}
+
+.bio3-pause__icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bio3-pause__icon-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+.bio3-pause__label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---- Itch list ---- */
+.bio3__list {
+  list-style: none;
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.bio3__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  /* A step up from body copy so the three "itch" points stand out. */
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--midnight-blue);
+}
+
+.bio3__arrow {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.bio3__para--brace {
+  margin-bottom: var(--space-lg);
+}
+
+/* ---- Story cards ---- */
+.bio3__stories {
+  display: grid;
+  gap: 28px;
+  margin: 0 0 var(--space-xl);
+}
+
+.bio3-story {
+  border-radius: 16px;
+  padding: 24px 24px 26px;
+}
+
+.bio3-story--lavender {
+  background: #f2e5f6;
+  color: var(--ink-dark-alt);
+}
+
+.bio3-story--plum {
+  background: var(--ink-dark-alt);
+  color: var(--white);
+}
+
+.bio3-story--navy {
+  background: var(--midnight-blue);
+  color: var(--white);
+}
+
+.bio3-story__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.bio3-story__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  font-family: var(--font-script);
+  font-size: 22px;
+  flex-shrink: 0;
+  background: var(--brand-plum);
+  color: var(--white);
+}
+
+.bio3-story--navy .bio3-story__num {
+  background: var(--white);
+  color: var(--midnight-blue);
+}
+
+/* Plum badge would vanish on the deep plum card. */
+.bio3-story--plum .bio3-story__num {
+  background: var(--stone);
+  color: var(--ink-dark-alt);
+}
+
+/* "Conventional wisdom:" — plain mono case-file label. */
+.bio3-story__label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.bio3-story__wisdom {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: inherit;
+  margin: 0 0 18px;
+}
+
+.bio3-story__para {
+  font-size: 16.5px;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+
+.bio3-story__para strong {
+  font-weight: 700;
+}
+
+.bio3-story__problem {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  /* Ice-blue chip (landing chip style: square block, mono label). */
+  background: var(--ice-blue);
+  color: var(--midnight-blue);
+  padding: 8px 14px;
+  margin: 4px 0 14px;
+}
+
+.bio3-story__mark {
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.55;
+  margin: 18px 0 10px;
+}
+
+.bio3-story__after {
+  margin-bottom: 0;
+}
+
+/* ---- Story visuals (shared frame) ---- */
+.bio3-viz {
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 0 0 18px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.bio3-story--plum .bio3-viz,
+.bio3-story--navy .bio3-viz {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* 01 — the headline result as big bold text, no box */
+.bio3-result {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 1.15;
+  color: var(--brand-plum);
+  margin: 0 0 18px;
+}
+
+/* White result box inside story 01: big figure heading + its paragraph. */
+.bio3-story__box {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 0 0 14px;
+}
+
+.bio3-story__box-head {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--brand-plum);
+  margin: 0 0 10px;
+}
+
+.bio3-story__box .bio3-story__para {
+  margin: 0;
+}
+
+/* 02 — call scoreboard: 27 booked, 26 tanked → 31 booked, 29 closed */
+.bio3-calls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.bio3-calls__set {
+  display: grid;
+  gap: 8px;
+}
+
+.bio3-calls__count {
+  font-weight: 800;
+  font-size: 1.35rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.bio3-calls__set--after .bio3-calls__count {
+  color: var(--stone);
+}
+
+.bio3-calls__grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.bio3-calls__dot {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(0.4);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+  transition-delay: calc(var(--ci) * 0.025s);
+}
+
+.bio3-calls.is-in .bio3-calls__dot {
+  transform: none;
+  opacity: 1;
+}
+
+.bio3-calls.is-in .bio3-calls__set--before .bio3-calls__dot--lost {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.bio3-calls.is-in .bio3-calls__set--before .bio3-calls__dot--won,
+.bio3-calls.is-in .bio3-calls__set--after .bio3-calls__dot--won {
+  background: var(--stone);
+}
+
+/* The "after" set lands once the "before" set has played out. */
+.bio3-calls__set--after .bio3-calls__dot {
+  transition-delay: calc(1s + var(--ci) * 0.025s);
+}
+
+/* White brush arrow in a circle, pointing to the after-scoreboard. */
+.bio3-calls__arrow {
+  width: 32px;
+  height: auto;
+}
+
+/* 03 — $2M saved */
+.bio3-saved {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bio3-saved__shield {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  fill: rgba(202, 225, 244, 0.15);
+  stroke: #cae1f4;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.bio3-saved__tick {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  transition: stroke-dashoffset 0.6s ease 1.6s;
+}
+
+.bio3-saved.is-in .bio3-saved__tick {
+  stroke-dashoffset: 0;
+}
+
+.bio3-saved__amount {
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1;
+  color: #cae1f4;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- The two hairy problems ---- */
+.bio3__problems-lead {
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--midnight-blue);
+  margin: 0 0 var(--space-lg);
+}
+
+.bio3__problems {
+  display: grid;
+  gap: 24px;
+  margin: 0 0 var(--space-lg);
+}
+
+.bio3-problem {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.bio3-problem__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--midnight-blue);
+  color: var(--white);
+  font-family: var(--font-script);
+  font-size: 19px;
+}
+
+.bio3-problem__title {
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--midnight-blue);
+  margin: 6px 0 10px;
+}
+
+.bio3-problem__text {
+  margin: 0;
+}
+
+/* Problem 02's two points as spreadsheet cards: looks good ↑ / bad ↓. */
+.bio3-sheet {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.bio3-sheet__card {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--white);
+}
+
+/* Theme colours: "looks good" on plum, "looks bad" on midnight. */
+.bio3-sheet__card--good {
+  background-color: var(--brand-plum);
+}
+
+.bio3-sheet__card--bad {
+  background-color: var(--midnight-blue);
+}
+
+.bio3-sheet__card strong {
+  font-weight: 700;
+}
+
+.bio3-sheet__trend {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.bio3-sheet__trend svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bio3-sheet__card--good .bio3-sheet__trend {
+  background: var(--stone);
+}
+
+.bio3-sheet__card--good .bio3-sheet__trend svg {
+  stroke: var(--brand-plum);
+}
+
+.bio3-sheet__card--bad .bio3-sheet__trend {
+  background: var(--ice-blue, #cae1f4);
+}
+
+.bio3-sheet__card--bad .bio3-sheet__trend svg {
+  stroke: var(--midnight-blue);
+}
+
+.bio3__closer {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--midnight-blue);
+  border-left: 4px solid var(--brand-plum);
+  padding-left: 16px;
+  margin: 0;
+}
+
+.bio3__closer strong {
+  font-weight: 700;
+}
+
+/* ---- Right: portrait ---- */
+.bio3__visual {
+  background-color: var(--deep-purple);
+  background-image: url("/Assets/landing-page/Dark Backgrounds-01.webp");
+  background-size: cover;
+  background-position: center;
+  padding: 72px 6%;
+}
+
+.bio3__photo-sticky {
+  position: sticky;
+  top: calc(var(--header-height) + 40px);
+  display: flex;
+  justify-content: center;
+}
+
+.bio3__photo {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  max-height: calc(100vh - var(--header-height) - 80px);
+  max-height: calc(100svh - var(--header-height) - 80px);
+  object-fit: contain;
+}
+
+/* ---- Reduced motion: final states ---- */
+@media (prefers-reduced-motion: reduce) {
+  .bio3-calls__dot {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+
+  .bio3-calls__set--before .bio3-calls__dot--lost {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .bio3-calls__dot--won {
+    background: var(--stone);
+  }
+
+  .bio3-saved__tick {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+}
+
+/* ---- Narrow desktop ---- */
+/* Up to ~1380px a 50/50 split leaves the text column too narrow for the
+   hand-set two-line heading at the uniform 40px: give the text more room. */
+@media (min-width: 901px) and (max-width: 1380px) {
+  .bio3 {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+  }
+
+  .bio3__text {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1150px) {
+  .bio3-story__wisdom {
+    font-size: 22px;
+  }
+}
+
+/* ---- Tablet / mobile: stack, portrait first ---- */
+@media (max-width: 900px) {
+  .bio3 {
+    grid-template-columns: 1fr;
+  }
+
+  .bio3__visual {
+    order: -1;
+    padding: 40px 24px;
+  }
+
+  .bio3__photo-sticky {
+    position: static;
+  }
+
+  .bio3__photo {
+    max-width: 440px;
+    max-height: none;
+  }
+
+  .bio3__text {
+    padding: 48px 32px 56px;
+  }
+}
+
+@media (max-width: 760px) {
+  .bio3__text {
+    padding: 36px 18px 48px;
+  }
+
+  .bio3__para,
+  .bio3-story__para,
+  .bio3-sheet__card {
+    font-size: 16px;
+  }
+
+  .bio3__list li {
+    font-size: 17px;
+  }
+
+  .bio3-story {
+    padding: 18px 16px 20px;
+  }
+
+  .bio3-story__wisdom {
+    font-size: 20px;
+  }
+
+  .bio3-story__mark {
+    font-size: 17px;
+  }
+
+  .bio3__problems-lead,
+  .bio3-problem__title {
+    font-size: 18px;
+  }
+
+  .bio3__closer {
+    font-size: 16px;
+  }
+
+  .bio3-problem {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .bio3-problem__num {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .bio3-pause__label {
+    font-size: 0.78rem;
+  }
+
+  /* Keep the mono lead-in on one line on phones (rule 0.1). */
+  .bio3-story__problem {
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    padding: 7px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bio3-result {
+    font-size: 27px;
+  }
+
+  .bio3-story__box {
+    padding: 16px;
+  }
+
+  .bio3-story__box-head {
+    font-size: 27px;
+  }
+
+  .bio3-calls {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stacked sets would stretch the dots to full width — cap them. */
+  .bio3-calls__grid {
+    max-width: 230px;
+  }
+
+  /* Stacked: the arrow turns to point down at the second scoreboard. */
+  .bio3-calls__arrow {
+    width: 30px;
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+
+  .bio3-pause {
+    flex-wrap: wrap;
+    border-radius: 18px;
+  }
+}

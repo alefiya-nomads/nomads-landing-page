@@ -76,7 +76,7 @@ export default function CountUp({
   }, [target, decimals, duration, prefersReducedMotion, loop, loopPauseMs]);
 
   const formatted = separator
-    ? value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+    ? value.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
     : value.toFixed(decimals);
 
   return (

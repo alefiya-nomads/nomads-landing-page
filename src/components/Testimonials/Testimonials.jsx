@@ -25,8 +25,9 @@ const TEXT_BGS = [
 
 /**
  * The two founder testimonials (Lara Acosta, Ryan Schwartz), each rendered
- * as a full-bleed split: a portrait image on a dark panel (left) and the
- * testimonial copy on a light panel (right).
+ * as a full-bleed split: testimonial copy on a light panel and a portrait
+ * image on a dark panel. Lara's card has the copy left / image right; Ryan's
+ * flips it (image left / copy right). Both stack image-first on mobile.
  */
 export default function Testimonials() {
   return (
@@ -42,7 +43,7 @@ export default function Testimonials() {
           imageSrc={LANDING_IMAGES[i]}
           mediaBg={MEDIA_BGS[i % MEDIA_BGS.length]}
           textBg={TEXT_BGS[i % TEXT_BGS.length]}
-          reversed={i % 2 === 1}
+          reversed={i % 2 === 0}
           seamDoodle={i === 0}
           readable={i === 0}
         />

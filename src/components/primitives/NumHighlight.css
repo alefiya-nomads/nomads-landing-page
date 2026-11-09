@@ -1,0 +1,46 @@
+/* Key data figures in body copy, in the quiz result page's number-chip
+   style (tinted box, slightly rounded corners, bold figure) but in
+   theme colours — plum on light backgrounds, stone on dark cards. The
+   fill fades in when the figure scrolls into view. */
+.num-hl {
+  --num-hl-color: var(--brand-plum);
+  --num-hl-bg: rgba(93, 27, 78, 0.13);
+  display: inline-block;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--num-hl-color);
+  white-space: nowrap;
+  padding: 1px 9px;
+  margin: 0 1px;
+  border-radius: 5px;
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px transparent;
+  transition: background-color 0.5s ease 0.15s, box-shadow 0.5s ease 0.15s;
+}
+
+.num-hl--in {
+  background-color: var(--num-hl-bg);
+  box-shadow: inset 0 0 0 1px var(--num-hl-ring, rgba(93, 27, 78, 0.18));
+}
+
+/* Dark cards: stone figure on a light stone tint. */
+.num-hl-dark .num-hl {
+  --num-hl-color: var(--stone);
+  --num-hl-bg: rgba(228, 200, 188, 0.16);
+  --num-hl-ring: rgba(228, 200, 188, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .num-hl {
+    transition: none;
+    background-color: var(--num-hl-bg);
+    box-shadow: inset 0 0 0 1px var(--num-hl-ring, rgba(93, 27, 78, 0.18));
+  }
+}
+
+/* Figure set a little larger than the text around it (copy marker ^^…^^). */
+.rich-big {
+  font-size: 1.2em;
+  font-weight: 800;
+  line-height: 1;
+}

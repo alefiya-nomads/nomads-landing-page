@@ -572,6 +572,237 @@ export const founder = {
   ],
 };
 
+/**
+ * Bio 1 — "Hey, I'm Alefiya" (bakery origin story). Copied verbatim from
+ * the nomadsmarketing.co homepage "Bio 1" section (Nov 2026), including
+ * its bold runs (**…**). `nameScript` renders in Better Brush; the two
+ * `lesson` lines were navy highlight boxes on the homepage.
+ */
+export const bio1 = {
+  headlineBefore: "Hey, I'm",
+  nameScript: "Alefiya",
+  // The rest of the heading, split at the reference image's line breaks
+  // (4 lines on desktop: "Hey, I'm Alefiya," / "co-founder and chief" /
+  // "strategist at Nomads" / "Marketing."). Joined with spaces they read
+  // ", co-founder and chief strategist at Nomads Marketing." verbatim.
+  headlineLines: ["co-founder and chief", "strategist at Nomads", "Marketing."],
+  // Homepage paragraph 1, split so its second sentence can be set large:
+  // "My first business was a gourmet bakery in Kampala. **At 19, I sold
+  // brownie trays for $120** in a market where the going rate was $20."
+  intro: "My first business was a gourmet bakery in Kampala.",
+  priceLine: {
+    boldBefore: "At 19, I sold brownie trays for",
+    price: "$120",
+    after: "in a market where the going rate was $20.",
+  },
+  paragraphs: [
+    "I couldn't compete with established bakeries on equipment or resources. So I found the gap they weren't filling: **crazy flavours of everyday baked goods.**",
+  ],
+  flavours: ["Salted caramel Oreo.", "Red velvet cheesecake.", "Orange marmalade."],
+  buyers:
+    "My buyers weren't paying nine times more for a brownie. **They were paying for flavours they couldn't get anywhere else.**",
+  lesson: ["I didn't know it then, but that was", "my first lesson in positioning:"],
+  quote:
+    "You don't always win by being better than your competition. You win by being different from your alternatives.",
+  // Exact substrings of `quote`; only `quoteWin` is styled (navy sweep).
+  quoteStrike: "being better than your competition.",
+  quoteWin: "being different from your alternatives.",
+};
+
+/**
+ * Bio 2 — "By 2022 … It was marketing." Copied verbatim from the DESKTOP
+ * variant of the nomadsmarketing.co homepage "Bio 2" section (Nov 2026),
+ * incl. its bold runs (**…**) and curly/straight apostrophes as published.
+ * Notes on the source:
+ *   - "However… I couldn’t find a model that worked across industries."
+ *     is on the homepage's desktop variant as well (final check, Nov 2026),
+ *     so it is included (`however`).
+ *   - "And II uncovered" is the homepage's own typo, kept verbatim pending
+ *     the user's call. Its doubled space before "hesitate" is normalised.
+ *   - `changed` / `born` were plum highlight boxes; `minutes` was a mono chip.
+ */
+export const bio2 = {
+  year: "By 2022",
+  lead: "I'd realised my favourite part of running the bakery wasn't baking.",
+  headline: "It was marketing.",
+  followed:
+    "So I followed that instinct into copywriting and LinkedIn ghostwriting, then launch strategy and million-dollar campaigns for clients, **including Forbes 30 Under 30 entrepreneurs like Lara Acosta.**",
+  traffic:
+    "But even when conversion rates looked good on paper, we still depended on massive amounts of traffic just to hit sales targets.",
+  gone: "But that’s not all. Nearly ==70%== of that traffic was gone after just a single visit.",
+  // Figure for the 70% card, taken from `gone` (no new numbers).
+  gonePercent: 70,
+  primed:
+    "They weren’t given a chance to engage or ask questions. It felt like we were forcing people into a decision they hadn’t been primed for: **“Buy or Bye.”**",
+  changed: ["That changed when I *accidentally*", "pitched a quiz to a client."],
+  quizzes:
+    "Not the viral, BuzzFeed-style type, but intentional, insight-led quizzes that convert your visitors into warm leads and store them in a database you own: **aka your email list** or **SMS list.**",
+  // On the homepage's desktop variant too (re-checked Nov 2026).
+  however: "However… I couldn’t find a model that worked across industries.",
+  ditched:
+    "So I ditched all the available knowledge on the internet around quizzes and scorecards and rebuilt the entire strategy from scratch.",
+  studied:
+    "I studied hours of sales calls, demos, and live chats from customers who didn’t convert. And II uncovered **3 objection buckets on why customers** hesitate to buy.",
+  buckets: 3,
+  born: "That’s how the Conversion Quiz Ecosystem was born.",
+  helps:
+    "It helps businesses **stop losing the traffic** they’ve already worked hard (and paid) to get by turning those visitors into decision-ready buyers.",
+  minutes: "In under five minutes",
+  cold: "A cold visitor can go from “just browsing” to thinking, “This is exactly what I need.”",
+  // Exact substrings of `cold` — styled as the cold → warm pair.
+  coldFrom: "“just browsing”",
+  coldTo: "“This is exactly what I need.”",
+  rates:
+    "Conversion rates rose from the industry-standard of ==1%== **traffic-to-sales to as high as ==5%==.**",
+  // Figures for the conversion chart, taken from `rates`.
+  rateFrom: 1,
+  rateTo: 5,
+  gaps:
+    "**Even as I worked on these projects, I kept spotting gaps in conventional marketing wisdom. But I was too busy delivering results to step back, connect the numbers, and understand which metrics actually drive revenue growth.**",
+};
+
+/**
+ * Bio 3 — "The pause that changed everything" (three client stories +
+ * the two hairy problems). Verbatim from the DESKTOP variant of the
+ * nomadsmarketing.co homepage's first "Bio 3" section (Nov 2026).
+ * Markers: **bold**, __bold italic__ (single *asterisks* are literal
+ * characters on the homepage, e.g. "*think*"). Homepage highlight boxes
+ * are listed as `mark` fields (rendered with HighlightSweep). `==…==` marks a
+ * key data figure (NumHighlight) — see primitives/richText.jsx. Kept verbatim as
+ * published: "For six month", "bommmb!".
+ */
+export const bio3 = {
+  headline: "The pause that changed everything",
+  // Desktop line breaks (rule 0.6). At the sitewide 40px heading size the
+  // homepage's one-line version (~750px) can't fit the ~600px column.
+  headlineLines: ["The pause that changed", "everything"],
+  restricted:
+    "After three years of wild growth with Conversion Quizzes™, **my LinkedIn account was restricted on March 25, 2026.**",
+  sixMonths: "For six month",
+  itch: "I finally had space to scratch an itch I'd carried through client projects:",
+  itchList: [
+    "Going back through all the metrics",
+    "Connecting the dots",
+    "And making sense of the big fat __“WHYs”__ and __“WHAT IFs”__ challenging conventional marketing wisdom.",
+  ],
+  brace:
+    "Brace yourself, because these three client stories will make you (as they made me) **question everything you *think* you know about marketing:**",
+  wisdomLabel: "Conventional wisdom:",
+  stories: [
+    {
+      n: "01",
+      wisdom: "If your ROAS is healthy, your ads are bommmb!",
+      paras: [
+        "[D2C] GolfBays had **^^440,000^^** Shopify sessions and a healthy **^^6×^^** ROAS. Meanwhile, it took **^^2,500^^ website visitors to book one demo.** 🤯",
+        "The ads team was focused on ROAS. What happened after the click technically fell under CRO, but because the company had no CRO lead, they were sleeping on the **2,499 potential visitors who left without booking a demo**.",
+        "**We rebuilt the buying experience to convert those lost visitors.**",
+        "We went from one demo per 2,500 website visitors (**0.04%** conversion rate) to one **per seven quiz takers (14% conversion rate), generating £96,000 in twelve days** on the same ad spend.",
+        "But the quiz wasn't what made this win possible on its own. So I started mapping everything that influenced the result.",
+      ],
+      // Headline result shown as big text, verbatim from the paragraph above.
+      viz: { kind: "result", text: "£96,000 in twelve days" },
+      // paras[box.para] sits in a white box under a big heading built from
+      // its own two figures.
+      box: { para: 3, heading: "0.04% → 14%" },
+    },
+    {
+      n: "02",
+      wisdom: "Build authority on LinkedIn, and selling becomes a breeze.",
+      paras: [
+        "One of my clients ran a video mastermind and had massive authority and visibility. His LinkedIn posts attracted around 300 comments, which is unreal organically.",
+        "So naturally, when he launched his $6,000 offer, people flocked to book calls.",
+        "He booked ==27==.",
+        "And then he tanked ==26== of them.",
+        "**So yes, authority got people onto the calls. But it didn't make selling a breeze.**",
+        "He thought he was terrible at sales.",
+        "He wasn't. His offer wasn't giving buyers a compelling enough reason to choose him over his alternatives.",
+        "We dug into their objections and repositioned his message around Creative Delivery™.",
+      ],
+      mark: "The following week, he booked 31 calls and closed 29.",
+      after: "**His monthly revenue went from ==$8,000== to ==$108,000==.**",
+      viz: { kind: "calls", before: { booked: 27, closed: 1 }, after: { booked: 31, closed: 29 } },
+    },
+    {
+      n: "03",
+      wisdom: "The most common reason buyers give when they don't buy is price.",
+      paras: [
+        "[B2B2C SaaS] But if that's true, why couldn't an audio-tech SaaS company get gamers to try its product, even when they switched to a freemium model?",
+        "We interviewed the CEO, CMO, gamers, sales team, ads team, and go-to-market team. Nobody had the answer until we spoke to the product team.",
+      ],
+      problemLabel: "That's when we discovered the problem:",
+      paras2: [
+        "**Gamers already believed their Dolby and Sony devices had the features this product promised.**",
+        "Even for free, trying something new meant changing a setup they were already happy with.",
+        "We clarified what made the product different and carried that message through the buying experience, messaging, ads, and investor pitches.",
+      ],
+      mark: "The founder estimated it saved $2 million in ad spend.",
+      viz: { kind: "saved", amount: 2000000 },
+    },
+  ],
+  problemsLead:
+    "As I mapped what was driving big revenue jumps across our client projects, I started seeing two big hairy problems:",
+  problems: [
+    {
+      n: "01",
+      title: "Teams are tracking their metrics in isolation.",
+      body: "The ads team doesn't put its nose in sales metrics because they don't believe their work influences sales performance. Caveat: **it massively does.**",
+    },
+    {
+      n: "02",
+      title: "Because teams track their performance in isolated spreadsheets, they miss two big things:",
+      points: [
+        "A metric that looks good on their department's spreadsheet can still be holding back revenue growth. **(A 6× ROAS can still mean losing 2,499 potential buyers along the way.)**",
+        "A metric that looks bad on their spreadsheet can still contribute to revenue growth. (A higher CAC brings in better-fit customers who request far fewer refunds.)",
+      ],
+    },
+  ],
+  closer:
+    "**You'd not know until everyone who touches revenue has one unifying dashboard showing how their work influences the entire customer journey, not just their own spreadsheet.**",
+};
+
+/**
+ * Bio 4 — "The birth of Compounding Revenue Per Visitor™ OS" + the "today"
+ * box. Verbatim from the DESKTOP variant of the homepage's second "Bio 3"
+ * section (Nov 2026). Same markers as bio3. "today" renders in
+ * Kilimanjaro, uppercase, exactly as the homepage displays it.
+ */
+export const bio4 = {
+  headline: "The birth of Compounding Revenue Per Visitor™ OS",
+  // Desktop line breaks (rule 0.6); the homepage's "…Revenue / Per
+  // Visitor™ OS" split needs ~750px at 40px, wider than the column.
+  headlineLines: ["The birth of Compounding", "Revenue Per Visitor™ OS"],
+  ledLabel: "That led me to Revenue Per Visitor™:",
+  northStar: "A shared North Star connecting everyone in the company who influences revenue.",
+  helps: "**It helps teams see how their work affects one another across the customer journey**",
+  helpsList: [
+    "Uncover problems hidden between departments",
+    "And spot where the biggest growth opportunities lie.",
+  ],
+  instead:
+    "Instead of getting stuck on isolated questions like **“Why aren't we getting content impressions?”** or **“Why is ROAS so low?”,** teams can step back and ask:",
+  bigQuestion:
+    "Where in the customer journey are we losing potential customers, and what should we fix next to make every visitor more profitable?",
+  pictureLabel: "With that bigger picture",
+  smarter:
+    "Teams can make smarter decisions about **what to fix before** automatically spending more to acquire new visitors.",
+  fifteen:
+    "I also saw how the Conversion quiz™ itself was often **only about ==15%== of the work behind our client results.**",
+  eightyFive:
+    "**The other ==85%== became the four quadrants of the Compounding Revenue Per Visitor™ OS,** our proprietary system that helps seven-figure businesses make quantum leaps in growth by making every visitor dramatically more profitable.",
+  // Figures for the split chart, from `fifteen` / `eightyFive`.
+  split: { quiz: 15, quadrants: 85 },
+  today: {
+    label: "today",
+    agency:
+      "Nomads is a boutique agency specialising in **Positioning, CRO, and Lifecycle email marketing, helping seven-figure businesses generate millions in revenue** from the traffic they're already attracting, without depending on ever-increasing marketing spend.",
+    book: "It's also the subject of my book launching in early 2027.",
+    learned:
+      "And if there's one thing I've learned from years of questioning the conventional marketing playbook, it's this:",
+    lesson:
+      "**Bring everyone who touches revenue in one room, talking to each other using Revenue Per Visitor™ as your shared North Star, and solve growth problems together (instead of in isolation), before scaling marketing and ad spend.**",
+  },
+};
+
 export const curious = {
   heading: "Aren't you curious how these businesses are adding $1.5M/year in this economy?",
   stats: [
