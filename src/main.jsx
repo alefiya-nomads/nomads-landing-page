@@ -4,6 +4,10 @@ import './styles/global.css'
 import App from './App.jsx'
 import { initClarity } from './analytics/clarity.js'
 import { initGA } from './analytics/ga.js'
+// Keeps which channel sent this visitor (UTM links → first + latest touch) in
+// the browser, so the quiz on the same domain can send it to the RPV
+// dashboard and Kit. Runs when this module loads; never throws.
+import './analytics/utmSource.js'
 
 initClarity() // Microsoft Clarity — heatmaps + recordings (same project as the quiz)
 initGA() // GA4 — page views + traffic sources (same property as the quiz)
